@@ -1,0 +1,55 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <div class="card">
+                    <h1>Registrar Monitoria</h1>
+                    <h:form id="formulario_registro">
+                                <tr>
+                                    CURSO
+                                    <td>
+                                        <p:selectOneMenu id="Curso" value="#{Monitorias.cursos}"  style="width:125px">
+                                            <f:selectItem itemLabel="Seleccione uno" itemValue="#{Monitorias.cursos}" />
+                                            <f:selectItems value="#{Monitorias.cursos}" />
+                                        </p:selectOneMenu>
+                                    </td>
+
+                                </tr>
+                                 <tr>
+                                     PROFESOR
+                                    <td>
+                                        <p:selectOneMenu id="profesor" value="#{Monitorias.profesores}"  style="width:125px">
+                                        <f:selectItem itemLabel="Seleccione uno" itemValue="#{Monitorias.profesores}" />
+                                        <f:selectItems value="#{Monitorias.profesores}" />
+                                    </p:selectOneMenu>
+                                    </td>
+                                </tr>
+                                 <tr>
+                                    <td>Tema
+                                    <p:inputText id="Tema" value="" required="true"/></td>
+                                  </tr>
+                                 <tr>
+                                    <td>Observaciones
+                                        <p:inputText id="observaciones" value="" required="true"/></td>
+                                  </tr>
+
+                            <tr>
+                                <td>
+                                         <p:commandButton id="registrar" type="submit" value="Registrar"   styleClass="ui-priority-primary" process="@form" partialSubmit="true" ajax="true" update="formulario_registro"/>
+                                </td>
+                            </tr>
+                    </h:form>
+                    <p>Use this page to start from scratch and place your custom content.</p>
+                    <p:button outcome="dashboard" value="Home" style="display:inline-block;margin-top:5px"/>
+                </div>
+            </div>
+        </div>        
+    </ui:define>
+
+</ui:composition>
