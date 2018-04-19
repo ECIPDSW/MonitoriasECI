@@ -1,0 +1,59 @@
+<!DOCTYPE xhtml>
+
+<xhtml
+    xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui" 
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head> </h:head>
+
+    <h:body>
+        <p:tooltip />
+        <h:form id="bloque" >
+            
+
+            
+                <p:messages id="messages" showDetail="true" closable="true"/>
+                    
+                
+
+
+                <p:dataTable id="tabla" var="itemRentado" value="#{AlquilerItems.clienteSeleccionado.rentados}" 
+                             rowKey="#{ItemRentado.item.nombre}" >
+                    <f:facet name="header">
+                        Registro de Alquileres
+                    </f:facet>
+                    <p:column>
+                        <f:facet name="header">
+                            Items no regresados 
+                        </f:facet>
+                        #{itemRentado.item.nombre}
+                    </p:column>
+                    <p:column headerText="" >
+                        <f:facet name="header">
+                            Multa
+                        </f:facet>
+                        #{itemRentado.multa}
+                    </p:column>
+
+
+                </p:dataTable>
+
+
+                <p:outputLabel value="Agregar nuevo alquiler " /><p:spacer width="1100" height="50" />
+                <p:outputLabel for="id" value="Codigo de item: " />
+                <p:inputText id="id" value="#{AlquilerItems.itemId}" required="true" /><p:spacer width="900" height="40" />
+                <p:outputLabel for="dias" value="Dias de alquiler: " />
+                <p:inputText id="dias" value="#{AlquilerItems.dias}" required="true"/><p:spacer width="800" height="40" />
+
+
+
+                <p:commandButton value="Agregar Alquiler" id="ajax" update="tabla" ajax="false" actionListener="#{AlquilerItems.buttonListener1()}" styleClass="ui-priority-primary" /><p:spacer width="500" height="40" />
+            </h:form>  
+
+
+
+    </h:body>
+
+</xhtml>
