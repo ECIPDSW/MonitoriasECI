@@ -29,6 +29,8 @@
             <groupId>org.primefaces.omegamenu</groupId>
             <artifactId>omega-menu</artifactId>
             <version>1.1.4</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/omega-menu-1.1.4.jar</systemPath>
         </dependency>
 
         
