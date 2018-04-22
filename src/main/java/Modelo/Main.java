@@ -5,12 +5,15 @@
  */
 package Modelo;
 
+import Servicios.Fabrica;
+
 /**
  *
  * @author martincantorurrego
  */
 public class Main {
     public static Monitor monitor;
+    public static Fabrica fabrica = new Fabrica();
     public static void main(String a[]){
          //Para escribir las pruebas despues de implementada la Fabrica
     }

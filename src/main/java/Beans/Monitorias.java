@@ -1,5 +1,8 @@
 package Beans;
  
+
+import Modelo.Semestre;
+import Servicios.Fabrica;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +22,7 @@ import javax.faces.model.SelectItemGroup;
 public class Monitorias implements Serializable  {
  
     private String console;
+    
  
     private String car;
     private List<SelectItem> cars;
@@ -37,7 +41,6 @@ public class Monitorias implements Serializable  {
     public void Monitorias() {
         //cars
         System.out.println("LLENADO");
-    
 
  
         //cursos
@@ -90,4 +93,7 @@ public class Monitorias implements Serializable  {
     public void setCursos(List<String> cursos) {
         this.cursos = cursos;
     }
+
+    
+    
 }

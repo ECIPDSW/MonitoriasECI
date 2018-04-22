@@ -12,48 +12,51 @@ import java.util.Date;
  * @author martincantorurrego
  */
 public class Semestre {
-    private int Año;
-    private String PeriodoAcademico;
-    private Date FechaInicio;
-    private Date FechaFin;
+    private int numero;
+    private String periodoAcademico;
+    private Date fechaInicio;
+    private Date fechaFin;
     
-    public Semestre(int año, String pAcademico, Date fechaInicio, Date fechaFin){
-        Año = año;
-        PeriodoAcademico = pAcademico;
-        FechaInicio = fechaInicio;
-        FechaFin = fechaFin;
+    public Semestre(){
     }
     
-    public void setAño( int año){
-        Año = año;
+    public Semestre(int numero, String pAcademico, Date fechaInicio, Date fechaFin){
+        this.numero = numero;
+        periodoAcademico = pAcademico;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
-    public int getAño(){
-        return Año;
+    
+    public void setNumero( int numero){
+        this.numero = numero;
+    }
+    public int getNumero(){
+        return numero;
     }
     
     public void setPeriodoAcademico( String pAcademico){
-        PeriodoAcademico = pAcademico;
+        periodoAcademico = pAcademico;
     }
     public String getPeriodoAcademico(){
-        return PeriodoAcademico;
+        return periodoAcademico;
     }
     
     public void setFechaInicio(Date fechaInicio){
-        FechaInicio = fechaInicio;
+        this.fechaInicio = fechaInicio;
     }
     public Date getFechaInicio(){
-        return FechaInicio;
+        return fechaInicio;
     }
     
     public void setFechaFin(Date fechaFin){
-        FechaFin = fechaFin;
+        this.fechaFin = fechaFin;
     }
     public Date getFechaFin(){
-        return FechaFin;
+        return fechaFin;
     }
     
     public String toString(){
-        return "Semestre {"+ Año + "-" + PeriodoAcademico + "Fecha de Inicio:"+ FechaInicio +", Fecha de Finalizacion"+ FechaFin +"}";
+        return "Semestre {"+ numero + "-" + periodoAcademico + "Fecha de Inicio:"+ fechaInicio +", Fecha de Finalizacion"+ fechaFin +"}";
     }
     
 }

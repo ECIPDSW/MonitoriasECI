@@ -1,4 +1,5 @@
 package Servicios;
+import ServiciosImpl.ServicioAsesoriaImpl;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -24,23 +25,9 @@ public class Fabrica {
             @Override
             protected void initialize() {
                 setClassPathResource("mybatis-config.xml");
-                /*bind(ServiciosAlquiler.class).to(ServiciosAlquilerItemsImpl.class);
-                bind(ItemDAO.class).to(MyBATISItemDAO.class);
-                bind(ClienteDAO.class).to(MyBATISClienteDAO.class);
-                bind(ItemRentadoDAO.class).to(MyBATISItemRentadoDAO.class);
-                bind(TipoItemDAO.class).to(MyBatisTipoItemsDAO.class);*/
+                bind(ServicioAsesoria.class).to(ServicioAsesoriaImpl.class);
             }
         });
-    }
-    public Fabrica(){
-        /*injector = Guice.createInjector(new XMLMyBatisModule(){
-            @Override
-            protected void initialize(){
-                //install(JdcbHelper.PostgreSQL);
-                setClassPathResource("mybatis-config.xml");
-            }
-        });*/
-        
     }
     
      public ServicioAsesoria getServiciosAsesoria(){

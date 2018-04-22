@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package Servicios;
-
+import Modelo.*;
 /**
  *
  * @author David Rodriguez
  */
 public interface ServicioAsesoria {
-    
+    Semestre consultarSemestre(int num);
 }
