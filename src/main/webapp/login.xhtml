@@ -12,7 +12,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
             <meta name="apple-mobile-web-app-capable" content="yes" />
         </f:facet>
-        <title>PrimeFaces Omega</title>
+        <title>Monitorias ECI</title>
     </h:head>
 
     <h:body styleClass="login-body">
@@ -25,10 +25,10 @@
                 
                 <div class="ui-g ui-fluid">
                     <div class="ui-g-12">
-                        <p:inputText placeholder="Username" />
+                        <p:inputText placeholder="Username" value="#{Login.usuario}" />
                     </div>
                     <div class="ui-g-12">
-                        <p:password placeholder="Password" feedback="false"/>
+                        <p:password placeholder="Password" value="#{Login.password}" feedback="false"/>
                     </div>
                     <div class="ui-g-12 ui-md-6">
                         <span class="remember-me">Remember Me</span>
@@ -43,7 +43,7 @@
                 </div>
             </div>
             
-            <div class="login-footer">PrimeFaces Omega</div>
+            <div class="login-footer">Monitorias ECI</div>
         </div>
         
         <h:outputStylesheet name="css/layout.css" library="omega-layout" />

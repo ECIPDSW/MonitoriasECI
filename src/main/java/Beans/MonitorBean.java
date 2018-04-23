@@ -1,6 +1,7 @@
 package Beans;
  
 
+import Modelo.Monitor;
 import Modelo.Semestre;
 import Servicios.Fabrica;
 import java.io.Serializable;
@@ -17,12 +18,12 @@ import javax.faces.model.SelectItemGroup;
 
  
 
-@ManagedBean(name = "Monitorias")
+@ManagedBean(name = "Monitor")
 @SessionScoped
-public class Monitorias implements Serializable  {
+public class MonitorBean implements Serializable  {
  
     private String console;
-    
+    private Monitor monitor;
  
     private String car;
     private List<SelectItem> cars;
@@ -37,10 +38,12 @@ public class Monitorias implements Serializable  {
     private List<String> cursos;
  
  
-    @PostConstruct
-    public void Monitorias() {
+    
+    public void MonitorBean() {
         //cars
         System.out.println("LLENADO");
+        
+        
 
  
         //cursos
