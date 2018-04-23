@@ -19,9 +19,6 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria{
 
     @Inject
     private MyBatisSemestreDao semestreDao = new MyBatisSemestreDao();
-    @Override
-    public Semestre consultarSemestre(int num) {
-        return semestreDao.consultarSemestre(num);
-    }
+   
     
 }

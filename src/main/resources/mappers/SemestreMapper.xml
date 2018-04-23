@@ -4,15 +4,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.SemestreMapper">
-    <select parameterType="map" id="consultarSemestre" resultMap="SemestreResult">
-      select
-      s.numero as snumero,
-      s.id as sid,
-      s.fechainicio as sfechainicio,
-      s.fechafin as sfechafin
-      from semestre as s
-      where s.numero = #{num};
-  </select>
     <resultMap type='Semestre' id='SemestreResult'>
         <id property='periodoAcademico' column = 'sid'/>
         <result property='numero' column='snumero'/>      

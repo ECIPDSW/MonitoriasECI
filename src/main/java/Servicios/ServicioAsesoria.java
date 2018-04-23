@@ -10,5 +10,4 @@ import Modelo.*;
  * @author David Rodriguez
  */
 public interface ServicioAsesoria {
-    Semestre consultarSemestre(int num);
 }

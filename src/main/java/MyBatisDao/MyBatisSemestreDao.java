@@ -16,7 +16,5 @@ import com.google.inject.Inject;
 public class MyBatisSemestreDao {
    @Inject
    private SemestreMapper semestreMapper;
-   public Semestre consultarSemestre(int num){
-       return semestreMapper.consultarSemestre(num);
-   }
+   
 }
