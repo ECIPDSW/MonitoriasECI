@@ -6,59 +6,66 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author martincantorurrego
  */
 public class Monitor extends Persona{
-    private String ProgramaAcademico;
-    private Semestre SemestreDeIngreso; 
-    private Grupo Grupo;
-    private ArrayList<FranjaDisponibilidad> franjasMonitoria;
     
-    public Monitor(int codigo, String nombre,String apellido,String correo,int telefonoMovil,String programaAcademico,Semestre semestreingreso, Grupo grupom){
-        super(codigo,nombre,apellido,correo,telefonoMovil);
-        ProgramaAcademico = programaAcademico;
-        SemestreDeIngreso = semestreingreso;
-        Grupo = grupom;
+    private List<Grupo> grupos;
+    private List<Asesoria> asesorias;
+    private Semestre semestreingreso;
+    private String programaAcademico;
+
+    public Monitor() {}
+
+    public Monitor(List<Grupo> grupos, List<Asesoria> asesorias, Semestre semestreingreso, String programaAcademico, int codigo, String nombre, String apellido, String correo, int telefonoMovil) {
+        super(codigo, nombre, apellido, correo, telefonoMovil);
+        this.grupos = grupos;
+        this.asesorias = asesorias;
+        this.semestreingreso = semestreingreso;
+        this.programaAcademico = programaAcademico;
+    }
+
+    public List<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
+    public List<Asesoria> getAsesorias() {
+        return asesorias;
+    }
+
+    public void setAsesorias(List<Asesoria> asesorias) {
+        this.asesorias = asesorias;
+    }
+
+    public Semestre getSemestreingreso() {
+        return semestreingreso;
+    }
+
+    public void setSemestreingreso(Semestre semestreingreso) {
+        this.semestreingreso = semestreingreso;
+    }
+
+    public String getProgramaAcademico() {
+        return programaAcademico;
+    }
+
+    public void setProgramaAcademico(String programaAcademico) {
+        this.programaAcademico = programaAcademico;
     }
     
-    public void setProgramaAcademico(String programaAcademico){
-        ProgramaAcademico = programaAcademico;
-    }
     
-    public String getProgramaAcademico(){
-        return ProgramaAcademico;
-    }
-    
-    public void setSemestreIngreso(Semestre semestrem){
-        SemestreDeIngreso = semestrem;
-    }
-    
-    public Semestre getSemestreIngreso(){
-        return SemestreDeIngreso;
-    }
-    
-    public Grupo getGrupoMonitor(){
-        return Grupo;
-    }
-    
-    public void setGrupoMonitor(Grupo grupom){
-        Grupo = grupom;
-    }
-    
-    public ArrayList<FranjaDisponibilidad> getFranjasXMonitor(){
-        return franjasMonitoria;
-    }
-    
-    public void setFranjasXMonitor(ArrayList<FranjaDisponibilidad> franjasAsignadas){
-        franjasMonitoria = franjasAsignadas;
-    }
     
     @Override
     public String toString(){
-        return super.toString()+ ", ProgramaAcademico: " + ProgramaAcademico +", SemestreIngreso :" + SemestreDeIngreso+", Grupo de Monitoria :" + Grupo +", franjas Monitoria :" + franjasMonitoria + "}";
+        return super.toString()+ ", ProgramaAcademico: " + programaAcademico +", SemestreIngreso :" + semestreingreso+", Grupo de Monitoria :" + grupos +", franjas Monitoria :" + "}";
     }
     
 }

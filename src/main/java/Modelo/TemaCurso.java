@@ -5,6 +5,8 @@
  */
 package Modelo;
 
+import java.util.List;
+
 /**
  *
  * @author martincantorurrego
@@ -13,12 +15,16 @@ public class TemaCurso {
      private String NombreDelTema;
      private String Descripcion;
      private Curso curso;
+     private List<Asesoria> asesorias;
      
-     public TemaCurso(String nombre,String descripcion,Curso cursot){
-        NombreDelTema = nombre;
-        Descripcion = descripcion;
-        curso = cursot;  
-     }
+     public TemaCurso(){}
+
+    public TemaCurso(String NombreDelTema, String Descripcion, Curso curso, List<Asesoria> asesorias) {
+        this.NombreDelTema = NombreDelTema;
+        this.Descripcion = Descripcion;
+        this.curso = curso;
+        this.asesorias = asesorias;
+    }
      
      public void setNombreTema(String nombre){
          NombreDelTema = nombre;

@@ -12,32 +12,32 @@ import java.util.Date;
  * @author martincantorurrego
  */
 public class Semestre {
-    private int numero;
-    private String periodoAcademico;
+    private int ano;
+    private char periodoAcademico; // es '1' o '2' o 'I'
     private Date fechaInicio;
     private Date fechaFin;
     
     public Semestre(){
     }
     
-    public Semestre(int numero, String pAcademico, Date fechaInicio, Date fechaFin){
-        this.numero = numero;
+    public Semestre(int ano, char pAcademico, Date fechaInicio, Date fechaFin){
+        this.ano = ano;
         periodoAcademico = pAcademico;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
     
-    public void setNumero( int numero){
-        this.numero = numero;
+    public void setAno(int ano){
+        this.ano = ano;
     }
     public int getNumero(){
-        return numero;
+        return ano;
     }
     
-    public void setPeriodoAcademico( String pAcademico){
+    public void setPeriodoAcademico(char pAcademico){
         periodoAcademico = pAcademico;
     }
-    public String getPeriodoAcademico(){
+    public char getPeriodoAcademico(){
         return periodoAcademico;
     }
     
@@ -56,7 +56,7 @@ public class Semestre {
     }
     
     public String toString(){
-        return "Semestre {"+ numero + "-" + periodoAcademico + "Fecha de Inicio:"+ fechaInicio +", Fecha de Finalizacion"+ fechaFin +"}";
+        return "Semestre {"+ ano + "-" + periodoAcademico + "Fecha de Inicio:"+ fechaInicio +", Fecha de Finalizacion"+ fechaFin +"}";
     }
     
 }

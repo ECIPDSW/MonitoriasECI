@@ -6,72 +6,82 @@
 package Modelo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author martincantorurrego
  */
 public class Curso {
-    private String Nemonomico;
-    private String Nombre;
-    private int CreditosAcademicos;
-    private int HorasAprobadasDeMonitoria;
-    private ArrayList<TemaCurso> temas;
-    private ArrayList<Grupo> grupos;
-    
-    public Curso(String nemonomico , String nombre, int creditosAcademicos, int horasAprobadas, ArrayList<TemaCurso> temascurso, ArrayList<Grupo> gruposC){
-        Nemonomico = nemonomico;
-        Nombre = nombre;
-        CreditosAcademicos = creditosAcademicos;
-        HorasAprobadasDeMonitoria = horasAprobadas;
-        temas = temascurso;
-        grupos = gruposC;
+    private String id;
+    private String nombre;
+    private int creditosAcademicos;
+    private int horasAprovadasMonitoria;
+    private List<Grupo> grupos;
+    private List<TemaCurso> temas;
+
+    public Curso(String id, String nombre, int CreditosAcademicos, int HorasAprovadasMonitoria, List<Grupo> grupos, List<TemaCurso> temas) {
+        this.id = id;
+        this.nombre = nombre;
+        this.creditosAcademicos = CreditosAcademicos;
+        this.horasAprovadasMonitoria = HorasAprovadasMonitoria;
+        this.grupos = grupos;
+        this.temas = temas;
     }
-    
-    public void setNemonomico(String nemonomico){
-        Nemonomico = nemonomico;
+
+    public String getId() {
+        return id;
     }
-    public String getNemonomico(){
-        return Nemonomico;
+
+    public void setId(String id) {
+        this.id = id;
     }
-    
-    public void setNombre(String nombre){
-        Nombre = nombre;
+
+    public String getNombre() {
+        return nombre;
     }
-    public String getNombre(){
-        return Nombre;
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    
-    public void setCreditosAcademicos(int creditos){
-        CreditosAcademicos = creditos;
+
+    public int getCreditosAcademicos() {
+        return creditosAcademicos;
     }
-    public int getCreditosAcademicos(){
-        return CreditosAcademicos;
+
+    public void setCreditosAcademicos(int CreditosAcademicos) {
+        this.creditosAcademicos = CreditosAcademicos;
     }
-    
-    public void setHorasAprobadasDeMonitoria(int horas){
-        HorasAprobadasDeMonitoria = horas;
+
+    public int getHorasAprovadasMonitoria() {
+        return horasAprovadasMonitoria;
     }
-    public int getHorasAprobadasDeMonitoria(){
-        return HorasAprobadasDeMonitoria;
+
+    public void setHorasAprovadasMonitoria(int HorasAprovadasMonitoria) {
+        this.horasAprovadasMonitoria = HorasAprovadasMonitoria;
     }
-    
-    public void setTemasCurso(ArrayList<TemaCurso> temasc){
-        temas=temasc;
-    }
-    public ArrayList<TemaCurso> getTemasCurso(){
-        return temas;
-    }
-    
-    public void setGruposCurso(ArrayList<Grupo> gruposC){
-        grupos =  gruposC;
-    }
-    public ArrayList<Grupo> getGruposCurso(){
+
+    public List<Grupo> getGrupos() {
         return grupos;
     }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
+    public List<TemaCurso> getTemas() {
+        return temas;
+    }
+
+    public void setTemas(List<TemaCurso> temas) {
+        this.temas = temas;
+    }
+    
+    
+    
     
     public String toString(){
-        return "Curso { Nemonomico "+ Nemonomico + ", Nombre :" + Nombre + ", Creditos Academicos :"+ CreditosAcademicos +", Horas Aprobadas de monitoria"+ HorasAprobadasDeMonitoria +", Temas"+ temas +", Grupos"+ grupos +"}";
+        return "Curso { Nemonomico "+ id + ", Nombre :" + nombre + ", Creditos Academicos :"+ creditosAcademicos +", Horas Aprobadas de monitoria"+ horasAprovadasMonitoria +", Temas"+ temas +", Grupos"+ grupos +"}";
     }
     
     

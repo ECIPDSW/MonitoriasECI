@@ -12,87 +12,109 @@ import java.util.Date;
  * @author martincantorurrego
  */
 public class Asesoria {
+    private int id;
     private Date fecha;
-    private FranjaDisponibilidad franja;
-    private Monitor Monitor;
-    private int CodigoDelEstudiante;
-    private String NombreDelEstudiante;
-    private Profesor profesorTitular;
-    private String Observaciones;
-    private String IpDelNavegador;
+    private int idEstudiante;
+    private String nombreEstudiante;
+    private String ip;
+    private String observaciones;
+    private Grupo grupo;
+    private TemaCurso tema;
+    private Monitor monitor;
+
+    public Asesoria(){}
+    
+    public Asesoria(int id, Date fecha, int idEstudiante, String nombreEstudiante, String ip, String observaciones, Grupo grupo, TemaCurso tema, Monitor monitor) {
+        this.id = id;
+        this.fecha = fecha;
+        this.idEstudiante = idEstudiante;
+        this.nombreEstudiante = nombreEstudiante;
+        this.ip = ip;
+        this.observaciones = observaciones;
+        this.grupo = grupo;
+        this.tema = tema;
+        this.monitor = monitor;
+    }
+
     
     
-    public Asesoria(Date fechaAsesoria, FranjaDisponibilidad franjaMonitoria, Monitor monitor){
-        fecha = fechaAsesoria;
-        franja = franjaMonitoria;
-        Monitor = monitor;
+    public int getId() {
+        return id;
     }
-    
-    public Asesoria(int codigoEstudiante,String nombre,Profesor profesorDelEstudiante, String observaciones){
-        CodigoDelEstudiante = codigoEstudiante;
-        NombreDelEstudiante = nombre;
-        profesorTitular = profesorDelEstudiante;
-        Observaciones=observaciones;        
+
+    public void setId(int id) {
+        this.id = id;
     }
-    
-    public void setIpDelNavegador(String IP){
-        IpDelNavegador = IP;
-    }
-    public String getIpDelNavegador(){
-        return IpDelNavegador;
-    }
-    
-    public void setFecha(Date fechaMonitoria){
-        fecha = fechaMonitoria;
-    }
-    public Date getFecha(){
+
+    public Date getFecha() {
         return fecha;
     }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public int getIdEstudiante() {
+        return idEstudiante;
+    }
+
+    public void setIdEstudiante(int idEstudiante) {
+        this.idEstudiante = idEstudiante;
+    }
+
+    public String getNombreEstudiante() {
+        return nombreEstudiante;
+    }
+
+    public void setNombreEstudiante(String nombreEstudiante) {
+        this.nombreEstudiante = nombreEstudiante;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+
+    public TemaCurso getTema() {
+        return tema;
+    }
+
+    public void setTema(TemaCurso tema) {
+        this.tema = tema;
+    }
+
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(Monitor monitor) {
+        this.monitor = monitor;
+    }
     
-    public void setFranjaMonitoria(FranjaDisponibilidad franjaMonitoria){
-        franja = franjaMonitoria;
-    }
-    public FranjaDisponibilidad getFranjaMonitoria(){
-        return franja;
-    }
     
-    public void setMonitor(Monitor monitor){
-        Monitor = monitor;
-    }
-    public Monitor getMonitor(){
-        return Monitor;
-    }
     
-    public void setCodigoDelEstudiante(int codigo){
-        CodigoDelEstudiante = codigo;
-    }
-    public int getCodigoDelEstudiante(){
-        return CodigoDelEstudiante;
-    }
-    
-    public void setNombreEstudiante(String nombreE){
-        NombreDelEstudiante = nombreE;
-    }
-    public String getNombreEstudiante(){
-        return NombreDelEstudiante;
-    }
-    
-    public void setProfesor(Profesor profesor){
-        profesorTitular = profesor;
-    }
-    public Profesor getProfesor(){
-        return profesorTitular;
-    }
-    
-    public void setObservaciones(String observacionesM){
-        Observaciones = observacionesM;
-    }
-    public String getObservaciones(){
-        return Observaciones;
-    }
     
     public String toString(){
-        return "Asesoria:\n" + "fecha:\n" + fecha +"franja:\n" + franja + "Monitor\n"+ Monitor +"Codigo del estudiante\n"+ CodigoDelEstudiante +"Nombre\n"+ NombreDelEstudiante +"Profesor Titular\n"+ profesorTitular +"Observaciones\n"+ Observaciones +"IP del Navegador \n"+ IpDelNavegador ;
+        return "Asesoria:\n" + "fecha:\n" + fecha  + "Monitor\n"+ monitor +"Codigo del estudiante\n"+ idEstudiante +"Nombre\n"+ nombreEstudiante  +"Observaciones\n"+ observaciones +"IP del Navegador \n"+ ip ;
     }
     
 }

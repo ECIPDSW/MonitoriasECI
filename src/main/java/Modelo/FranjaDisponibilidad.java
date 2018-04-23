@@ -10,39 +10,58 @@ package Modelo;
  * @author martincantorurrego
  */
 public class FranjaDisponibilidad {
-    private String Dia;
-    private String HoraInicio;
-    private String HoraFinal;
+    private String dia;
+    private String franja;
+    private String lugar;  
+    private Grupo grupo;
+
+    public FranjaDisponibilidad(){}
     
-    public FranjaDisponibilidad(String dia, String horaInicio, String horaFinal){
-        Dia = dia;
-        HoraInicio = horaInicio;
-        HoraFinal = horaFinal;
+    public FranjaDisponibilidad(String dia, String franja, String lugar, Grupo grupo) {
+        this.dia = dia;
+        this.franja = franja;
+        this.lugar = lugar;
+        this.grupo = grupo;
+    }
+
+    
+    
+    public String getDia() {
+        return dia;
+    }
+
+    public void setDia(String dia) {
+        this.dia = dia;
+    }
+
+    public String getFranja() {
+        return franja;
+    }
+
+    public void setFranja(String franja) {
+        this.franja = franja;
+    }
+
+    public String getLugar() {
+        return lugar;
+    }
+
+    public void setLugar(String lugar) {
+        this.lugar = lugar;
+    }
+
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
     }
     
-    public void setDia(String dia){
-        Dia = dia;
-    }
-    public String getDia(){
-        return Dia;
-    }
     
-    public void setHoraInicio(String horainicial){
-        HoraInicio = horainicial;
-    }
-    public String getHoraInicio(){
-        return HoraInicio;
-    }
-    
-    public void setHoraFinal(String horaFinal){
-        HoraFinal = horaFinal;
-    }
-    public String getHoraFinal(){
-        return HoraFinal;
-    }
     
     public String toString(){
-        return "Franja Horaria{" + "Dia :" + Dia + ", De :" + HoraInicio + "-"+ HoraFinal +"}";
+        return "Franja Horaria{" + "Dia :" + dia + ", De :" + franja+"}";
     }
     
 }
