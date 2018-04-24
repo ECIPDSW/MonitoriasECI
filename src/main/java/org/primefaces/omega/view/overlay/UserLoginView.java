@@ -15,14 +15,17 @@
  */
 package org.primefaces.omega.view.overlay;
 
+import java.io.IOException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
+import javax.faces.context.Flash;
 import javax.faces.event.ActionEvent;
 
 import org.primefaces.context.RequestContext;
 
-@ManagedBean
+
+@ManagedBean(name = "Login")
 public class UserLoginView {
     
     private String username;
@@ -34,6 +37,7 @@ public class UserLoginView {
     }
 
     public void setUsername(String username) {
+        System.out.println("SET USERNAME CALLED="+username);
         this.username = username;
     }
 
@@ -42,20 +46,30 @@ public class UserLoginView {
     }
 
     public void setPassword(String password) {
+        System.out.println("SET password CALLED="+password);
         this.password = password;
     }
   
-    public void login(ActionEvent event) {
+    public void login() throws IOException {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
         boolean loggedIn = false;
-        
+        System.out.println("LOGIN LLAMADO");
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
             loggedIn = true;
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            Flash flash = facesContext.getExternalContext().getFlash();
+            flash.setKeepMessages(true);
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/Dashboard.xhtml");
         } else {
             loggedIn = false;
-            message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
+            
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            Flash flash = facesContext.getExternalContext().getFlash();
+            flash.setKeepMessages(true);
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials"));
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/Login.xhtml");
         }
         
         FacesContext.getCurrentInstance().addMessage(null, message);

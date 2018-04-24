@@ -14,34 +14,37 @@
         </f:facet>
         <title>Monitorias ECI</title>
     </h:head>
+    <h:form id="formulario_login">
+        <h:body styleClass="login-body">
 
-    <h:body styleClass="login-body">
-    
-        <div id="login-wrapper">
-            <p:graphicImage name="images/login-l.png" library="omega-layout" width="400" />
-            
-            <div id="login-container">
-                <span class="title">Portal De Monitorias</span>
-                
-                <div class="ui-g ui-fluid">
-                    <div class="ui-g-12">
-                        <p:inputText placeholder="Username" value="#{Login.usuario}" />
-                    </div>
-                    <div class="ui-g-12">
-                        <p:password placeholder="Password" value="#{Login.password}" feedback="false"/>
-                    </div>
-                    
-                    
-                    <div class="ui-g-12">
-                        <p:button outcome="dashboard" value="Login" icon="fa fa-check" />
+            <div id="login-wrapper">
+                <p:graphicImage name="images/login-l.png" library="omega-layout" width="400" />
+
+                <div id="login-container">
+                    <span class="title">Portal De Monitorias</span>
+
+                    <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+
+                            <p:inputText id="username" required="true" placeholder="Username" value="#{Login.username}" />
+
+                        </div>
+                        <div class="ui-g-12">
+                            <p:password id="password" placeholder="Password" value="#{Login.password}" feedback="false" />
+                        </div>
+
+
+                        <div class="ui-g-12">
+                            <p:commandButton id="login" value="Login"   actionListener="#{Login.login()}" icon="fa fa-check" process="@form" partialSubmit="true" ajax="true" />
+                        </div>
                     </div>
                 </div>
+
+                <div class="login-footer">Monitorias ECI</div>
             </div>
-            
-            <div class="login-footer">Monitorias ECI</div>
-        </div>
-        
-        <h:outputStylesheet name="css/layout.css" library="omega-layout" />
-    </h:body>
+
+            <h:outputStylesheet name="css/layout.css" library="omega-layout" />
+        </h:body>
+    </h:form>
 
 </html>
