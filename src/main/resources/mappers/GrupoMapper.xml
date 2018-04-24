@@ -3,13 +3,13 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="Mappers.GrupoMapper">
+<mapper namespace="mappers.GrupoMapper">
     <resultMap type='Grupo' id='Grupo'>
-        <id property='numero' column='numero'/>
-        <association property='semestre' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>
-        <association property='curso' javaType='Curso' resultMap='Mappers.CursoMapper.Curso'></association>
-        <association property='profesor' javaType='Profesor' resultMap='Mappers.ProfesorMapper.Profesor'></association>
-        <association property='monitor' javaType='Monitor' resultMap='Mappers.MonitorMapper.Monitor'></association>
-        <collection property='franjas' ofType='FranjaDisponibilidad' resultMap='Mappers.FranjaDisponibilidadMapper.FranjaDisponibilidad'></collection>
+        <id property='numero' column='gnumero'/>
+        <association property='semestre' javaType='Semestre' resultMap='mappers.SemestreMapper.Semestre'></association>
+        <association property='curso' javaType='Curso' resultMap='mappers.CursoMapper.Curso'></association>
+        <association property='profesor' javaType='Profesor' resultMap='mappers.ProfesorMapper.Profesor'></association>
+        <association property='monitor' javaType='Monitor' resultMap='mappers.MonitorMapper.Monitor'></association>
+        <collection property='franjas' ofType='FranjaDisponibilidad' resultMap='mappers.FranjaDisponibilidadMapper.FranjaDisponibilidad'></collection>
     </resultMap>
 </mapper>

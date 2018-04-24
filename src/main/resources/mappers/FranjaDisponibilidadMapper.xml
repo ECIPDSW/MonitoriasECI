@@ -3,11 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="Mappers.FranjaDisponibilidadMapper">
+<mapper namespace="mappers.FranjaDisponibilidadMapper">
     <resultMap type='FranjaDisponibilidad' id='FranjaDisponibilidad'>
-        <id property='dia' column='dia'/>
-        <id property='franja' column = 'franja'/>
-        <result property='lugar' column = 'lugar'/>
-        <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
+        <id property='dia' column='fdia'/>
+        <id property='franja' column = 'ffranja'/>
+        <result property='lugar' column = 'flugar'/>
+        <association property='grupo' javaType='Grupo' resultMap='mappers.GrupoMapper.Grupo'></association>
     </resultMap>
 </mapper>
