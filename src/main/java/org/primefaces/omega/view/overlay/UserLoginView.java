@@ -61,7 +61,7 @@ public class UserLoginView {
             Flash flash = facesContext.getExternalContext().getFlash();
             flash.setKeepMessages(true);
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/Dashboard.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/dashboard.xhtml");
         } else {
             loggedIn = false;
             
@@ -69,7 +69,7 @@ public class UserLoginView {
             Flash flash = facesContext.getExternalContext().getFlash();
             flash.setKeepMessages(true);
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials"));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/Login.xhtml");
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
         }
         
         FacesContext.getCurrentInstance().addMessage(null, message);
