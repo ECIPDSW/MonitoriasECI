@@ -18,10 +18,10 @@
     <h:body styleClass="login-body">
     
         <div id="login-wrapper">
-            <p:graphicImage name="images/login-logo.png" library="omega-layout" />
+            <p:graphicImage name="images/login-l.png" library="omega-layout" width="400" />
             
             <div id="login-container">
-                <span class="title">Omega</span>
+                <span class="title">Portal De Monitorias</span>
                 
                 <div class="ui-g ui-fluid">
                     <div class="ui-g-12">
@@ -30,13 +30,8 @@
                     <div class="ui-g-12">
                         <p:password placeholder="Password" value="#{Login.password}" feedback="false"/>
                     </div>
-                    <div class="ui-g-12 ui-md-6">
-                        <span class="remember-me">Remember Me</span>
-                        <p:selectBooleanCheckbox />
-                    </div>
-                    <div class="ui-g-12 ui-md-6">
-                        <p:link>Forgot Password</p:link>
-                    </div>
+                    
+                    
                     <div class="ui-g-12">
                         <p:button outcome="dashboard" value="Login" icon="fa fa-check" />
                     </div>
