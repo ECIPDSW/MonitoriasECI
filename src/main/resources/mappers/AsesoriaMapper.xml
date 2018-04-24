@@ -4,6 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.AsesoriaMapper">
+    <insert parameterType="map" id="registrarInformacionDeUnAsistente">
+        INSERT INTO Asesoria (ID,AnoGrupo,PeriodoAcademicoGrupo,Curso,NumeroGrupo,Tema,IDMonitor,Fecha,IDEstudiante,NombreEstudiante,IP,Observaciones)
+        VALUES (#{idestudiante}+#{fecha}+#{curso},#{periodo},#{curso},#{numerogrupo},#{tema},#{idmonitor},#{fecha},#{idestudiante},#{nombreestudiante},#{ip},#{observacion});
+    </insert>
+   
     <resultMap type='Asesoria' id='Asesoria'>
         <id property='id' column='ID_asesoria'/>
         <result property='fecha' column = 'fecha'/>

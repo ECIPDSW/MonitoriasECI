@@ -13,6 +13,6 @@ public interface AsesoriaMapper {
     //public List<Asesoria> consultarAsesorias();         
     //public Asesoria consultarAsesoria(@Param("id")int id);
     //public void registrarInformacionDeLaAsesoria();
-    //public void registrarInformacionDeUnAsistente();
+    //public void registrarInformacionDeUnAsistente(@Param("id")int id);
     
 }

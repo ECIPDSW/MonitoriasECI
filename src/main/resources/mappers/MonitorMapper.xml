@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.MonitorMapper">
-    <resultMap type='Monitor' id='Monitor'>
+    <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
         <result property='programaAcademico' column = 'programa'/>
         <association property='semestre' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>
         <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
