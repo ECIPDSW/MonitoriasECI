@@ -10,7 +10,7 @@
         <div class="nano">
             <div class="nano-content sidebar-scroll-content">
                 <div class="logo">
-                    <p:graphicImage name="images/logo.png" library="omega-layout" width="113"/>
+                    <p:graphicImage name="images/Logo.png" library="omega-layout" width="200"/>
                 </div>
 
                 <div class="profile">
@@ -29,8 +29,8 @@
                 <div class="menu">
                     <po:menu>
                         <p:menuitem id="om_dashboard" value="Dashboard" icon="fa fa-home" outcome="/dashboard"/>
-                        <p:submenu id="am_customization" label="Customization" icon="fa fa-fw fa-bars">
-                            <p:menuitem id="custom1" value="Static Menu" icon="fa fa-fw fa-bars" actionListener="#{guestPreferences.setMenuLayout('static')}" ajax="false"/>
+                        <p:submenu id="am_customization" label="Monitoria" icon="fa fa-fw fa-bars">
+                            <p:menuitem id="custom1" value="Registrar Asistentes" icon="fa fa-fw fa-bars" outcome="/RegistroAsistentes"/>
                             <p:menuitem id="custom2" value="Overlay Menu" icon="fa fa-fw fa-bars" actionListener="#{guestPreferences.setMenuLayout('overlay')}" ajax="false"/>
                         </p:submenu>
                         <p:submenu id="om_components" label="Components" icon="fa fa-sitemap">
