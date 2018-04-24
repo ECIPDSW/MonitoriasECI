@@ -34,102 +34,14 @@
                                         <f:selectItems value="#{checkboxView.cities}" />
                                     </p:selectCheckboxMenu>
 
-
-                                    <p:outputLabel for="area" value="Cometarios"/>
-                                    <p:inputTextarea id="area" autoResize="false"/>
-
-                                    <p:outputLabel for="calendar" value="Calendar"/>
-                                    <p:calendar id="calendar"/>
-
-                                    <p:outputLabel for="ac" value="Auto Complete"/>
-                                    <p:autoComplete id="ac" completeMethod="#{autoCompleteView.completeText}" />
-
-                                    <p:outputLabel for="mask" value="Mask"/>
-                                    <p:inputMask id="mask" mask="99/99/9999"/>
-
-                                    <p:outputLabel for="pwd" value="Password"/>
-                                    <p:password id="pwd" />
-
-                                    <p:outputLabel for="keyboard" value="Keyboard"/>
-                                    <p:keyboard id="keyboard" />
+                                    <p:commandButton id="btnRegistro" value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White" type="button" style="width:auto;margin-bottom:10px;"/>
 
 
 
-                                    <p:outputLabel for="spinner" value="Spinner"/>
-                                    <p:spinner id="spinner"/>
 
-                                    <p:outputLabel for="slider" value="Slider"/>
-                                    <p:outputPanel>
-                                        <p:inputText id="slider"/>
-                                        <p:slider for="slider" />
-                                    </p:outputPanel>
-
-                                    <p:outputLabel for="radio" value="Radio"/>
-                                    <p:selectOneRadio id="radio" value="#{radioView.city}" layout="responsive" columns="4" style="margin:30px 0px;">
-                                        <f:selectItems value="#{radioView.cities}" var="c" itemLabel="#{city}" itemValue="#{city}"/>
-                                    </p:selectOneRadio>
-
-                                    <p:outputLabel for="chkbox" value="Checkbox"/>
-                                    <p:selectManyCheckbox id="chkbox" value="#{checkboxView.selectedCities}" layout="responsive" columns="2" style="margin:30px 0px;">
-                                        <f:selectItems value="#{checkboxView.cities}" var="city" itemLabel="#{city}" itemValue="#{city}" />
-                                    </p:selectManyCheckbox>
-
-                                    <p:outputLabel for="btn" value="Button" />
-                                    <p:commandButton id="btn" value="Edit" icon="fa fa-edit Fs14 White" type="button" style="max-width:150px;"/>
-
-                                    <p:outputLabel for="spbtn" value="SplitButton" />
-                                    <p:splitButton id="spbtn" value="Save" type="button" icon="ui-icon-check fa fa-check Fs14 White" style="max-width:150px;">
-                                        <p:menuitem value="Update" url="#" icon="ui-icon-arrowrefresh-1-w fa fa-arrow-circle-up" />
-                                        <p:menuitem value="Delete" url="#" icon="ui-icon-close fa fa-close" />
-                                        <p:separator />
-                                        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink fa fa-bank" />
-                                    </p:splitButton>
-
-
-
-                                    <p:outputLabel for="booleanBtn" value="Boolean Button" />
-                                    <p:selectBooleanButton id="booleanBtn" onLabel="Yes" offLabel="No" onIcon="fa fa-check Fs14 White" offIcon="fa fa-close Fs14 White" style="max-width:150px;"/>
-
-                                    <p:outputLabel for="oneBtn" value="OneButton" />
-                                    <p:selectOneButton id="oneBtn">
-                                        <f:selectItem itemLabel="Spark" itemValue="Spark" />
-                                        <f:selectItem itemLabel="Ronin" itemValue="Ronin" />
-                                    </p:selectOneButton>
-
-                                    <p:outputLabel for="manyBtn" value="Many Button"/>
-                                    <p:selectManyButton id="manyBtn">
-                                        <f:selectItem itemLabel="Spark" itemValue="Spark" />
-                                        <f:selectItem itemLabel="Ronin" itemValue="Ronin" />
-                                        <f:selectItem itemLabel="Rio" itemValue="Rio" />
-                                    </p:selectManyButton>
-
-                                    <p:outputLabel for="listbox" value="Listbox"/>
-                                    <p:selectOneListbox id="listbox">
-                                        <f:selectItem itemLabel="Sentinel" itemValue="Sentinel" />
-                                        <f:selectItem itemLabel="Spark" itemValue="Spark" />
-                                        <f:selectItem itemLabel="Ronin" itemValue="Ronin" />
-                                        <f:selectItem itemLabel="Rio" itemValue="Rio" />
-                                        <f:selectItem itemLabel="Primus" itemValue="Primus" />
-                                    </p:selectOneListbox>
-
-                                    <p:outputLabel for="listbox" value="Dialog"/>
-
-                                    <p:commandButton id="dialog2" value="Dialog" icon="fa fa-home Fs14 White" type="button" onclick="PF('dlg').show()" style="max-width:150px;"/>
                                 </p:panelGrid>
 
-                                <p:dialog header="Login" widgetVar="dlg" resizable="false" draggable="false" responsive="true" >
-                                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank" columnClasses="ui-grid-col-4,ui-grid-col-8">
-                                        <h:outputLabel for="username" value="Username:" />
-                                        <p:inputText id="username" />
 
-                                        <h:outputLabel for="password" value="Password:" />
-                                        <p:password id="password" />
-
-                                        <f:facet name="footer">
-                                            <p:commandButton value="Login" type="button" onclick="PF('dlg').hide()"/>
-                                        </f:facet>  
-                                    </p:panelGrid>
-                                </p:dialog>
                             </div>
                         </div>
 
@@ -150,6 +62,19 @@
 
 
                                 </p:dataTable>
+                                <p:commandButton id="dialog2" value="Terminar asesoria Seleccionada"  type="button" onclick="PF('dlg').show()" style="width:auto;margin-bottom:10px;"/>
+                                <p:dialog header="Terminando Asesoria" widgetVar="dlg" resizable="false" draggable="false" responsive="true" >
+                                    <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank" columnClasses="ui-grid-col-4,ui-grid-col-8">
+                                        <h:outputLabel for="comentarios" value="Comentarios: " />
+                                        <p:inputTextarea id="comentarios" autoResize="false"/>
+
+                                        
+
+                                        <f:facet name="footer">
+                                            <p:commandButton value="Terminar asesoria" type="button" styleClass="red-button" onclick="PF('dlg').hide()" style="width:auto;margin-bottom:10px;"/>
+                                        </f:facet>  
+                                    </p:panelGrid>
+                                </p:dialog>
                             </div>
                         </div>
                     </div>
