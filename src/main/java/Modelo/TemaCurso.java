@@ -12,32 +12,30 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class TemaCurso {
-     private String NombreDelTema;
-     private String Descripcion;
+     private String nombreDelTema;
+     private String descripcion;
      private Curso curso;
-     private List<Asesoria> asesorias;
      
      public TemaCurso(){}
 
-    public TemaCurso(String NombreDelTema, String Descripcion, Curso curso, List<Asesoria> asesorias) {
-        this.NombreDelTema = NombreDelTema;
-        this.Descripcion = Descripcion;
+    public TemaCurso(String nombreDelTema, String descripcion, Curso curso) {
+        this.nombreDelTema = nombreDelTema;
+        this.descripcion = descripcion;
         this.curso = curso;
-        this.asesorias = asesorias;
     }
      
      public void setNombreTema(String nombre){
-         NombreDelTema = nombre;
+         nombreDelTema = nombre;
      }
      public String getNombreTema(){
-         return NombreDelTema;
+         return nombreDelTema;
      }
      
      public void setDescripcion(String descripcion){
-         Descripcion = descripcion;
+         this.descripcion = descripcion;
      }
      public String getDescripcion(){
-         return Descripcion;
+         return descripcion;
      }
      
      public void setCurso(Curso cursot){
@@ -48,7 +46,7 @@ public class TemaCurso {
      }
      
      public String toString(){
-        return "Tema {" + NombreDelTema+ ", Descripcion :" + Descripcion + ", Del Curso "+ curso +"}";
+        return "Tema {" + nombreDelTema+ ", Descripcion :" + descripcion + ", Del Curso "+ curso +"}";
     }
     
 }

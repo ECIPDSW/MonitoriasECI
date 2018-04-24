@@ -13,7 +13,7 @@ import com.google.inject.Inject;
  *
  * @author martincantorurrego
  */
-public class MyBATISAsesoriaDAO implements AsesoriaDAO{
+public class MyBatisAsesoriaDao implements AsesoriaDAO{
     @Inject
     private AsesoriaMapper asesoriaMapper;  
     //@Override

@@ -12,7 +12,7 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class Profesor extends Persona{
-    private String Decanatura;
+    private String decanatura;
     private List<Grupo> grupos;
     
     public Profesor(){}
@@ -20,7 +20,7 @@ public class Profesor extends Persona{
     public Profesor(int codigo, String nombre,String apellido,String correo,int telefonoMovil,List<Grupo> grupos,String decanatura){
          super(codigo,nombre,apellido,correo,telefonoMovil);
          this.grupos = grupos;
-         Decanatura = decanatura;
+         this.decanatura = decanatura;
     }
 
     public List<Grupo> getGrupos() {
@@ -34,16 +34,16 @@ public class Profesor extends Persona{
   
     
     public void setDecanatura(String decanatura){
-        Decanatura = decanatura;
+        this.decanatura = decanatura;
     }
     
     public String getProgramaAcademico(){
-        return Decanatura;
+        return decanatura;
     }
     
     @Override
     public String toString(){
-        return super.toString()+ ", Decanatura " + Decanatura +", Grupo :" + grupos+ "}";
+        return super.toString()+ ", Decanatura " + decanatura +", Grupo :" + grupos+ "}";
     }
     
 }

@@ -7,7 +7,7 @@ package ServiciosImpl;
 
 
 import Modelo.Semestre;
-import MyBatisDao.MyBatisSemestreDao;
+import MyBatis.MyBatisSemestreDao;
 import Servicios.ServicioAsesoria;
 import com.google.inject.Inject;
 

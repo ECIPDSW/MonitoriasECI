@@ -3,12 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="Mappers.PersonaMapper">
+<mapper namespace="mappers.PersonaMapper">
     <resultMap type='Persona' id='Persona'>
-        <id property ='id' column='PR_id'/>
-        <result property='nombre' column='nombre'/>
-        <result property='apellido' column='apellido'/>
-        <result property='correo' column='correo'/>
-        <result property='telefonoMovil' column='telefonoMovil'/>
+        <id property ='id' column='peid'/>
+        <result property='nombre' column='penombre'/>
+        <result property='apellido' column='peapellido'/>
+        <result property='correo' column='pecorreo'/>
+        <result property='telefonoMovil' column='petelefono'/>
     </resultMap>
 </mapper>
