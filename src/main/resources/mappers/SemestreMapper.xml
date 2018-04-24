@@ -4,10 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.SemestreMapper">
-    <resultMap type='Semestre' id='SemestreResult'>
-        <id property='periodoAcademico' column = 'sid'/>
-        <result property='numero' column='snumero'/>      
-        <result property='fechaInicio' column = 'sfechainicio'/>
-        <result property='fechaFin' column = 'sfechafin'/>
+    <resultMap type='Semestre' id='Semestre'>
+        <id property='ano' column='Año'/> 
+        <id property='periodoAcademico' column = 'PeriodoAcademico'/>     
+        <result property='fechaInicio' column = 'fechainicio'/>
+        <result property='fechaFin' column = 'fechafin'/>
     </resultMap>
 </mapper>

@@ -4,4 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.FranjaDisponibilidadMapper">
+    <resultMap type='FranjaDisponibilidad' id='FranjaDisponibilidad'>
+        <id property='dia' column='dia'/>
+        <id property='franja' column = 'franja'/>
+        <result property='lugar' column = 'lugar'/>
+        <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
+    </resultMap>
 </mapper>

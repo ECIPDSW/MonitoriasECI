@@ -4,4 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.AsesoriaMapper">
+    <resultMap type='Asesoria' id='Asesoria'>
+        <id property='id' column='ID_asesoria'/>
+        <result property='fecha' column = 'fecha'/>
+        <result property='idEstudiante' column = 'carnetEstudiante'/>
+        <result property='nombreEstudiate' column = 'nombreEstudiante'/>
+        <result property='ip' column = 'IP_Navegador'/>
+        <result property='observaciones' column = 'observaciones'/>
+        <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
+        <association property='tema' javaType='TemaCurso' resultMap='Mappers.TemaCursoMapper.TemaCurso'></association>
+        <association property='monitor' javaType='Monitor' resultMap='Mappers.MonitorMapper.Monitor'></association>
+    </resultMap>
 </mapper>

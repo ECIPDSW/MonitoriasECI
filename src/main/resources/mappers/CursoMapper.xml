@@ -4,4 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.CursoMapper">
+    <resultMap type='Curso' id='Curso'>
+        <id property='id' column='ID_curso'/>
+        <result property='nombre' column = 'nombre'/>
+        <result property='creditosAcademicos' column = 'creditosAcademicos'/>
+        <result property='horasAprovadasMonitoria' column = 'horasAprovadasDeMonitoria'/>
+        <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
+        <collection property='temas' ofType='TemaCurso' resultMap='Mappers.TemaCursoMapper.TemaCurso'></collection>
+    </resultMap>
 </mapper>

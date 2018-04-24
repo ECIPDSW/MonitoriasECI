@@ -4,4 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.ProfesorMapper">
+    <resultMap type='Profesor' id='Profesor'>
+        <result property='Decanatura' column = 'Decanatura'/>
+        <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
+    </resultMap>
 </mapper>
