@@ -1,0 +1,97 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Sample</ui:define>
+
+    <ui:define name="content">
+        
+        <h:form>
+            <div class="ui-fluid">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-6">
+                            <!-- Left Side -->
+                            <div class="card">
+                                <h1>Consultar Asistentes</h1>
+                                <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+
+
+                                    <p:outputLabel for="Curso" value="Seleccione Curso: "  />
+                                    <p:selectOneMenu id="Curso" value="#{selectOneMenuView.car}"   style="width:125px">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{selectOneMenuView.cars}" />
+                                    </p:selectOneMenu>
+                                    <p:outputLabel for="Grupo" value="Seleccione Grupo: "  />
+                                    <p:selectOneMenu id="Grupo" value="#{selectOneMenuView.car}"   style="width:125px">
+                                        <f:selectItem itemLabel="Select One" itemValue="" />
+                                        <f:selectItems value="#{selectOneMenuView.cars}" />
+                                    </p:selectOneMenu>
+
+                                    <p:commandButton update="MonitoriasG" id="BusquedaA" value="Buscar Monitorías" icon="ui-icon-check fa fa-check Fs14 White" type="button" style="width:auto;margin-bottom:10px;"/>
+
+
+
+
+                                </p:panelGrid>
+
+
+                            </div>
+                            <h:form id="Asistentes">
+                                <div class="card">
+                                    <p:dataTable var="car" value="#{dtBasicView.cars}" selectionMode="single" rowKey="#{car.id}" reflow="true">
+                                        <f:facet name="header">Asistentes</f:facet>
+                                        <p:column headerText="Carné">
+                                            <h:outputText value="#{car.id}" />
+                                        </p:column>
+
+                                        <p:column headerText="Nombre">
+                                            <h:outputText value="#{car.year}" />
+                                        </p:column>
+
+                                        <p:column headerText="Temas">
+                                            <h:outputText value="#{car.brand}" />
+                                        </p:column>
+                                    </p:dataTable>   
+                                </div>
+                            </h:form>
+                        </div>
+
+                        <div class="ui-g-12 ui-lg-6">
+                            <div class="card">
+                                <h:form id="MonitoriasG" >
+                                    <h1>Monitorias</h1>
+                                    <p:dataTable var="car" value="#{dtBasicView.cars}" reflow="true" selectionMode="single" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                                        <f:facet name="header">
+                                            DataTable
+                                        </f:facet>
+                                        <p:column headerText="Carnet">
+                                            <h:outputText value="#{car.id}" />
+                                        </p:column>
+
+                                        <p:column headerText="Nombre">
+                                            <h:outputText value="#{car.year}" />
+                                        </p:column>
+
+
+                                    </p:dataTable>
+                                    <p:commandButton update="Asistentes" id="dialog2" value="Seleccionar Monitoria"  type="button" onclick="PF('dlg').show()" style="width:auto;margin-bottom:10px;"/>
+                                </h:form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-lg-6">
+                        <!-- Left Side -->
+                        <div class="card">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
