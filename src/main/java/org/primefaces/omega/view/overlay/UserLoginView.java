@@ -15,9 +15,12 @@
  */
 package org.primefaces.omega.view.overlay;
 
+import Modelo.Persona;
 import java.io.IOException;
+import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.ActionEvent;
@@ -26,12 +29,14 @@ import org.primefaces.context.RequestContext;
 
 
 @ManagedBean(name = "Login")
-public class UserLoginView {
+@SessionScoped
+public class UserLoginView implements Serializable{
     
     private String username;
     
     private String password;
-    private static boolean loggedIn = true;
+    private  boolean loggedIn = false;
+    private Persona user;
 
     public String getUsername() {
         return username;
@@ -45,10 +50,20 @@ public class UserLoginView {
     public String getPassword() {
         return password;
     }
+    
 
     public void setPassword(String password) {
         System.out.println("SET password CALLED="+password);
         this.password = password;
+    }
+    public Persona getUser() {
+        return user;
+    }
+    
+
+    public void setUser(Persona user) {
+        //System.out.println("SET password CALLED="+password);
+        this.user= user;
     }
   
     public void login() throws IOException {
@@ -58,6 +73,7 @@ public class UserLoginView {
         System.out.println("LOGIN LLAMADO");
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
             loggedIn = true;
+            user=new Persona(2125275,"Oscar","Pinto","moka117@hotmail.com","12345");
             FacesContext facesContext = FacesContext.getCurrentInstance();
             Flash flash = facesContext.getExternalContext().getFlash();
             flash.setKeepMessages(true);
