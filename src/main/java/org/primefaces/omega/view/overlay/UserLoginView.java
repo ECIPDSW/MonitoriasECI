@@ -31,7 +31,7 @@ public class UserLoginView {
     private String username;
     
     private String password;
-    private static boolean loggedIn = false;
+    private static boolean loggedIn = true;
 
     public String getUsername() {
         return username;

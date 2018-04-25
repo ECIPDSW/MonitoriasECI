@@ -16,13 +16,13 @@
                 <div class="profile">
                     <p:graphicImage name="images/profile.png" library="omega-layout" />
                     <a id="profile-button" href="#">
-                        <span class="username">Peggy Olson</span>
+                        <span class="username">Monitor</span>
                         <i class="fa fa-fw fa-cog"></i>
                     </a>
                     <ul>
-                        <li><a href="#"><i class="fa fa-fw fa-sliders"></i><span>Account</span></a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-bell"></i><span>Notifications</span><span class="menu-badge">2</span></a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-sign-out"></i><span>Logout</span></a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-sliders"></i><span>Cuenta</span></a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-bell"></i><span>Notificaciones</span><span class="menu-badge">2</span></a></li>
+                        <li><a href="#"><i class="fa fa-fw fa-sign-out"></i><span>Salir</span></a></li>
                     </ul>
                 </div>
 
@@ -30,8 +30,9 @@
                     <po:menu>
                         <p:menuitem id="om_dashboard" value="Dashboard" icon="fa fa-home" outcome="/dashboard"/>
                         <p:submenu id="am_customization" label="Monitoria" icon="fa fa-fw fa-bars">
-                            <p:menuitem id="custom1" value="Registrar Asistentes" icon="fa fa-fw fa-bars" outcome="/RegistroAsistentes"/>
-                            <p:menuitem id="custom2" value="Overlay Menu" icon="fa fa-fw fa-bars" actionListener="#{guestPreferences.setMenuLayout('overlay')}" ajax="false"/>
+                            <p:menuitem id="IniMonitoria" value="Iniciar Monitoria" icon="fa fa-fw fa-bars" outcome="/InicioMonitoria"/>
+                            <p:menuitem id="RegAsistentes" value="Registrar Asistentes" icon="fa fa-fw fa-bars" outcome="/RegistroAsistentes"/>
+                            
                         </p:submenu>
                         <p:submenu id="om_components" label="Components" icon="fa fa-sitemap">
                             <p:menuitem id="om_sample" value="Sample Page" icon="fa fa-columns" outcome="/sample" />
