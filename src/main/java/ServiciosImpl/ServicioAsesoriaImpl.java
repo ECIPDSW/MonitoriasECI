@@ -12,6 +12,8 @@ import DAOS.SemestreDAO;
 import Modelo.Monitor;
 import Modelo.Profesor;
 import Modelo.Semestre;
+import MyBatis.MyBatisMonitorDao;
+import MyBatis.MyBatisProfesorDao;
 import MyBatis.MyBatisSemestreDao;
 import Servicios.ServicioAsesoria;
 import com.google.inject.Inject;
@@ -24,12 +26,13 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria{
 
     @Inject
     private SemestreDAO semestre;
+    //private MyBatisSemestreDao semestre = new MyBatisSemestreDao();
     
-    @Inject
-    private ProfesorDAO profesor;
     
-    @Inject
-    private MonitorDAO monitor;
+    private MyBatisProfesorDao profesor = new MyBatisProfesorDao();
+    
+    
+    private MyBatisMonitorDao monitor = new MyBatisMonitorDao();
 
     @Override
     public Semestre getSemestre(int id) {

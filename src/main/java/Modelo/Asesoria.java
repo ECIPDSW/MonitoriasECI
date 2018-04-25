@@ -13,6 +13,7 @@ import java.util.Date;
  * @author martincantorurrego
  */
 public class Asesoria {
+    private int idAsesoria;
     private Date fecha;
     private int idEstudiante;
     private String nombreEstudiante;
@@ -22,7 +23,8 @@ public class Asesoria {
     private Grupo grupo;
     private ArrayList<TemaAsesoria> temas;
 
-    public Asesoria(Date fecha, int idEstudiante, String nombreEstudiante, String ip, String observaciones, Monitoria monitoria, Grupo grupo, ArrayList<TemaAsesoria> temas) {
+    public Asesoria(int idAsesoria,Date fecha, int idEstudiante, String nombreEstudiante, String ip, String observaciones, Monitoria monitoria, Grupo grupo, ArrayList<TemaAsesoria> temas) {
+        this.idAsesoria=idAsesoria;
         this.fecha = fecha;
         this.idEstudiante = idEstudiante;
         this.nombreEstudiante = nombreEstudiante;
@@ -35,6 +37,15 @@ public class Asesoria {
 
     public Asesoria() {
     }
+
+    public int getIdAsesoria() {
+        return idAsesoria;
+    }
+
+    public void setIdAsesoria(int idAsesoria) {
+        this.idAsesoria = idAsesoria;
+    }
+    
 
     public Date getFecha() {
         return fecha;
@@ -102,8 +113,9 @@ public class Asesoria {
 
     @Override
     public String toString() {
-        return "Asesoria{" + "fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante + ", ip=" + ip + ", observaciones=" + observaciones + ", monitoria=" + monitoria + ", grupo=" + grupo + ", temas=" + temas + '}';
+        return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante + ", ip=" + ip + ", observaciones=" + observaciones + ", monitoria=" + monitoria + ", grupo=" + grupo + ", temas=" + temas + '}';
     }
+
     
     
 }

@@ -5,8 +5,9 @@
   
 <mapper namespace="Mappers.TemaCursoMapper">
     <resultMap type='TemaCurso' id='TemaCurso'>
+        <id property ='idTemaCurso' column='tcid'/>
         <result property='tema' column = 'tctema'/>
         <result property='descripcion' column = 'tcdescripcion'/>
-        <association propery='curso' javaType='Curso' resultMap='Mappers.CursoMapper.Curso'></association>
+        <association property='curso' javaType='Curso' resultMap='Mappers.CursoMapper.Curso'></association>
     </resultMap>
 </mapper>

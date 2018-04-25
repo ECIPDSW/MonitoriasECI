@@ -5,6 +5,7 @@
   
 <mapper namespace="Mappers.ProfesorMapper">
     <resultMap type='Profesor' id='Profesor' extends='Mappers.PersonaMapper.Persona'>
+        <id property ='idProfesor' column='prid'/>
         <result property='decanatura' column = 'prdecanatura'/>
         <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
     </resultMap>

@@ -12,15 +12,32 @@ import java.util.ArrayList;
  * @author martincantorurrego
  */
 public class TemaAsesoria {
+    private int idTemaAsesoria;
     private TemaCurso temaCurso;
     private Asesoria asesoria;
 
     public TemaAsesoria() {
     }
-    
-    
-    public TemaAsesoria(Asesoria asesoria, TemaCurso temaCurso) {
+
+    public TemaAsesoria(int idTemaAsesoria, TemaCurso temaCurso, Asesoria asesoria) {
+        this.idTemaAsesoria = idTemaAsesoria;
+        this.temaCurso = temaCurso;
         this.asesoria = asesoria;
+    }
+
+    public int getIdTemaAsesoria() {
+        return idTemaAsesoria;
+    }
+
+    public void setIdTemaAsesoria(int idTemaAsesoria) {
+        this.idTemaAsesoria = idTemaAsesoria;
+    }
+
+    public TemaCurso getTemaCurso() {
+        return temaCurso;
+    }
+
+    public void setTemaCurso(TemaCurso temaCurso) {
         this.temaCurso = temaCurso;
     }
 
@@ -32,18 +49,9 @@ public class TemaAsesoria {
         this.asesoria = asesoria;
     }
 
-    public TemaCurso getTemaCurso() {
-        return temaCurso;
-    }
-
-    public void setTemaCurso(TemaCurso temaCurso) {
-        this.temaCurso = temaCurso;
-    }
-
     @Override
     public String toString() {
-        return "TemaAsesoria{" + "asesoria=" + asesoria + ", temaCurso=" + temaCurso + '}';
+        return "TemaAsesoria{" + "idTemaAsesoria=" + idTemaAsesoria + ", temaCurso=" + temaCurso + ", asesoria=" + asesoria + '}';
     }
-    
-   
+
 }

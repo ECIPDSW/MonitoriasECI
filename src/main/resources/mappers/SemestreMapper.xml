@@ -6,17 +6,19 @@
 <mapper namespace="Mappers.SemestreMapper">
     <select parameterType="map" id="loadSemestre" resultMap='Semestre'>
         select
+        s.numero as snumero,
         s.ano as sano,
         s.periodoAcademico as speriodoacademico,
         s.fechaInicio as sfechainicio,
         s.fechaFin as sfechafin
         
         FROM Semestre as s
-        WHERE s.ano=#{año};
+        WHERE s.numero=#{id}
         
     </select>
     
     <resultMap type='Semestre' id='Semestre'>
+        <id property ='numero' column='snumero'/>
         <result property='ano' column='sano'/> 
         <result property='periodoAcademico' column = 'speriodoacademico'/>     
         <result property='fechaInicio' column = 'sfechainicio'/>

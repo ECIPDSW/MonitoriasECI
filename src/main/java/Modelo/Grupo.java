@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author martincantorurrego
  */
 public class Grupo {
+    private int idGrupo;
     private int numero;
     private Curso curso;
     private Semestre semestre;
@@ -20,7 +21,8 @@ public class Grupo {
     private ArrayList<Monitoria> monitorias;
     private ArrayList<Asesoria> asesoria;
 
-    public Grupo(int numero, Curso curso, Semestre semestre, Monitor monitor, Profesor profesor, ArrayList<Monitoria> monitorias, ArrayList<Asesoria> asesoria) {
+    public Grupo(int idGrupo, int numero, Curso curso, Semestre semestre, Monitor monitor, Profesor profesor, ArrayList<Monitoria> monitorias, ArrayList<Asesoria> asesoria) {
+        this.idGrupo = idGrupo;
         this.numero = numero;
         this.curso = curso;
         this.semestre = semestre;
@@ -28,6 +30,17 @@ public class Grupo {
         this.profesor = profesor;
         this.monitorias = monitorias;
         this.asesoria = asesoria;
+    }
+
+    public Grupo() {
+    }
+
+    public int getIdGrupo() {
+        return idGrupo;
+    }
+
+    public void setIdGrupo(int idGrupo) {
+        this.idGrupo = idGrupo;
     }
 
     public int getNumero() {
@@ -88,8 +101,10 @@ public class Grupo {
 
     @Override
     public String toString() {
-        return "Grupo{" + "numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias + ", asesoria=" + asesoria + '}';
+        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias + ", asesoria=" + asesoria + '}';
     }
+
+   
     
     
 }

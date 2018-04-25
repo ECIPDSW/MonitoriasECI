@@ -13,6 +13,7 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class Monitor extends Persona{
+    private int idMonitor;
     private int telefonoMovil;
     private String programaAcademico;
     private Semestre semestreDeIngreso;
@@ -21,12 +22,21 @@ public class Monitor extends Persona{
     public Monitor() {
     }
 
-    public Monitor(int telefonoMovil, String ProgramaAcademico, Semestre semestreDeIngreso, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
+    public Monitor(int idMonitor, int telefonoMovil, String programaAcademico, Semestre semestreDeIngreso, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
         super(id, nombre, apellido, correo, contraseña);
+        this.idMonitor = idMonitor;
         this.telefonoMovil = telefonoMovil;
-        this.programaAcademico = ProgramaAcademico;
+        this.programaAcademico = programaAcademico;
         this.semestreDeIngreso = semestreDeIngreso;
         this.grupos = grupos;
+    }
+
+    public int getIdMonitor() {
+        return idMonitor;
+    }
+
+    public void setIdMonitor(int idMonitor) {
+        this.idMonitor = idMonitor;
     }
 
     public int getTelefonoMovil() {
@@ -41,8 +51,8 @@ public class Monitor extends Persona{
         return programaAcademico;
     }
 
-    public void setProgramaAcademico(String ProgramaAcademico) {
-        this.programaAcademico = ProgramaAcademico;
+    public void setProgramaAcademico(String programaAcademico) {
+        this.programaAcademico = programaAcademico;
     }
 
     public Semestre getSemestreDeIngreso() {
@@ -63,8 +73,10 @@ public class Monitor extends Persona{
 
     @Override
     public String toString() {
-        return "Monitor{" + "telefonoMovil=" + telefonoMovil + ", ProgramaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + ", grupos=" + grupos + '}';
+        return "Monitor{" + "idMonitor=" + idMonitor + ", telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + ", grupos=" + grupos + '}';
     }
+
+    
 
     
       

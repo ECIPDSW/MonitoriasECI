@@ -5,6 +5,7 @@
   
 <mapper namespace="Mappers.GrupoMapper">
     <resultMap type='Grupo' id='Grupo'>
+        <id property='idGrupo' column='gid'/>
         <result property='numero' column='gnumero'/>
         <association property='curso' javaType='Curso' resultMap='Mappers.CursoMapper.Curso'></association>
         <association property='semestre' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>

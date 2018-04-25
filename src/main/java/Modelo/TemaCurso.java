@@ -13,17 +13,28 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class TemaCurso {
+     private int idTemaCurso;
      private String tema;
      private String descripcion;
      private Curso curso;
 
-    public TemaCurso() {
-    }
-
-    public TemaCurso(String tema, String descripcion, Curso curso) {
+    public TemaCurso(int idTemaCurso, String tema, String descripcion, Curso curso) {
+        this.idTemaCurso = idTemaCurso;
         this.tema = tema;
         this.descripcion = descripcion;
         this.curso = curso;
+    }
+
+    public TemaCurso() {
+        
+    }
+
+    public int getIdTemaCurso() {
+        return idTemaCurso;
+    }
+
+    public void setIdTemaCurso(int idTemaCurso) {
+        this.idTemaCurso = idTemaCurso;
     }
 
     public String getTema() {
@@ -52,8 +63,8 @@ public class TemaCurso {
 
     @Override
     public String toString() {
-        return "TemaCurso{" + "tema=" + tema + ", descripcion=" + descripcion + ", curso=" + curso + '}';
+        return "TemaCurso{" + "idTemaCurso=" + idTemaCurso + ", tema=" + tema + ", descripcion=" + descripcion + ", curso=" + curso + '}';
     }
-     
-     
+
+         
 }

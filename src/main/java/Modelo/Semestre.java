@@ -12,12 +12,14 @@ import java.util.Date;
  * @author martincantorurrego
  */
 public class Semestre {
+    private int numero;
     private int ano;
     private char periodoAcademico;
     private Date fechaInicio;
     private Date fechaFin;
 
-    public Semestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin) {
+    public Semestre(int numero, int ano, char periodoAcademico, Date fechaInicio, Date fechaFin) {
+        this.numero = numero;
         this.ano = ano;
         this.periodoAcademico = periodoAcademico;
         this.fechaInicio = fechaInicio;
@@ -25,6 +27,14 @@ public class Semestre {
     }
 
     public Semestre() {
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public int getAno() {
@@ -61,8 +71,7 @@ public class Semestre {
 
     @Override
     public String toString() {
-        return "Semestre{" + "ano=" + ano + ", periodoAcademico=" + periodoAcademico + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
+        return "Semestre{" + "numero=" + numero + ", ano=" + ano + ", periodoAcademico=" + periodoAcademico + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
     }
-    
-    
+
 }

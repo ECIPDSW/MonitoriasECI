@@ -14,6 +14,7 @@ import java.util.Date;
  * @author martincantorurrego
  */
 class Monitoria {
+    private int idMonitoria;
     private String dia;
     private Time horaInicio;
     private Time horaFin;
@@ -24,8 +25,9 @@ class Monitoria {
     public Monitoria() {
     }
 
-    public Monitoria(String Dia, Time horaInicio, Time horaFin, String lugar, Grupo grupo, ArrayList<Asesoria> asesorias) {
-        this.dia = Dia;
+    public Monitoria(int idMonitoria, String dia, Time horaInicio, Time horaFin, String lugar, Grupo grupo, ArrayList<Asesoria> asesorias) {
+        this.idMonitoria = idMonitoria;
+        this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.lugar = lugar;
@@ -33,12 +35,20 @@ class Monitoria {
         this.asesorias = asesorias;
     }
 
+    public int getIdMonitoria() {
+        return idMonitoria;
+    }
+
+    public void setIdMonitoria(int idMonitoria) {
+        this.idMonitoria = idMonitoria;
+    }
+
     public String getDia() {
         return dia;
     }
 
-    public void setDia(String Dia) {
-        this.dia = Dia;
+    public void setDia(String dia) {
+        this.dia = dia;
     }
 
     public Time getHoraInicio() {
@@ -83,9 +93,8 @@ class Monitoria {
 
     @Override
     public String toString() {
-        return "Monitoria{" + "Dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar + ", grupo=" + grupo + ", asesorias=" + asesorias + '}';
+        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar + ", grupo=" + grupo + ", asesorias=" + asesorias + '}';
     }
-    
-    
+
     
 }

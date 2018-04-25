@@ -5,6 +5,7 @@
   
 <mapper namespace="Mappers.MonitoriaMapper">
     <resultMap type='Monitoria' id='Monitoria'>
+        <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>
         <result property='horaInicio' column='mhoraInicio'/>
         <result property='horaFin' column='mhoraFin'/>

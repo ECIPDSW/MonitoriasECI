@@ -13,24 +13,34 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class Profesor extends Persona{
+    private int idProfesor;
     private String decanatura;
     private ArrayList<Grupo> grupos;
 
-    public Profesor(String Decanatura, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
+    public Profesor() {
+    }
+
+    public Profesor(int idProfesor, String decanatura, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
         super(id, nombre, apellido, correo, contraseña);
-        this.decanatura = Decanatura;
+        this.idProfesor = idProfesor;
+        this.decanatura = decanatura;
         this.grupos = grupos;
     }
 
-    public Profesor() {
+    public int getIdProfesor() {
+        return idProfesor;
+    }
+
+    public void setIdProfesor(int idProfesor) {
+        this.idProfesor = idProfesor;
     }
 
     public String getDecanatura() {
         return decanatura;
     }
 
-    public void setDecanatura(String Decanatura) {
-        this.decanatura = Decanatura;
+    public void setDecanatura(String decanatura) {
+        this.decanatura = decanatura;
     }
 
     public ArrayList<Grupo> getGrupos() {
@@ -43,9 +53,8 @@ public class Profesor extends Persona{
 
     @Override
     public String toString() {
-        return "Profesor{" + "Decanatura=" + decanatura + ", grupos=" + grupos + '}';
+        return "Profesor{" + "idProfesor=" + idProfesor + ", decanatura=" + decanatura + ", grupos=" + grupos + '}';
     }
-    
-    
+
     
 }

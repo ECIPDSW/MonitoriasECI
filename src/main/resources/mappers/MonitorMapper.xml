@@ -5,6 +5,7 @@
   
 <mapper namespace="Mappers.MonitorMapper">
     <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
+        <id property='idMonitor' column='mid'/>
         <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>
         <association property='semestreingreso' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>

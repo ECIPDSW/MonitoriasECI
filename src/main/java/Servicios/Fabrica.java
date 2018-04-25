@@ -1,6 +1,12 @@
 package Servicios;
 import DAOS.AsesoriaDAO;
+import DAOS.MonitorDAO;
+import DAOS.ProfesorDAO;
+import DAOS.SemestreDAO;
 import MyBatis.MyBatisAsesoriaDao;
+import MyBatis.MyBatisMonitorDao;
+import MyBatis.MyBatisProfesorDao;
+import MyBatis.MyBatisSemestreDao;
 import ServiciosImpl.ServicioAsesoriaImpl;
 
 import java.io.IOException;
@@ -29,8 +35,10 @@ public class Fabrica {
             protected void initialize() {
                 setClassPathResource("mybatis-config.xml");
                 bind(ServicioAsesoria.class).to(ServicioAsesoriaImpl.class);
-                
-                bind(AsesoriaDAO.class).to(MyBatisAsesoriaDao.class);
+                bind(SemestreDAO.class).to(MyBatisSemestreDao.class);
+                /*bind(ProfesorDAO.class).to(MyBatisProfesorDao.class);
+                bind(MonitorDAO.class).to(MyBatisMonitorDao.class);
+                bind(AsesoriaDAO.class).to(MyBatisAsesoriaDao.class);*/
             }
         });
     }

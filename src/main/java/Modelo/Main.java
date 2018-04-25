@@ -17,6 +17,6 @@ public class Main {
     public static Fabrica fabrica = new Fabrica();
     public static void main(String a[]){
         System.out.println("\nConsultar cliente\n");
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(2018));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getAno());
     }
 }
