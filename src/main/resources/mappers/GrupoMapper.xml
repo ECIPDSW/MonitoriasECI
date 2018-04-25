@@ -13,5 +13,6 @@
         <association property='profesor' javaType='Profesor' resultMap='Mappers.ProfesorMapper.Profesor'></association>
         <collection property='monitorias' ofType='Monitoria' resultMap='Mappers.MonitoriaMapper.Monitoria'></collection>
         <collection property='asesoria' ofType='Asesoria' resultMap='Mappers.AsesoriaMapper.Asesoria'></collection>
+
     </resultMap>
 </mapper>

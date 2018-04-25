@@ -14,7 +14,7 @@ import Servicios.Fabrica;
  */
 public class Main {
     public static Monitor monitor;
-    public static Fabrica fabrica = new Fabrica();
+    public static Fabrica fabrica = Fabrica.getInstance();
     public static void main(String a[]){
         System.out.println("\nConsultar cliente\n");
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getAno());

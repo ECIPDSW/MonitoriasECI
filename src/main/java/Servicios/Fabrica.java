@@ -31,7 +31,7 @@ public class Fabrica {
     private static Injector injector;
     private static Injector testInjector;
     
-    private Injector myBatisInjector() {
+    private Injector myBatisInjector(final String pathResource) {
         return Guice.createInjector(new XMLMyBatisModule() {
             @Override
             protected void initialize() {
@@ -48,8 +48,14 @@ public class Fabrica {
     }
     
      public ServicioAsesoria getServiciosAsesoria(){
-        return Optional.of(myBatisInjector()).get().getInstance(ServicioAsesoria.class);
+        return injector.getInstance(ServicioAsesoria.class);
     }
+ 
+      private Fabrica(){
+
+        injector = myBatisInjector("mybatis-config.xml");
+        testInjector = myBatisInjector("mybatis-config-h2.xml");
+      }
      
    
     public static Fabrica getInstance(){

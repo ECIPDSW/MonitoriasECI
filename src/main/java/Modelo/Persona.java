@@ -6,6 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
+import javafx.util.Pair;
 
 /**
  *
@@ -17,6 +18,7 @@ public class Persona implements Serializable{
     private String apellido;
     private String correo;
     private String contraseña;
+    
 
     public Persona() {
     }

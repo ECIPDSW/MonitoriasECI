@@ -38,15 +38,15 @@ import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "Login")
 @SessionScoped
-public class UserLoginView {
+public class UserLoginView implements Serializable {
     
     private Integer username;
     
-    //private ProfesorBean ProfesorBean;
+    private ProfesorBean ProfesorBean;
     private String password;
     private  boolean loggedIn = false;
-    private Persona user;
-    private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
+    private Persona user=new Persona(2125275,"Oscar","Pinto","moka117@hotmail.com","12345");
+    
     
     public Integer getUsername() {
         
@@ -82,6 +82,7 @@ public class UserLoginView {
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Something Went Wrong","Wrong");
         //user=sa.getProfesor(username);
         //ProfesorBean.setProfesor((Profesor)user);
+        
         FacesContext facesContext = FacesContext.getCurrentInstance(); 
         System.out.println("LOGIN LLAMADO");
         if(username != null && username== user.getId() && password != null && password.equals(user.getContraseña())) {
