@@ -19,8 +19,8 @@ public class MyBatisSemestreDao implements SemestreDAO{
    private SemestreMapper semestreMapper;
 
     @Override
-    public Semestre loadSemestre(int id) {
-        return semestreMapper.loadSemestre(id);
+    public Semestre loadSemestre(int año) {
+        return semestreMapper.loadSemestre(año);
     }
    
    

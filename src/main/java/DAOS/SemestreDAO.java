@@ -12,7 +12,7 @@ import Modelo.Semestre;
  * @author martincantorurrego
  */
 public interface SemestreDAO {     
-    public Semestre loadSemestre(int id);
+    public Semestre loadSemestre(int año);
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
 }

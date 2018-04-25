@@ -4,6 +4,7 @@ package Beans;
 import Modelo.Monitor;
 import Modelo.Semestre;
 import Servicios.Fabrica;
+import Servicios.ServicioAsesoria;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,6 +22,8 @@ import javax.faces.model.SelectItemGroup;
 @ManagedBean(name = "Monitor")
 @SessionScoped
 public class MonitorBean implements Serializable  {
+    
+    private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
  
     private String console;
     private Monitor monitor;

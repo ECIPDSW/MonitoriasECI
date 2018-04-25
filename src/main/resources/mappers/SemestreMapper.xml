@@ -12,7 +12,7 @@
         s.fechaFin as sfechafin
         
         FROM Semestre as s
-        WHERE s.numero=#{id};
+        WHERE s.ano=#{año};
         
     </select>
     

@@ -7,6 +7,7 @@ package Modelo;
 
 import Servicios.Fabrica;
 
+
 /**
  *
  * @author martincantorurrego
@@ -15,6 +16,7 @@ public class Main {
     public static Monitor monitor;
     public static Fabrica fabrica = new Fabrica();
     public static void main(String a[]){
-         //Para escribir las pruebas despues de implementada la Fabrica
+        System.out.println("\nConsultar cliente\n");
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(2018));
     }
 }

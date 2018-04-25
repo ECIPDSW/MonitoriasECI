@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Servicios;
-import Modelo.*;
+package DAOS;
+
+import Modelo.Monitor;
+
 /**
  *
- * @author David Rodriguez
+ * @author 2124519
  */
-public interface ServicioAsesoria {
-    Semestre getSemestre(int id);
-    Profesor getProfesor(int id);
+public interface MonitorDAO {
     Monitor loadMonitor(int id);
 }
