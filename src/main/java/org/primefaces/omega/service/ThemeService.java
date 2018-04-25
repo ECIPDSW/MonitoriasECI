@@ -15,6 +15,7 @@
  */
 package org.primefaces.omega.service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import org.primefaces.omega.domain.Theme;
 
 @ManagedBean(name="themeService", eager = true)
 @ApplicationScoped
-public class ThemeService {
+public class ThemeService implements Serializable{
     
     private List<Theme> themes;
     
