@@ -6,9 +6,11 @@
 package ServiciosImpl;
 
 
+import DAOS.AsesoriaDAO;
 import DAOS.MonitorDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
+import DAOS.TemaAsesoriaDAO;
 import Modelo.Monitor;
 import Modelo.Profesor;
 import Modelo.Semestre;
@@ -26,6 +28,10 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria{
 
     @Inject
     private SemestreDAO semestre;
+    @Inject
+    private AsesoriaDAO asesoria;
+    @Inject
+    private TemaAsesoriaDAO temaasesoria;
     //private MyBatisSemestreDao semestre = new MyBatisSemestreDao();
     
     

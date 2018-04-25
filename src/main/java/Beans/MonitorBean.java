@@ -24,7 +24,7 @@ import javax.faces.model.SelectItemGroup;
 public class MonitorBean implements Serializable  {
     
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
- 
+    
     private String console;
     private Monitor monitor;
  

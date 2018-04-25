@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author martincantorurrego
  */
-public class Profesor extends Persona{
+public class Profesor extends Persona implements Serializable{
     private int idProfesor;
     private String decanatura;
     private ArrayList<Grupo> grupos;

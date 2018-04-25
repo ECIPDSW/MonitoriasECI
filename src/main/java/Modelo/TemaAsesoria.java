@@ -5,13 +5,14 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author martincantorurrego
  */
-public class TemaAsesoria {
+public class TemaAsesoria implements Serializable {
     private int idTemaAsesoria;
     private TemaCurso temaCurso;
     private Asesoria asesoria;

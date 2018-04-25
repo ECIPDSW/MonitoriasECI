@@ -5,11 +5,13 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author martincantorurrego
  */
-public class Persona{
+public class Persona implements Serializable{
     private int id;
     private String nombre;
     private String apellido;

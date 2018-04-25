@@ -3,10 +3,12 @@ import DAOS.AsesoriaDAO;
 import DAOS.MonitorDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
+import DAOS.TemaAsesoriaDAO;
 import MyBatis.MyBatisAsesoriaDao;
 import MyBatis.MyBatisMonitorDao;
 import MyBatis.MyBatisProfesorDao;
 import MyBatis.MyBatisSemestreDao;
+import MyBatis.MyBatisTemaAsesoriaDao;
 import ServiciosImpl.ServicioAsesoriaImpl;
 
 import java.io.IOException;
@@ -36,9 +38,11 @@ public class Fabrica {
                 setClassPathResource("mybatis-config.xml");
                 bind(ServicioAsesoria.class).to(ServicioAsesoriaImpl.class);
                 bind(SemestreDAO.class).to(MyBatisSemestreDao.class);
-                /*bind(ProfesorDAO.class).to(MyBatisProfesorDao.class);
+                bind(AsesoriaDAO.class).to(MyBatisAsesoriaDao.class);
+                bind(ProfesorDAO.class).to(MyBatisProfesorDao.class);
+                bind(TemaAsesoriaDAO.class).to(MyBatisTemaAsesoriaDao.class);
                 bind(MonitorDAO.class).to(MyBatisMonitorDao.class);
-                bind(AsesoriaDAO.class).to(MyBatisAsesoriaDao.class);*/
+                
             }
         });
     }

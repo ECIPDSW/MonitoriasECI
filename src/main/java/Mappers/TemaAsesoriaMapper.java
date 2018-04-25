@@ -9,6 +9,6 @@ package Mappers;
  *
  * @author martincantorurrego
  */
-public interface TemaAsesoria {
+public interface TemaAsesoriaMapper {
     
 }

@@ -15,11 +15,19 @@
  */
 package org.primefaces.omega.view.overlay;
 
+import Beans.ProfesorBean;
 import Modelo.Persona;
+import Modelo.Profesor;
+import Servicios.Fabrica;
+import Servicios.ServicioAsesoria;
+
 import java.io.IOException;
 import java.io.Serializable;
+import static java.lang.Integer.parseInt;
+import javax.enterprise.inject.spi.Bean;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
@@ -30,19 +38,22 @@ import org.primefaces.context.RequestContext;
 
 @ManagedBean(name = "Login")
 @SessionScoped
-public class UserLoginView implements Serializable{
+public class UserLoginView {
     
-    private String username;
+    private Integer username;
     
+    //private ProfesorBean ProfesorBean;
     private String password;
     private  boolean loggedIn = false;
     private Persona user;
-
-    public String getUsername() {
+    private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
+    
+    public Integer getUsername() {
+        
         return username;
     }
 
-    public void setUsername(String username) {
+    public void setUsername(Integer username) {
         System.out.println("SET USERNAME CALLED="+username);
         this.username = username;
     }
@@ -69,15 +80,17 @@ public class UserLoginView implements Serializable{
     public void login() throws IOException {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Something Went Wrong","Wrong");
-        
+        //user=sa.getProfesor(username);
+        //ProfesorBean.setProfesor((Profesor)user);
+        FacesContext facesContext = FacesContext.getCurrentInstance(); 
         System.out.println("LOGIN LLAMADO");
-        if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
+        if(username != null && username== user.getId() && password != null && password.equals(user.getContraseña())) {
             loggedIn = true;
             user=new Persona(2125275,"Oscar","Pinto","moka117@hotmail.com","12345");
-            FacesContext facesContext = FacesContext.getCurrentInstance();
+            
             Flash flash = facesContext.getExternalContext().getFlash();
             flash.setKeepMessages(true);
-            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username));
+            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", ""+username));
             facesContext.getExternalContext().redirect("/monitorias/dashboard.xhtml");
         } else {
             loggedIn = false;
