@@ -31,6 +31,7 @@ public class UserLoginView {
     private String username;
     
     private String password;
+    private static boolean loggedIn = false;
 
     public String getUsername() {
         return username;
@@ -53,7 +54,7 @@ public class UserLoginView {
     public void login() throws IOException {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
-        boolean loggedIn = false;
+        
         System.out.println("LOGIN LLAMADO");
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
             loggedIn = true;
@@ -61,18 +62,21 @@ public class UserLoginView {
             Flash flash = facesContext.getExternalContext().getFlash();
             flash.setKeepMessages(true);
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/dashboard.xhtml");
+            facesContext.getExternalContext().redirect("/monitorias/dashboard.xhtml");
         } else {
             loggedIn = false;
             
-            FacesContext facesContext = FacesContext.getCurrentInstance();
-            Flash flash = facesContext.getExternalContext().getFlash();
-            flash.setKeepMessages(true);
-            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials"));
-            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,"Loggin Error", "Invalid credentials"));
+            //facesContext.getExternalContext().redirect("/monitorias/login.xhtml");
         }
         
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
-    }   
+    }
+    public void preRenderView() throws IOException {
+        if(!loggedIn){
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
+        }
+    // Do here your job which should run right before the RENDER_RESPONSE.
+    }
 }
