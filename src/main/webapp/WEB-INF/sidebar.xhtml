@@ -16,7 +16,7 @@
                 <div class="profile">
                     <p:graphicImage name="images/profile.png" library="omega-layout" />
                     <a id="profile-button" href="#">
-                        <span class="username">Monitor</span>
+                        <span class="username" ><h:outputText value="#{Login.user.nombre} #{Login.user.apellido}" /></span>
                         <i class="fa fa-fw fa-cog"></i>
                     </a>
                     <ul>
