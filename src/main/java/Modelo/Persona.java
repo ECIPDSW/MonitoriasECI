@@ -14,17 +14,17 @@ public class Persona{
     private String nombre;
     private String apellido;
     private String correo;
-    //private String Contraseña;
-    private int telefonoMovil;
-    
-    public Persona(){}
+    private String contraseña;
 
-    public Persona(int id, String nombre, String apellido, String correo, int telefonoMovil) {
+    public Persona() {
+    }
+
+    public Persona(int id, String nombre, String apellido, String correo, String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
-        this.telefonoMovil = telefonoMovil;
+        this.contraseña = contraseña;
     }
 
     public int getId() {
@@ -59,18 +59,18 @@ public class Persona{
         this.correo = correo;
     }
 
-    public int getTelefonoMovil() {
-        return telefonoMovil;
+    public String getContraseña() {
+        return contraseña;
     }
 
-    public void setTelefonoMovil(int telefonoMovil) {
-        this.telefonoMovil = telefonoMovil;
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
     }
 
-    
-    
-    public String toString(){
-        return "{  Codigo" +id+ ", Nombre :" + nombre + ", Apellido :" + apellido + ", Correo: "+ correo +", TelefonoMovil"+telefonoMovil ;
+    @Override
+    public String toString() {
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
     }
+    
     
 }

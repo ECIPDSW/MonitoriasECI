@@ -13,59 +13,59 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class Monitor extends Persona{
-    
-    private List<Grupo> grupos;
-    private List<Asesoria> asesorias;
-    private Semestre semestreingreso;
+    private int telefonoMovil;
     private String programaAcademico;
+    private Semestre semestreDeIngreso;
+    private ArrayList<Grupo> grupos;
 
-    public Monitor() {}
-
-    public Monitor(List<Grupo> grupos, List<Asesoria> asesorias, Semestre semestreingreso, String programaAcademico, int codigo, String nombre, String apellido, String correo, int telefonoMovil) {
-        super(codigo, nombre, apellido, correo, telefonoMovil);
-        this.grupos = grupos;
-        this.asesorias = asesorias;
-        this.semestreingreso = semestreingreso;
-        this.programaAcademico = programaAcademico;
+    public Monitor() {
     }
 
-    public List<Grupo> getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(List<Grupo> grupos) {
+    public Monitor(int telefonoMovil, String ProgramaAcademico, Semestre semestreDeIngreso, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
+        super(id, nombre, apellido, correo, contraseña);
+        this.telefonoMovil = telefonoMovil;
+        this.programaAcademico = ProgramaAcademico;
+        this.semestreDeIngreso = semestreDeIngreso;
         this.grupos = grupos;
     }
 
-    public List<Asesoria> getAsesorias() {
-        return asesorias;
+    public int getTelefonoMovil() {
+        return telefonoMovil;
     }
 
-    public void setAsesorias(List<Asesoria> asesorias) {
-        this.asesorias = asesorias;
-    }
-
-    public Semestre getSemestreingreso() {
-        return semestreingreso;
-    }
-
-    public void setSemestreingreso(Semestre semestreingreso) {
-        this.semestreingreso = semestreingreso;
+    public void setTelefonoMovil(int telefonoMovil) {
+        this.telefonoMovil = telefonoMovil;
     }
 
     public String getProgramaAcademico() {
         return programaAcademico;
     }
 
-    public void setProgramaAcademico(String programaAcademico) {
-        this.programaAcademico = programaAcademico;
+    public void setProgramaAcademico(String ProgramaAcademico) {
+        this.programaAcademico = ProgramaAcademico;
     }
-    
-    
-    
+
+    public Semestre getSemestreDeIngreso() {
+        return semestreDeIngreso;
+    }
+
+    public void setSemestreDeIngreso(Semestre semestreDeIngreso) {
+        this.semestreDeIngreso = semestreDeIngreso;
+    }
+
+    public ArrayList<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(ArrayList<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
     @Override
-    public String toString(){
-        return super.toString()+ ", ProgramaAcademico: " + programaAcademico +", SemestreIngreso :" + semestreingreso+", Grupo de Monitoria :" + grupos +", franjas Monitoria :" + "}";
+    public String toString() {
+        return "Monitor{" + "telefonoMovil=" + telefonoMovil + ", ProgramaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + ", grupos=" + grupos + '}';
     }
+
     
+      
 }

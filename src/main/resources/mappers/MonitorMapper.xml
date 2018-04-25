@@ -3,11 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.MonitorMapper">
-    <resultMap type='Monitor' id='Monitor' extends='mappers.PersonaMapper.Persona'>
+<mapper namespace="Mappers.MonitorMapper">
+    <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
+        <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>
-        <association property='semestreingreso' javaType='Semestre' resultMap='mappers.SemestreMapper.Semestre'></association>
-        <collection property='grupos' ofType='Grupo' resultMap='mappers.GrupoMapper.Grupo' ></collection>
-        <collection property='asesorias' ofType='Asesoria' resultMap='mappers.AsesoriaMapper.Asesoria' ></collection>
+        <association property='semestreingreso' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>
+        <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
     </resultMap>
 </mapper>

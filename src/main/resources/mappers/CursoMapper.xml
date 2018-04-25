@@ -3,13 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.CursoMapper">
+<mapper namespace="Mappers.CursoMapper">
     <resultMap type='Curso' id='Curso'>
         <id property='id' column='cid'/>
         <result property='nombre' column = 'cnombre'/>
         <result property='creditosAcademicos' column = 'ccreditosacademicos'/>
         <result property='horasAprovadasMonitoria' column = 'chorasaprovadasmonitoria'/>
-        <collection property='grupos' ofType='Grupo' resultMap='mappers.GrupoMapper.Grupo' ></collection>
-        <collection property='temas' ofType='TemaCurso' resultMap='mappers.TemaCursoMapper.TemaCurso'></collection>
+        <collection property='temas' ofType='TemaCurso' resultMap='Mappers.TemaCursoMapper.TemaCurso'></collection>
     </resultMap>
 </mapper>

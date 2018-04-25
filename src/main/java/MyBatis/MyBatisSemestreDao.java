@@ -5,6 +5,7 @@
  */
 package MyBatis;
 
+import DAOS.SemestreDAO;
 import Mappers.SemestreMapper;
 import Modelo.Semestre;
 import com.google.inject.Inject;
@@ -13,8 +14,14 @@ import com.google.inject.Inject;
  *
  * @author David Rodriguez
  */
-public class MyBatisSemestreDao {
+public class MyBatisSemestreDao implements SemestreDAO{
    @Inject
    private SemestreMapper semestreMapper;
+
+    @Override
+    public Semestre loadSemestre(int id) {
+        return semestreMapper.loadSemestre(id);
+    }
+   
    
 }

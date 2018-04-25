@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,37 +14,38 @@ import java.util.List;
  */
 public class Profesor extends Persona{
     private String decanatura;
-    private List<Grupo> grupos;
-    
-    public Profesor(){}
-    
-    public Profesor(int codigo, String nombre,String apellido,String correo,int telefonoMovil,List<Grupo> grupos,String decanatura){
-         super(codigo,nombre,apellido,correo,telefonoMovil);
-         this.grupos = grupos;
-         this.decanatura = decanatura;
+    private ArrayList<Grupo> grupos;
+
+    public Profesor(String Decanatura, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
+        super(id, nombre, apellido, correo, contraseña);
+        this.decanatura = Decanatura;
+        this.grupos = grupos;
     }
 
-    public List<Grupo> getGrupos() {
+    public Profesor() {
+    }
+
+    public String getDecanatura() {
+        return decanatura;
+    }
+
+    public void setDecanatura(String Decanatura) {
+        this.decanatura = Decanatura;
+    }
+
+    public ArrayList<Grupo> getGrupos() {
         return grupos;
     }
 
-    public void setGrupos(List<Grupo> grupos) {
+    public void setGrupos(ArrayList<Grupo> grupos) {
         this.grupos = grupos;
     }
-    
-  
-    
-    public void setDecanatura(String decanatura){
-        this.decanatura = decanatura;
-    }
-    
-    public String getProgramaAcademico(){
-        return decanatura;
-    }
-    
+
     @Override
-    public String toString(){
-        return super.toString()+ ", Decanatura " + decanatura +", Grupo :" + grupos+ "}";
+    public String toString() {
+        return "Profesor{" + "Decanatura=" + decanatura + ", grupos=" + grupos + '}';
     }
+    
+    
     
 }

@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.ProfesorMapper">
-    <resultMap type='Profesor' id='Profesor' extends='mappers.PersonaMapper.Persona'>
+<mapper namespace="Mappers.ProfesorMapper">
+    <resultMap type='Profesor' id='Profesor' extends='Mappers.PersonaMapper.Persona'>
         <result property='decanatura' column = 'prdecanatura'/>
-        <collection property='grupos' ofType='Grupo' resultMap='mappers.GrupoMapper.Grupo' ></collection>
+        <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
     </resultMap>
 </mapper>

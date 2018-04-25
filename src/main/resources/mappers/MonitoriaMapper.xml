@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Mappers.MonitoriaMapper">
+    <resultMap type='Monitoria' id='Monitoria'>
+        <result property='dia' column='mdia'/>
+        <result property='horaInicio' column='mhoraInicio'/>
+        <result property='horaFin' column='mhoraFin'/>
+        <result property='lugar' column='mlugar'/>
+        <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
+        <collection property='asesoria' ofType='Asesoria' resultMap='Mappers.AsesoriaMapper.Asesoria'></collection>
+    </resultMap>
+</mapper>

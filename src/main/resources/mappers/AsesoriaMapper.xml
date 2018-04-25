@@ -3,21 +3,19 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.AsesoriaMapper">
-    <insert parameterType="map" id="registrarInformacionDeUnAsistente">
-        INSERT INTO Asesoria (ID,AnoGrupo,PeriodoAcademicoGrupo,Curso,NumeroGrupo,Tema,IDMonitor,Fecha,IDEstudiante,NombreEstudiante,IP,Observaciones)
-        VALUES (#{idestudiante}+#{fecha}+#{curso},#{periodo},#{curso},#{numerogrupo},#{tema},#{idmonitor},#{fecha},#{idestudiante},#{nombreestudiante},#{ip},#{observacion});
+<mapper namespace="Mappers.AsesoriaMapper">
+    <insert parameterType="map" id="registrarInformacionDeUnaAsesoria">
+        
     </insert>
    
     <resultMap type='Asesoria' id='Asesoria'>
-        <id property='id' column='aid'/>
         <result property='fecha' column = 'afecha'/>
         <result property='idEstudiante' column = 'aidestudiante'/>
         <result property='nombreEstudiate' column = 'anombreestudiante'/>
         <result property='ip' column = 'aip'/>
         <result property='observaciones' column = 'aobservaciones'/>
-        <association property='grupo' javaType='Grupo' resultMap='mappers.GrupoMapper.Grupo'></association>
-        <association property='tema' javaType='TemaCurso' resultMap='mappers.TemaCursoMapper.TemaCurso'></association>
-        <association property='monitor' javaType='Monitor' resultMap='mappers.MonitorMapper.Monitor'></association>
+        <association property='monitoria' javaType='Monitoria' resultMap='Mappers.MonitoriaMapper.Monitoria'></association>
+        <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
+        <collection property='temas' ofType='TemaAsesoria' resultMap='Mappers.TemaAsesoriaMapper.TemaAsesoria' ></collection>
     </resultMap>
 </mapper>

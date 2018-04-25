@@ -16,17 +16,18 @@ public class Curso {
     private String id;
     private String nombre;
     private int creditosAcademicos;
-    private int horasAprovadasMonitoria;
-    private List<Grupo> grupos;
-    private List<TemaCurso> temas;
+    private int horasAprobadasMonitoria;
+    private ArrayList<TemaCurso> temas;
 
-    public Curso(String id, String nombre, int CreditosAcademicos, int HorasAprovadasMonitoria, List<Grupo> grupos, List<TemaCurso> temas) {
+    public Curso(String id, String nombre, int creditosAcademicos, int horasAprobadasMonitoria, ArrayList<TemaCurso> temas) {
         this.id = id;
         this.nombre = nombre;
-        this.creditosAcademicos = CreditosAcademicos;
-        this.horasAprovadasMonitoria = HorasAprovadasMonitoria;
-        this.grupos = grupos;
+        this.creditosAcademicos = creditosAcademicos;
+        this.horasAprobadasMonitoria = horasAprobadasMonitoria;
         this.temas = temas;
+    }
+
+    public Curso() {
     }
 
     public String getId() {
@@ -49,41 +50,30 @@ public class Curso {
         return creditosAcademicos;
     }
 
-    public void setCreditosAcademicos(int CreditosAcademicos) {
-        this.creditosAcademicos = CreditosAcademicos;
+    public void setCreditosAcademicos(int creditosAcademicos) {
+        this.creditosAcademicos = creditosAcademicos;
     }
 
-    public int getHorasAprovadasMonitoria() {
-        return horasAprovadasMonitoria;
+    public int getHorasAprobadasMonitoria() {
+        return horasAprobadasMonitoria;
     }
 
-    public void setHorasAprovadasMonitoria(int HorasAprovadasMonitoria) {
-        this.horasAprovadasMonitoria = HorasAprovadasMonitoria;
+    public void setHorasAprobadasMonitoria(int horasAprobadasMonitoria) {
+        this.horasAprobadasMonitoria = horasAprobadasMonitoria;
     }
 
-    public List<Grupo> getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(List<Grupo> grupos) {
-        this.grupos = grupos;
-    }
-
-    public List<TemaCurso> getTemas() {
+    public ArrayList<TemaCurso> getTemas() {
         return temas;
     }
 
-    public void setTemas(List<TemaCurso> temas) {
+    public void setTemas(ArrayList<TemaCurso> temas) {
         this.temas = temas;
     }
-    
-    
-    
-    
-    public String toString(){
-        return "Curso { Nemonomico "+ id + ", Nombre :" + nombre + ", Creditos Academicos :"+ creditosAcademicos +", Horas Aprobadas de monitoria"+ horasAprovadasMonitoria +", Temas"+ temas +", Grupos"+ grupos +"}";
+
+    @Override
+    public String toString() {
+        return "Curso{" + "id=" + id + ", nombre=" + nombre + ", creditosAcademicos=" + creditosAcademicos + ", horasAprobadasMonitoria=" + horasAprobadasMonitoria + ", temas=" + temas + '}';
     }
-    
-    
+   
     
 }

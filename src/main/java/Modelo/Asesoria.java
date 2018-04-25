@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -12,38 +13,27 @@ import java.util.Date;
  * @author martincantorurrego
  */
 public class Asesoria {
-    private int id;
     private Date fecha;
     private int idEstudiante;
     private String nombreEstudiante;
     private String ip;
     private String observaciones;
+    private Monitoria monitoria;
     private Grupo grupo;
-    private TemaCurso tema;
-    private Monitor monitor;
+    private ArrayList<TemaAsesoria> temas;
 
-    public Asesoria(){}
-    
-    public Asesoria(int id, Date fecha, int idEstudiante, String nombreEstudiante, String ip, String observaciones, Grupo grupo, TemaCurso tema, Monitor monitor) {
-        this.id = id;
+    public Asesoria(Date fecha, int idEstudiante, String nombreEstudiante, String ip, String observaciones, Monitoria monitoria, Grupo grupo, ArrayList<TemaAsesoria> temas) {
         this.fecha = fecha;
         this.idEstudiante = idEstudiante;
         this.nombreEstudiante = nombreEstudiante;
         this.ip = ip;
         this.observaciones = observaciones;
+        this.monitoria = monitoria;
         this.grupo = grupo;
-        this.tema = tema;
-        this.monitor = monitor;
+        this.temas = temas;
     }
 
-    
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Asesoria() {
     }
 
     public Date getFecha() {
@@ -86,6 +76,14 @@ public class Asesoria {
         this.observaciones = observaciones;
     }
 
+    public Monitoria getMonitoria() {
+        return monitoria;
+    }
+
+    public void setMonitoria(Monitoria monitoria) {
+        this.monitoria = monitoria;
+    }
+
     public Grupo getGrupo() {
         return grupo;
     }
@@ -94,27 +92,18 @@ public class Asesoria {
         this.grupo = grupo;
     }
 
-    public TemaCurso getTema() {
-        return tema;
+    public ArrayList<TemaAsesoria> getTemas() {
+        return temas;
     }
 
-    public void setTema(TemaCurso tema) {
-        this.tema = tema;
+    public void setTemas(ArrayList<TemaAsesoria> temas) {
+        this.temas = temas;
     }
 
-    public Monitor getMonitor() {
-        return monitor;
-    }
-
-    public void setMonitor(Monitor monitor) {
-        this.monitor = monitor;
+    @Override
+    public String toString() {
+        return "Asesoria{" + "fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante + ", ip=" + ip + ", observaciones=" + observaciones + ", monitoria=" + monitoria + ", grupo=" + grupo + ", temas=" + temas + '}';
     }
     
-    
-    
-    
-    public String toString(){
-        return "Asesoria:\n" + "fecha:\n" + fecha  + "Monitor\n"+ monitor +"Codigo del estudiante\n"+ idEstudiante +"Nombre\n"+ nombreEstudiante  +"Observaciones\n"+ observaciones +"IP del Navegador \n"+ ip ;
-    }
     
 }

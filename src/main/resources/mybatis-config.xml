@@ -10,14 +10,16 @@
     <properties resource="config.properties">
     </properties>
     <typeAliases>
+       <typeAlias type='Modelo.Administrador' alias='Administrador'/>
        <typeAlias type='Modelo.Asesoria' alias='Asesoria'/>
        <typeAlias type='Modelo.Curso' alias='Curso'/>
-       <typeAlias type='Modelo.FranjaDisponibilidad' alias='FranjaDisponibilidad'/>
        <typeAlias type='Modelo.Grupo' alias='Grupo'/>
        <typeAlias type='Modelo.Monitor' alias='Monitor'/>
+       <typeAlias type='Modelo.Monitoria' alias='Monitoria'/>
        <typeAlias type='Modelo.Persona' alias='Persona'/>
        <typeAlias type='Modelo.Profesor' alias='Profesor'/>
        <typeAlias type='Modelo.Semestre' alias='Semestre'/>
+       <typeAlias type='Modelo.TemaAsesoria' alias='TemaAsesoria'/>
        <typeAlias type='Modelo.TemaCurso' alias='TemaCurso'/>
     </typeAliases>
         
@@ -36,14 +38,16 @@
     </environments>
         
     <mappers>
+           <mapper resource="mappers/AdministradorMapper.xml"></mapper>    
            <mapper resource="mappers/AsesoriaMapper.xml"></mapper>    
            <mapper resource="mappers/CursoMapper.xml"></mapper>
-           <mapper resource="mappers/FranjaDisponibilidadMapper.xml"></mapper>
            <mapper resource="mappers/GrupoMapper.xml"></mapper>
            <mapper resource="mappers/MonitorMapper.xml"></mapper>
+           <mapper resource="mappers/MonitoriaMapper.xml"></mapper>
            <mapper resource="mappers/PersonaMapper.xml"></mapper>
            <mapper resource="mappers/ProfesorMapper.xml"></mapper>
            <mapper resource="mappers/SemestreMapper.xml"></mapper>
+           <mapper resource="mappers/TemaAsesoriaMapper.xml"></mapper>
            <mapper resource="mappers/TemaCursoMapper.xml"></mapper>
     </mappers> 
         

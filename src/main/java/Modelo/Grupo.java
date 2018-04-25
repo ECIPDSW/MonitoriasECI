@@ -5,53 +5,29 @@
  */
 package Modelo;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author martincantorurrego
  */
 public class Grupo {
-    Semestre semestre;
-    Curso curso;
-    Profesor profesor;
-    int numero;
-    Monitor monitor;
-    List<FranjaDisponibilidad> franjas;
-    
-    public Grupo(){}
-    
-    public Grupo(int numeroGrupo,Curso cursog,Profesor profesor,Monitor monitorg,Semestre semestreg, List<FranjaDisponibilidad> franjas){
-        numero = numeroGrupo;
-        curso = cursog;
-        this.profesor = profesor;
-        monitor = monitorg;
-        semestre = semestreg;
-        this.franjas = franjas;
-    }
+    private int numero;
+    private Curso curso;
+    private Semestre semestre;
+    private Monitor monitor;
+    private Profesor profesor;
+    private ArrayList<Monitoria> monitorias;
+    private ArrayList<Asesoria> asesoria;
 
-    public Semestre getSemestre() {
-        return semestre;
-    }
-
-    public void setSemestre(Semestre semestre) {
-        this.semestre = semestre;
-    }
-
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
+    public Grupo(int numero, Curso curso, Semestre semestre, Monitor monitor, Profesor profesor, ArrayList<Monitoria> monitorias, ArrayList<Asesoria> asesoria) {
+        this.numero = numero;
         this.curso = curso;
-    }
-
-    public Profesor getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(Profesor profesor) {
+        this.semestre = semestre;
+        this.monitor = monitor;
         this.profesor = profesor;
+        this.monitorias = monitorias;
+        this.asesoria = asesoria;
     }
 
     public int getNumero() {
@@ -62,6 +38,22 @@ public class Grupo {
         this.numero = numero;
     }
 
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+
+    public Semestre getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(Semestre semestre) {
+        this.semestre = semestre;
+    }
+
     public Monitor getMonitor() {
         return monitor;
     }
@@ -70,17 +62,34 @@ public class Grupo {
         this.monitor = monitor;
     }
 
-    public List<FranjaDisponibilidad> getFranjas() {
-        return franjas;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setFranjas(List<FranjaDisponibilidad> franjas) {
-        this.franjas = franjas;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    public ArrayList<Monitoria> getMonitorias() {
+        return monitorias;
+    }
+
+    public void setMonitorias(ArrayList<Monitoria> monitorias) {
+        this.monitorias = monitorias;
+    }
+
+    public ArrayList<Asesoria> getAsesoria() {
+        return asesoria;
+    }
+
+    public void setAsesoria(ArrayList<Asesoria> asesoria) {
+        this.asesoria = asesoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Grupo{" + "numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias + ", asesoria=" + asesoria + '}';
     }
     
     
-    
-    public String toString(){
-        return "Grupo { Numero "+ numero + ", Curso :" + curso + ", Profesor :"+ profesor +", Monitor"+ monitor +", Semestre"+ semestre +"}";
-    }
 }

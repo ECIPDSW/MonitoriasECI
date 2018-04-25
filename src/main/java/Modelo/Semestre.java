@@ -13,50 +13,56 @@ import java.util.Date;
  */
 public class Semestre {
     private int ano;
-    private char periodoAcademico; // es '1' o '2' o 'I'
+    private char periodoAcademico;
     private Date fechaInicio;
     private Date fechaFin;
-    
-    public Semestre(){
-    }
-    
-    public Semestre(int ano, char pAcademico, Date fechaInicio, Date fechaFin){
+
+    public Semestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin) {
         this.ano = ano;
-        periodoAcademico = pAcademico;
+        this.periodoAcademico = periodoAcademico;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
     }
-    
-    public void setAno(int ano){
-        this.ano = ano;
+
+    public Semestre() {
     }
-    public int getNumero(){
+
+    public int getAno() {
         return ano;
     }
-    
-    public void setPeriodoAcademico(char pAcademico){
-        periodoAcademico = pAcademico;
+
+    public void setAno(int ano) {
+        this.ano = ano;
     }
-    public char getPeriodoAcademico(){
+
+    public char getPeriodoAcademico() {
         return periodoAcademico;
     }
-    
-    public void setFechaInicio(Date fechaInicio){
-        this.fechaInicio = fechaInicio;
+
+    public void setPeriodoAcademico(char periodoAcademico) {
+        this.periodoAcademico = periodoAcademico;
     }
-    public Date getFechaInicio(){
+
+    public Date getFechaInicio() {
         return fechaInicio;
     }
-    
-    public void setFechaFin(Date fechaFin){
-        this.fechaFin = fechaFin;
+
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
-    public Date getFechaFin(){
+
+    public Date getFechaFin() {
         return fechaFin;
     }
-    
-    public String toString(){
-        return "Semestre {"+ ano + "-" + periodoAcademico + "Fecha de Inicio:"+ fechaInicio +", Fecha de Finalizacion"+ fechaFin +"}";
+
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
+
+    @Override
+    public String toString() {
+        return "Semestre{" + "ano=" + ano + ", periodoAcademico=" + periodoAcademico + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
+    }
+    
     
 }

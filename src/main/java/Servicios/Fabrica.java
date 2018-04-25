@@ -1,5 +1,8 @@
 package Servicios;
+import DAOS.AsesoriaDAO;
+import MyBatis.MyBatisAsesoriaDao;
 import ServiciosImpl.ServicioAsesoriaImpl;
+import ServiciosImpl.ServicioSemestreImpl;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -26,12 +29,18 @@ public class Fabrica {
             protected void initialize() {
                 setClassPathResource("mybatis-config.xml");
                 bind(ServicioAsesoria.class).to(ServicioAsesoriaImpl.class);
+                bind(ServicioSemestre.class).to(ServicioSemestreImpl.class);
+                bind(AsesoriaDAO.class).to(MyBatisAsesoriaDao.class);
             }
         });
     }
     
      public ServicioAsesoria getServiciosAsesoria(){
         return Optional.of(myBatisInjector()).get().getInstance(ServicioAsesoria.class);
+    }
+     
+    public ServicioSemestre getServiciosSemestre(){
+        return Optional.of(myBatisInjector()).get().getInstance(ServicioSemestre.class);
     }
      
     public static Fabrica getInstance(){

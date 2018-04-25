@@ -3,10 +3,22 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.SemestreMapper">
+<mapper namespace="Mappers.SemestreMapper">
+    <select parameterType="map" id="loadSemestre" resultMap='Semestre'>
+        select
+        s.ano as sano,
+        s.periodoAcademico as speriodoacademico,
+        s.fechaInicio as sfechainicio,
+        s.fechaFin as sfechafin
+        
+        FROM Semestre as s
+        WHERE s.numero=#{id};
+        
+    </select>
+    
     <resultMap type='Semestre' id='Semestre'>
-        <id property='ano' column='sano'/> 
-        <id property='periodoAcademico' column = 'speriodoacademico'/>     
+        <result property='ano' column='sano'/> 
+        <result property='periodoAcademico' column = 'speriodoacademico'/>     
         <result property='fechaInicio' column = 'sfechainicio'/>
         <result property='fechaFin' column = 'sfechafin'/>
     </resultMap>

@@ -3,11 +3,10 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="mappers.TemaCursoMapper">
+<mapper namespace="Mappers.TemaCursoMapper">
     <resultMap type='TemaCurso' id='TemaCurso'>
-        <id property='nombreDelTema' column='tnombredeltema'/>
-        <result property='descripcion' column = 'tdescripcion'/>
-        <association propery='curso' javaType='Curso' resultMap='mappers.CursoMapper.Curso'></association>
-        <collection property='asesorias' ofType='Asesoria' resultMap='mappers.AsesoriaMapper.Asesoria' ></collection>
+        <result property='tema' column = 'tctema'/>
+        <result property='descripcion' column = 'tcdescripcion'/>
+        <association propery='curso' javaType='Curso' resultMap='Mappers.CursoMapper.Curso'></association>
     </resultMap>
 </mapper>
