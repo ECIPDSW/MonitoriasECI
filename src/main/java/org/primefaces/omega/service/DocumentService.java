@@ -15,6 +15,7 @@
  */
 package org.primefaces.omega.service;
 
+import java.io.Serializable;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import org.primefaces.model.CheckboxTreeNode;
@@ -24,7 +25,7 @@ import org.primefaces.omega.domain.Document;
 
 @ManagedBean(name = "documentService")
 @ApplicationScoped
-public class DocumentService {
+public class DocumentService implements Serializable{
     
     public TreeNode createDocuments() {
         TreeNode root = new DefaultTreeNode(new Document("Files", "-", "Folder"), null);

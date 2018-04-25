@@ -31,7 +31,7 @@ public class UserLoginView {
     private String username;
     
     private String password;
-    private static boolean loggedIn = false;
+    private static boolean loggedIn = true;
 
     public String getUsername() {
         return username;
@@ -53,7 +53,7 @@ public class UserLoginView {
   
     public void login() throws IOException {
         RequestContext context = RequestContext.getCurrentInstance();
-        FacesMessage message = null;
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Something Went Wrong","Wrong");
         
         System.out.println("LOGIN LLAMADO");
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {

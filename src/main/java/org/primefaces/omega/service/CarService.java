@@ -15,6 +15,7 @@
  */
 package org.primefaces.omega.service;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +26,7 @@ import org.primefaces.omega.domain.Car;
 
 @ManagedBean(name = "carService")
 @ApplicationScoped
-public class CarService {
+public class CarService implements Serializable {
     
     private final static String[] colors;
 	
