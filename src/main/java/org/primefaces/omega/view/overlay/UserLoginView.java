@@ -49,7 +49,7 @@ public class UserLoginView implements Serializable {
     private ProfesorBean profesorBean;
     private MonitorBean monitorBean;
     private String password;
-    private  boolean loggedIn = true;
+    private  boolean loggedIn = false;
     private Persona user;
     public UserLoginView(){
         Main.poblar();
@@ -98,6 +98,7 @@ public class UserLoginView implements Serializable {
 
             
             monitorBean.setMonitor((Monitor)user);
+            
             //System.out.println("LOGIN LLAMADOM");
         }
         else if(username.equals(Main.profesor.getId())){
@@ -105,7 +106,8 @@ public class UserLoginView implements Serializable {
             profesorBean = contextb.getApplication().evaluateExpressionGet(contextb, "#{Profesor}", ProfesorBean.class);
 
             profesorBean.setProfesor((Profesor)user);
-            
+            System.out.println("PROFESOR="+profesorBean.toString());
+            //profesorBean.refresh();
             //System.out.println("LOGIN LLAMADOP");
         }
         FacesContext facesContext = FacesContext.getCurrentInstance(); 

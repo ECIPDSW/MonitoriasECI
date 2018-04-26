@@ -102,7 +102,13 @@ public class Asesoria implements Serializable {
     public String toString() {
         return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante +  ", observaciones=" + observaciones + ", grupo=" + grupo + ", temas=" + temas + '}';
     }
-
+    public String getTemass(){
+        String t="";
+        for(int i =0;i<temas.size();i++){
+            t+=" "+temas.get(i).getTema()+"\n";
+        }
+        return t;
+    }
     
     
 }

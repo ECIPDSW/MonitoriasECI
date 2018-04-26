@@ -92,12 +92,6 @@ public class Grupo implements Serializable {
         this.monitorias = monitorias;
     }
 
-   
-
-    @Override
-    public String toString() {
-        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias +  '}';
-    }
 
    
     

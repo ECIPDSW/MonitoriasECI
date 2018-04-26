@@ -19,12 +19,13 @@ import MyBatis.MyBatisProfesorDao;
 import MyBatis.MyBatisSemestreDao;
 import Servicios.ServicioAsesoria;
 import com.google.inject.Inject;
+import java.io.Serializable;
 
 /**
  *
  * @author David Rodriguez
  */
-public class ServicioAsesoriaImpl implements ServicioAsesoria{
+public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Inject
     private SemestreDAO semestre;

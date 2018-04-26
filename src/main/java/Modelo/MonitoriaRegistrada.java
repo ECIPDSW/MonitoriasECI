@@ -6,9 +6,11 @@
 package Modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 /**
  *
@@ -32,6 +34,7 @@ public class MonitoriaRegistrada implements Serializable {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.asesorias = asesorias;
+        this.fecha=fecha;
     }
 
     public int getIdMonitoria() {
@@ -69,6 +72,13 @@ public class MonitoriaRegistrada implements Serializable {
       public Date getFecha() {
         return fecha;
     }
+          
+    public String getFechas() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+        String fechaComoCadena = sdf.format(fecha);
+        return fechaComoCadena;
+    }
+      
 
     public void setFecha(Date Fecha) {
         this.fecha = Fecha;

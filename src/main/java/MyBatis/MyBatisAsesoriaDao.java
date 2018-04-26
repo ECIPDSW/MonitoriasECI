@@ -8,12 +8,13 @@ package MyBatis;
 import DAOS.AsesoriaDAO;
 import Mappers.AsesoriaMapper;
 import com.google.inject.Inject;
+import java.io.Serializable;
 
 /**
  *
  * @author martincantorurrego
  */
-public class MyBatisAsesoriaDao implements AsesoriaDAO{
+public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     @Inject
     private AsesoriaMapper asesoriaMapper;  
     //@Override
