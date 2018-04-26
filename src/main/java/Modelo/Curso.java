@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ import java.util.List;
  *
  * @author martincantorurrego
  */
-public class Curso {
+public class Curso implements Serializable {
     private String id;
     private String nombre;
     private int creditosAcademicos;

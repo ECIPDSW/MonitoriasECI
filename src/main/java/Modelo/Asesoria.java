@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -12,7 +13,7 @@ import java.util.Date;
  *
  * @author martincantorurrego
  */
-public class Asesoria {
+public class Asesoria implements Serializable {
     private int idAsesoria;
     private Date fecha;
     private int idEstudiante;

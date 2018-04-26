@@ -21,9 +21,9 @@
 
 
                                     <p:outputLabel for="Curso" value="Seleccione Curso: "  />
-                                    <p:selectOneMenu id="Curso" value="#{selectOneMenuView.car}"   style="width:125px">
+                                    <p:selectOneMenu id="Curso" value="#{Profesor.grupo}"   style="width:125px">
                                         <f:selectItem itemLabel="Select One" itemValue="" />
-                                        <f:selectItems value="#{selectOneMenuView.cars}" />
+                                        <f:selectItems value="#{Profesor.grupos}" />
                                     </p:selectOneMenu>
                                     <p:outputLabel for="Grupo" value="Seleccione Grupo: "  />
                                     <p:selectOneMenu id="Grupo" value="#{selectOneMenuView.car}"   style="width:125px">

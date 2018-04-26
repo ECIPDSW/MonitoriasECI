@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 
@@ -13,7 +14,7 @@ import java.sql.Date;
  *
  * @author martincantorurrego
  */
-public class Semestre {
+public class Semestre implements Serializable {
     private int numero;
     private int ano;
     private char periodoAcademico;

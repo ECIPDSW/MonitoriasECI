@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +14,7 @@ import java.util.Date;
  *
  * @author martincantorurrego
  */
-class MonitoriaRegistrada {
+public class MonitoriaRegistrada implements Serializable {
     private int idMonitoria;
     private String IP;
     private Time horaInicio;
