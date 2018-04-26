@@ -1,6 +1,7 @@
 package Beans;
  
 
+import Modelo.Grupo;
 import Modelo.Monitor;
 import Modelo.Profesor;
 import Modelo.Semestre;
@@ -27,11 +28,13 @@ public class ProfesorBean implements Serializable  {
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
     
     private Profesor profesor;
-    
- 
+    private Map<String,Grupo> grupos = new HashMap<String, Grupo>();
+    private Grupo grupo;
     
     public void MonitorBean() {
-        //cars
+        for(int i=0;i<profesor.getGrupos().size();i++){
+            grupos.put(profesor.getGrupos().get(i).getCurso().getNombre()+""+profesor.getGrupos().get(i).getNumero(),profesor.getGrupos().get(i));
+        }
         System.out.println("LLENADO");
  
     }
@@ -44,6 +47,14 @@ public class ProfesorBean implements Serializable  {
         this.profesor = profesor;
     }
  
-        
-    
+    public Map<String, Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupo(Grupo grupo){
+        this.grupo=grupo;
+    }
+    public Grupo getGrupo(){
+        return grupo;
+    }
 }
