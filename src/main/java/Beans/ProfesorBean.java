@@ -56,7 +56,7 @@ public class ProfesorBean implements Serializable  {
         return monitorias;
     }
     public List<Asesoria> getAsesorias(){
-        System.out.println(asesorias);
+        System.out.println("ASESORIAS");
         return asesorias;
     }
     public void setMonitoria(Monitoria mo){
@@ -66,7 +66,7 @@ public class ProfesorBean implements Serializable  {
         return mon;
     }
     public List<MonitoriaRegistrada> getMonitoriasr(){
-        System.out.println(monitorias);
+        System.out.println("MONITORIAS");
         return monreg;
     }
     public void setMonitoriar(MonitoriaRegistrada mo){
