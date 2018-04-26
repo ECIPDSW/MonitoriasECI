@@ -14,5 +14,5 @@ public interface AsesoriaMapper {
     //public Asesoria consultarAsesoria(@Param("id")int id);
     //public void registrarInformacionDeLaAsesoria();
     //public void registrarInformacionDeUnAsistente(@Param("id")int id);
-    
+    void registrarAsesoria(@Param("grupo")int grupo, @Param("moni")int monitor, @Param("idEst")int idEstudiante, @Param("nombreEst")String nombreEstudiante, @Param("obser")String observaciones);
 }

@@ -13,4 +13,5 @@ public interface ServicioAsesoria {
     Semestre getSemestre(int id);
     Profesor getProfesor(int id);
     Monitor loadMonitor(int id);
+    void registrarAsesoria(int grupo, int monitor, int idEstudiante,String nombreEstudiante, String observaciones);
 }

@@ -17,12 +17,30 @@
                         
     g.idGrupo as gidgrupo,
     g.numero as gnumero,
-    g.curso_ID as gcursoid
+    g.curso_ID as gcursoid,
+        
+    mo.idmonitoria as moid,
+    mo.dia as mdia,
+    mo.horainicio as mhorainicio,
+    mo.horafin as mhorafin,
+    mo.lugar as mlugar,
     
-                   
+    mr.idmonitoriaregistrada as mronid,
+    mr.horacomienzo as mrhorainicio,
+    mr.horafinalizacion as mrhorafin,
+    mr.fecha as mrfecha,
+        
+    a.idasesoria as aid,
+    a.idestudiante as aidestudiante,
+    a.nombreestudiante as anombreestudiante,
+    a.observaciones as aobservaciones                
+                
     FROM profesor as pr
     left join persona as p on pr.persona_id = p.id
     left join grupo as g on pr.persona_id = g.profesor_Persona_ID
+    left join monitoria as mo on mo.grupo_idgrupo = g.idgrupo
+    left join monitoriaregistrada as mr on mr.idmonitoriaregistrada = mo.idmonitoria
+    left join asesoria as a on a.monitoriaregistrada = mr.idmonitoriaregistrada
     WHERE pr.persona_id=#{id} 
         
     </select>
