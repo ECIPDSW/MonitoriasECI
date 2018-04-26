@@ -24,7 +24,7 @@
                                 <p:panelGrid columns="2"  columnClasses="ui-grid-col-20,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
                                     <p:outputLabel for="Monitoria" value="Seleccione monitoria que desea iniciar:"  />
-                                    <p:selectOneMenu id="Monitoria" value="#{selectOneMenuView.car}"   style="width:250px">
+                                    <p:selectOneMenu id="Monitoria"  required="true" value="#{selectOneMenuView.car}"   style="width:250px">
                                         <f:selectItem itemLabel="Select One" itemValue="" />
                                         <f:selectItems value="#{selectOneMenuView.cars}" />
                                     </p:selectOneMenu>
@@ -35,9 +35,13 @@
 
                                 <p:panelGrid columns="2"  columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
-                                    <p:commandButton  actionListener="#{Monitor.botonIniciarAsesoria()}" type="button"    update="botonFin" disabled="#{Monitor.monitoriaIniciada}" value="Iniciar franja de monitoria" styleClass="green-button" style="margin-bottom:10px;"/>
-
-                                    <p:commandButton id="botonFin" type="button" update="@form" disabled="#{!Monitor.monitoriaIniciada}" value="Terminar franja de monitoria" styleClass="red-button" style="margin-bottom:10px;"/>
+                                    <p:commandButton     id="botonInicio"    actionListener="#{Monitor.botonIniciarAsesoria()}"   type="button"      disabled="#{Monitor.monitoriaIniciada}" value="Iniciar franja de monitoria" styleClass="green-button" style="margin-bottom:10px;">
+                                        <f:ajax execute="botonInicio" render="botonFin botonInicio"/>
+                                    </p:commandButton>
+                                    
+                                    <p:commandButton    id="botonFin" type="button"  actionListener="#{Monitor.botonFinalizarAsesoria()}"   disabled="#{!Monitor.monitoriaIniciada}" value="Terminar franja de monitoria" styleClass="red-button" style="margin-bottom:10px;">
+                                    <f:ajax execute="botonFin" render="botonFin botonInicio"/>
+                                    </p:commandButton>
 
                                 </p:panelGrid>
                             </div>

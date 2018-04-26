@@ -16,6 +16,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 
@@ -108,12 +109,17 @@ public class MonitorBean implements Serializable {
 
     public void botonIniciarAsesoria() {
         monitoriaIniciada=true;
+        System.out.println("entrooo");
         horaInicioMonitoria = new String();
         Calendar calendario = new GregorianCalendar();
         horaInicioMonitoria += Integer.toString(calendario.get(Calendar.HOUR_OF_DAY))+" : " ;
         horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.MINUTE))+" : " ;
         horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.SECOND)) ;
         Date fechaMonitoria = new Date(calendario.get(Calendar.YEAR), calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH));
+    }
+    
+    public void botonFinalizarAsesoria() {
+        monitoriaIniciada=false;
     }
     public void setMonitor(Monitor m){
         this.monitor=m;
