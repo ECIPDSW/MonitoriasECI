@@ -16,16 +16,22 @@
                     <div class="ui-g-12">
                         <div class="ui-g-12 ui-lg-6">
                             <div class="card">
-                                <h1>Registrar LLegada a Monitoria</h1>                           
-                                <p:clock />
-
+                                <h1>Registrar LLegada a Monitoria</h1>
                                 <p:panelGrid columns="2"  columnClasses="ui-grid-col-20,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                    <p:clock />
+                                    <p:spacer height="50" />
+                                </p:panelGrid>
+                                <p:panelGrid columns="2"  columnClasses="ui-grid-col-20,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+
                                     <p:outputLabel for="Monitoria" value="Seleccione monitoria que desea iniciar:"  />
-                                    <p:selectOneMenu id="Monitoria" value="#{selectOneMenuView.car}"   style="width:500px">
+                                    <p:selectOneMenu id="Monitoria" value="#{selectOneMenuView.car}"   style="width:250px">
                                         <f:selectItem itemLabel="Select One" itemValue="" />
                                         <f:selectItems value="#{selectOneMenuView.cars}" />
                                     </p:selectOneMenu>
                                 </p:panelGrid>
+                                <p:spacer height="10" />
+                                <p:separator />
+
 
                                 <p:panelGrid columns="2"  columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 

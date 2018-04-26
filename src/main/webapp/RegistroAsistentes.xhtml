@@ -8,7 +8,7 @@
     <ui:define name="title">Sample</ui:define>
 
     <ui:define name="content">
-        
+
         <h:form>
             <div class="ui-fluid">
                 <div class="ui-g">
@@ -17,25 +17,27 @@
                             <!-- Left Side -->
                             <div class="card">
                                 <h1>Registrar Asistente</h1>
-                                <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                <p:panelGrid id="campos" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                    
+                                    
                                     <p:outputLabel for="input" value="Carnet Estudiante"/>
-                                    <p:inputText id="input"/>
+                                    <p:inputText id="input" required="true"  requiredMessage="Carnet del estudiante es requerido."/>
                                     <p:outputLabel for="input" value="Nombre Estudiante"/>
-                                    <p:inputText id="input2"/>
+                                    <p:inputText id="input2" required="true" requiredMessage="Nombre del estudiante es requerido."/>
 
-                                    <p:outputLabel for="Profesor" value="Seleccione grupo: "  />
-                                    <p:selectOneMenu id="Profesor" value="#{selectOneMenuView.car}"   style="width:125px">
+                                    <p:outputLabel for="Grupo" value="Seleccione grupo: "  />
+                                    <p:selectOneMenu id="Grupo" value="#{selectOneMenuView.car}"   style="width:125px" required="true" requiredMessage="Seleccione un grupo.">
                                         <f:selectItem itemLabel="Select One" itemValue="" />
                                         <f:selectItems value="#{selectOneMenuView.cars}" />
                                     </p:selectOneMenu>
 
-                                    <h:outputLabel for="multiple" value="Temas a consultar: " />
+                                    <h:outputLabel for="multiple" value="Temas a consultar: "  />
                                     <p:selectCheckboxMenu id="multiple" value="#{checkboxView.selectedCities}" label="Seleccione" required="true"
                                                           filter="true" filterMatchMode="startsWith" panelStyle="width:300px">
                                         <f:selectItems value="#{checkboxView.cities}" />
                                     </p:selectCheckboxMenu>
 
-                                    <p:commandButton id="btnRegistro" value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White" type="button" style="width:auto;margin-bottom:10px;"/>
+                                    <p:commandButton id="btnRegistro"    value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White" type="button"  update="campos" style="width:auto;margin-bottom:10px;"/>
 
 
 
@@ -69,8 +71,8 @@
                                         <h:outputLabel for="comentarios" value="Comentarios: " />
                                         <p:inputTextarea id="comentarios" autoResize="false"/>
 
-                                        
 
+                                        <p:spacer height="10" />
                                         <f:facet name="footer">
                                             <p:commandButton value="Terminar asesoria" type="button" styleClass="red-button" onclick="PF('dlg').hide()" style="width:auto;margin-bottom:10px;"/>
                                         </f:facet>  
@@ -79,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </h:form>

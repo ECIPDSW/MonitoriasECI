@@ -27,7 +27,7 @@ public class ProfesorBean implements Serializable  {
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
     
     private Profesor profesor;
- 
+    
  
     
     public void MonitorBean() {
