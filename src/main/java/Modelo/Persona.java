@@ -6,7 +6,7 @@
 package Modelo;
 
 import java.io.Serializable;
-import javafx.util.Pair;
+
 
 /**
  *
