@@ -115,5 +115,9 @@ public class MonitorBean implements Serializable {
         horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.SECOND)) ;
         Date fechaMonitoria = new Date(calendario.get(Calendar.YEAR), calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH));
     }
+    public void setMonitor(Monitor m){
+        this.monitor=m;
+        
+    }
 
 }
