@@ -5,13 +5,14 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author martincantorurrego
  */
-public class Grupo {
+public class Grupo implements Serializable {
     private int idGrupo;
     private int numero;
     private Curso curso;

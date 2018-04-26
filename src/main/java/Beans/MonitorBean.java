@@ -2,6 +2,7 @@ package Beans;
  
 
 import Modelo.Monitor;
+import Modelo.Profesor;
 import Modelo.Semestre;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
@@ -34,7 +35,7 @@ public class MonitorBean implements Serializable  {
     private String city;
     private Map<String,String> cities = new HashMap<String, String>();
  
-    private String profesor;
+    
     private List<String> profesores;
  
     private String curso;
@@ -67,12 +68,12 @@ public class MonitorBean implements Serializable  {
         profesores.add("Alan Turing");
     }
  
-    public String getProfesor() {
-        return profesor;
+    public Monitor getMonitor() {
+        return monitor;
     }
  
-    public void setProfesor(String profesor) {
-        this.profesor = profesor;
+    public void setMonitor(Monitor monitor) {
+        this.monitor = monitor;
     }
  
     public List<String> getProfesores() {

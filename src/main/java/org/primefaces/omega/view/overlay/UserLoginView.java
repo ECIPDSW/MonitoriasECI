@@ -15,15 +15,20 @@
  */
 package org.primefaces.omega.view.overlay;
 
+import Beans.MonitorBean;
 import Beans.ProfesorBean;
+import Modelo.Main;
+import Modelo.Monitor;
 import Modelo.Persona;
 import Modelo.Profesor;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
 
+
 import java.io.IOException;
 import java.io.Serializable;
 import static java.lang.Integer.parseInt;
+import java.util.Map;
 import javax.enterprise.inject.spi.Bean;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -41,12 +46,14 @@ import org.primefaces.context.RequestContext;
 public class UserLoginView implements Serializable {
     
     private Integer username;
-    
-    private ProfesorBean ProfesorBean;
+    private ProfesorBean profesorBean;
+    private MonitorBean monitorBean;
     private String password;
     private  boolean loggedIn = true;
-    private Persona user=new Persona(2125275,"Oscar","Pinto","moka117@hotmail.com","12345");
-    
+    private Persona user;
+    public UserLoginView(){
+        Main.poblar();
+    }
     
     public Integer getUsername() {
         
@@ -78,16 +85,34 @@ public class UserLoginView implements Serializable {
     }
   
     public void login() throws IOException {
+        
         RequestContext context = RequestContext.getCurrentInstance();
+        FacesContext contextb = FacesContext.getCurrentInstance();
         FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Something Went Wrong","Wrong");
         //user=sa.getProfesor(username);
         //ProfesorBean.setProfesor((Profesor)user);
-        
+        //System.out.println("LOGIN LLAMADO1");
+        if(username.equals(Main.monitor.getId())){
+            user=Main.monitor;
+            monitorBean = contextb.getApplication().evaluateExpressionGet(contextb, "#{Monitor}", MonitorBean.class);
+
+            
+            monitorBean.setMonitor((Monitor)user);
+            //System.out.println("LOGIN LLAMADOM");
+        }
+        else if(username.equals(Main.profesor.getId())){
+            user=Main.profesor;
+            profesorBean = contextb.getApplication().evaluateExpressionGet(contextb, "#{Profesor}", ProfesorBean.class);
+
+            profesorBean.setProfesor((Profesor)user);
+            
+            //System.out.println("LOGIN LLAMADOP");
+        }
         FacesContext facesContext = FacesContext.getCurrentInstance(); 
-        System.out.println("LOGIN LLAMADO");
+        //System.out.println("LOGIN LLAMADOF");
         if(username != null && username== user.getId() && password != null && password.equals(user.getContraseña())) {
             loggedIn = true;
-            user=new Persona(2125275,"Oscar","Pinto","moka117@hotmail.com","12345");
+            
             
             Flash flash = facesContext.getExternalContext().getFlash();
             flash.setKeepMessages(true);
@@ -107,6 +132,8 @@ public class UserLoginView implements Serializable {
         if(!loggedIn){
             FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
         }
+    
     // Do here your job which should run right before the RENDER_RESPONSE.
     }
+
 }

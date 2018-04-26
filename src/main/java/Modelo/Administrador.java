@@ -5,10 +5,12 @@
  */
 package Modelo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author 2125275
  */
-public class Administrador extends Persona {
+public class Administrador extends Persona implements Serializable {
     
 }
