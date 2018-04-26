@@ -4,14 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.AsesoriaMapper">
+    <insert parameterType="map" id="registrarAsesoria">
+        insert into asesoria (grupo_idgrupoasistente, monitoriaregistrada, idestudiante, nombreestudiante, observaciones) values(#{grupo}, 1, #{idEst}, #{nombreEst}, #{obser})
+    </insert>
+    
     <resultMap type='Asesoria' id='Asesoria'>
         <id property='idAsesoria' column='aid'/>
         <result property='fecha' column = 'afecha'/>
         <result property='idEstudiante' column = 'aidestudiante'/>
         <result property='nombreEstudiate' column = 'anombreestudiante'/>
-        <result property='ip' column = 'aip'/>
         <result property='observaciones' column = 'aobservaciones'/>
-        <association property='monitoria' javaType='Monitoria' resultMap='Mappers.MonitoriaMapper.Monitoria'></association>
         <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
         <collection property='temas' ofType='TemaAsesoria' resultMap='Mappers.TemaAsesoriaMapper.TemaAsesoria' ></collection>
 

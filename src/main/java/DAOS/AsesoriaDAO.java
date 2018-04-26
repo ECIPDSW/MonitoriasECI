@@ -14,5 +14,5 @@ public interface AsesoriaDAO {
     //public Asesoria loadAsesoria(@Param("id")int id);
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
-    
+    void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones);
 }

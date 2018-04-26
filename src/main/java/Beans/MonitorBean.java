@@ -1,5 +1,6 @@
 package Beans;
 
+import Modelo.Grupo;
 import Modelo.Monitor;
 import Modelo.Semestre;
 import Servicios.Fabrica;
@@ -16,6 +17,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 
@@ -24,12 +26,15 @@ import javax.faces.model.SelectItemGroup;
 public class MonitorBean implements Serializable {
 
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
-
+    
     private String console;
     private Monitor monitor;
     private boolean monitoriaIniciada=false;
+    private ArrayList<Grupo> grupos;
+    private Grupo grupoSeleccionado;
 
     private String horaInicioMonitoria;
+    private String horaFinMonitoria;
 
     private String car;
     private List<SelectItem> cars;
@@ -64,6 +69,22 @@ public class MonitorBean implements Serializable {
         profesores.add("Teresa de Calcuta");
         profesores.add("Alan Turing");
     }
+
+    public ArrayList<Grupo> getGrupos() {
+        return monitor.getGrupos();
+    }
+
+    public Grupo getGrupoSeleccionado() {
+        
+        return grupoSeleccionado;
+    }
+
+    public void setGrupoSeleccionado(Grupo grupoSeleccionado) {
+        System.out.println("dwferwf");
+        this.grupoSeleccionado = grupoSeleccionado;
+    }
+
+   
 
     public String getMonitoriaIniciada() {
  
@@ -114,6 +135,15 @@ public class MonitorBean implements Serializable {
         horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.MINUTE))+" : " ;
         horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.SECOND)) ;
         Date fechaMonitoria = new Date(calendario.get(Calendar.YEAR), calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH));
+    }
+    
+    public void botonFinalizarAsesoria() {
+        monitoriaIniciada=false;
+        horaFinMonitoria = new String();
+        Calendar calendario = new GregorianCalendar();
+        horaFinMonitoria += Integer.toString(calendario.get(Calendar.HOUR_OF_DAY))+" : " ;
+        horaFinMonitoria +=Integer.toString(calendario.get(Calendar.MINUTE))+" : " ;
+        horaFinMonitoria +=Integer.toString(calendario.get(Calendar.SECOND)) ;
     }
     public void setMonitor(Monitor m){
         this.monitor=m;
