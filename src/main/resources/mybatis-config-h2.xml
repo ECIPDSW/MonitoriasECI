@@ -11,6 +11,7 @@
        <typeAlias type='Modelo.Grupo' alias='Grupo'/>
        <typeAlias type='Modelo.Monitor' alias='Monitor'/>
        <typeAlias type='Modelo.Monitoria' alias='Monitoria'/>
+       <typeAlias type='Modelo.MonitoriaRegistrada' alias='MonitoriaRegistrada'/>
        <typeAlias type='Modelo.Persona' alias='Persona'/>
        <typeAlias type='Modelo.Profesor' alias='Profesor'/>
        <typeAlias type='Modelo.Semestre' alias='Semestre'/>
@@ -33,12 +34,13 @@
     </environments>
     
     <mappers>
-           <mapper resource="mappers/AdministradorMapper.xml"></mapper>    
+          <mapper resource="mappers/AdministradorMapper.xml"></mapper>    
            <mapper resource="mappers/AsesoriaMapper.xml"></mapper>    
            <mapper resource="mappers/CursoMapper.xml"></mapper>
            <mapper resource="mappers/GrupoMapper.xml"></mapper>
            <mapper resource="mappers/MonitorMapper.xml"></mapper>
            <mapper resource="mappers/MonitoriaMapper.xml"></mapper>
+           <mapper resource="mappers/MonitoriaRegistradaMapper.xml"></mapper>
            <mapper resource="mappers/PersonaMapper.xml"></mapper>
            <mapper resource="mappers/ProfesorMapper.xml"></mapper>
            <mapper resource="mappers/SemestreMapper.xml"></mapper>

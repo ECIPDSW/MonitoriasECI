@@ -9,9 +9,7 @@
         <result property='fecha' column = 'afecha'/>
         <result property='idEstudiante' column = 'aidestudiante'/>
         <result property='nombreEstudiate' column = 'anombreestudiante'/>
-        <result property='ip' column = 'aip'/>
         <result property='observaciones' column = 'aobservaciones'/>
-        <association property='monitoria' javaType='Monitoria' resultMap='Mappers.MonitoriaMapper.Monitoria'></association>
         <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
         <collection property='temas' ofType='TemaAsesoria' resultMap='Mappers.TemaAsesoriaMapper.TemaAsesoria' ></collection>
 

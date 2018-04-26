@@ -8,6 +8,7 @@ package ServiciosImpl;
 
 import DAOS.AsesoriaDAO;
 import DAOS.MonitorDAO;
+import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
 import DAOS.TemaAsesoriaDAO;
@@ -32,13 +33,17 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria{
     private AsesoriaDAO asesoria;
     @Inject
     private TemaAsesoriaDAO temaasesoria;
-    //private MyBatisSemestreDao semestre = new MyBatisSemestreDao();
+    @Inject
+    private MonitorDAO monitor;
+    @Inject
+    private ProfesorDAO profesor;
+    @Inject
+    private MonitoriaRegistradaDAO monitoriaregistrada;
     
     
-    private MyBatisProfesorDao profesor = new MyBatisProfesorDao();
     
     
-    private MyBatisMonitorDao monitor = new MyBatisMonitorDao();
+    
 
     @Override
     public Semestre getSemestre(int id) {
