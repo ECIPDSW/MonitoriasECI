@@ -24,6 +24,7 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getAno());
     }
     public static void poblar(){
+        System.out.println("POBLAR");
         Date d = new Date(2018,04,17);
         Time ti = new Time(12,7,1);
         Semestre sem = new Semestre(1,2018,'a',d,d);

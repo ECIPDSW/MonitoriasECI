@@ -10,7 +10,6 @@
         <result property='horaInicio' column='mhoraInicio'/>
         <result property='horaFin' column='mhoraFin'/>
         <result property='lugar' column='mlugar'/>
-        <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
-        <collection property='asesoria' ofType='Asesoria' resultMap='Mappers.AsesoriaMapper.Asesoria'></collection>
+        <collection property='mregistrada' ofType='MonitoriaRegistrada' resultMap='Mappers.MonitoriaRegistradaMapper.MonitoriaRegistrada'></collection>
     </resultMap>
 </mapper>

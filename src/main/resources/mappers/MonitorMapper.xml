@@ -4,11 +4,42 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.MonitorMapper">
+    <select parameterType="map" id="loadMonitor" resultMap='Monitor'>
+    select
+    
+    p.id as peid,
+    p.nombre as penombre ,
+    p.apellido as peapellido ,
+    p.correo as pecorreo ,
+    p.contasena as peconstraseña ,
+    
+    m.telefono as mtelefono,
+    m.programaacademico as mprogramaacademico,
+    
+    s.numero as snumero,
+    s.ano as sano,
+    s.periodoAcademico as speriodoacademico,
+    s.fechaInicio as sfechainicio,
+    s.fechaFin as sfechafin,
+    
+    g.idGrupo as gidgrupo,
+    g.numero as gnumero,
+    g.curso_ID as gcursoid
+    
+                   
+    FROM monitor as m 
+    left join persona as p on m.persona_id = p.id
+    left join semestre as s on m.semestreIngreso_Numero=s.numero
+    left join grupo as g on m.persona_id = g.monitor_Persona_ID
+    WHERE m.persona_id=#{id} 
+        
+    </select>
+
     <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
         <id property='idMonitor' column='mid'/>
         <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>
-        <association property='semestreingreso' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>
+        <association property='semestreDeIngreso' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>
         <collection property='grupos' ofType='Grupo' resultMap='Mappers.GrupoMapper.Grupo' ></collection>
     </resultMap>
 </mapper>

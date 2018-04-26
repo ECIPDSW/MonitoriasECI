@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Mappers.MonitoriaRegistradaMapper">
+    <resultMap type='MonitoriaRegistrada' id='MonitoriaRegistrada'>
+        <id property='idMonitoria' column='mronid'/>
+        <result property='IP' column='mrip'/>
+        <result property='horaInicio' column='mrhoraInicio'/>
+        <result property='horaFin' column='mrhoraFin'/>
+        <result property='fecha' column='mrfecha'/>
+        <collection property='asesorias' ofType='Asesoria' resultMap='Mappers.AsesoriaMapper.Asesoria'></collection>
+    </resultMap>
+</mapper>
