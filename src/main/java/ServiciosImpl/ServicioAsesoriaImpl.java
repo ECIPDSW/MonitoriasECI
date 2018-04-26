@@ -61,8 +61,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria{
     }
 
     @Override
-    public void registrarAsesoria(int grupo, int monitoria, int idEstudiante, int nombreEstudiante, String observaciones) {
-        asesoria.registrarAsesoria(grupo, monitoria, idEstudiante, nombreEstudiante, observaciones);
+    public void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones) {
+        asesoria.registrarAsesoria(grupo, monitor, idEstudiante, nombreEstudiante, observaciones);
     }
    
     
