@@ -24,4 +24,9 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO{
     //public void registrarInformacionDeAsesoria(){}
     //@Override
     //public void registrarInformacionDeAsistente(){}
+
+    @Override
+    public void registrarAsesoria(int grupo, int monitoria, int idEstudiante, int nombreEstudiante, String observaciones) {
+        asesoriaMapper.registrarAsesoria(grupo, monitoria, idEstudiante, nombreEstudiante, observaciones);
+}
 }

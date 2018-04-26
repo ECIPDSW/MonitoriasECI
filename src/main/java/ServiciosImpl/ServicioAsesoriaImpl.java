@@ -59,6 +59,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria{
     public Monitor loadMonitor(int id) {
         return monitor.loadMonitor(id);
     }
+
+    @Override
+    public void registrarAsesoria(int grupo, int monitoria, int idEstudiante, int nombreEstudiante, String observaciones) {
+        asesoria.registrarAsesoria(grupo, monitoria, idEstudiante, nombreEstudiante, observaciones);
+    }
    
     
 }
