@@ -8,7 +8,7 @@
     <ui:define name="title">Sample</ui:define>
 
     <ui:define name="content">
-        
+
         <h:form>
             <div class="ui-fluid">
                 <div class="ui-g">
@@ -17,9 +17,11 @@
                             <!-- Left Side -->
                             <div class="card">
                                 <h1>Registrar Asistente</h1>
-                                <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                <p:panelGrid id="campos" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                    
+                                    
                                     <p:outputLabel for="input" value="Carnet Estudiante"/>
-                                    <p:inputText id="input" required="true" requiredMessage="Carnet del estudiante es requerido."/>
+                                    <p:inputText id="input" required="true"  requiredMessage="Carnet del estudiante es requerido."/>
                                     <p:outputLabel for="input" value="Nombre Estudiante"/>
                                     <p:inputText id="input2" required="true" requiredMessage="Nombre del estudiante es requerido."/>
 
@@ -35,7 +37,7 @@
                                         <f:selectItems value="#{checkboxView.cities}" />
                                     </p:selectCheckboxMenu>
 
-                                    <p:commandButton id="btnRegistro" value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White" type="button" style="width:auto;margin-bottom:10px;"/>
+                                    <p:commandButton id="btnRegistro"    value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White" type="button"  update="campos" style="width:auto;margin-bottom:10px;"/>
 
 
 
@@ -69,8 +71,8 @@
                                         <h:outputLabel for="comentarios" value="Comentarios: " />
                                         <p:inputTextarea id="comentarios" autoResize="false"/>
 
-                                        
 
+                                        <p:spacer height="10" />
                                         <f:facet name="footer">
                                             <p:commandButton value="Terminar asesoria" type="button" styleClass="red-button" onclick="PF('dlg').hide()" style="width:auto;margin-bottom:10px;"/>
                                         </f:facet>  
@@ -79,7 +81,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </h:form>

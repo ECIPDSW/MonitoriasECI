@@ -44,7 +44,7 @@ public class UserLoginView implements Serializable {
     
     private ProfesorBean ProfesorBean;
     private String password;
-    private  boolean loggedIn = false;
+    private  boolean loggedIn = true;
     private Persona user=new Persona(2125275,"Oscar","Pinto","moka117@hotmail.com","12345");
     
     
