@@ -23,8 +23,8 @@ public class Monitor extends Persona implements Serializable{
     public Monitor() {
     }
 
-    public Monitor(int idMonitor, int telefonoMovil, String programaAcademico, Semestre semestreDeIngreso, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
-        super(id, nombre, apellido, correo, contraseña);
+    public Monitor(int idMonitor, int telefonoMovil, String programaAcademico, Semestre semestreDeIngreso, ArrayList<Grupo> grupos, String nombre, String apellido, String correo, String contraseña) {
+        super(idMonitor, nombre, apellido, correo, contraseña);
         this.idMonitor = idMonitor;
         this.telefonoMovil = telefonoMovil;
         this.programaAcademico = programaAcademico;

@@ -19,17 +19,17 @@ public class Grupo {
     private Monitor monitor;
     private Profesor profesor;
     private ArrayList<Monitoria> monitorias;
-    private ArrayList<Asesoria> asesoria;
+    
 
-    public Grupo(int idGrupo, int numero, Curso curso, Semestre semestre, Monitor monitor, Profesor profesor, ArrayList<Monitoria> monitorias, ArrayList<Asesoria> asesoria) {
+    public Grupo(int idGrupo, int numero, Curso curso, Semestre semestre, Profesor profesor, ArrayList<Monitoria> monitorias) {
         this.idGrupo = idGrupo;
         this.numero = numero;
         this.curso = curso;
         this.semestre = semestre;
-        this.monitor = monitor;
+        this.monitor = null;
         this.profesor = profesor;
         this.monitorias = monitorias;
-        this.asesoria = asesoria;
+        
     }
 
     public Grupo() {
@@ -91,17 +91,11 @@ public class Grupo {
         this.monitorias = monitorias;
     }
 
-    public ArrayList<Asesoria> getAsesoria() {
-        return asesoria;
-    }
-
-    public void setAsesoria(ArrayList<Asesoria> asesoria) {
-        this.asesoria = asesoria;
-    }
+   
 
     @Override
     public String toString() {
-        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias + ", asesoria=" + asesoria + '}';
+        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias +  '}';
     }
 
    

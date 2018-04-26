@@ -13,25 +13,24 @@ import java.util.Date;
  *
  * @author martincantorurrego
  */
-class Monitoria {
+class MonitoriaRegistrada {
     private int idMonitoria;
-    private String dia;
+    private String IP;
     private Time horaInicio;
     private Time horaFin;
-    private String lugar;
+    private Date fecha;
     
-    private ArrayList<MonitoriaRegistrada> mregistrada;
+    private ArrayList<Asesoria> asesorias;
 
-    public Monitoria() {
+    public MonitoriaRegistrada() {
     }
 
-    public Monitoria(int idMonitoria, String dia, Time horaInicio, Time horaFin, String lugar, ArrayList<MonitoriaRegistrada> mregistrada) {
+    public MonitoriaRegistrada(int idMonitoria,String IP, Time horaInicio, Time horaFin,Date fecha, ArrayList<Asesoria> asesorias) {
         this.idMonitoria = idMonitoria;
-        this.dia = dia;
+        this.IP = IP;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
-        this.lugar = lugar;
-        this.mregistrada = mregistrada;
+        this.asesorias = asesorias;
     }
 
     public int getIdMonitoria() {
@@ -42,13 +41,6 @@ class Monitoria {
         this.idMonitoria = idMonitoria;
     }
 
-    public String getDia() {
-        return dia;
-    }
-
-    public void setDia(String dia) {
-        this.dia = dia;
-    }
 
     public Time getHoraInicio() {
         return horaInicio;
@@ -66,25 +58,33 @@ class Monitoria {
         this.horaFin = horaFin;
     }
 
-    public String getLugar() {
-        return lugar;
+    public String getIp() {
+        return IP;
     }
 
-    public void setLugar(String lugar) {
-        this.lugar = lugar;
+    public void setIp(String ip) {
+        this.IP = ip;
+    }
+      public Date getFecha() {
+        return fecha;
     }
 
-    public ArrayList<MonitoriaRegistrada> getMregistrada() {
-        return mregistrada;
+    public void setFecha(Date Fecha) {
+        this.fecha = Fecha;
+    }
+    
+
+    public ArrayList<Asesoria> getAsesorias() {
+        return asesorias;
     }
 
-    public void setMregistrada(ArrayList<MonitoriaRegistrada> mregistrada) {
-        this.mregistrada = mregistrada;
+    public void setAsesorias(ArrayList<Asesoria> asesorias) {
+        this.asesorias = asesorias;
     }
 
     @Override
     public String toString() {
-        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar +  '}';
+        return "Monitoria{" + "idMonitoria=" + idMonitoria +  ", horaInicio=" + horaInicio + ", horaFin=" + horaFin +   ", asesorias=" + asesorias + '}';
     }
 
     

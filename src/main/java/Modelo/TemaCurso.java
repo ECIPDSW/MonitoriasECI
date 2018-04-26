@@ -16,13 +16,13 @@ public class TemaCurso {
      private int idTemaCurso;
      private String tema;
      private String descripcion;
-     private Curso curso;
+     
 
-    public TemaCurso(int idTemaCurso, String tema, String descripcion, Curso curso) {
+    public TemaCurso(int idTemaCurso, String tema, String descripcion) {
         this.idTemaCurso = idTemaCurso;
         this.tema = tema;
         this.descripcion = descripcion;
-        this.curso = curso;
+        
     }
 
     public TemaCurso() {
@@ -53,17 +53,10 @@ public class TemaCurso {
         this.descripcion = descripcion;
     }
 
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
+ 
     @Override
     public String toString() {
-        return "TemaCurso{" + "idTemaCurso=" + idTemaCurso + ", tema=" + tema + ", descripcion=" + descripcion + ", curso=" + curso + '}';
+        return "TemaCurso{" + "idTemaCurso=" + idTemaCurso + ", tema=" + tema + ", descripcion=" + descripcion  + '}';
     }
 
          

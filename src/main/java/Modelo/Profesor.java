@@ -21,11 +21,11 @@ public class Profesor extends Persona implements Serializable{
     public Profesor() {
     }
 
-    public Profesor(int idProfesor, String decanatura, ArrayList<Grupo> grupos, int id, String nombre, String apellido, String correo, String contraseña) {
-        super(id, nombre, apellido, correo, contraseña);
+    public Profesor(int idProfesor, String decanatura, String nombre, String apellido, String correo, String contraseña) {
+        super(idProfesor, nombre, apellido, correo, contraseña);
         this.idProfesor = idProfesor;
         this.decanatura = decanatura;
-        this.grupos = grupos;
+        this.grupos = null;
     }
 
     public int getIdProfesor() {

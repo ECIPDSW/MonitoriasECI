@@ -17,20 +17,19 @@ public class Asesoria {
     private Date fecha;
     private int idEstudiante;
     private String nombreEstudiante;
-    private String ip;
+    
     private String observaciones;
-    private Monitoria monitoria;
+    
     private Grupo grupo;
-    private ArrayList<TemaAsesoria> temas;
+    private ArrayList<TemaCurso> temas;
 
-    public Asesoria(int idAsesoria,Date fecha, int idEstudiante, String nombreEstudiante, String ip, String observaciones, Monitoria monitoria, Grupo grupo, ArrayList<TemaAsesoria> temas) {
+    public Asesoria(int idAsesoria,Date fecha, int idEstudiante, String nombreEstudiante, String observaciones,  Grupo grupo, ArrayList<TemaCurso> temas) {
         this.idAsesoria=idAsesoria;
         this.fecha = fecha;
         this.idEstudiante = idEstudiante;
         this.nombreEstudiante = nombreEstudiante;
-        this.ip = ip;
         this.observaciones = observaciones;
-        this.monitoria = monitoria;
+        
         this.grupo = grupo;
         this.temas = temas;
     }
@@ -71,13 +70,7 @@ public class Asesoria {
         this.nombreEstudiante = nombreEstudiante;
     }
 
-    public String getIp() {
-        return ip;
-    }
 
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
 
     public String getObservaciones() {
         return observaciones;
@@ -87,13 +80,6 @@ public class Asesoria {
         this.observaciones = observaciones;
     }
 
-    public Monitoria getMonitoria() {
-        return monitoria;
-    }
-
-    public void setMonitoria(Monitoria monitoria) {
-        this.monitoria = monitoria;
-    }
 
     public Grupo getGrupo() {
         return grupo;
@@ -103,17 +89,17 @@ public class Asesoria {
         this.grupo = grupo;
     }
 
-    public ArrayList<TemaAsesoria> getTemas() {
+    public ArrayList<TemaCurso> getTemas() {
         return temas;
     }
 
-    public void setTemas(ArrayList<TemaAsesoria> temas) {
+    public void setTemas(ArrayList<TemaCurso> temas) {
         this.temas = temas;
     }
 
     @Override
     public String toString() {
-        return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante + ", ip=" + ip + ", observaciones=" + observaciones + ", monitoria=" + monitoria + ", grupo=" + grupo + ", temas=" + temas + '}';
+        return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante +  ", observaciones=" + observaciones + ", grupo=" + grupo + ", temas=" + temas + '}';
     }
 
     
