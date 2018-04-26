@@ -20,7 +20,11 @@ public class Main {
     public static Monitor monitor;
     public static Profesor profesor;
     public static Fabrica fabrica = Fabrica.getInstance();
+    
     public static void main(String a[]){
+        System.out.println("PROFE");
+        Profesor p = fabrica.getServiciosAsesoria().getProfesor(3);
+        System.out.println(p);
         System.out.println("\nConsultar cliente\n");
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getAno());
     }

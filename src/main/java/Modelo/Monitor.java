@@ -18,6 +18,7 @@ public class Monitor extends Persona implements Serializable{
     private int telefonoMovil;
     private String programaAcademico;
     private Semestre semestreDeIngreso;
+    /*Revisar*/
     private ArrayList<Grupo> grupos;
 
     public Monitor() {

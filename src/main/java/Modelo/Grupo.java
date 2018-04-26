@@ -13,6 +13,7 @@ import java.util.ArrayList;
  * @author martincantorurrego
  */
 public class Grupo implements Serializable {
+    private String Nemonomico;
     private int idGrupo;
     private int numero;
     private Curso curso;
@@ -93,10 +94,16 @@ public class Grupo implements Serializable {
     }
 
 
-
+/*
     @Override
     public String toString() {
         return curso.getNombre()+""+numero;
+    }
+*/
+
+    @Override
+    public String toString() {
+        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias + '}';
     }
 
 

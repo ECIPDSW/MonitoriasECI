@@ -22,7 +22,7 @@ public class MonitoriaRegistrada implements Serializable {
     private Time horaInicio;
     private Time horaFin;
     private Date fecha;
-    
+    /*Revisar*/
     private ArrayList<Asesoria> asesorias;
 
     public MonitoriaRegistrada() {

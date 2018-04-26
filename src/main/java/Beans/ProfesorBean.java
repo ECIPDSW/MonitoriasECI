@@ -52,11 +52,11 @@ public class ProfesorBean implements Serializable  {
         this.profesor = profesor;
     }
     public List<Monitoria> getMonitorias(){
-        System.out.println(monitorias);
+        //System.out.println(monitorias);
         return monitorias;
     }
     public List<Asesoria> getAsesorias(){
-        System.out.println("ASESORIAS");
+        //System.out.println("ASESORIAS");
         return asesorias;
     }
     public void setMonitoria(Monitoria mo){
@@ -66,7 +66,7 @@ public class ProfesorBean implements Serializable  {
         return mon;
     }
     public List<MonitoriaRegistrada> getMonitoriasr(){
-        System.out.println("MONITORIAS");
+        //System.out.println("MONITORIAS");
         return monreg;
     }
     public void setMonitoriar(MonitoriaRegistrada mo){
@@ -76,14 +76,14 @@ public class ProfesorBean implements Serializable  {
         return monr;
     }
     public Map<String, String> getGrupos() {
-        System.out.println("LLAMADOG");
+        //System.out.println("LLAMADOG");
         return gruposs;
     }
     public void setGrupo(String name){
-        System.out.println("LLAMADOGS");
+        //System.out.println("LLAMADOGS");
         this.gruponame=name;
         grupo=grupos.get(name);
-        System.out.println("GRUPOOOO="+grupo);
+        //System.out.println("GRUPOOOO="+grupo);
     }
     public String getGrupo(){
         return gruponame;
@@ -112,21 +112,21 @@ public class ProfesorBean implements Serializable  {
         //System.out.println("LLENADO");
     }
     public void buscar(){
-        System.out.println("BUSCAR");
-        System.out.println("GRUPOOOOFINAL="+grupo);
+       // System.out.println("BUSCAR");
+        //System.out.println("GRUPOOOOFINAL="+grupo);
         monitor=grupo.getMonitor();
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
-        System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
+        //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
         monitorias=new ArrayList<Monitoria>();
         for(int i=0;i<grupo.getMonitorias().size();i++){
             Monitoria mu = grupo.getMonitorias().get(i);
             monitorias.add(mu);
-            System.out.println("DIA"+mu.getDia()+" FIN"+mu.getHoraFin()+"INI"+mu.getHoraInicio()+"LUGAR"+mu.getLugar());
+            //System.out.println("DIA"+mu.getDia()+" FIN"+mu.getHoraFin()+"INI"+mu.getHoraInicio()+"LUGAR"+mu.getLugar());
         }
-        System.out.println("LLENADO");
+        //System.out.println("LLENADO");
     }
     public void moni(Monitoria mon){
-        System.out.println("ELEGIDA");
+        //System.out.println("ELEGIDA");
         this.mon=mon;
         monreg=new ArrayList<MonitoriaRegistrada>();
         for(int i=0;i<mon.getMregistrada().size();i++){

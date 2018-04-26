@@ -18,6 +18,7 @@ public class Curso implements Serializable {
     private String nombre;
     private int creditosAcademicos;
     private int horasAprobadasMonitoria;
+    /**REvisar*/
     private ArrayList<TemaCurso> temas;
 
     public Curso(String id, String nombre, int creditosAcademicos, int horasAprobadasMonitoria, ArrayList<TemaCurso> temas) {

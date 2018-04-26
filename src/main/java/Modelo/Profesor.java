@@ -16,6 +16,7 @@ import java.util.List;
 public class Profesor extends Persona implements Serializable{
     private int idProfesor;
     private String decanatura;
+    /*REVISAR*/
     private ArrayList<Grupo> grupos;
 
     public Profesor() {
