@@ -22,19 +22,21 @@ public class MonitoriaRegistrada implements Serializable {
     private Time horaInicio;
     private Time horaFin;
     private Date fecha;
-    private ArrayList<Asesoria> asesorias;
+    private Monitoria monitoria;
 
     public MonitoriaRegistrada() {
     }
 
-    public MonitoriaRegistrada(int idMonitoria,String IP, Time horaInicio, Time horaFin,Date fecha, ArrayList<Asesoria> asesorias) {
+    public MonitoriaRegistrada(int idMonitoria, String IP, Time horaInicio, Time horaFin, Date fecha, Monitoria monitoria) {
         this.idMonitoria = idMonitoria;
         this.IP = IP;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
-        this.asesorias = asesorias;
-        this.fecha=fecha;
+        this.fecha = fecha;
+        this.monitoria = monitoria;
     }
+
+    
 
     public int getIdMonitoria() {
         return idMonitoria;
@@ -82,20 +84,30 @@ public class MonitoriaRegistrada implements Serializable {
     public void setFecha(Date Fecha) {
         this.fecha = Fecha;
     }
-    
 
-    public ArrayList<Asesoria> getAsesorias() {
-        return asesorias;
+    public String getIP() {
+        return IP;
     }
 
-    public void setAsesorias(ArrayList<Asesoria> asesorias) {
-        this.asesorias = asesorias;
+    public void setIP(String IP) {
+        this.IP = IP;
+    }
+
+    public Monitoria getMonitoria() {
+        return monitoria;
+    }
+
+    public void setMonitoria(Monitoria monitoria) {
+        this.monitoria = monitoria;
     }
 
     @Override
     public String toString() {
-        return "MonitoriaRegistrada{" + "idMonitoria=" + idMonitoria + ", IP=" + IP + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", fecha=" + fecha + ", asesorias=" + asesorias + '}';
+        return "MonitoriaRegistrada{" + "idMonitoria=" + idMonitoria + ", IP=" + IP + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", fecha=" + fecha + ", monitoria=" + monitoria + '}';
     }
+    
+
+    
 
     
 

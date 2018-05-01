@@ -11,6 +11,6 @@
         <result property='horaInicio' column='mrhoraInicio'/>
         <result property='horaFin' column='mrhoraFin'/>
         <result property='fecha' column='mrfecha'/>
-        <collection property='asesorias' ofType='Asesoria' resultMap='Mappers.AsesoriaMapper.Asesoria'></collection>
+        <association property='monitoria' javaType='Monitoria' resultMap='Mappers.MonitoriaMapper.Monitoria'></association>
     </resultMap>
 </mapper>

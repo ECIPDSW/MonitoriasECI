@@ -19,17 +19,15 @@ public class Grupo implements Serializable {
     private Semestre semestre;
     private Monitor monitor;
     private Profesor profesor;
-    private ArrayList<Monitoria> monitorias;
     
 
-    public Grupo(int idGrupo, int numero, Curso curso, Semestre semestre, Profesor profesor, ArrayList<Monitoria> monitorias) {
+    public Grupo(int idGrupo, int numero, Curso curso, Semestre semestre, Profesor profesor) {
         this.idGrupo = idGrupo;
         this.numero = numero;
         this.curso = curso;
         this.semestre = semestre;
         this.monitor = null;
         this.profesor = profesor;
-        this.monitorias = monitorias;
         
     }
 
@@ -84,15 +82,6 @@ public class Grupo implements Serializable {
         this.profesor = profesor;
     }
 
-    public ArrayList<Monitoria> getMonitorias() {
-        return monitorias;
-    }
-
-    public void setMonitorias(ArrayList<Monitoria> monitorias) {
-        this.monitorias = monitorias;
-    }
-
-
 /*
     @Override
     public String toString() {
@@ -102,7 +91,7 @@ public class Grupo implements Serializable {
 
     @Override
     public String toString() {
-        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + ", monitorias=" + monitorias + '}';
+        return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + '}';
     }
 
 

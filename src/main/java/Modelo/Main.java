@@ -23,7 +23,7 @@ public class Main {
     
     public static void main(String a[]){
         System.out.println("PROFE");
-        Profesor p = fabrica.getServiciosAsesoria().getProfesor(3);
+        Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);
         System.out.println("\nConsultar Monitor\n");
         System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));
@@ -44,13 +44,13 @@ public class Main {
             for(int j=0;j<10;j++){
                 int i =j*x;
                 t.add(new TemaCurso(i+4,"Tema"+i,"Descripcion"+i));
-                mo.add(new Monitoria(i,"Dia"+i,ti,ti,"lugar"+i,as));
-                af.add(new Asesoria(i,d,666,"Estudiante"+i,"Observacion"+i,new Grupo(),t));
-                as.add(new MonitoriaRegistrada(i*3,""+i*124,ti,ti,d,af));
+                mo.add(new Monitoria(i,"Dia"+i,ti,ti,"lugar"+i,grupos.get(i)));
+                af.add(new Asesoria(i,d,666,"Estudiante"+i,"Observacion"+i,as.get(i),t));
+                as.add(new MonitoriaRegistrada(i*3,""+i*124,ti,ti,d,mo.get(i)));
                 
             }
             Curso c= new Curso(""+x,"Curso"+x,x*2,x,t);
-            Grupo g = new Grupo(x,x*10,c,sem,profesor,mo);
+            Grupo g = new Grupo(x,x*10,c,sem,profesor);
             
             
             grupos.add(g);

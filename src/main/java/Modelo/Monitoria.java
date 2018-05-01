@@ -7,8 +7,7 @@ package Modelo;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -20,18 +19,18 @@ public class Monitoria implements Serializable {
     private Time horaInicio;
     private Time horaFin;
     private String lugar;
-    private ArrayList<MonitoriaRegistrada> mregistrada;
+    private Grupo grupo;
 
     public Monitoria() {
     }
 
-    public Monitoria(int idMonitoria, String dia, Time horaInicio, Time horaFin, String lugar, ArrayList<MonitoriaRegistrada> mregistrada) {
+    public Monitoria(int idMonitoria, String dia, Time horaInicio, Time horaFin, String lugar, Grupo grupo) {
         this.idMonitoria = idMonitoria;
         this.dia = dia;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.lugar = lugar;
-        this.mregistrada = mregistrada;
+        this.grupo = grupo;
     }
 
     public int getIdMonitoria() {
@@ -74,17 +73,17 @@ public class Monitoria implements Serializable {
         this.lugar = lugar;
     }
 
-    public ArrayList<MonitoriaRegistrada> getMregistrada() {
-        return mregistrada;
+    public Grupo getGrupo() {
+        return grupo;
     }
 
-    public void setMregistrada(ArrayList<MonitoriaRegistrada> mregistrada) {
-        this.mregistrada = mregistrada;
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
     }
 
     @Override
     public String toString() {
-        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar +'}';
+        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar + ", grupo=" + grupo + '}';
     }
 
     

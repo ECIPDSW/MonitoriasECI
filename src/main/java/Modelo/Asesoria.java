@@ -19,19 +19,20 @@ public class Asesoria implements Serializable {
     private int idEstudiante;
     private String nombreEstudiante;
     private String observaciones;
-    private Grupo grupo;
+    private MonitoriaRegistrada monitoriaR;
     private ArrayList<TemaCurso> temas;
 
-    public Asesoria(int idAsesoria,Date fecha, int idEstudiante, String nombreEstudiante, String observaciones,  Grupo grupo, ArrayList<TemaCurso> temas) {
-        this.idAsesoria=idAsesoria;
+    public Asesoria(int idAsesoria, Date fecha, int idEstudiante, String nombreEstudiante, String observaciones, MonitoriaRegistrada monitoriaR, ArrayList<TemaCurso> temas) {
+        this.idAsesoria = idAsesoria;
         this.fecha = fecha;
         this.idEstudiante = idEstudiante;
         this.nombreEstudiante = nombreEstudiante;
         this.observaciones = observaciones;
-        
-        this.grupo = grupo;
+        this.monitoriaR = monitoriaR;
         this.temas = temas;
     }
+
+    
 
     public Asesoria() {
     }
@@ -79,15 +80,6 @@ public class Asesoria implements Serializable {
         this.observaciones = observaciones;
     }
 
-
-    public Grupo getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(Grupo grupo) {
-        this.grupo = grupo;
-    }
-
     public ArrayList<TemaCurso> getTemas() {
         return temas;
     }
@@ -98,7 +90,7 @@ public class Asesoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante +  ", observaciones=" + observaciones + ", grupo=" + grupo + ", temas=" + temas + '}';
+        return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante +  ", observaciones=" + observaciones + ", temas=" + temas + '}';
     }
     public String getTemass(){
         String t="";
@@ -106,6 +98,14 @@ public class Asesoria implements Serializable {
             t+=" "+temas.get(i).getTema()+"\n";
         }
         return t;
+    }
+
+    public MonitoriaRegistrada getMonitoriaR() {
+        return monitoriaR;
+    }
+
+    public void setMonitoriaR(MonitoriaRegistrada monitoriaR) {
+        this.monitoriaR = monitoriaR;
     }
     
     

@@ -112,6 +112,7 @@ public class ProfesorBean implements Serializable  {
         //System.out.println("LLENADO");
     }
     */
+    /*
     public void buscar(){
        // System.out.println("BUSCAR");
         //System.out.println("GRUPOOOOFINAL="+grupo);
@@ -126,6 +127,8 @@ public class ProfesorBean implements Serializable  {
         }
         //System.out.println("LLENADO");
     }
+    */
+    /*
     public void moni(Monitoria mon){
         //System.out.println("ELEGIDA");
         this.mon=mon;
@@ -136,6 +139,8 @@ public class ProfesorBean implements Serializable  {
             
         }
     }
+    */
+    /*
     public void aseso(MonitoriaRegistrada monreg){
         this.monr=monreg;
         asesorias=new ArrayList<Asesoria>();
@@ -145,5 +150,5 @@ public class ProfesorBean implements Serializable  {
             
         }
     }
-
+    */
 }
