@@ -70,9 +70,7 @@ public class MonitorBean implements Serializable {
         profesores.add("Alan Turing");
     }
 
-    public ArrayList<Grupo> getGrupos() {
-        return monitor.getGrupos();
-    }
+
 
     public Grupo getGrupoSeleccionado() {
         

@@ -22,7 +22,6 @@ public class MonitoriaRegistrada implements Serializable {
     private Time horaInicio;
     private Time horaFin;
     private Date fecha;
-    /*Revisar*/
     private ArrayList<Asesoria> asesorias;
 
     public MonitoriaRegistrada() {
@@ -95,8 +94,10 @@ public class MonitoriaRegistrada implements Serializable {
 
     @Override
     public String toString() {
-        return "Monitoria{" + "idMonitoria=" + idMonitoria +  ", horaInicio=" + horaInicio + ", horaFin=" + horaFin +   ", asesorias=" + asesorias + '}';
+        return "MonitoriaRegistrada{" + "idMonitoria=" + idMonitoria + ", IP=" + IP + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", fecha=" + fecha + ", asesorias=" + asesorias + '}';
     }
+
+    
 
     
 }

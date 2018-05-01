@@ -18,11 +18,8 @@ public class Asesoria implements Serializable {
     private Date fecha;
     private int idEstudiante;
     private String nombreEstudiante;
-    
     private String observaciones;
-    
     private Grupo grupo;
-    /**Revisar*/
     private ArrayList<TemaCurso> temas;
 
     public Asesoria(int idAsesoria,Date fecha, int idEstudiante, String nombreEstudiante, String observaciones,  Grupo grupo, ArrayList<TemaCurso> temas) {

@@ -16,8 +16,6 @@ import java.util.List;
 public class Profesor extends Persona implements Serializable{
     private int idProfesor;
     private String decanatura;
-    /*REVISAR*/
-    private ArrayList<Grupo> grupos;
 
     public Profesor() {
     }
@@ -26,7 +24,6 @@ public class Profesor extends Persona implements Serializable{
         super(idProfesor, nombre, apellido, correo, contraseña);
         this.idProfesor = idProfesor;
         this.decanatura = decanatura;
-        this.grupos = null;
     }
 
     public int getIdProfesor() {
@@ -45,17 +42,10 @@ public class Profesor extends Persona implements Serializable{
         this.decanatura = decanatura;
     }
 
-    public ArrayList<Grupo> getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(ArrayList<Grupo> grupos) {
-        this.grupos = grupos;
-    }
 
     @Override
     public String toString() {
-        return "Profesor{" + "idProfesor=" + idProfesor + ", decanatura=" + decanatura + ", grupos=" + grupos + '}';
+        return "Profesor{" + "idProfesor=" + idProfesor + ", decanatura=" + decanatura +'}';
     }
 
     

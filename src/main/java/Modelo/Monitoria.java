@@ -20,7 +20,6 @@ public class Monitoria implements Serializable {
     private Time horaInicio;
     private Time horaFin;
     private String lugar;
-    
     private ArrayList<MonitoriaRegistrada> mregistrada;
 
     public Monitoria() {
@@ -85,7 +84,7 @@ public class Monitoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar +  '}';
+        return "Monitoria{" + "idMonitoria=" + idMonitoria + ", dia=" + dia + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin + ", lugar=" + lugar +'}';
     }
 
     

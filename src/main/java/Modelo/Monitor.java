@@ -18,19 +18,16 @@ public class Monitor extends Persona implements Serializable{
     private int telefonoMovil;
     private String programaAcademico;
     private Semestre semestreDeIngreso;
-    /*Revisar*/
-    private ArrayList<Grupo> grupos;
 
     public Monitor() {
     }
 
-    public Monitor(int idMonitor, int telefonoMovil, String programaAcademico, Semestre semestreDeIngreso, ArrayList<Grupo> grupos, String nombre, String apellido, String correo, String contraseña) {
+    public Monitor(int idMonitor, int telefonoMovil, String programaAcademico, Semestre semestreDeIngreso, String nombre, String apellido, String correo, String contraseña) {
         super(idMonitor, nombre, apellido, correo, contraseña);
         this.idMonitor = idMonitor;
         this.telefonoMovil = telefonoMovil;
         this.programaAcademico = programaAcademico;
         this.semestreDeIngreso = semestreDeIngreso;
-        this.grupos = grupos;
     }
 
     public int getIdMonitor() {
@@ -65,17 +62,10 @@ public class Monitor extends Persona implements Serializable{
         this.semestreDeIngreso = semestreDeIngreso;
     }
 
-    public ArrayList<Grupo> getGrupos() {
-        return grupos;
-    }
-
-    public void setGrupos(ArrayList<Grupo> grupos) {
-        this.grupos = grupos;
-    }
 
     @Override
     public String toString() {
-        return "Monitor{" + "idMonitor=" + idMonitor + ", telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + ", grupos=" + grupos +'}';
+        return "Monitor{" + "idMonitor=" + idMonitor + ", telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + '}';
     }
 
     

@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * @author martincantorurrego
  */
 public class Grupo implements Serializable {
-    private String Nemonomico;
     private int idGrupo;
     private int numero;
     private Curso curso;

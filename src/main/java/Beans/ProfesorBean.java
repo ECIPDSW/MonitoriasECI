@@ -102,7 +102,7 @@ public class ProfesorBean implements Serializable  {
         
         return  nombrem;
     }
-    
+    /*
     public void refresh(){
         //System.out.println("tamaño="+profesor.getGrupos().size());
         for(int i=0;i<profesor.getGrupos().size();i++){
@@ -111,6 +111,7 @@ public class ProfesorBean implements Serializable  {
         }
         //System.out.println("LLENADO");
     }
+    */
     public void buscar(){
        // System.out.println("BUSCAR");
         //System.out.println("GRUPOOOOFINAL="+grupo);

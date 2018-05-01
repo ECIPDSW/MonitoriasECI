@@ -6,8 +6,6 @@
 <mapper namespace="Mappers.TemaAsesoriaMapper">
     
     <resultMap type='TemaAsesoria' id='TemaAsesoria' >
-        
-       
         <id property ='idTemaAsesoria' column='taid'/>
          <association property='temaCurso' javaType='TemaCurso' resultMap='Mappers.TemaCursoMapper.TemaCurso'></association>
         <association property='asesoria' javaType='Asesoria'  resultMap='Mappers.AsesoriaMapper.Asesoria'></association>

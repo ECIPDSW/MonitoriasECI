@@ -25,8 +25,8 @@ public class Main {
         System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(3);
         System.out.println(p);
-        System.out.println("\nConsultar cliente\n");
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getAno());
+        System.out.println("\nConsultar Monitor\n");
+        System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));
     }
     public static void poblar(){
         System.out.println("POBLAR");
@@ -54,11 +54,10 @@ public class Main {
             
             
             grupos.add(g);
-            profesor.setGrupos(grupos);
             
             
         }
-        monitor= new Monitor(2129175,666,"Ing Sistemas",sem,grupos,"Nicolás","García","nicoga97@hotmail.com","12345");
+        monitor= new Monitor(2129175,666,"Ing Sistemas",sem,"Nicolás","García","nicoga97@hotmail.com","12345");
         for(int i=0;i<grupos.size();i++){
             grupos.get(i).setMonitor(monitor);
             
