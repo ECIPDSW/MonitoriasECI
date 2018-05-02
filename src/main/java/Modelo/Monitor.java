@@ -55,7 +55,7 @@ public class Monitor extends Persona implements Serializable{
 
     @Override
     public String toString() {
-        return "Monitor{" + " telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + '}';
+        return super.toString()+"Monitor{" + " telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + '}';
     }
 
     

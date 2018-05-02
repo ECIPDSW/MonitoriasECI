@@ -35,7 +35,7 @@ public class Profesor extends Persona implements Serializable{
 
     @Override
     public String toString() {
-        return "Profesor{" + "decanatura=" + decanatura +'}';
+        return super.toString() +  "Profesor{" + "decanatura=" + decanatura +'}';
     }
 
     

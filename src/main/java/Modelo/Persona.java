@@ -17,18 +17,18 @@ public class Persona implements Serializable{
     private String nombre;
     private String apellido;
     private String correo;
-    private String contraseña;
+    private String contrasena;
     
 
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellido, String correo, String contraseña) {
+    public Persona(int id, String nombre, String apellido, String correo, String contrasena) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public int getId() {
@@ -63,17 +63,17 @@ public class Persona implements Serializable{
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrasena=" + contrasena + '}';
     }
     
     

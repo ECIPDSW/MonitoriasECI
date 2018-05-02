@@ -22,5 +22,10 @@ public class MyBatisMonitorDao implements MonitorDAO{
     public Monitor loadMonitor(int id) {
         return monitormapper.loadMonitor(id);
     }
+
+    @Override
+    public Monitor loadMonitorLogin(int id, String psw) {
+        return monitormapper.loadMonitorLogin(id, psw);
+    }
     
 }

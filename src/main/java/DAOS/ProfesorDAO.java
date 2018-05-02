@@ -13,4 +13,5 @@ import Modelo.Profesor;
  */
 public interface ProfesorDAO {
     Profesor loadProfesor(int id);
+    Profesor loadProfesorLogin(int id,String psw);
 }

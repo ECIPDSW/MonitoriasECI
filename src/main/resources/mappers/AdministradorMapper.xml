@@ -5,8 +5,15 @@
   
   
 <mapper namespace="Mappers.AdministradorMapper">
-    <select parameterType="map" id="loadGrupos" resultMap='Administrador'>
-        
+    <select parameterType="map" id="loadAdmin" resultMap='Administrador'>
+        select
+        p.id as peid,
+        p.nombre as penombre,
+        p.apellido as peapellido,
+        p.correo as pecorreo,
+        p.contasena as pecontrasena
+        from administrador as a, persona as p
+        where a.persona_id=p.id and a.persona_id = #{id} and p.contasena = #{psw}
     </select>
     
     <resultMap type='Administrador' id='Administrador' extends='Mappers.PersonaMapper.Persona'>

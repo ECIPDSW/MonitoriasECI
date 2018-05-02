@@ -127,7 +127,7 @@ public interface ServicioAsesoria {
      * @param psw
      * @return 
      */
-    Administrador loadAdmin(int id,String psw);
+    Administrador loadAdminLogin(int id,String psw);
     
     /**
      * retorna el monitor con las credenciales registradas
@@ -135,7 +135,7 @@ public interface ServicioAsesoria {
      * @param psw
      * @return 
      */
-    Monitor loadMonitor(int id,String psw);
+    Monitor loadMonitorLogin(int id,String psw);
     
     /**
      * retorna el Profesor con las credenciales registradas
@@ -143,7 +143,7 @@ public interface ServicioAsesoria {
      * @param psw
      * @return 
      */
-    Profesor loadProfesor(int id,String psw);
+    Profesor loadProfesorLogin(int id,String psw);
     
     /**
      * retorna todods los grupos existentes para un curso

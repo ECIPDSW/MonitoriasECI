@@ -112,7 +112,7 @@ public class UserLoginView implements Serializable {
         }
         FacesContext facesContext = FacesContext.getCurrentInstance(); 
         //System.out.println("LOGIN LLAMADOF");
-        if(username != null && username== user.getId() && password != null && password.equals(user.getContraseña())) {
+        if(username != null && username== user.getId() && password != null && password.equals(user.getContrasena())) {
             loggedIn = true;
             
             

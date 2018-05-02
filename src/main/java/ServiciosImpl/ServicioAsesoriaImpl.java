@@ -8,6 +8,7 @@ package ServiciosImpl;
 
 import DAOS.AdministradorDAO;
 import DAOS.AsesoriaDAO;
+import DAOS.CursoDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
 import DAOS.MonitoriaRegistradaDAO;
@@ -54,6 +55,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private GrupoDAO grupo;
     @Inject
     private AdministradorDAO administrador;
+    @Inject
+    private CursoDAO curso;
     
     
     
@@ -99,7 +102,7 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public List<Curso> loadCursos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return curso.loadCursos();
     }
 
     @Override
@@ -168,18 +171,18 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     }
 
     @Override
-    public Administrador loadAdmin(int id, String psw) {
+    public Administrador loadAdminLogin(int id, String psw) {
         return administrador.loadAdmin(id, psw);
     }
 
     @Override
-    public Monitor loadMonitor(int id, String psw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Monitor loadMonitorLogin(int id, String psw) {
+        return monitor.loadMonitorLogin(id, psw);
     }
 
     @Override
-    public Profesor loadProfesor(int id, String psw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Profesor loadProfesorLogin(int id, String psw) {
+        return profesor.loadProfesorLogin(id, psw);
     }
 
     @Override

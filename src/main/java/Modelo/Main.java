@@ -23,6 +23,14 @@ public class Main {
     
     public static void main(String args[]){
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAdminLogin(5, "admin"));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().getProfesor(3));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitor(1));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorLogin(2, "admin"));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadProfesorLogin(4, "admin"));
+        //Donde ponen la constrasena mala
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadProfesorLogin(4, "mala"));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);
