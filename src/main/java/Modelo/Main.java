@@ -21,12 +21,13 @@ public class Main {
     public static Profesor profesor;
     public static Fabrica fabrica = Fabrica.getInstance();
     
-    public static void main(String a[]){
-        System.out.println("PROFE");
+    public static void main(String args[]){
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
+        /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);
         System.out.println("\nConsultar Monitor\n");
-        System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));
+        System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));*/
     }
     public static void poblar(){
         System.out.println("POBLAR");

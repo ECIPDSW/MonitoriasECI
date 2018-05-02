@@ -14,7 +14,6 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class Profesor extends Persona implements Serializable{
-    private int idProfesor;
     private String decanatura;
 
     public Profesor() {
@@ -22,16 +21,7 @@ public class Profesor extends Persona implements Serializable{
 
     public Profesor(int idProfesor, String decanatura, String nombre, String apellido, String correo, String contraseña) {
         super(idProfesor, nombre, apellido, correo, contraseña);
-        this.idProfesor = idProfesor;
         this.decanatura = decanatura;
-    }
-
-    public int getIdProfesor() {
-        return idProfesor;
-    }
-
-    public void setIdProfesor(int idProfesor) {
-        this.idProfesor = idProfesor;
     }
 
     public String getDecanatura() {
@@ -45,7 +35,7 @@ public class Profesor extends Persona implements Serializable{
 
     @Override
     public String toString() {
-        return "Profesor{" + "idProfesor=" + idProfesor + ", decanatura=" + decanatura +'}';
+        return "Profesor{" + "decanatura=" + decanatura +'}';
     }
 
     

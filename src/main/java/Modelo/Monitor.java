@@ -14,7 +14,6 @@ import java.util.List;
  * @author martincantorurrego
  */
 public class Monitor extends Persona implements Serializable{
-    private int idMonitor;
     private int telefonoMovil;
     private String programaAcademico;
     private Semestre semestreDeIngreso;
@@ -24,18 +23,9 @@ public class Monitor extends Persona implements Serializable{
 
     public Monitor(int idMonitor, int telefonoMovil, String programaAcademico, Semestre semestreDeIngreso, String nombre, String apellido, String correo, String contraseña) {
         super(idMonitor, nombre, apellido, correo, contraseña);
-        this.idMonitor = idMonitor;
         this.telefonoMovil = telefonoMovil;
         this.programaAcademico = programaAcademico;
         this.semestreDeIngreso = semestreDeIngreso;
-    }
-
-    public int getIdMonitor() {
-        return idMonitor;
-    }
-
-    public void setIdMonitor(int idMonitor) {
-        this.idMonitor = idMonitor;
     }
 
     public int getTelefonoMovil() {
@@ -65,7 +55,7 @@ public class Monitor extends Persona implements Serializable{
 
     @Override
     public String toString() {
-        return "Monitor{" + "idMonitor=" + idMonitor + ", telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + '}';
+        return "Monitor{" + " telefonoMovil=" + telefonoMovil + ", programaAcademico=" + programaAcademico + ", semestreDeIngreso=" + semestreDeIngreso + '}';
     }
 
     

@@ -4,6 +4,33 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.GrupoMapper">
+    
+    <select parameterType="map" id="loadGrupos" resultMap='Grupo'>
+        select
+    g.idgrupo as gid,
+    g.numero as gnumero,
+    c.id as cid,
+    c.nombre as cnombre,
+    c.creditosacademicos as ccreditosacademicos,
+    c.horasaprovadasmonitoria as chorasaprovadasmonitoria,
+    m.telefono as mtelefono,
+    m.programaacademico as mprogramaacademico,
+    p.id as peid,
+    p.nombre as penombre ,
+    p.apellido as peapellido ,
+    p.correo as pecorreo ,
+    p.contasena as peconstraseña ,
+    pr.decanatura as prdecanatura,
+    s.numero as snumero,
+    s.ano as sano,
+    s.fechainicio as sfechainicio,
+    s.fechafin as sfechafin
+
+    from grupo as g, curso as c, monitor as m, profesor as pr, persona as p, semestre as s
+        where
+        c.id = g.curso_id and  s.numero = g.semestre_numero  and curso_id = #{curso} and semestre_numero = #{semestre}     
+    </select>
+    
     <resultMap type='Grupo' id='Grupo'>
         <id property='idGrupo' column='gid'/>
         <result property='numero' column='gnumero'/>
@@ -11,7 +38,5 @@
         <association property='semestre' javaType='Semestre' resultMap='Mappers.SemestreMapper.Semestre'></association>
         <association property='monitor' javaType='Monitor' resultMap='Mappers.MonitorMapper.Monitor'></association>
         <association property='profesor' javaType='Profesor' resultMap='Mappers.ProfesorMapper.Profesor'></association>
-        <collection property='monitorias' ofType='Monitoria' resultMap='Mappers.MonitoriaMapper.Monitoria'></collection>
-
     </resultMap>
 </mapper>

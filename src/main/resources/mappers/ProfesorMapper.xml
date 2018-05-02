@@ -11,7 +11,7 @@
     p.nombre as penombre ,
     p.apellido as peapellido ,
     p.correo as pecorreo ,
-    p.contasena as peconstraseña ,
+    p.contasena as peconstrasena ,
     
     pr.decanatura as prdecanatura             
                 
@@ -21,7 +21,6 @@
         
     </select>
     <resultMap type='Profesor' id='Profesor' extends='Mappers.PersonaMapper.Persona'>
-        <id property ='idProfesor' column='prid'/>
         <result property='decanatura' column = 'prdecanatura'/>
     </resultMap>
 </mapper>

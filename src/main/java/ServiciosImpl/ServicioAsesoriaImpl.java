@@ -7,6 +7,7 @@ package ServiciosImpl;
 
 
 import DAOS.AsesoriaDAO;
+import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
 import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
@@ -48,6 +49,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private ProfesorDAO profesor;
     @Inject
     private MonitoriaRegistradaDAO monitoriaregistrada;
+    @Inject
+    private GrupoDAO grupo;
     
     
     
@@ -178,7 +181,7 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public List<Grupo> loadGrupos(String idCurso, int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return grupo.loadGrupos(idCurso, semestre);
     }
    
     

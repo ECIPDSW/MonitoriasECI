@@ -9,6 +9,6 @@
         <result property='nombre' column='penombre'/>
         <result property='apellido' column='peapellido'/>
         <result property='correo' column='pecorreo'/>
-        <result property='contraseña' column='peconstraseña'/>
+        <result property='contraseña' column='peconstrasena'/>
     </resultMap>
 </mapper>
