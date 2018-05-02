@@ -5,6 +5,10 @@
   
   
 <mapper namespace="Mappers.AdministradorMapper">
+    <select parameterType="map" id="loadGrupos" resultMap='Administrador'>
+        
+    </select>
+    
     <resultMap type='Administrador' id='Administrador' extends='Mappers.PersonaMapper.Persona'>
     
     </resultMap>

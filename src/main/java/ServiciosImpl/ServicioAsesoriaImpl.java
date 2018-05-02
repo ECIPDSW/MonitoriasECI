@@ -6,6 +6,7 @@
 package ServiciosImpl;
 
 
+import DAOS.AdministradorDAO;
 import DAOS.AsesoriaDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
@@ -51,6 +52,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private MonitoriaRegistradaDAO monitoriaregistrada;
     @Inject
     private GrupoDAO grupo;
+    @Inject
+    private AdministradorDAO administrador;
     
     
     
@@ -166,7 +169,7 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public Administrador loadAdmin(int id, String psw) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return administrador.loadAdmin(id, psw);
     }
 
     @Override

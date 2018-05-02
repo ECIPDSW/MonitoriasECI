@@ -3,15 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mappers;
+package DAOS;
 
 import Modelo.Administrador;
-import org.apache.ibatis.annotations.Param;
-
 /**
  *
- * @author martincantorurrego
+ * @author 2123162
  */
-public interface AdministradorMapper {
-    Administrador loadAdmin(@Param("id")int id,@Param("psw")String psw);
+public interface AdministradorDAO {
+    Administrador loadAdmin(int id,String psw);
 }

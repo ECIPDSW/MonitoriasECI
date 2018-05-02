@@ -1,4 +1,5 @@
 package Servicios;
+import DAOS.AdministradorDAO;
 import DAOS.AsesoriaDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
@@ -6,6 +7,7 @@ import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
 import DAOS.TemaAsesoriaDAO;
+import MyBatis.MyBatisAdministradorDao;
 import MyBatis.MyBatisAsesoriaDao;
 import MyBatis.MyBatisGrupoDao;
 import MyBatis.MyBatisMonitorDao;
@@ -48,6 +50,7 @@ public class Fabrica {
                 bind(MonitorDAO.class).to(MyBatisMonitorDao.class);
                 bind(MonitoriaRegistradaDAO.class).to(MyBatisMonitoriaRegistradaDao.class);
                 bind(GrupoDAO.class).to(MyBatisGrupoDao.class);
+                bind(AdministradorDAO.class).to(MyBatisAdministradorDao.class);
             }
         });
     }
