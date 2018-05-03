@@ -11,6 +11,7 @@ import DAOS.AsesoriaDAO;
 import DAOS.CursoDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
+import DAOS.MonitoriaDAO;
 import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
@@ -57,6 +58,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private AdministradorDAO administrador;
     @Inject
     private CursoDAO curso;
+    @Inject
+    private MonitoriaDAO monitoria;
     
     
     
@@ -188,6 +191,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public List<Grupo> loadGrupos(String idCurso, int semestre) {
         return grupo.loadGrupos(idCurso, semestre);
+    }
+
+    @Override
+    public List<Monitoria> loadMonitoriasPorMonitor(int idMonitor) {
+        return monitoria.loadMonitoriasPorMonitor(idMonitor);
     }
    
     

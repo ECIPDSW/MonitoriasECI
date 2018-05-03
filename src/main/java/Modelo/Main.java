@@ -31,6 +31,7 @@ public class Main {
         //Donde ponen la constrasena mala
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadProfesorLogin(4, "mala"));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorMonitor(2));
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);

@@ -151,4 +151,6 @@ public interface ServicioAsesoria {
      * @return 
      */
     List<Grupo> loadGrupos(String idCurso,int semestre);
+    
+    List<Monitoria> loadMonitoriasPorMonitor(int idMonitor);
 }
