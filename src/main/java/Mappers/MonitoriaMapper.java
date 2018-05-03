@@ -15,4 +15,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface MonitoriaMapper {
     List<Monitoria> loadMonitoriasPorMonitor(@Param("id")int idMonitor);
+    Monitoria monitoriasDisponiblesParaDictar(@Param("id")int idMonitor);
 }

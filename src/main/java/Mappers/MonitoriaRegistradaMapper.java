@@ -5,10 +5,13 @@
  */
 package Mappers;
 
+import org.apache.ibatis.annotations.Param;
+
 /**
  *
  * @author martincantorurrego
  */
 public interface MonitoriaRegistradaMapper {
-    
+    void registrarInicioMonitoriaDictada(@Param("id")int idMonitoria,@Param("ip")String ip);
+    void registrarFinMonitoria(@Param("id")int idMonitor);
 }

@@ -5,6 +5,24 @@
 
 
 <mapper namespace="Mappers.MonitoriaRegistradaMapper">
+    <insert parameterType="map" id="registrarInicioMonitoriaDictada">
+        insert into monitoriaregistrada (monitoria_idmonitoria, horacomienzo, fecha, ip) values( 
+	(select
+        m.idmonitoria as monid
+        from monitoria as m
+        where #{id} = (select g.monitor_persona_id from grupo as g where m.grupo_idgrupo = g.idgrupo and g.semestre_numero = 
+	(select MAX(s.numero) from semestre as s)) and current_time between m.horainicio and m.horafin),
+	current_time, current_date, #{ip})
+    </insert>
+    
+    <insert parameterType="map" id="registrarFinMonitoria">
+        update monitoriaregistrada
+        set horafinalizacion = current_time
+        where 1 = (select g.monitor_persona_id from grupo as g, monitoria as m
+			where monitoria_idmonitoria = m.idmonitoria and m.grupo_idgrupo = g.idgrupo)
+	and horafinalizacion is null
+    </insert>
+    
     <resultMap type='MonitoriaRegistrada' id='MonitoriaRegistrada'>
         <id property='idMonitoria' column='mronid'/>
         <result property='IP' column='mrip'/>

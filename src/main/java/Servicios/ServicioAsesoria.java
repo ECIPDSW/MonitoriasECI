@@ -37,7 +37,7 @@ public interface ServicioAsesoria {
      * @param idMonitor
      * @return 
      */
-    List<Monitoria> monitoriasDisponiblesParaDictar(int idMonitor);
+    Monitoria monitoriasDisponiblesParaDictar(int idMonitor);
     /**
      * Carga todos los cursos disponibles  
      * @return 
