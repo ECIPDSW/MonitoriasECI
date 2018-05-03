@@ -15,15 +15,16 @@
  */
 package org.primefaces.omega.view.overlay;
 
+import Beans.AdministradorBean;
 import Beans.MonitorBean;
 import Beans.ProfesorBean;
+import Modelo.Administrador;
 import Modelo.Main;
 import Modelo.Monitor;
 import Modelo.Persona;
 import Modelo.Profesor;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
-
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -40,102 +41,111 @@ import javax.faces.event.ActionEvent;
 
 import org.primefaces.context.RequestContext;
 
-
 @ManagedBean(name = "Login")
 @SessionScoped
 public class UserLoginView implements Serializable {
-    
+
     private Integer username;
     private ProfesorBean profesorBean;
     private MonitorBean monitorBean;
+    private AdministradorBean administradorBean;
     private String password;
-    private  boolean loggedIn = false;
+    private boolean loggedIn = false;
     private Persona user;
-    public UserLoginView(){
-        Main.poblar();
+    private ServicioAsesoria sp = Fabrica.getInstance().getServiciosAsesoria();
+
+    public UserLoginView() {
+
     }
-    
+
     public Integer getUsername() {
-        
+
         return username;
     }
 
     public void setUsername(Integer username) {
-        System.out.println("SET USERNAME CALLED="+username);
         this.username = username;
     }
 
     public String getPassword() {
         return password;
     }
-    
 
     public void setPassword(String password) {
-        System.out.println("SET password CALLED="+password);
         this.password = password;
     }
+
     public Persona getUser() {
         return user;
     }
-    
 
     public void setUser(Persona user) {
-        //System.out.println("SET password CALLED="+password);
-        this.user= user;
+
+        this.user = user;
     }
-  
+
     public void login() throws IOException {
-        
+
         RequestContext context = RequestContext.getCurrentInstance();
-        FacesContext contextb = FacesContext.getCurrentInstance();
-        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Something Went Wrong","Wrong");
-        //user=sa.getProfesor(username);
-        //ProfesorBean.setProfesor((Profesor)user);
-        //System.out.println("LOGIN LLAMADO1");
-        if(username.equals(Main.monitor.getId())){
-            user=Main.monitor;
-            monitorBean = contextb.getApplication().evaluateExpressionGet(contextb, "#{Monitor}", MonitorBean.class);
+        FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Something Went Wrong", "Wrong");
+        FacesContext facesContext = FacesContext.getCurrentInstance();
 
-            
-            monitorBean.setMonitor((Monitor)user);
-            
-            //System.out.println("LOGIN LLAMADOM");
-        }
-        else if(username.equals(Main.profesor.getId())){
-            user=Main.profesor;
-            profesorBean = contextb.getApplication().evaluateExpressionGet(contextb, "#{Profesor}", ProfesorBean.class);
-
-            profesorBean.setProfesor((Profesor)user);
-            System.out.println("PROFESOR="+profesorBean.toString());
-            //profesorBean.refresh();
-            //System.out.println("LOGIN LLAMADOP");
-        }
-        FacesContext facesContext = FacesContext.getCurrentInstance(); 
-        //System.out.println("LOGIN LLAMADOF");
-        if(username != null && username== user.getId() && password != null && password.equals(user.getContrasena())) {
-            loggedIn = true;
-            
-            
-            Flash flash = facesContext.getExternalContext().getFlash();
-            flash.setKeepMessages(true);
-            facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", ""+username));
-            facesContext.getExternalContext().redirect("/monitorias/dashboard.xhtml");
+        if (username != null && password != null) {
+            if (sp.loadProfesorLogin(username, password) != null) {
+                loginProfesor(facesContext);
+            } else if (sp.loadMonitorLogin(username, password) != null) {
+                loginMonitor(facesContext);
+            } else if (sp.loadAdminLogin(username, password) != null) {
+                loginAdmin(facesContext);
+            } else {
+                loggedIn = false;
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Loggin Error", "Invalid credentials"));
+            }
         } else {
             loggedIn = false;
-            
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,"Loggin Error", "Invalid credentials"));
-            //facesContext.getExternalContext().redirect("/monitorias/login.xhtml");
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Loggin Error", "Invalid credentials"));
         }
-        
+
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
     }
+
+    private void loginProfesor(FacesContext f) throws IOException {
+        user = sp.loadProfesorLogin(username, password);
+        profesorBean = f.getApplication().evaluateExpressionGet(f, "#{Profesor}", ProfesorBean.class);
+        profesorBean.setProfesor((Profesor) user);
+        loggedIn(f);
+    }
+
+    private void loginMonitor(FacesContext f) throws IOException {
+        user = sp.loadMonitorLogin(username, password);
+        monitorBean = f.getApplication().evaluateExpressionGet(f, "#{Monitor}", MonitorBean.class);
+        monitorBean.setMonitor((Monitor) user);
+        loggedIn(f);
+    }
+
+    private void loginAdmin(FacesContext f) throws IOException {
+        user = sp.loadAdminLogin(username, password);
+        administradorBean = f.getApplication().evaluateExpressionGet(f, "#{Administrador}", AdministradorBean.class);
+        administradorBean.setAdministrador((Administrador) user);
+        loggedIn(f);
+    }
+
+    private void loggedIn(FacesContext f) throws IOException {
+        Flash flash = f.getExternalContext().getFlash();
+        loggedIn = true;
+        flash.setKeepMessages(true);
+        f.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", "" + username));
+        f.getExternalContext().redirect("/monitorias/dashboard.xhtml");
+
+    }
+
     public void preRenderView() throws IOException {
-        if(!loggedIn){
+        if (!loggedIn) {
             FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
         }
-    
-    // Do here your job which should run right before the RENDER_RESPONSE.
+
+        // Do here your job which should run right before the RENDER_RESPONSE.
     }
 
 }

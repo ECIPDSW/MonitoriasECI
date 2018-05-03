@@ -28,11 +28,11 @@ public class AdministradorBean implements Serializable  {
  
     
     public void AdministradorBean() {
-        
-        
+     
+    }
 
- 
-        
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
  
     

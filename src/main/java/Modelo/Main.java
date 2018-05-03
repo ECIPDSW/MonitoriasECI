@@ -37,39 +37,5 @@ public class Main {
         System.out.println("\nConsultar Monitor\n");
         System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));*/
     }
-    public static void poblar(){
-        System.out.println("POBLAR");
-        Date d = new Date(2018,04,17);
-        Time ti = new Time(12,7,1);
-        Semestre sem = new Semestre(1,2018,'a',d,d);
-        ArrayList<Grupo> grupos = new ArrayList<Grupo>();
-
-        profesor = new Profesor(2125275,"Sistemas","Nelson","Mandela","Nelson@gmail.com","12345");
-        for (int x=0;x<10;x++){
-            ArrayList<TemaCurso> t =new ArrayList<TemaCurso>();
-            ArrayList<Monitoria> mo =new ArrayList<Monitoria>();
-            ArrayList<Asesoria> af = new ArrayList<Asesoria>();
-            ArrayList<MonitoriaRegistrada> as = new ArrayList<MonitoriaRegistrada>();
-            for(int j=0;j<10;j++){
-                int i =j*x;
-                t.add(new TemaCurso(i+4,"Tema"+i,"Descripcion"+i));
-                mo.add(new Monitoria(i,"Dia"+i,ti,ti,"lugar"+i,grupos.get(i)));
-                af.add(new Asesoria(i,d,666,"Estudiante"+i,"Observacion"+i,as.get(i),t));
-                as.add(new MonitoriaRegistrada(i*3,""+i*124,ti,ti,d,mo.get(i)));
-                
-            }
-            Curso c= new Curso(""+x,"Curso"+x,x*2,x,t);
-            Grupo g = new Grupo(x,x*10,c,sem,profesor);
-            
-            
-            grupos.add(g);
-            
-            
-        }
-        monitor= new Monitor(2129175,666,"Ing Sistemas",sem,"Nicolás","García","nicoga97@hotmail.com","12345");
-        for(int i=0;i<grupos.size();i++){
-            grupos.get(i).setMonitor(monitor);
-            
-        }
-    }
+    
 }
