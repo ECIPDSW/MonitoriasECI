@@ -44,7 +44,9 @@ import org.primefaces.context.RequestContext;
 @ManagedBean(name = "Login")
 @SessionScoped
 public class UserLoginView implements Serializable {
-
+    private boolean monitor=false;
+    private boolean profesor=false;
+    private boolean administrador=false;
     private Integer username;
     private ProfesorBean profesorBean;
     private MonitorBean monitorBean;
@@ -84,6 +86,18 @@ public class UserLoginView implements Serializable {
         this.user = user;
     }
 
+    public boolean isMonitor() {
+        return monitor;
+    }
+
+    public boolean isProfesor() {
+        return profesor;
+    }
+
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
     public void login() throws IOException {
 
         RequestContext context = RequestContext.getCurrentInstance();
@@ -114,6 +128,7 @@ public class UserLoginView implements Serializable {
         user = sp.loadProfesorLogin(username, password);
         profesorBean = f.getApplication().evaluateExpressionGet(f, "#{Profesor}", ProfesorBean.class);
         profesorBean.setProfesor((Profesor) user);
+        profesor=true;
         loggedIn(f);
     }
 
@@ -121,6 +136,7 @@ public class UserLoginView implements Serializable {
         user = sp.loadMonitorLogin(username, password);
         monitorBean = f.getApplication().evaluateExpressionGet(f, "#{Monitor}", MonitorBean.class);
         monitorBean.setMonitor((Monitor) user);
+        monitor=true;
         loggedIn(f);
     }
 
@@ -128,6 +144,7 @@ public class UserLoginView implements Serializable {
         user = sp.loadAdminLogin(username, password);
         administradorBean = f.getApplication().evaluateExpressionGet(f, "#{Administrador}", AdministradorBean.class);
         administradorBean.setAdministrador((Administrador) user);
+        administrador=true;
         loggedIn(f);
     }
 
@@ -147,5 +164,18 @@ public class UserLoginView implements Serializable {
 
         // Do here your job which should run right before the RENDER_RESPONSE.
     }
+    
+    public void logout() throws IOException{
+        System.out.println("sdfsf");
+        monitor=false;
+        profesor=false;
+        administrador=false;
+        //loggedIn = false;
+        username=null;
+        password=null;
+        //FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
+        
+    }
+    
 
 }
