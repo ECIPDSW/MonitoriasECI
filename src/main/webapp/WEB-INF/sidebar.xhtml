@@ -4,7 +4,8 @@
     xmlns:h="http://java.sun.com/jsf/html"
     xmlns:ui="http://java.sun.com/jsf/facelets"
     xmlns:p="http://primefaces.org/ui"
-    xmlns:po="http://primefaces.org/omega">
+    xmlns:po="http://primefaces.org/omega"
+    xmlns:jsf="http://xmlns.jcp.org/jsf">
   <h:form id="menuform">
     <div class="sidebar">
         <div class="nano">
@@ -22,7 +23,7 @@
                     <ul>
                         <li><a href="#"><i class="fa fa-fw fa-sliders"></i><span>Cuenta</span></a></li>
                         <li><a href="#"><i class="fa fa-fw fa-bell"></i><span>Notificaciones</span><span class="menu-badge">2</span></a></li>
-                        <li><a href="#"><i class="fa fa-fw fa-sign-out" ><span>Salir</span></i></a></li>
+                        <li><a href="#" jsf:action="#{Login.logout()}"><i  class="fa fa-fw fa-sign-out" > </i><span>Salir</span></a></li>
                     </ul>
                 </div>
 

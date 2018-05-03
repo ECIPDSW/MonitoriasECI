@@ -38,6 +38,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpSession;
 
 import org.primefaces.context.RequestContext;
 
@@ -165,14 +166,16 @@ public class UserLoginView implements Serializable {
         // Do here your job which should run right before the RENDER_RESPONSE.
     }
     
-    public void logout() throws IOException{
-        System.out.println("sdfsf");
+    public String logout() throws IOException{
         monitor=false;
         profesor=false;
         administrador=false;
-        //loggedIn = false;
+        loggedIn = false;
         username=null;
         password=null;
+        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+        
+        return "/login?faces-redirect=true";// indicas a donde quieres direccionar después de cerrar sesión 
         //FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
         
     }
