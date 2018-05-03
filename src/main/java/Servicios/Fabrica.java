@@ -4,6 +4,7 @@ import DAOS.AsesoriaDAO;
 import DAOS.CursoDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
+import DAOS.MonitoriaDAO;
 import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
@@ -13,6 +14,7 @@ import MyBatis.MyBatisAsesoriaDao;
 import MyBatis.MyBatisCursoDao;
 import MyBatis.MyBatisGrupoDao;
 import MyBatis.MyBatisMonitorDao;
+import MyBatis.MyBatisMonitoriaDao;
 import MyBatis.MyBatisMonitoriaRegistradaDao;
 import MyBatis.MyBatisProfesorDao;
 import MyBatis.MyBatisSemestreDao;
@@ -54,6 +56,7 @@ public class Fabrica {
                 bind(GrupoDAO.class).to(MyBatisGrupoDao.class);
                 bind(AdministradorDAO.class).to(MyBatisAdministradorDao.class);
                 bind(CursoDAO.class).to(MyBatisCursoDao.class);
+                bind(MonitoriaDAO.class).to(MyBatisMonitoriaDao.class);
             }
         });
     }

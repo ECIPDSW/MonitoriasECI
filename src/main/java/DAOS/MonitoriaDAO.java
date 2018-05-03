@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mappers;
+package DAOS;
 
 import Modelo.Monitoria;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
-/**
- *
- * @author martincantorurrego
- */
-public interface MonitoriaMapper {
-    List<Monitoria> loadMonitoriasPorMonitor(@Param("id")int idMonitor);
+
+public interface MonitoriaDAO {
+    List<Monitoria> loadMonitoriasPorMonitor(int idMonitor);
 }

@@ -4,11 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.MonitoriaMapper">
+    <select parameterType="map" id="loadMonitoriasPorMonitor" resultMap='Monitoria'>
+    select
+    m.idmonitoria as monid,
+    m.dia as mdia,
+    m.horainicio as mhorainicio,
+    m.horafin as mhorafin,
+    m.lugar as mlugar
+    
+    from monitoria as m
+    where #{id} = (select g.monitor_persona_id from grupo as g where m.grupo_idgrupo = g.idgrupo and g.semestre_numero = 
+	(select MAX(s.numero) from semestre as s))
+    </select>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>
-        <result property='horaInicio' column='mhoraInicio'/>
-        <result property='horaFin' column='mhoraFin'/>
+        <result property='horaInicio' column='mhorainicio'/>
+        <result property='horaFin' column='mhorafin'/>
         <result property='lugar' column='mlugar'/>
         <association property='grupo' javaType='Grupo' resultMap='Mappers.GrupoMapper.Grupo'></association>
     </resultMap>
