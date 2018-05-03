@@ -90,17 +90,17 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public void registrarInicioMonitoriaDictada(int idMonitoria, String ip) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        monitoriaregistrada.registrarInicioMonitoriaDictada(idMonitoria, ip);
     }
 
     @Override
     public void registrarFinMonitoria(int idMonitor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        monitoriaregistrada.registrarFinMonitoria(idMonitor);
     }
 
     @Override
-    public List<Monitoria> monitoriasDisponiblesParaDictar(int idMonitor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Monitoria monitoriasDisponiblesParaDictar(int idMonitor) {
+        return monitoria.monitoriasDisponiblesParaDictar(idMonitor);
     }
 
     @Override

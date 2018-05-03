@@ -25,5 +25,10 @@ public class MyBatisMonitoriaDao implements MonitoriaDAO{
     public List<Monitoria> loadMonitoriasPorMonitor(int idMonitor) {
         return monitoriaMapper.loadMonitoriasPorMonitor(idMonitor);
     }
+
+    @Override
+    public Monitoria monitoriasDisponiblesParaDictar(int idMonitor) {
+        return monitoriaMapper.monitoriasDisponiblesParaDictar(idMonitor);
+    }
     
 }

@@ -11,4 +11,5 @@ import java.util.List;
 
 public interface MonitoriaDAO {
     List<Monitoria> loadMonitoriasPorMonitor(int idMonitor);
+    Monitoria monitoriasDisponiblesParaDictar(int idMonitor);
 }

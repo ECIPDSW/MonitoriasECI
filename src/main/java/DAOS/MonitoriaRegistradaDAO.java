@@ -10,5 +10,6 @@ package DAOS;
  * @author martincantorurrego
  */
 public interface MonitoriaRegistradaDAO {
-    
+    void registrarInicioMonitoriaDictada(int idMonitoria,String ip);
+    void registrarFinMonitoria(int idMonitor);
 }

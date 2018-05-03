@@ -32,6 +32,14 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadProfesorLogin(4, "mala"));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorMonitor(2));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().monitoriasDisponiblesParaDictar(1));
+        //Inserts asesoria
+        try{
+            Fabrica.getInstance().getServiciosAsesoria().registrarInicioMonitoriaDictada(1, "124.58.45.2");
+            Fabrica.getInstance().getServiciosAsesoria().registrarFinMonitoria(1);
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);
