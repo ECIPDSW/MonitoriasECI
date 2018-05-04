@@ -98,7 +98,11 @@ public class UserLoginView implements Serializable {
     public boolean isAdministrador() {
         return administrador;
     }
-
+    
+    public void mostrarPagina() throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
+        
+    }
     public void login() throws IOException {
 
         RequestContext context = RequestContext.getCurrentInstance();
@@ -121,7 +125,7 @@ public class UserLoginView implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Loggin Error", "Invalid credentials"));
         }
 
-        FacesContext.getCurrentInstance().addMessage(null, message);
+
         context.addCallbackParam("loggedIn", loggedIn);
     }
 

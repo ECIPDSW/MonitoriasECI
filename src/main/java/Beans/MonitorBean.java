@@ -2,6 +2,7 @@ package Beans;
 
 import Modelo.Grupo;
 import Modelo.Monitor;
+import Modelo.Monitoria;
 import Modelo.Semestre;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
@@ -17,19 +18,22 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
+import javax.servlet.http.HttpServletRequest;
 
 @ManagedBean(name = "Monitor")
 @SessionScoped
 public class MonitorBean implements Serializable {
 
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
-    
+
     private String console;
     private Monitor monitor;
-    private boolean monitoriaIniciada=false;
+    private Monitoria monitoriaEnCurso;
+    private boolean monitoriaIniciada = false;
     private ArrayList<Grupo> grupos;
     private Grupo grupoSeleccionado;
 
@@ -78,10 +82,8 @@ public class MonitorBean implements Serializable {
         this.grupos = grupos;
     }
 
-
-
     public Grupo getGrupoSeleccionado() {
-        
+
         return grupoSeleccionado;
     }
 
@@ -90,10 +92,8 @@ public class MonitorBean implements Serializable {
         this.grupoSeleccionado = grupoSeleccionado;
     }
 
-   
-
     public String getMonitoriaIniciada() {
- 
+
         return String.valueOf(monitoriaIniciada);
     }
 
@@ -134,26 +134,32 @@ public class MonitorBean implements Serializable {
     }
 
     public void botonIniciarAsesoria() {
-        monitoriaIniciada=true;
-        horaInicioMonitoria = new String();
-        Calendar calendario = new GregorianCalendar();
-        horaInicioMonitoria += Integer.toString(calendario.get(Calendar.HOUR_OF_DAY))+" : " ;
-        horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.MINUTE))+" : " ;
-        horaInicioMonitoria +=Integer.toString(calendario.get(Calendar.SECOND)) ;
-        Date fechaMonitoria = new Date(calendario.get(Calendar.YEAR), calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH));
+        HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
+             String ipAddress = request.getHeader("X-FORWARDED-FOR");
+            if (ipAddress == null) {
+                ipAddress = request.getRemoteAddr();
+            }
+        System.out.println(ipAddress);
+        monitoriaEnCurso = sa.monitoriasDisponiblesParaDictar(monitor.getId());
+        if (monitoriaEnCurso != null) {
+            
+            monitoriaIniciada = true;
+            sa.registrarInicioMonitoriaDictada(monitoriaEnCurso.getIdMonitoria(), ipAddress);
+        }
     }
-    
+
     public void botonFinalizarAsesoria() {
-        monitoriaIniciada=false;
+        monitoriaIniciada = false;
         horaFinMonitoria = new String();
         Calendar calendario = new GregorianCalendar();
-        horaFinMonitoria += Integer.toString(calendario.get(Calendar.HOUR_OF_DAY))+" : " ;
-        horaFinMonitoria +=Integer.toString(calendario.get(Calendar.MINUTE))+" : " ;
-        horaFinMonitoria +=Integer.toString(calendario.get(Calendar.SECOND)) ;
+        horaFinMonitoria += Integer.toString(calendario.get(Calendar.HOUR_OF_DAY)) + " : ";
+        horaFinMonitoria += Integer.toString(calendario.get(Calendar.MINUTE)) + " : ";
+        horaFinMonitoria += Integer.toString(calendario.get(Calendar.SECOND));
     }
-    public void setMonitor(Monitor m){
-        this.monitor=m;
-        
+
+    public void setMonitor(Monitor m) {
+        this.monitor = m;
+
     }
 
 }
