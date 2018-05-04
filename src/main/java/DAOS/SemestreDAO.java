@@ -6,6 +6,7 @@
 package DAOS;
 
 import Modelo.Semestre;
+import java.util.List;
 
 /**
  *
@@ -13,6 +14,8 @@ import Modelo.Semestre;
  */
 public interface SemestreDAO {     
     public Semestre loadSemestre(int id);
+    Semestre loadSemestreActual();
+    List<Semestre> loadSemestres();
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
 }

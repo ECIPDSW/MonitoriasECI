@@ -16,7 +16,29 @@
         WHERE s.numero=#{id}
         
     </select>
-    
+    <select parameterType="map" id="loadSemestreActual" resultMap='Semestre'>
+        select
+        s.numero as snumero,
+        s.ano as sano,
+        s.periodoAcademico as speriodoacademico,
+        s.fechaInicio as sfechainicio,
+        s.fechaFin as sfechafin
+        
+        FROM Semestre as s
+        WHERE s.numero = (select MAX(ss.numero) from semestre as ss)
+        
+    </select>
+    <select parameterType="map" id="loadSemestres" resultMap='Semestre'>
+        select
+        s.numero as snumero,
+        s.ano as sano,
+        s.periodoAcademico as speriodoacademico,
+        s.fechaInicio as sfechainicio,
+        s.fechaFin as sfechafin
+        
+        FROM Semestre as s
+        
+    </select>
     <resultMap type='Semestre' id='Semestre'>
         <id property ='numero' column='snumero'/>
         <result property='ano' column='sano'/> 

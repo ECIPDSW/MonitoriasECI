@@ -7,8 +7,10 @@ package MyBatis;
 
 import DAOS.AsesoriaDAO;
 import Mappers.AsesoriaMapper;
+import Modelo.Asesoria;
 import com.google.inject.Inject;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -30,4 +32,9 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     public void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones) {
         asesoriaMapper.registrarAsesoria(grupo, monitor, idEstudiante, nombreEstudiante, observaciones);
 }
+
+    @Override
+    public List<Asesoria> loadAsesorias(int semestre) {
+        return asesoriaMapper.loadAsesorias(semestre);
+    }
 }

@@ -29,7 +29,29 @@
 	(select MAX(s.numero) from semestre as s)) and current_time between m.horainicio and m.horafin
     </select>
     
+    <select parameterType="map" id="loadMonitorias" resultMap='Monitoria'>
+        select
+        m.idmonitoria as monid,
+        m.dia as mdia,
+        m.horainicio as mhorainicio,
+        m.horafin as mhorafin,
+        m.lugar as mlugar
     
+        from monitoria as m
+        where #{semestre} = (select g.semestre_numero from grupo as g where m.grupo_idgrupo = g.idgrupo)
+    </select>
+    <select parameterType="map" id="loadMonitoriasPorCurso" resultMap='Monitoria'>
+        select
+        m.idmonitoria as monid,
+        m.dia as mdia,
+        m.horainicio as mhorainicio,
+        m.horafin as mhorafin,
+        m.lugar as mlugar
+    
+        from monitoria as m
+        where #{semestre} = (select g.semestre_numero from grupo as g where m.grupo_idgrupo = g.idgrupo) and
+        #{idcurso} = (select g.curso_id from grupo as g where m.grupo_idgrupo = g.idgrupo)
+    </select>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>

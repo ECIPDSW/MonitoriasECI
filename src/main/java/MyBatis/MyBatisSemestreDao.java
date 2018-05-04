@@ -9,6 +9,7 @@ import DAOS.SemestreDAO;
 import Mappers.SemestreMapper;
 import Modelo.Semestre;
 import com.google.inject.Inject;
+import java.util.List;
 
 
 /**
@@ -23,6 +24,16 @@ public class MyBatisSemestreDao implements SemestreDAO{
     @Override
     public Semestre loadSemestre(int id) {
         return semestreMapper.loadSemestre(id);
+    }
+
+    @Override
+    public Semestre loadSemestreActual() {
+        return semestreMapper.loadSemestreActual();
+    }
+
+    @Override
+    public List<Semestre> loadSemestres() {
+        return semestreMapper.loadSemestres();
     }
    
    

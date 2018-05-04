@@ -39,7 +39,13 @@ public class Main {
             Fabrica.getInstance().getServiciosAsesoria().registrarFinMonitoria(1);
         }catch(Exception e){
             System.out.println(e.getMessage());
+            System.out.println("NO ES LA HORA DEL MONITOR");
         }
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual());
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias(Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadSemestres());
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesorias(Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);

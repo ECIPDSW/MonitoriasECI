@@ -110,17 +110,17 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public List<Monitoria> loadMonitorias(int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return monitoria.loadMonitorias(semestre);
     }
 
     @Override
     public List<Monitoria> loadMonitorias(String idcurso, int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return monitoria.loadMonitorias(idcurso,semestre);
     }
 
     @Override
     public List<Asesoria> loadAsesorias(int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asesoria.loadAsesorias(semestre);
     }
 
     @Override
@@ -145,12 +145,12 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public List<Semestre> loadSemestres() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return semestre.loadSemestres();
     }
 
     @Override
     public Semestre loadSemestreActual() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return semestre.loadSemestreActual();
     }
 
     @Override

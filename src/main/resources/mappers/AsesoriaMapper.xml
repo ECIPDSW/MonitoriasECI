@@ -7,14 +7,20 @@
     <insert parameterType="map" id="registrarAsesoria">
         insert into asesoria (grupo_idgrupoasistente, monitoriaregistrada, idestudiante, nombreestudiante, observaciones) values(#{grupo}, 1, #{idEst}, #{nombreEst}, #{obser})
     </insert>
-    
+    <select parameterType="map" id="loadAsesorias" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones
+
+        from asesoria as a
+        where #{semestre} = (select g.semestre_numero from grupo as g where grupo_idgrupoasistente = g.idgrupo)
+    </select>
     <resultMap type='Asesoria' id='Asesoria'>
         <id property='idAsesoria' column='aid'/>
-        <result property='fecha' column = 'afecha'/>
         <result property='idEstudiante' column = 'aidestudiante'/>
-        <result property='nombreEstudiante' column = 'anombreestudiante'/>
         <result property='observaciones' column = 'aobservaciones'/>
-        <association property='monitoriaR' javaType='MonitoriaRegistrada' resultMap='Mappers.MonitoriaRegistradaMapper.MonitoriaRegistrada'></association>
+        <association property='monitoria' javaType='MonitoriaRegistrada' resultMap='Mappers.MonitoriaRegistradaMapper.MonitoriaRegistrada'></association>
         <collection property='temas' ofType='TemaAsesoria' resultMap='Mappers.TemaAsesoriaMapper.TemaAsesoria' ></collection>
 
     </resultMap>

@@ -5,6 +5,9 @@
  */
 package DAOS;
 
+import Modelo.Asesoria;
+import java.util.List;
+
 /**
  *
  * @author martincantorurrego
@@ -15,4 +18,5 @@ public interface AsesoriaDAO {
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
     void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones);
+    List<Asesoria> loadAsesorias(int semestre);
 }

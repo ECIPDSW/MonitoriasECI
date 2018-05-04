@@ -15,20 +15,16 @@ import java.util.Date;
  */
 public class Asesoria implements Serializable {
     private int idAsesoria;
-    private Date fecha;
     private int idEstudiante;
-    private String nombreEstudiante;
     private String observaciones;
-    private MonitoriaRegistrada monitoriaR;
+    private MonitoriaRegistrada monitoria;
     private ArrayList<TemaCurso> temas;
 
-    public Asesoria(int idAsesoria, Date fecha, int idEstudiante, String nombreEstudiante, String observaciones, MonitoriaRegistrada monitoriaR, ArrayList<TemaCurso> temas) {
+    public Asesoria(int idAsesoria, Date fecha, int idEstudiante, String nombreEstudiante, String observaciones, MonitoriaRegistrada monitoria, ArrayList<TemaCurso> temas) {
         this.idAsesoria = idAsesoria;
-        this.fecha = fecha;
         this.idEstudiante = idEstudiante;
-        this.nombreEstudiante = nombreEstudiante;
         this.observaciones = observaciones;
-        this.monitoriaR = monitoriaR;
+        this.monitoria = monitoria;
         this.temas = temas;
     }
 
@@ -45,15 +41,6 @@ public class Asesoria implements Serializable {
         this.idAsesoria = idAsesoria;
     }
     
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
     public int getIdEstudiante() {
         return idEstudiante;
     }
@@ -61,16 +48,6 @@ public class Asesoria implements Serializable {
     public void setIdEstudiante(int idEstudiante) {
         this.idEstudiante = idEstudiante;
     }
-
-    public String getNombreEstudiante() {
-        return nombreEstudiante;
-    }
-
-    public void setNombreEstudiante(String nombreEstudiante) {
-        this.nombreEstudiante = nombreEstudiante;
-    }
-
-
 
     public String getObservaciones() {
         return observaciones;
@@ -90,7 +67,7 @@ public class Asesoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Asesoria{" + "idAsesoria=" + idAsesoria + ", fecha=" + fecha + ", idEstudiante=" + idEstudiante + ", nombreEstudiante=" + nombreEstudiante +  ", observaciones=" + observaciones + ", temas=" + temas + '}';
+        return "Asesoria{" + "idAsesoria=" + idAsesoria +  ", idEstudiante=" + idEstudiante +   ", observaciones=" + observaciones + ", temas=" + temas + '}';
     }
     public String getTemass(){
         String t="";
@@ -101,11 +78,11 @@ public class Asesoria implements Serializable {
     }
 
     public MonitoriaRegistrada getMonitoriaR() {
-        return monitoriaR;
+        return monitoria;
     }
 
     public void setMonitoriaR(MonitoriaRegistrada monitoriaR) {
-        this.monitoriaR = monitoriaR;
+        this.monitoria = monitoriaR;
     }
     
     
