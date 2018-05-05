@@ -9,6 +9,7 @@ import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
 import DAOS.TemaAsesoriaDAO;
+import DAOS.TemaCursoDAO;
 import MyBatis.MyBatisAdministradorDao;
 import MyBatis.MyBatisAsesoriaDao;
 import MyBatis.MyBatisCursoDao;
@@ -19,6 +20,7 @@ import MyBatis.MyBatisMonitoriaRegistradaDao;
 import MyBatis.MyBatisProfesorDao;
 import MyBatis.MyBatisSemestreDao;
 import MyBatis.MyBatisTemaAsesoriaDao;
+import MyBatis.MyBatisTemaCursoDao;
 import ServiciosImpl.ServicioAsesoriaImpl;
 
 import java.io.IOException;
@@ -57,6 +59,7 @@ public class Fabrica {
                 bind(AdministradorDAO.class).to(MyBatisAdministradorDao.class);
                 bind(CursoDAO.class).to(MyBatisCursoDao.class);
                 bind(MonitoriaDAO.class).to(MyBatisMonitoriaDao.class);
+                bind(TemaCursoDAO.class).to(MyBatisTemaCursoDao.class);
             }
         });
     }

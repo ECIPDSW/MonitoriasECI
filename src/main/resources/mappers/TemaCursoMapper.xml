@@ -4,6 +4,22 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.TemaCursoMapper">
+    <select parameterType="map" id="loadTemasCurso" resultMap='TemaCurso'>
+    select
+    tc.idtemacurso as tcid,
+    tc.tema as tctema,
+    tc.descripcion as tcdescripcion
+    from temacurso as tc
+    where tc.curso_id = #{idcurso}
+    </select>
+    <select parameterType="map" id="loadTemasAsesoria" resultMap='TemaCurso'>
+    select
+    tc.idtemacurso as tcid,
+    tc.tema as tctema,
+    tc.descripcion as tcdescripcion
+    from temacurso as tc, temaasesoria as ta
+    where ta.temacurso_idtemacurso = tc.idtemacurso and ta.asesoria_idasesoria = #{idasesoria}
+    </select>
     <resultMap type='TemaCurso' id='TemaCurso'>
         <id property ='idTemaCurso' column='tcid'/>
         <result property='tema' column = 'tctema'/>

@@ -46,6 +46,14 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadSemestres());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesorias(Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadTemasCurso("PIMB"));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadTemasAsesoria(1));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoresAsociadosProfesor(3, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGruposAsociadosProfesor(4, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesoriasPorTema(1, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesoriasPorMonitor(1, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesoriasPorGrupo(5));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesoriasPorCurso("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);

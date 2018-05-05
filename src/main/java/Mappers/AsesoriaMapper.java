@@ -16,4 +16,8 @@ public interface AsesoriaMapper {
     //public void registrarInformacionDeUnAsistente(@Param("id")int id);
     void registrarAsesoria(@Param("grupo")int grupo, @Param("moni")int monitor, @Param("idEst")int idEstudiante, @Param("nombreEst")String nombreEstudiante, @Param("obser")String observaciones);
     List<Asesoria> loadAsesorias(@Param("semestre")int semestre);
+    List<Asesoria> loadAsesoriasPorTema(@Param("idtema")int idTema, @Param("semestre")int semestre);
+    List<Asesoria> loadAsesoriasPorMonitor(@Param("idmonitor")int idMonitor,@Param("semestre")int semestre);
+    List<Asesoria> loadAsesoriasPorGrupo(@Param("idgrupo")int idGrupo);
+    List<Asesoria> loadAsesoriasPorCurso(@Param("idcurso")String idCurso,@Param("semestre")int semestre);
 }

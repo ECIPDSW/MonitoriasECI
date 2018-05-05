@@ -67,7 +67,7 @@ public class Asesoria implements Serializable {
 
     @Override
     public String toString() {
-        return "Asesoria{" + "idAsesoria=" + idAsesoria +  ", idEstudiante=" + idEstudiante +   ", observaciones=" + observaciones + ", temas=" + temas + '}';
+        return "Asesoria{" + "idAsesoria=" + idAsesoria +  ", idEstudiante=" + idEstudiante +   ", observaciones=" + observaciones +"monitoriaregistrada="+monitoria +", temas=" + temas + '}';
     }
     public String getTemass(){
         String t="";

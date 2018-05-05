@@ -16,6 +16,7 @@ import DAOS.MonitoriaRegistradaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
 import DAOS.TemaAsesoriaDAO;
+import DAOS.TemaCursoDAO;
 import Modelo.Administrador;
 import Modelo.Asesoria;
 import Modelo.Curso;
@@ -60,6 +61,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private CursoDAO curso;
     @Inject
     private MonitoriaDAO monitoria;
+    @Inject
+    private TemaCursoDAO temaCurso;
     
     
     
@@ -125,22 +128,22 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
     @Override
     public List<Asesoria> loadAsesoriasPorTema(int idTema, int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asesoria.loadAsesoriasPorTema(idTema, semestre);
     }
 
     @Override
     public List<Asesoria> loadAsesoriasPorMonitor(int idMonitor, int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asesoria.loadAsesoriasPorMonitor(idMonitor, semestre);
     }
 
     @Override
     public List<Asesoria> loadAsesoriasPorGrupo(int idGrupo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return asesoria.loadAsesoriasPorGrupo(idGrupo);
     }
 
     @Override
-    public List<Asesoria> loadAsesoriasPorCurso(String idCurso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre) {
+        return asesoria.loadAsesoriasPorCurso(idCurso, semestre);
     }
 
     @Override
@@ -154,23 +157,23 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     }
 
     @Override
-    public List<TemaCurso> loadTemasCurso(int idCurso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<TemaCurso> loadTemasCurso(String idCurso) {
+        return temaCurso.loadTemasCurso(idCurso);
     }
 
     @Override
-    public List<TemaAsesoria> loadTemasAsesoria(int idAsesoria) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<TemaCurso> loadTemasAsesoria(int idAsesoria) {
+        return temaCurso.loadTemasAsesoria(idAsesoria);
     }
 
     @Override
-    public List<Monitor> LoadMonitoresAsociadosProfesor(int idProfesor, int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor, int semestre) {
+        return monitor.loadMonitoresAsociadosProfesor(idProfesor, semestre);
     }
 
     @Override
-    public List<Grupo> LoadGruposAsociadosProfesor(int idProfesor, int semestre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Grupo> loadGruposAsociadosProfesor(int idProfesor, int semestre) {
+        return grupo.loadGruposAsociadosProfesor(idProfesor, semestre);
     }
 
     @Override

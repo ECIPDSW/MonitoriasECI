@@ -19,14 +19,6 @@ import java.util.List;
 public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     @Inject
     private AsesoriaMapper asesoriaMapper;  
-    //@Override
-    //public List<Asesoria> loadAsesorias(){} 
-    //@Override
-    //public Asesoria loadAsesoria(@Param("id")int id){}
-    //@Override
-    //public void registrarInformacionDeAsesoria(){}
-    //@Override
-    //public void registrarInformacionDeAsistente(){}
 
     @Override
     public void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones) {
@@ -36,5 +28,25 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     @Override
     public List<Asesoria> loadAsesorias(int semestre) {
         return asesoriaMapper.loadAsesorias(semestre);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasPorTema(int idTema, int semestre) {
+        return asesoriaMapper.loadAsesoriasPorTema(idTema, semestre);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasPorMonitor(int idMonitor, int semestre) {
+        return asesoriaMapper.loadAsesoriasPorMonitor(idMonitor, semestre);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasPorGrupo(int idGrupo) {
+        return asesoriaMapper.loadAsesoriasPorGrupo(idGrupo);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre) {
+        return asesoriaMapper.loadAsesoriasPorCurso(idCurso, semestre);
     }
 }

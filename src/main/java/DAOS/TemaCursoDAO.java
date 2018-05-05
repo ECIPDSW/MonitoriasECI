@@ -5,15 +5,14 @@
  */
 package DAOS;
 
-import Modelo.Monitor;
+import Modelo.TemaCurso;
 import java.util.List;
 
 /**
  *
- * @author 2124519
+ * @author David Rodriguez
  */
-public interface MonitorDAO {
-    Monitor loadMonitor(int id);
-    Monitor loadMonitorLogin(int id, String psw);
-    List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor, int semestre);
+public interface TemaCursoDAO {
+    List<TemaCurso> loadTemasCurso(String idCurso);
+    List<TemaCurso> loadTemasAsesoria(int idAsesoria);
 }

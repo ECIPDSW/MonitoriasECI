@@ -80,7 +80,7 @@ public interface ServicioAsesoria {
      * Retorna todas las asesorias dictadas  por curso
      * @return 
      */
-    List<Asesoria> loadAsesoriasPorCurso(String idCurso);
+    List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre);
     
     /**
      * retorna todos los semestres que han sido creados
@@ -98,28 +98,28 @@ public interface ServicioAsesoria {
      * @param idCurso
      * @return 
      */
-    List<TemaCurso> loadTemasCurso(int idCurso);
+    List<TemaCurso> loadTemasCurso(String idCurso);
     
       /**
      * retorna los temas dicrtados en una asesoria
      * @param idCurso
      * @return 
      */
-    List<TemaAsesoria> loadTemasAsesoria(int idAsesoria);
+    List<TemaCurso> loadTemasAsesoria(int idAsesoria);
     
     /**
      * devuelve todos los monitores por profesor
      * @param idProfesor
      * @return 
      */
-    List<Monitor> LoadMonitoresAsociadosProfesor(int idProfesor,int semestre);
+    List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor,int semestre);
     
       /**
      * devuelve todos los grupos por profesor
      * @param idProfesor
      * @return 
      */
-    List<Grupo> LoadGruposAsociadosProfesor(int idProfesor,int semestre);
+    List<Grupo> loadGruposAsociadosProfesor(int idProfesor,int semestre);
     
     /**
      * retorna el administrador con las credenciales registradas

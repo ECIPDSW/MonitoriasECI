@@ -14,5 +14,6 @@ import java.util.List;
  */
 public interface GrupoDAO{
     List<Grupo> loadGrupos(String idCurso,int semestre);
+    List<Grupo> loadGruposAsociadosProfesor(int idProfesor, int semestre);
     
 }

@@ -7,30 +7,44 @@
     
     <select parameterType="map" id="loadGrupos" resultMap='Grupo'>
         select
-    g.idgrupo as gid,
-    g.numero as gnumero,
-    c.id as cid,
-    c.nombre as cnombre,
-    c.creditosacademicos as ccreditosacademicos,
-    c.horasaprovadasmonitoria as chorasaprovadasmonitoria,
-    m.telefono as mtelefono,
-    m.programaacademico as mprogramaacademico,
-    p.id as peid,
-    p.nombre as penombre ,
-    p.apellido as peapellido ,
-    p.correo as pecorreo ,
-    p.contasena as peconstraseña ,
-    pr.decanatura as prdecanatura,
-    s.numero as snumero,
-    s.ano as sano,
-    s.fechainicio as sfechainicio,
-    s.fechafin as sfechafin
+        g.idgrupo as gid,
+        g.numero as gnumero,
+        c.id as cid,
+        c.nombre as cnombre,
+        c.creditosacademicos as ccreditosacademicos,
+        c.horasaprovadasmonitoria as chorasaprovadasmonitoria,
 
-    from grupo as g, curso as c, monitor as m, profesor as pr, persona as p, semestre as s
+
+        s.numero as snumero,
+        s.ano as sano,
+        s.fechainicio as sfechainicio,
+        s.fechafin as sfechafin
+
+        from grupo as g, curso as c, semestre as s
         where
         c.id = g.curso_id and  s.numero = g.semestre_numero  and curso_id = #{curso} and semestre_numero = #{semestre}     
     </select>
     
+    
+    <select parameterType="map" id="loadGruposAsociadosProfesor" resultMap='Grupo'>
+         select
+        g.idgrupo as gid,
+        g.numero as gnumero,
+        c.id as cid,
+        c.nombre as cnombre,
+        c.creditosacademicos as ccreditosacademicos,
+        c.horasaprovadasmonitoria as chorasaprovadasmonitoria,
+
+
+        s.numero as snumero,
+        s.ano as sano,
+        s.fechainicio as sfechainicio,
+        s.fechafin as sfechafin
+
+        from grupo as g, curso as c, semestre as s
+        where
+        c.id = g.curso_id and  s.numero = g.semestre_numero  and g.profesor_persona_id = #{idprofesor} and semestre_numero = #{semestre} 
+    </select>
     <resultMap type='Grupo' id='Grupo'>
         <id property='idGrupo' column='gid'/>
         <result property='numero' column='gnumero'/>

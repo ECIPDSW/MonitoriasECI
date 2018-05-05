@@ -11,10 +11,78 @@
         select
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
-        a.observaciones as aobservaciones
+        a.observaciones as aobservaciones,
+        m.idmonitoriaregistrada as mronid,
+   	m.ip as mrip,
+    	m.horacomienzo as mrhorainicio,
+    	m.horafinalizacion as mrhorafin,
+    	m.fecha as mrfecha
 
-        from asesoria as a
-        where #{semestre} = (select g.semestre_numero from grupo as g where grupo_idgrupoasistente = g.idgrupo)
+        from asesoria as a, monitoriaregistrada as m
+        where a.monitoriaregistrada = m.idmonitoriaregistrada and 
+        #{semestre} = (select g.semestre_numero from grupo as g where grupo_idgrupoasistente = g.idgrupo)
+    </select>
+    <select parameterType="map" id="loadAsesoriasPorTema" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones,
+        m.idmonitoriaregistrada as mronid,
+   	m.ip as mrip,
+    	m.horacomienzo as mrhorainicio,
+    	m.horafinalizacion as mrhorafin,
+    	m.fecha as mrfecha
+
+        from asesoria as a, monitoriaregistrada as m, temaasesoria as ta
+        where a.monitoriaregistrada = m.idmonitoriaregistrada and 
+        #{semestre} = (select g.semestre_numero from grupo as g where grupo_idgrupoasistente = g.idgrupo)
+        and ta.asesoria_idasesoria = a.idasesoria and ta.temacurso_idtemacurso = #{idtema}
+    </select>
+     <select parameterType="map" id="loadAsesoriasPorMonitor" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones,
+        m.idmonitoriaregistrada as mronid,
+   		m.ip as mrip,
+    	m.horacomienzo as mrhorainicio,
+    	m.horafinalizacion as mrhorafin,
+    	m.fecha as mrfecha
+
+        from asesoria as a, monitoriaregistrada as m, grupo as g, monitoria as mo
+        where a.monitoriaregistrada = m.idmonitoriaregistrada and 
+        #{semestre} = (select g.semestre_numero from grupo as g where grupo_idgrupoasistente = g.idgrupo)
+        and m.monitoria_idmonitoria = mo.idmonitoria and mo.grupo_idgrupo = g.idgrupo and g.monitor_persona_id = #{idmonitor}
+    </select>
+    <select parameterType="map" id="loadAsesoriasPorGrupo" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones,
+        m.idmonitoriaregistrada as mronid,
+   	m.ip as mrip,
+    	m.horacomienzo as mrhorainicio,
+    	m.horafinalizacion as mrhorafin,
+    	m.fecha as mrfecha
+
+        from asesoria as a, monitoriaregistrada as m, monitoria as mo
+        where a.monitoriaregistrada = m.idmonitoriaregistrada and m.monitoria_idmonitoria = mo.idmonitoria
+        and (a.grupo_idgrupoasistente = #{idgrupo} or mo.grupo_idgrupo=#{idgrupo})
+    </select>
+    <select parameterType="map" id="loadAsesoriasPorCurso" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones,
+        m.idmonitoriaregistrada as mronid,
+   		m.ip as mrip,
+    	m.horacomienzo as mrhorainicio,
+    	m.horafinalizacion as mrhorafin,
+    	m.fecha as mrfecha
+
+        from asesoria as a, grupo as g, monitoriaregistrada as m
+        where a.monitoriaregistrada = m.idmonitoriaregistrada and  a.grupo_idgrupoasistente = g.idgrupo
+        and g.semestre_numero = #{semestre} and g.curso_id = #{idcurso}
     </select>
     <resultMap type='Asesoria' id='Asesoria'>
         <id property='idAsesoria' column='aid'/>

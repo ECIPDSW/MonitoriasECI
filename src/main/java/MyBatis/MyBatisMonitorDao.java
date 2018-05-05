@@ -9,6 +9,7 @@ import DAOS.MonitorDAO;
 import Mappers.MonitorMapper;
 import Modelo.Monitor;
 import com.google.inject.Inject;
+import java.util.List;
 
 /**
  *
@@ -26,6 +27,11 @@ public class MyBatisMonitorDao implements MonitorDAO{
     @Override
     public Monitor loadMonitorLogin(int id, String psw) {
         return monitormapper.loadMonitorLogin(id, psw);
+    }
+
+    @Override
+    public List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor, int semestre) {
+        return monitormapper.loadMonitoresAsociadosProfesor(idProfesor, semestre);
     }
     
 }
