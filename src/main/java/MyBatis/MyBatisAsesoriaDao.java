@@ -49,4 +49,9 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     public List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre) {
         return asesoriaMapper.loadAsesoriasPorCurso(idCurso, semestre);
     }
+
+    @Override
+    public List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada) {
+        return asesoriaMapper.loadAsesoriasPorMonitoriaRegistrada(idMonitoriaRegistrada);
+    }
 }

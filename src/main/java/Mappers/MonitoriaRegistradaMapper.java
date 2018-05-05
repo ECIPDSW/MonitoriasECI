@@ -5,6 +5,8 @@
  */
 package Mappers;
 
+import Modelo.MonitoriaRegistrada;
+import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -14,4 +16,5 @@ import org.apache.ibatis.annotations.Param;
 public interface MonitoriaRegistradaMapper {
     void registrarInicioMonitoriaDictada(@Param("id")int idMonitoria,@Param("ip")String ip);
     void registrarFinMonitoria(@Param("id")int idMonitor);
+    List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(@Param("idmonitoria")int idMonitoria);
 }

@@ -5,6 +5,9 @@
  */
 package DAOS;
 
+import Modelo.MonitoriaRegistrada;
+import java.util.List;
+
 /**
  *
  * @author martincantorurrego
@@ -12,4 +15,5 @@ package DAOS;
 public interface MonitoriaRegistradaDAO {
     void registrarInicioMonitoriaDictada(int idMonitoria,String ip);
     void registrarFinMonitoria(int idMonitor);
+    List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(int idMonitoria);
 }

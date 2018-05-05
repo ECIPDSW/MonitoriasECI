@@ -23,6 +23,7 @@ import Modelo.Curso;
 import Modelo.Grupo;
 import Modelo.Monitor;
 import Modelo.Monitoria;
+import Modelo.MonitoriaRegistrada;
 import Modelo.Profesor;
 import Modelo.Semestre;
 import Modelo.TemaAsesoria;
@@ -199,6 +200,16 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public List<Monitoria> loadMonitoriasPorMonitor(int idMonitor) {
         return monitoria.loadMonitoriasPorMonitor(idMonitor);
+    }
+
+    @Override
+    public List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(int idMonitoria) {
+        return monitoriaregistrada.loadMonitoriasRegistradasPorMonitoria(idMonitoria);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada) {
+        return asesoria.loadAsesoriasPorMonitoriaRegistrada(idMonitoriaRegistrada);
     }
    
     

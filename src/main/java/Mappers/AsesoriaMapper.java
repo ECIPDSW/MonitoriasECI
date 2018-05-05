@@ -20,4 +20,5 @@ public interface AsesoriaMapper {
     List<Asesoria> loadAsesoriasPorMonitor(@Param("idmonitor")int idMonitor,@Param("semestre")int semestre);
     List<Asesoria> loadAsesoriasPorGrupo(@Param("idgrupo")int idGrupo);
     List<Asesoria> loadAsesoriasPorCurso(@Param("idcurso")String idCurso,@Param("semestre")int semestre);
+    List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(@Param("idmonitoriaregistrada")int idMonitoriaRegistrada);
 }

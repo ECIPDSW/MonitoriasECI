@@ -153,4 +153,8 @@ public interface ServicioAsesoria {
     List<Grupo> loadGrupos(String idCurso,int semestre);
     
     List<Monitoria> loadMonitoriasPorMonitor(int idMonitor);
+    
+    List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(int idMonitoria);
+    
+    List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada);
 }

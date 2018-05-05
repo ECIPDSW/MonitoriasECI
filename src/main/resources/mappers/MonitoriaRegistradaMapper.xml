@@ -29,6 +29,19 @@
 	and horafinalizacion is null
     </insert>
     
+    <select parameterType="map" id="loadMonitoriasRegistradasPorMonitoria" resultMap='MonitoriaRegistrada'>
+        select 
+        mr.idmonitoriaregistrada as mronid,
+        mr.ip as mrip,
+        mr.horacomienzo as mrhorainicio,
+        mr.horafinalizacion as mrhorafin,
+        mr.fecha as mrfecha
+
+        from monitoriaregistrada as mr
+        where mr.monitoria_idmonitoria = #{idmonitoria}
+
+    </select>
+    
     <resultMap type='MonitoriaRegistrada' id='MonitoriaRegistrada'>
         <id property='idMonitoria' column='mronid'/>
         <result property='IP' column='mrip'/>

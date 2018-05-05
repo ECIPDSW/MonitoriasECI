@@ -8,7 +8,9 @@ package MyBatis;
 import DAOS.MonitoriaRegistradaDAO;
 import DAOS.PersistenceException;
 import Mappers.MonitoriaRegistradaMapper;
+import Modelo.MonitoriaRegistrada;
 import com.google.inject.Inject;
+import java.util.List;
 import org.postgresql.util.PSQLException;
 
 /**
@@ -28,6 +30,11 @@ public class MyBatisMonitoriaRegistradaDao implements MonitoriaRegistradaDAO{
     @Override
     public void registrarFinMonitoria(int idMonitor) {
         monitoriaRegistradaMapper.registrarFinMonitoria(idMonitor);
+    }
+
+    @Override
+    public List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(int idMonitoria) {
+        return monitoriaRegistradaMapper.loadMonitoriasRegistradasPorMonitoria(idMonitoria);
     }
     
 }
