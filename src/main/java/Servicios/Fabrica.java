@@ -2,6 +2,7 @@ package Servicios;
 import DAOS.AdministradorDAO;
 import DAOS.AsesoriaDAO;
 import DAOS.CursoDAO;
+import DAOS.EstudianteDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
 import DAOS.MonitoriaDAO;
@@ -13,6 +14,7 @@ import DAOS.TemaCursoDAO;
 import MyBatis.MyBatisAdministradorDao;
 import MyBatis.MyBatisAsesoriaDao;
 import MyBatis.MyBatisCursoDao;
+import MyBatis.MyBatisEstudianteDao;
 import MyBatis.MyBatisGrupoDao;
 import MyBatis.MyBatisMonitorDao;
 import MyBatis.MyBatisMonitoriaDao;
@@ -60,6 +62,7 @@ public class Fabrica {
                 bind(CursoDAO.class).to(MyBatisCursoDao.class);
                 bind(MonitoriaDAO.class).to(MyBatisMonitoriaDao.class);
                 bind(TemaCursoDAO.class).to(MyBatisTemaCursoDao.class);
+                bind(EstudianteDAO.class).to(MyBatisEstudianteDao.class);
             }
         });
     }

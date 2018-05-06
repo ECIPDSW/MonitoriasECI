@@ -159,4 +159,6 @@ public interface ServicioAsesoria {
     List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada);
     
     Monitor loadMonitorPorGrupo(int idgrupo);
+    
+    Estudiante loadEstudiantePorAsesoria(int idasesoria);
 }

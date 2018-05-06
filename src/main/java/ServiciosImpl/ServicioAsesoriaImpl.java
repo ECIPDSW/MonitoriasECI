@@ -9,6 +9,7 @@ package ServiciosImpl;
 import DAOS.AdministradorDAO;
 import DAOS.AsesoriaDAO;
 import DAOS.CursoDAO;
+import DAOS.EstudianteDAO;
 import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
 import DAOS.MonitoriaDAO;
@@ -20,6 +21,7 @@ import DAOS.TemaCursoDAO;
 import Modelo.Administrador;
 import Modelo.Asesoria;
 import Modelo.Curso;
+import Modelo.Estudiante;
 import Modelo.Grupo;
 import Modelo.Monitor;
 import Modelo.Monitoria;
@@ -64,7 +66,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private MonitoriaDAO monitoria;
     @Inject
     private TemaCursoDAO temaCurso;
-    
+    @Inject
+    private EstudianteDAO estudiante;
     
     
     
@@ -215,6 +218,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public Monitor loadMonitorPorGrupo(int idgrupo) {
         return monitor.loadMonitorPorGrupo(idgrupo);
+    }
+
+    @Override
+    public Estudiante loadEstudiantePorAsesoria(int idasesoria) {
+        return estudiante.loadEstudiantePorAsesoria(idasesoria);
     }
    
     

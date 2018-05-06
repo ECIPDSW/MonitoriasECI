@@ -17,6 +17,7 @@
        <typeAlias type='Modelo.Semestre' alias='Semestre'/>
        <typeAlias type='Modelo.TemaAsesoria' alias='TemaAsesoria'/>
        <typeAlias type='Modelo.TemaCurso' alias='TemaCurso'/>
+       <typeAlias type='Modelo.Estudiante' alias='Estudiante'/>
     </typeAliases>
 
 
@@ -46,6 +47,7 @@
            <mapper resource="mappers/SemestreMapper.xml"></mapper>
            <mapper resource="mappers/TemaAsesoriaMapper.xml"></mapper>
            <mapper resource="mappers/TemaCursoMapper.xml"></mapper>
+           <mapper resource="mappers/EstudianteMapper.xml"></mapper>
     </mappers> 
     
 </configuration>

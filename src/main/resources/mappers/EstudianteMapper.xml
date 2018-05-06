@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Mappers.EstudianteMapper">
+    
+    <select parameterType="map" id="loadEstudiantePorAsesoria" resultMap='Estudiante'>
+        select
+        e.carnet as ecarnet,
+        e.nombre as enombre
+        from estudiante as e, asesoria as a
+        where a.estudiante_carnet = e.carnet and a.idasesoria = #{idasesoria}
+    </select>
+    
+    <resultMap type='Estudiante' id='Estudiante'>
+        <id property='carnet' column='ecarnet'/>
+        <result property='nombre' column = 'enombre'/>
+    </resultMap>
+</mapper>
