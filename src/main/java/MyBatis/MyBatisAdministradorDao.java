@@ -9,12 +9,13 @@ import DAOS.AdministradorDAO;
 import Mappers.AdministradorMapper;
 import Modelo.Administrador;
 import com.google.inject.Inject;
+import java.io.Serializable;
 
 /**
  *
  * @author 2123162
  */
-public class MyBatisAdministradorDao implements AdministradorDAO{
+public class MyBatisAdministradorDao implements AdministradorDAO,Serializable{
 
     @Inject
     AdministradorMapper administradorMapper;

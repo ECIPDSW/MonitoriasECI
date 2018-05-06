@@ -31,17 +31,17 @@ public class ProfesorBean implements Serializable  {
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
     
     private Profesor profesor;
-    private Map<String,Grupo> grupos = new HashMap<String, Grupo>();
-    private Map<String,String>gruposs = new HashMap<String,String>();
+    private Map<String,Grupo> grupos = new HashMap<>();
+    private Map<String,String>gruposs = new HashMap<>();
     private Grupo grupo;
     private String gruponame="";
     private Monitor monitor;
     private String nombrem="";
-    private List<Monitoria> monitorias=new ArrayList<Monitoria>();
+    private List<Monitoria> monitorias=new ArrayList<>();
     private Monitoria mon;
-    private List<MonitoriaRegistrada> monreg= new ArrayList<MonitoriaRegistrada>();
+    private List<MonitoriaRegistrada> monreg= new ArrayList<>();
     private MonitoriaRegistrada monr;
-    private List<Asesoria> asesorias = new ArrayList<Asesoria>();
+    private List<Asesoria> asesorias = new ArrayList<>();
     
  
     public Profesor getProfesor() {
@@ -102,53 +102,46 @@ public class ProfesorBean implements Serializable  {
         
         return  nombrem;
     }
-    /*
+    
     public void refresh(){
-        //System.out.println("tamaño="+profesor.getGrupos().size());
-        for(int i=0;i<profesor.getGrupos().size();i++){
-            grupos.put(profesor.getGrupos().get(i).getCurso().getNombre()+""+profesor.getGrupos().get(i).getNumero(),profesor.getGrupos().get(i));
-            gruposs.put(profesor.getGrupos().get(i).getCurso().getNombre()+""+profesor.getGrupos().get(i).getNumero(),profesor.getGrupos().get(i).getCurso().getNombre()+""+profesor.getGrupos().get(i).getNumero());
+        List<Grupo> gr =sa.loadGruposAsociadosProfesor(profesor.getId(),sa.loadSemestreActual().getNumero() );
+        
+        for(int i=0;i<gr.size();i++){
+            grupos.put(gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero(),gr.get(i));
+            gruposs.put(gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero(),gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero());
         }
         //System.out.println("LLENADO");
     }
-    */
-    /*
+    
+    
     public void buscar(){
-       // System.out.println("BUSCAR");
-        //System.out.println("GRUPOOOOFINAL="+grupo);
-        monitor=grupo.getMonitor();
+        System.out.println("BUSCAR");
+        System.out.println("GRUPOOOOFINAL="+grupo);
+        monitor=sa.loadMonitorPorGrupo(grupo.getIdGrupo());
+        
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
+        System.out.println(monitor.getNombre()+" "+monitor.getApellido());
+        
         //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
-        monitorias=new ArrayList<Monitoria>();
-        for(int i=0;i<grupo.getMonitorias().size();i++){
-            Monitoria mu = grupo.getMonitorias().get(i);
-            monitorias.add(mu);
-            //System.out.println("DIA"+mu.getDia()+" FIN"+mu.getHoraFin()+"INI"+mu.getHoraInicio()+"LUGAR"+mu.getLugar());
+        monitorias=sa.loadMonitoriasPorMonitor(monitor.getId());
+                    //System.out.println("DIA"+mu.getDia()+" FIN"+mu.getHoraFin()+"INI"+mu.getHoraInicio()+"LUGAR"+mu.getLugar());
         }
         //System.out.println("LLENADO");
-    }
-    */
-    /*
+    
+    
+    
     public void moni(Monitoria mon){
         //System.out.println("ELEGIDA");
         this.mon=mon;
-        monreg=new ArrayList<MonitoriaRegistrada>();
-        for(int i=0;i<mon.getMregistrada().size();i++){
-            MonitoriaRegistrada mr = mon.getMregistrada().get(i);
-            monreg.add(mr);
-            
-        }
+        monreg= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
+        
     }
-    */
-    /*
+    
+    
     public void aseso(MonitoriaRegistrada monreg){
-        this.monr=monreg;
-        asesorias=new ArrayList<Asesoria>();
-        for(int i=0;i<monr.getAsesorias().size();i++){
-            Asesoria as = monr.getAsesorias().get(i);
-            asesorias.add(as);
-            
-        }
+        
+        asesorias=sa.loadAsesoriasPorMonitoriaRegistrada(monreg.getIdMonitoria());
+
     }
-    */
+    
 }

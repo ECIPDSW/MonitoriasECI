@@ -5,9 +5,11 @@
  */
 package Modelo;
 
+import Servicios.Fabrica;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,7 +20,7 @@ public class Asesoria implements Serializable {
     private int idEstudiante;
     private String observaciones;
     private MonitoriaRegistrada monitoria;
-    private ArrayList<TemaCurso> temas;
+    private List<TemaCurso> temas;
 
     public Asesoria(int idAsesoria, Date fecha, int idEstudiante, String nombreEstudiante, String observaciones, MonitoriaRegistrada monitoria, ArrayList<TemaCurso> temas) {
         this.idAsesoria = idAsesoria;
@@ -57,8 +59,8 @@ public class Asesoria implements Serializable {
         this.observaciones = observaciones;
     }
 
-    public ArrayList<TemaCurso> getTemas() {
-        return temas;
+    public List<TemaCurso> getTemas() {
+        return Fabrica.getInstance().getServiciosAsesoria().loadTemasAsesoria(idAsesoria);
     }
 
     public void setTemas(ArrayList<TemaCurso> temas) {
@@ -71,6 +73,7 @@ public class Asesoria implements Serializable {
     }
     public String getTemass(){
         String t="";
+        temas= Fabrica.getInstance().getServiciosAsesoria().loadTemasAsesoria(idAsesoria);
         for(int i =0;i<temas.size();i++){
             t+=" "+temas.get(i).getTema()+"\n";
         }
@@ -85,5 +88,7 @@ public class Asesoria implements Serializable {
         this.monitoria = monitoriaR;
     }
     
-    
+    public String getNombreEstudiante(){
+        return Fabrica.getInstance().getServiciosAsesoria().loadEstudiantePorAsesoria(idAsesoria).getNombre();
+    }
 }
