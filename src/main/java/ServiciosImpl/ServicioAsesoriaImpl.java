@@ -211,6 +211,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada) {
         return asesoria.loadAsesoriasPorMonitoriaRegistrada(idMonitoriaRegistrada);
     }
+
+    @Override
+    public Monitor loadMonitorPorGrupo(int idgrupo) {
+        return monitor.loadMonitorPorGrupo(idgrupo);
+    }
    
     
 }

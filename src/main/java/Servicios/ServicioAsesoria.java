@@ -157,4 +157,6 @@ public interface ServicioAsesoria {
     List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(int idMonitoria);
     
     List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada);
+    
+    Monitor loadMonitorPorGrupo(int idgrupo);
 }

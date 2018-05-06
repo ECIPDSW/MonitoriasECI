@@ -80,6 +80,30 @@
         
     </select>
 
+    <select parameterType="map" id="loadMonitorPorGrupo" resultMap='Monitor'>
+    select
+    
+    p.id as peid,
+    p.nombre as penombre ,
+    p.apellido as peapellido ,
+    p.correo as pecorreo ,
+    p.contasena as peconstraseña ,
+    
+    m.telefono as mtelefono,
+    m.programaacademico as mprogramaacademico,
+    
+    s.numero as snumero,
+    s.ano as sano,
+    s.periodoAcademico as speriodoacademico,
+    s.fechaInicio as sfechainicio,
+    s.fechaFin as sfechafin
+                    
+    FROM monitor as m 
+    left join persona as p on m.persona_id = p.id
+    left join semestre as s on m.semestreIngreso_Numero=s.numero, grupo as g
+    WHERE g.monitor_persona_id = m.persona_id and g.idgrupo = #{idgrupo}
+        
+    </select>
     <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
         <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>

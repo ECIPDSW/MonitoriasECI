@@ -33,5 +33,10 @@ public class MyBatisMonitorDao implements MonitorDAO{
     public List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor, int semestre) {
         return monitormapper.loadMonitoresAsociadosProfesor(idProfesor, semestre);
     }
+
+    @Override
+    public Monitor loadMonitorPorGrupo(int idgrupo) {
+        return monitormapper.loadMonitorPorGrupo(idgrupo);
+    }
     
 }
