@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -53,25 +54,7 @@ public class MonitorBean implements Serializable {
     private List<String> cursos;
 
     public void MonitorBean() {
-        //cars
-        System.out.println("LLENADO");
 
-        //cursos
-        cursos = new ArrayList<String>();
-        cursos.add("PDSW");
-        cursos.add("TPRO");
-        cursos.add("TCOM");
-        cursos.add("MDIS");
-        cursos.add("ARQC");
-        cursos.add("SOPC");
-        //profesor
-        profesores = new ArrayList<String>();
-        profesores.add("Nesol Mandela");
-        profesores.add("Ghandi");
-        profesores.add("Martin Luther King");
-        profesores.add("Atila El Huno");
-        profesores.add("Teresa de Calcuta");
-        profesores.add("Alan Turing");
     }
 
     public ArrayList<Grupo> getGrupos() {
@@ -88,7 +71,6 @@ public class MonitorBean implements Serializable {
     }
 
     public void setGrupoSeleccionado(Grupo grupoSeleccionado) {
-        System.out.println("dwferwf");
         this.grupoSeleccionado = grupoSeleccionado;
     }
 
@@ -135,26 +117,23 @@ public class MonitorBean implements Serializable {
 
     public void botonIniciarAsesoria() {
         HttpServletRequest request = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
-             String ipAddress = request.getHeader("X-FORWARDED-FOR");
-            if (ipAddress == null) {
-                ipAddress = request.getRemoteAddr();
-            }
+        String ipAddress = request.getHeader("X-FORWARDED-FOR");
+        if (ipAddress == null) {
+            ipAddress = request.getRemoteAddr();
+        }
         System.out.println(ipAddress);
         monitoriaEnCurso = sa.monitoriasDisponiblesParaDictar(monitor.getId());
         if (monitoriaEnCurso != null) {
-            
             monitoriaIniciada = true;
             sa.registrarInicioMonitoriaDictada(monitoriaEnCurso.getIdMonitoria(), ipAddress);
+        } else {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"No esta en su franja de monitoria", "Actualmente usted no tiene registrada ninguna monitoria para dictar."));
         }
     }
 
     public void botonFinalizarAsesoria() {
-        monitoriaIniciada = false;
-        horaFinMonitoria = new String();
-        Calendar calendario = new GregorianCalendar();
-        horaFinMonitoria += Integer.toString(calendario.get(Calendar.HOUR_OF_DAY)) + " : ";
-        horaFinMonitoria += Integer.toString(calendario.get(Calendar.MINUTE)) + " : ";
-        horaFinMonitoria += Integer.toString(calendario.get(Calendar.SECOND));
+        sa.registrarFinMonitoria(monitor.getId());
     }
 
     public void setMonitor(Monitor m) {

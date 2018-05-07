@@ -17,9 +17,10 @@
                             <!-- Left Side -->
                             <div class="card">
                                 <h1>Registrar Asistente</h1>
+                                <p:growl id="growl" autoUpdate="true" showDetail="true" sticky="true" /> 
                                 <p:panelGrid id="campos" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                                    
-                                    
+
+
                                     <p:outputLabel for="input" value="Carnet Estudiante"/>
                                     <p:inputText id="input" required="true"  requiredMessage="Carnet del estudiante es requerido."/>
                                     <p:outputLabel for="input" value="Nombre Estudiante"/>
@@ -37,12 +38,17 @@
                                         <f:selectItems value="#{checkboxView.cities}" />
                                     </p:selectCheckboxMenu>
 
-                                    <p:commandButton id="btnRegistro"    value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White" type="button"  update="campos" style="width:auto;margin-bottom:10px;"/>
-
-
-
-
                                 </p:panelGrid>
+                                <p:separator />
+                                <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                    <p:commandButton id="btnRegistro"  update="campos"  value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White"    style="width:auto;margin-bottom:10px;">
+                                        
+                                    </p:commandButton>
+                                </p:panelGrid>
+
+
+
+
 
 
                             </div>
@@ -51,9 +57,9 @@
                         <div class="ui-g-12 ui-lg-6">
                             <div class="card">
                                 <h1>Monitorias En Curso</h1>
-                                <p:dataTable var="car" value="#{dtBasicView.cars}" reflow="true" selectionMode="single" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}">
+                                <p:dataTable  id="tabla" var="car" value="#{dtBasicView.cars}"  rowKey="#{car.id}">
                                     <f:facet name="header">
-                                        DataTable
+                                        Estudiantes con asesorias en curso
                                     </f:facet>
                                     <p:column headerText="Carnet">
                                         <h:outputText value="#{car.id}" />
@@ -62,19 +68,23 @@
                                     <p:column headerText="Nombre">
                                         <h:outputText value="#{car.year}" />
                                     </p:column>
-
+                                    <p:column headerText="Finalizar Asesoria">
+                                        <h:commandLink id="terminarAsesoria" value="Terminar Asesoria"   onclick="PF('dlg').show()">
+                                            <f:ajax execute="terminarAsesoria" />
+                                        </h:commandLink>
+                                    </p:column>
 
                                 </p:dataTable>
-                                <p:commandButton id="dialog2" value="Terminar asesoria Seleccionada"  type="button" onclick="PF('dlg').show()" style="width:auto;margin-bottom:10px;"/>
+
                                 <p:dialog header="Terminando Asesoria" widgetVar="dlg" resizable="false" draggable="false" responsive="true" >
                                     <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank" columnClasses="ui-grid-col-4,ui-grid-col-8">
                                         <h:outputLabel for="comentarios" value="Comentarios: " />
                                         <p:inputTextarea id="comentarios" autoResize="false"/>
-
-
                                         <p:spacer height="10" />
                                         <f:facet name="footer">
-                                            <p:commandButton value="Terminar asesoria" type="button" styleClass="red-button" onclick="PF('dlg').hide()" style="width:auto;margin-bottom:10px;"/>
+                                            <p:commandButton id="terminasAse" value="Terminar asesoria" type="button" styleClass="red-button" onclick="PF('dlg').hide()" style="width:auto;margin-bottom:10px;">
+                                                <f:ajax execute="terminasAse" render="tabla" />
+                                            </p:commandButton>
                                         </f:facet>  
                                     </p:panelGrid>
                                 </p:dialog>
