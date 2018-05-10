@@ -36,6 +36,8 @@ import MyBatis.MyBatisSemestreDao;
 import Servicios.ServicioAsesoria;
 import com.google.inject.Inject;
 import java.io.Serializable;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 /**
@@ -223,6 +225,46 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public Estudiante loadEstudiantePorAsesoria(int idasesoria) {
         return estudiante.loadEstudiantePorAsesoria(idasesoria);
+    }
+
+    @Override
+    public List<Date> loadFechasMonitorias(String idCurso, int semestre) {
+        return monitoria.loadFechasMonitorias(idCurso, semestre);
+    }
+
+    @Override
+    public int numeroDeAsistenciasSegunFecha(String idCurso, int semestre, Date fecha) {
+        return monitoria.numeroDeAsistenciasSegunFecha(idCurso, semestre, fecha);
+    }
+
+    @Override
+    public int numeroDeAsistenciasSegunGrupo(int grupo) {
+        return this.grupo.numeroDeAsistenciasSegunGrupo(grupo);
+    }
+
+    @Override
+    public List<Time> franjasMonitorias(String idCurso, int semestre) {
+        return monitoria.franjasMonitorias(idCurso, semestre);
+    }
+
+    @Override
+    public int numeroDeAsistenciasSegunFranja(String idCurso, int semestre, Time franja) {
+        return monitoria.numeroDeAsistenciasSegunFranja(idCurso, semestre, franja);
+    }
+
+    @Override
+    public int numeroDeAsistenciasSegunMonitoria(int idMonitoria) {
+        return monitoria.numeroDeAsistenciasSegunMonitoria(idMonitoria);
+    }
+
+    @Override
+    public int numeroDeAsistenciasSegunTema(int tema, int semestre) {
+        return temaCurso.numeroDeAsistenciasSegunTema(tema, semestre);
+    }
+
+    @Override
+    public int numeroDeAsistenciasSegunCurso(String idCurso, int semestre) {
+        return curso.numeroDeAsistenciasSegunCurso(idCurso, semestre);
     }
    
     

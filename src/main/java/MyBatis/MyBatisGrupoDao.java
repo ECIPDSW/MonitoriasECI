@@ -28,4 +28,9 @@ public class MyBatisGrupoDao implements GrupoDAO{
     public List<Grupo> loadGruposAsociadosProfesor(int idProfesor, int semestre) {
         return grupoMapper.loadGruposAsociadosProfesor(idProfesor, semestre);
     }
+
+    @Override
+    public int numeroDeAsistenciasSegunGrupo(int grupo) {
+        return grupoMapper.numeroDeAsistenciasSegunGrupo(grupo);
+    }
 }

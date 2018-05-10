@@ -20,6 +20,12 @@
     from temacurso as tc, temaasesoria as ta
     where ta.temacurso_idtemacurso = tc.idtemacurso and ta.asesoria_idasesoria = #{idasesoria}
     </select>
+    <select parameterType="map" id="numeroDeAsistenciasSegunTema" resultType='Integer'>
+        select count(a.idasesoria)
+        from asesoria as a, temaasesoria as ta, temacurso as tc, grupo as g
+        where ta.asesoria_idasesoria = a.idasesoria and ta.temacurso_idtemacurso = tc.idtemacurso and a.grupo_idgrupoasistente = g.idgrupo
+        and tc.idtemacurso = #{tema} and g.semestre_numero = #{semestre}
+    </select>
     <resultMap type='TemaCurso' id='TemaCurso'>
         <id property ='idTemaCurso' column='tcid'/>
         <result property='tema' column = 'tctema'/>

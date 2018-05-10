@@ -22,7 +22,7 @@ public class Main {
     public static Fabrica fabrica = Fabrica.getInstance();
     
     public static void main(String args[]){
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
+        /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAdminLogin(5, "admin"));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().getProfesor(3));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitor(1));
@@ -57,7 +57,17 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasRegistradasPorMonitoria(5));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAsesoriasPorMonitoriaRegistrada(1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorPorGrupo(5));
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadEstudiantePorAsesoria(1));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadEstudiantePorAsesoria(1));*/
+        //INICIO
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadFechasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunFecha("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero(), Fabrica.getInstance().getServiciosAsesoria().loadFechasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()).get(0)));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunGrupo(5));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().franjasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunFranja("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero(), Fabrica.getInstance().getServiciosAsesoria().franjasMonitorias("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()).get(0)));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunMonitoria(2));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunTema(1, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunCurso("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        //FIN
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);

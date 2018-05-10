@@ -12,6 +12,12 @@
     c.horasaprovadasmonitoria as chorasaprovadasmonitoria
     from curso as c
     </select>
+    <select parameterType="map" id="numeroDeAsistenciasSegunCurso" resultType='Integer'>
+        select count(a.idasesoria)
+        from asesoria as a, grupo as g
+        where a.grupo_idgrupoasistente = g.idgrupo
+        and g.semestre_numero = #{semestre} and g.curso_id = #{curso}
+    </select>
     <resultMap type='Curso' id='Curso'>
         <id property='id' column='cid'/>
         <result property='nombre' column = 'cnombre'/>

@@ -5,6 +5,7 @@
  */
 package Servicios;
 import Modelo.*;
+import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
@@ -161,4 +162,20 @@ public interface ServicioAsesoria {
     Monitor loadMonitorPorGrupo(int idgrupo);
     
     Estudiante loadEstudiantePorAsesoria(int idasesoria);
+    
+    List<Date> loadFechasMonitorias(String idCurso, int semestre);
+    
+    int numeroDeAsistenciasSegunFecha(String idCurso, int semestre, Date fecha);
+    
+    int numeroDeAsistenciasSegunGrupo(int grupo);
+    
+    List<Time> franjasMonitorias(String idCurso, int semestre);
+    
+    int numeroDeAsistenciasSegunFranja(String idCurso, int semestre, Time franja);
+    
+    int numeroDeAsistenciasSegunMonitoria(int idMonitoria);
+    
+    int numeroDeAsistenciasSegunTema(int tema, int semestre);
+    
+    int numeroDeAsistenciasSegunCurso(String idCurso, int semestre);
 }

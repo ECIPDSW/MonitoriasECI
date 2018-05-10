@@ -15,4 +15,5 @@ import java.util.List;
 public interface TemaCursoDAO {
     List<TemaCurso> loadTemasCurso(String idCurso);
     List<TemaCurso> loadTemasAsesoria(int idAsesoria);
+    int numeroDeAsistenciasSegunTema(int tema, int semestre);
 }
