@@ -257,4 +257,6 @@ public interface ServicioAsesoria {
     List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria); 
     
     Semestre loadSemestreAnterior();
+    
+    List<Monitoria> loadMonitoriasPorGrupo(int grupo);
 }
