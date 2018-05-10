@@ -180,4 +180,6 @@ public interface ServicioAsesoria {
     int numeroDeAsistenciasSegunCurso(String idCurso, int semestre);
     
     List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria); 
+    
+    Semestre loadSemestreAnterior();
 }

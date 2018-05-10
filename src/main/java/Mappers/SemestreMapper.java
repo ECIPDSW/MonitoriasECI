@@ -11,4 +11,5 @@ public interface SemestreMapper {
     Semestre loadSemestre(@Param("id")int id);
     Semestre loadSemestreActual();
     List<Semestre> loadSemestres();
+    Semestre loadSemestreAnterior();
 }

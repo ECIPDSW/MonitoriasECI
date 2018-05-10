@@ -111,6 +111,7 @@
         from asesoria as a, monitoriaregistrada as mr, monitoria as mo
         where a.monitoriaregistrada = mr.idmonitoriaregistrada 
         and mr.monitoria_idmonitoria = mo.idmonitoria and mo.idmonitoria = #{idmonitoria}
+        order by mr.fecha desc
 
     </select>
     <resultMap type='Asesoria' id='Asesoria'>

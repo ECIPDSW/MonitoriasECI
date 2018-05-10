@@ -16,6 +16,7 @@ public interface SemestreDAO {
     public Semestre loadSemestre(int id);
     Semestre loadSemestreActual();
     List<Semestre> loadSemestres();
+    Semestre loadSemestreAnterior();
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
 }

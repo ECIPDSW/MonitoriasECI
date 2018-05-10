@@ -76,7 +76,8 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunMonitoria(2));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunTema(1, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunCurso("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
-        System.out.print(Fabrica.getInstance().getServiciosAsesoria().asesoriasDeUnaMonitoria(17));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().asesoriasDeUnaMonitoria(17));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadSemestreAnterior());
         //FIN
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
