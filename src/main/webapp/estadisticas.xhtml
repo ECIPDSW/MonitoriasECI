@@ -288,15 +288,15 @@
                                 <p:panelGrid id="filtros" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-50" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
                                     <p:outputLabel for="semestres" value="Seleccione semestre : "  />
-                                    <p:selectOneMenu id="semestres" value="#{Administrador.semestreSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
+                                    <p:selectOneMenu id="semestres" value="#{Estadisticas.semestreSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
                                         <f:selectItem itemLabel="Seleccione" itemValue="" />
-                                        <f:selectItems value="#{Administrador.semestres}" />
+                                        <f:selectItems     value="#{Administrador.semestres}" var="sem" itemValue="#{sem.numero}"  />
                                     </p:selectOneMenu>
 
                                     <p:outputLabel for="Cursos" value="Seleccione Curso: "  />
-                                    <p:selectOneMenu id="Cursos" value="#{Administrador.cursoSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
+                                    <p:selectOneMenu id="Cursos" value="#{Estadisticas.cursoSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
                                         <f:selectItem itemLabel="Seleccione" itemValue="" />
-                                        <f:selectItems value="#{Administrador.cursos}" />
+                                        <f:selectItems value="#{Administrador.cursos}" var="curso" itemValue="#{curso.id}" />
                                     </p:selectOneMenu>
 
 
@@ -315,7 +315,7 @@
                         <div class="ui-g-12 ui-lg-6">
                             <div class="card">
                                 <h1>Grafico de asistencias</h1>
-                                <p:chart id="line" type="line" model="#{chartDemoView.lineModel1}"  responsive="true"/>
+                                <p:chart id="line" type="line" model="#{Estadisticas.lineModel1}"  responsive="true"/>
                                 
                             </div>
                         </div>
