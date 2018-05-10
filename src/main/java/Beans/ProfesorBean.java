@@ -33,14 +33,19 @@ public class ProfesorBean implements Serializable  {
     private Profesor profesor;
     private Map<String,Grupo> grupos = new HashMap<>();
     private Map<String,String>gruposs = new HashMap<>();
+    private Map<String,Monitoria> monitorias = new HashMap<>();
+    private Map<String,String> monitoriass = new HashMap<>();
+    private Map<String,MonitoriaRegistrada> monreg = new HashMap<>();
+    private Map<String,String> monregs = new HashMap<>();
     private Grupo grupo;
     private String gruponame="";
     private Monitor monitor;
     private String nombrem="";
-    private List<Monitoria> monitorias=new ArrayList<>();
+    private String nombremr="";
     private Monitoria mon;
-    private List<MonitoriaRegistrada> monreg= new ArrayList<>();
+    
     private MonitoriaRegistrada monr;
+    private String monrs="";
     private List<Asesoria> asesorias = new ArrayList<>();
     
  
@@ -51,38 +56,59 @@ public class ProfesorBean implements Serializable  {
     public void setProfesor(Profesor profesor) {
         this.profesor = profesor;
     }
-    public List<Monitoria> getMonitorias(){
+    public Map<String,String> getMonitorias(){
         //System.out.println(monitorias);
-        return monitorias;
+        return monitoriass;
     }
     public List<Asesoria> getAsesorias(){
         //System.out.println("ASESORIAS");
         return asesorias;
     }
-    public void setMonitoria(Monitoria mo){
-        this.mon=mo;
+    public void setMonitoria(String mo){
+        System.out.println("Setted0");
+        this.mon=monitorias.get(mo);
+        nombremr= this.mon.getDia();
+        List<MonitoriaRegistrada> monre= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
+        System.out.println("Setted");
+        for(int i=0;i<monre.size();i++){
+            monreg.put(monre.get(i).getFechas(),monre.get(i));
+            monregs.put(monre.get(i).getFechas(),monre.get(i).getFechas());
+        }
     }
-    public Monitoria getMonitoria(){
-        return mon;
+    public String getMonitoria(){
+        return nombremr;
     }
-    public List<MonitoriaRegistrada> getMonitoriasr(){
+    public Map<String,String> getMonitoriasr(){
         //System.out.println("MONITORIAS");
-        return monreg;
+        return monregs;
     }
-    public void setMonitoriar(MonitoriaRegistrada mo){
-        this.monr=mo;
+    public void setMonitoriar(String mo){
+        this.monr=monreg.get(mo);
+        monrs=monr.getFechas();
     }
-    public MonitoriaRegistrada getMonitoriar(){
-        return monr;
+    public String getMonitoriar(){
+        return monrs;
     }
     public Map<String, String> getGrupos() {
         //System.out.println("LLAMADOG");
         return gruposs;
     }
     public void setGrupo(String name){
-        //System.out.println("LLAMADOGS");
+        System.out.println("LLAMADOGS");
         this.gruponame=name;
         grupo=grupos.get(name);
+        monitor=sa.loadMonitorPorGrupo(grupo.getIdGrupo());
+        
+        nombrem=monitor.getNombre()+" "+monitor.getApellido();
+        System.out.println(monitor.getNombre()+" "+monitor.getApellido());
+        
+        //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
+        List<Monitoria> monitori=sa.loadMonitoriasPorMonitor(monitor.getId());
+        System.out.println(monitori);
+        for(int i=0;i<monitori.size();i++){
+            monitorias.put(monitori.get(i).getDia(),monitori.get(i));
+            monitoriass.put(monitori.get(i).getDia(),monitori.get(i).getDia());
+        }
         //System.out.println("GRUPOOOO="+grupo);
     }
     public String getGrupo(){
@@ -93,7 +119,7 @@ public class ProfesorBean implements Serializable  {
     public String getGrupoName(){
         return gruponame;
     }
-        public void setGrupoName(String name){
+    public void setGrupoName(String name){
             grupo=grupos.get(name);
         this.gruponame=name;
     }
@@ -121,9 +147,9 @@ public class ProfesorBean implements Serializable  {
         
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
         System.out.println(monitor.getNombre()+" "+monitor.getApellido());
-        
+        asesorias=sa.loadAsesoriasPorMonitoriaRegistrada(monr.getIdMonitoria());
         //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
-        monitorias=sa.loadMonitoriasPorMonitor(monitor.getId());
+        //monitorias=sa.loadMonitoriasPorMonitor(monitor.getId());
                     //System.out.println("DIA"+mu.getDia()+" FIN"+mu.getHoraFin()+"INI"+mu.getHoraInicio()+"LUGAR"+mu.getLugar());
         }
         //System.out.println("LLENADO");
@@ -133,7 +159,7 @@ public class ProfesorBean implements Serializable  {
     public void moni(Monitoria mon){
         //System.out.println("ELEGIDA");
         this.mon=mon;
-        monreg= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
+        //monreg= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
         
     }
     
