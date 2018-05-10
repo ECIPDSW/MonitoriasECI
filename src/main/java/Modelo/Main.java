@@ -30,8 +30,8 @@ public class Main {
          //Descarga de PDFS
         String sPropiedades = System.getProperty("user.name");
         GeneradorPdf pdf = new GeneradorPdf();
-        pdf.generarPDF("CONSULTA ASESORIAS", "Asistencia Asesorias:", "Porcentajes por curso:","Porcentajes por grupo:","porcentajes por tema:", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/prueba.pdf");
-        pdf.generarPdfv2("ASESORIA","Materia:","Franja Horaria:", "Temas:", "Numero de Estudiantes:", "/Users/"+sPropiedades+"/Desktop/prueba2.pdf");
+        pdf.generarPDF("CONSULTA ASESORIAS", "Asistencia Asesorias:", "Porcentajes por curso:","Porcentajes por grupo:","porcentajes por tema:", "/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png", "/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/home/local/LABINFO/"+sPropiedades+"/Downloads/prueba.pdf");
+        pdf.generarPdfv2("ASESORIA","Materia:","Franja Horaria:", "Temas:", "Numero de Estudiantes:", "/home/local/LABINFO/"+sPropiedades+"/Downloads/prueba2.pdf");
 
        //Ejemplo Descarga Excel
         String[][] entrada = new String[5][5];
@@ -41,7 +41,7 @@ public class Main {
         entrada[1][4] = "# de Estudiantes";
         
         try {
-            g.generarExcel(entrada,"/Users/"+sPropiedades+"/Desktop/pruebaexcel.xls");
+            g.generarExcel(entrada,"/home/local/LABINFO/"+sPropiedades+"/Downloads/pruebaexcel.xls");
         } catch (WriteException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
