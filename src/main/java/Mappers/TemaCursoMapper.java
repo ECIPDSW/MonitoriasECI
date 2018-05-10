@@ -9,4 +9,5 @@ import org.apache.ibatis.annotations.Param;
 public interface TemaCursoMapper {
     List<TemaCurso> loadTemasCurso(@Param("idcurso")String idCurso);
     List<TemaCurso> loadTemasAsesoria(@Param("idasesoria")int idAsesoria);
+    int numeroDeAsistenciasSegunTema(@Param("tema")int tema,@Param("semestre")int semestre);;
 }

@@ -14,4 +14,5 @@ import java.util.List;
  */
 public interface CursoDAO {
     List<Curso> loadCursos();
+    int numeroDeAsistenciasSegunCurso(String idCurso, int semestre);
 }

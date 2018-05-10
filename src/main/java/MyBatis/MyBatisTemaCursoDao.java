@@ -29,5 +29,10 @@ public class MyBatisTemaCursoDao implements TemaCursoDAO{
     public List<TemaCurso> loadTemasAsesoria(int idAsesoria) {
         return temaCurso.loadTemasAsesoria(idAsesoria);
     }
+
+    @Override
+    public int numeroDeAsistenciasSegunTema(int tema, int semestre) {
+        return temaCurso.numeroDeAsistenciasSegunTema(tema, semestre);
+    }
     
 }

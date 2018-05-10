@@ -24,5 +24,10 @@ public class MyBatisCursoDao implements CursoDAO{
     public List<Curso> loadCursos() {
         return cursoMapper.loadCursos();
     }
+
+    @Override
+    public int numeroDeAsistenciasSegunCurso(String idCurso, int semestre) {
+        return cursoMapper.numeroDeAsistenciasSegunCurso(idCurso, semestre);
+    }
     
 }

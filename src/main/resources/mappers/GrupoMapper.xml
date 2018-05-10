@@ -45,6 +45,11 @@
         where
         c.id = g.curso_id and  s.numero = g.semestre_numero  and g.profesor_persona_id = #{idprofesor} and semestre_numero = #{semestre} 
     </select>
+    <select parameterType="map" id="numeroDeAsistenciasSegunGrupo" resultType='Integer'>
+        select count(a.idasesoria)
+            from asesoria as a, grupo as g
+            where a.grupo_idgrupoasistente = g.idgrupo and g.idgrupo = #{grupo}
+    </select>
     <resultMap type='Grupo' id='Grupo'>
         <id property='idGrupo' column='gid'/>
         <result property='numero' column='gnumero'/>

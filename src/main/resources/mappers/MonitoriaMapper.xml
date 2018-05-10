@@ -58,6 +58,36 @@
         where #{semestre} = (select g.semestre_numero from grupo as g where m.grupo_idgrupo = g.idgrupo) and
         #{idcurso} = (select g.curso_id from grupo as g where m.grupo_idgrupo = g.idgrupo)
     </select>
+    <select parameterType="map" id="loadFechasMonitorias" resultType='java.sql.Date'>
+        select distinct fecha
+        from monitoriaregistrada as mr, monitoria as mo, grupo as g
+        where mr.monitoria_idmonitoria = mo.idmonitoria and mo.grupo_idgrupo = g.idgrupo 
+        and g.curso_id = #{curso} and g.semestre_numero = #{semestre}
+    </select>
+    <select parameterType="map" id="numeroDeAsistenciasSegunFecha" resultType='Integer'>
+        select count(a.idasesoria)
+        from asesoria as a,monitoriaregistrada as mr, monitoria as mo, grupo as g
+        where mr.monitoria_idmonitoria = mo.idmonitoria and mo.grupo_idgrupo = g.idgrupo and a.monitoriaregistrada = mr.idmonitoriaregistrada
+        and g.curso_id = #{curso} and g.semestre_numero = #{semestre} and mr.fecha = #{fecha}
+    </select>
+    <select parameterType="map" id="franjasMonitorias" resultType='java.sql.Time'>
+        select distinct mo.horainicio
+        from monitoria as mo, grupo as g
+        where mo.grupo_idgrupo = g.idgrupo and g.semestre_numero = #{semestre} and g.curso_id = #{curso}
+    </select>
+    <select parameterType="map" id="numeroDeAsistenciasSegunFranja" resultType='Integer'>
+        select count(a.idasesoria)
+        from asesoria as a, grupo as g, monitoria as mo, monitoriaregistrada as mr
+        where a.grupo_idgrupoasistente = g.idgrupo and a.monitoriaregistrada = mr.idmonitoriaregistrada
+        and mr.monitoria_idmonitoria = mo.idmonitoria and mo.horainicio = #{franja}
+        and g.semestre_numero = #{semestre} and g.curso_id = #{curso}
+    </select>
+    <select parameterType="map" id="numeroDeAsistenciasSegunMonitoria" resultType='Integer'>
+        select count(a.idasesoria)
+        from asesoria as a, monitoriaregistrada as mr, monitoria as mo
+        where a.monitoriaregistrada = mr.idmonitoriaregistrada and mr.monitoria_idmonitoria = mo.idmonitoria
+        and mo.idmonitoria = #{monitoria}
+    </select>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>
