@@ -37,8 +37,11 @@
                         </p:submenu>
                         <p:submenu id="om_components" label="Información Monitorias" icon="fa fa-sitemap" rendered="#{Login.profesor}">
                             <p:menuitem id="om_sample" value="Asistentes" icon="fa fa-columns" outcome="/Infoasistentes" />
-                            <p:menuitem id="info_monitorias" value="Monitorias" icon="fa fa-columns" outcome="/Infomonitorias" />
-                            
+                            <p:submenu id="om_Monitorias" label="Información Monitorias" icon="fa fa-sitemap" rendered="#{Login.profesor}">
+                                <p:menuitem id="info_monitoriaGeneral" value="Monitorias" icon="fa fa-columns" outcome="/Infomonitorias" />
+                                 <p:menuitem id="info_monitoriaDia" value="Monitorias Específicas" icon="fa fa-columns" outcome="/Infomonitoriasdia" />
+                                 
+                            </p:submenu>
                         </p:submenu>
                         
                         <p:submenu id="estadisticas" label="Informacion" icon="fa fa-newspaper-o" rendered="#{Login.administrador}">

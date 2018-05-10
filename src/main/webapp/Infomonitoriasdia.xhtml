@@ -35,14 +35,8 @@
                                             <f:selectItems value="#{Profesor.monitorias}" />
                                             <p:ajax event="change" update="Search"/>
                                         </p:selectOneMenu>
-                                        
-                                        <p:outputLabel for="Monitoriar" value="Seleccione Monitoria Registrada: "  />
-                                        <p:selectOneMenu id="Monitoriar"  value="#{Profesor.monitoriar}" effect="fold" editable="true"   style="width:125px">
-                                            <f:selectItem itemLabel="Seleccione el Grupo" itemValue="" />
-                                            <f:selectItems value="#{Profesor.monitoriasr}" />
-                                            
-                                        </p:selectOneMenu>
-                                        <p:commandButton update="Asistentes" id="buscar" value="Buscar"     actionListener="#{Profesor.buscar()}" icon="fa fa-check" process="@form"  ajax="true" />
+                            
+                                        <p:commandButton update="Asistentes" id="buscar" value="Buscar"     actionListener="#{Profesor.info()}" icon="fa fa-check" process="@form"  ajax="true" />
                                    </p:panelGrid>
 
                                 </h:form>
@@ -51,25 +45,18 @@
                             </div>
                             <h:form id="Asistentes">
                                 <div class="card">
-                                    <p:dataTable var="as" value="#{Profesor.asesorias}">
-                                        <f:facet name="header">
-                                            <p:outputLabel for="Asistentes" value="Monitor: #{Profesor.nombrem} Asistentes"  />
-                                        </f:facet>
-                                        <p:column headerText="Carné">
-                                            <h:outputText value="#{as.idEstudiante}" />
-                                        </p:column>
-
-                                        <p:column headerText="Nombre">
-                                            <h:outputText value="#{as.nombreEstudiante}" />
-                                        </p:column>
-
-                                        <p:column headerText="Temas">
-                                            <h:outputText value="#{as.temass}" />
-                                        </p:column>
-                                        <p:column headerText="Observaciones">
-                                            <h:outputText value="#{as.observaciones}" />
-                                        </p:column>
-                                    </p:dataTable>   
+                                        <p:fieldset legend="Grupo:#{Profesor.grupo} Monitoria:#{Profesor.monitoria}" style="margin-bottom:20px">
+                                            <h:panelGrid columns="2" cellpadding="5">
+                                                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                                <h:outputText value="Monitor:#{Profesor.nombrem} " />
+                                                <h:outputText value= "Cantidad de Monitorias Realizadas:#{Profesor.canmr}" />
+                                                <h:outputText value=" Cantidad Máxima de asistentes:#{Profesor.max}" />
+                                                <h:outputText value= "Cantidad Mínima de asistentes:#{Profesor.min}"/>
+                                                <h:outputText value= "Promedio de asistentes por sesión:#{Profesor.prom}"/>
+                                                <h:outputText value= "El porcentaje de Asistencia a esta sesión con respecto a las otras:#{Profesor.porcentaje}%"/>
+                                                    
+                                            </h:panelGrid>
+                                        </p:fieldset>   
                                 </div>
                             </h:form>
                             </div>

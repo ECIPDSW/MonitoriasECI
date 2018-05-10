@@ -26,22 +26,38 @@
                                         <p:selectOneMenu id="Grupo"  value="#{Profesor.grupo}" effect="fold" editable="true"   style="width:125px">
                                             <f:selectItem itemLabel="Seleccione el Grupo" itemValue="" />
                                             <f:selectItems value="#{Profesor.grupos}" />
-                                            <f:ajax execute="Grupo" render="Monitoria"/>
+                                            <p:ajax event="change" update="Search"/>
                                         </p:selectOneMenu>
-                                        <p:outputLabel for="Grupo" value="Seleccione Monitoria: "  />
+                                        
+                                        <p:outputLabel for="Monitoria" value="Seleccione Monitoria: "  />
                                         <p:selectOneMenu id="Monitoria"  value="#{Profesor.monitoria}" effect="fold" editable="true"   style="width:125px">
-                                            <f:selectItem itemLabel="Seleccione La monitoria" itemValue="" />
+                                            <f:selectItem itemLabel="Seleccione el Grupo" itemValue="" />
                                             <f:selectItems value="#{Profesor.monitorias}" />
+                                            <p:ajax event="change" update="Search"/>
                                         </p:selectOneMenu>
-                                        <p:commandButton update="Search" id="buscar" value="Buscar"     actionListener="#{Profesor.buscar()}" icon="fa fa-check" process="@form"  ajax="true" />
+                            
+                                        <p:commandButton update="Asistentes" id="buscar" value="Buscar"     actionListener="#{Profesor.info()}" icon="fa fa-check" process="@form"  ajax="true" />
                                    </p:panelGrid>
 
                                 </h:form>
 
 
                             </div>
-                            <div class="card">
-                                
+                            <h:form id="Asistentes">
+                                <div class="card">
+                                        <p:fieldset legend="Grupo:#{Profesor.grupo} Monitoria:#{Profesor.monitoria}" style="margin-bottom:20px">
+                                            <h:panelGrid columns="2" cellpadding="5">
+                                                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                                <h:outputText value="Monitor:#{Profesor.nombrem} " />
+                                                <h:outputText value= "Cantidad de Monitorias Realizadas:#{Profesor.canmr}" />
+                                                <h:outputText value=" Cantidad Máxima de asistentes:#{Profesor.max}" />
+                                                <h:outputText value= "Cantidad Mínima de asistentes:#{Profesor.min}"/>
+                                                <h:outputText value= "Promedio de asistentes por sesión:#{Profesor.prom}"/>
+                                                    
+                                            </h:panelGrid>
+                                        </p:fieldset>   
+                                </div>
+                            </h:form>
                             </div>
                             
                         </div>
@@ -49,7 +65,87 @@
                         <div class="ui-g-12 ui-lg-6">
                             
                             <div class="card">
-                                
+                                <h:form>
+                                    <p:dataTable id="tbl" var="as" value="#{dataExporterView.cars}"
+                                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                                 paginator="true" rows="10" style="margin-bottom:20px">
+
+                                        <f:facet name="{Exporters}">
+                                            <h:commandLink>
+                                                <p:graphicImage library="Images"   name="excel.png" width="24"/>
+                                               
+                                                <p:dataExporter type="xls" target="tbl" fileName="cars" />
+                                            </h:commandLink>
+
+                                            <h:commandLink>
+                                                <p:graphicImage library="Images" name="pdf.png" width="24"/>
+                                               
+                                                <p:dataExporter type="pdf" target="tbl" fileName="cars"/>
+                                            </h:commandLink>
+
+                                            <h:commandLink>
+                                                <p:graphicImage library="Images" name="csv.png" width="24"/>
+                                               
+                                                <p:dataExporter type="csv" target="tbl" fileName="cars" />
+                                            </h:commandLink>
+
+                                            <h:commandLink>
+                                                <p:graphicImage library="Images" name="xml.png" width="24"/>
+                                                
+                                                <p:dataExporter type="xml" target="tbl" fileName="cars" />
+                                            </h:commandLink>
+                                        </f:facet>
+
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Id" />
+                                            </f:facet>
+                                            <h:outputText value="#{car.id}" />
+                                        </p:column>
+
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Year"/>
+                                            </f:facet>
+                                            <h:outputText value="#{car.year}" />
+                                        </p:column>
+
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Brand" />
+                                            </f:facet>
+                                            <h:outputText value="#{car.brand}" />
+                                        </p:column>
+
+                                        <p:column>
+                                            <f:facet name="header">
+                                                <h:outputText value="Color" />
+                                            </f:facet>
+                                            <h:outputText value="#{car.color}" />
+                                        </p:column>
+                                    </p:dataTable>
+
+                                    <h3>Export Page Data Only</h3>
+                                    <h:commandLink>
+                                        <p:graphicImage name="/demo/images/excel.png" />
+                                        <p:dataExporter type="xls" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true"/>
+                                    </h:commandLink>
+
+                                    <h:commandLink>
+                                        <p:graphicImage name="/demo/images/pdf.png" />
+                                        <p:dataExporter type="pdf" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true" />
+                                    </h:commandLink>
+
+                                    <h:commandLink>
+                                        <p:graphicImage name="/demo/images/csv.png" />
+                                        <p:dataExporter type="csv" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true" />
+                                    </h:commandLink>
+
+                                    <h:commandLink>
+                                        <p:graphicImage name="/demo/images/xml.png" />
+                                        <p:dataExporter type="xml" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true" />
+                                    </h:commandLink>
+                                </h:form>
                                     <p:spacer height="10" />
                                     
 
@@ -59,8 +155,7 @@
                     </div>
 
                 </div>
-            </div>
-        
+                  
     </ui:define>
     
 </ui:composition>

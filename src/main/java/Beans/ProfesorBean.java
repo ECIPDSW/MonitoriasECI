@@ -21,6 +21,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
+import org.primefaces.omega.view.overlay.UserLoginView;
 
  
 
@@ -46,8 +47,12 @@ public class ProfesorBean implements Serializable  {
     private String nombremr="";  
     private String monrs="";
     private List<Asesoria> asesorias = new ArrayList<>();
-    
- 
+    private int canmr=0;
+    private int max=0;
+    private int min=Integer.MAX_VALUE;
+    private int prom=0;
+    private int total=0;
+    private double porcentaje=0;
     public Profesor getProfesor() {
         return profesor;
     }
@@ -104,6 +109,7 @@ public class ProfesorBean implements Serializable  {
         monr=null;
         nombremr="";  
         monrs="";
+        
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
         //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
         
@@ -135,12 +141,14 @@ public class ProfesorBean implements Serializable  {
     }
     
     public void refresh(){
-        List<Grupo> gr =sa.loadGruposAsociadosProfesor(profesor.getId(),sa.loadSemestreActual().getNumero() );
         
+        List<Grupo> gr =sa.loadGruposAsociadosProfesor(profesor.getId(),sa.loadSemestreActual().getNumero() );
+
         for(int i=0;i<gr.size();i++){
             grupos.put(gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero(),gr.get(i));
             gruposs.put(gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero(),gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero());
         }
+        
         //System.out.println("LLENADO");
     }
     
@@ -174,5 +182,79 @@ public class ProfesorBean implements Serializable  {
         asesorias=sa.loadAsesoriasPorMonitoriaRegistrada(monreg.getIdMonitoria());
 
     }
+    public void info(){
+        monitor=sa.loadMonitorPorGrupo(grupo.getIdGrupo());
+        
+        nombrem=monitor.getNombre()+" "+monitor.getApellido();
+        //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
+        List<MonitoriaRegistrada> mr=sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
+        canmr=mr.size();
+        max=0;
+        min=Integer.MAX_VALUE;
+        prom=0;
+        int mtotal=0;
+        for(int i=0;i<mr.size();i++){
+            int value=sa.loadAsesoriasPorMonitoriaRegistrada(mr.get(i).getIdMonitoria()).size();
+            mtotal+=value;
+            prom+=value;
+            if(value<min){
+                min=value;
+            }
+            else if(value>max){
+                max=value;
+            }
+        }
+        prom=prom/mr.size();
+        total=sa.numeroDeAsistenciasSegunGrupo(grupo.getIdGrupo());
+        
+        System.out.println("mtotal="+mtotal+" total="+total);
+        porcentaje =(double) ((double)mtotal/(double)total)*100;
+    }
+
+    public int getCanmr() {
+        return canmr;
+    }
+
+    public int getMax() {
+        
+        return max;
+    }
+
+    public int getMin() {
+        int value=min;
+        if(min==Integer.MAX_VALUE){
+            value=0;
+        }
+        return value;
+    }
+
+    public int getProm() {
+        return prom;
+    }
+
+    public void setCanmr(int canmr) {
+        this.canmr = canmr;
+    }
+
+    public void setMax(int max) {
+        this.max = max;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
+
+    public void setProm(int prom) {
+        this.prom = prom;
+    }
+
+    public double getPorcentaje() {
+        return porcentaje;
+    }
+
+    public void setPorcentaje(double porcentaje) {
+        this.porcentaje = porcentaje;
+    }
+    
     
 }
