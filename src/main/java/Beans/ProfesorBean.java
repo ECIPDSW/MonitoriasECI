@@ -40,11 +40,10 @@ public class ProfesorBean implements Serializable  {
     private Grupo grupo;
     private String gruponame="";
     private Monitor monitor;
-    private String nombrem="";
-    private String nombremr="";
     private Monitoria mon;
-    
     private MonitoriaRegistrada monr;
+    private String nombrem="";
+    private String nombremr="";  
     private String monrs="";
     private List<Asesoria> asesorias = new ArrayList<>();
     
@@ -70,6 +69,9 @@ public class ProfesorBean implements Serializable  {
         nombremr= this.mon.getDia();
         List<MonitoriaRegistrada> monre= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
         //System.out.println("Setted");
+        
+        monr=null; 
+        monrs="";
         for(int i=0;i<monre.size();i++){
             monreg.put(monre.get(i).getFechas(),monre.get(i));
             monregs.put(monre.get(i).getFechas(),monre.get(i).getFechas());
@@ -98,7 +100,10 @@ public class ProfesorBean implements Serializable  {
         this.gruponame=name;
         grupo=grupos.get(name);
         monitor=sa.loadMonitorPorGrupo(grupo.getIdGrupo());
-        
+        mon=null;
+        monr=null;
+        nombremr="";  
+        monrs="";
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
         //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
         
