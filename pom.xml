@@ -94,7 +94,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.0.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itextpdf</artifactId>
+            <version>5.0.6</version>
+        </dependency>
         
         <dependency>
             <groupId>org.quicktheories</groupId>

@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Generadores.GeneradorPdf;
 import Servicios.Fabrica;
 import java.sql.Date;
 import java.sql.Time;
@@ -22,6 +23,14 @@ public class Main {
     public static Fabrica fabrica = Fabrica.getInstance();
     
     public static void main(String args[]){
+         //Descarga de PDFS
+        String sPropiedades = System.getProperty("user.name");
+        GeneradorPdf pdf = new GeneradorPdf();
+        pdf.generarPDF("CONSULTA ASESORIAS", "Asistencia Asesorias:", "Porcentajes por curso:","Porcentajes por grupo:","porcentajes por tema:", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/prueba.pdf");
+        pdf.generarPdfv2("ASESORIA","Materia:","Franja Horaria:", "Temas:", "Numero de Estudiantes:", "/Users/"+sPropiedades+"/Desktop/prueba2.pdf");
+
+
+
         /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAdminLogin(5, "admin"));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().getProfesor(3));
