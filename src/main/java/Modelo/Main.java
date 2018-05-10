@@ -5,12 +5,16 @@
  */
 package Modelo;
 
+import Generadores.GeneradorExcel;
 import Generadores.GeneradorPdf;
 import Servicios.Fabrica;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jxl.write.WriteException;
 
 
 /**
@@ -20,8 +24,8 @@ import java.util.Random;
 public class Main {
     public static Monitor monitor;
     public static Profesor profesor;
-    public static Fabrica fabrica = Fabrica.getInstance();
-    
+    public static Fabrica fabrica = Fabrica.getInstance();  
+    public static GeneradorExcel g = new GeneradorExcel();
     public static void main(String args[]){
          //Descarga de PDFS
         String sPropiedades = System.getProperty("user.name");
@@ -29,6 +33,18 @@ public class Main {
         pdf.generarPDF("CONSULTA ASESORIAS", "Asistencia Asesorias:", "Porcentajes por curso:","Porcentajes por grupo:","porcentajes por tema:", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/prueba.pdf");
         pdf.generarPdfv2("ASESORIA","Materia:","Franja Horaria:", "Temas:", "Numero de Estudiantes:", "/Users/"+sPropiedades+"/Desktop/prueba2.pdf");
 
+       //Ejemplo Descarga Excel
+        String[][] entrada = new String[5][5];
+        entrada[1][1] = "Asesoria";
+        entrada[1][2] = "Materia";
+        entrada[1][3] = "Franja Horaria";
+        entrada[1][4] = "# de Estudiantes";
+        
+        try {
+            g.generarExcel(entrada,"/Users/"+sPropiedades+"/Desktop/pruebaexcel.xls");
+        } catch (WriteException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
 
         /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
