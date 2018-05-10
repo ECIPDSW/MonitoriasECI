@@ -276,6 +276,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public Semestre loadSemestreAnterior() {
         return semestre.loadSemestreAnterior();
     }
+
+    @Override
+    public List<Monitoria> loadMonitoriasPorGrupo(int grupo) {
+        return monitoria.loadMonitoriasPorGrupo(grupo);
+    }
    
     
 }

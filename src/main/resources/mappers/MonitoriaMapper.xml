@@ -88,6 +88,17 @@
         where a.monitoriaregistrada = mr.idmonitoriaregistrada and mr.monitoria_idmonitoria = mo.idmonitoria
         and mo.idmonitoria = #{monitoria}
     </select>
+    <select parameterType="map" id="loadMonitoriasPorGrupo" resultMap='Monitoria'>
+        select
+        m.idmonitoria as monid,
+        m.dia as mdia,
+        m.horainicio as mhorainicio,
+        m.horafin as mhorafin,
+        m.lugar as mlugar
+    
+        from monitoria as m
+        where m.grupo_idgrupo = #{grupo}
+    </select>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>
