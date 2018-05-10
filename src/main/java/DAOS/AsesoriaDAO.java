@@ -24,4 +24,5 @@ public interface AsesoriaDAO {
     List<Asesoria> loadAsesoriasPorGrupo(int idGrupo);
     List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre);
     List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada);
+    List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria);
 }

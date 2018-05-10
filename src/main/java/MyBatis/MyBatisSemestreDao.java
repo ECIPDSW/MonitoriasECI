@@ -35,6 +35,11 @@ public class MyBatisSemestreDao implements SemestreDAO{
     public List<Semestre> loadSemestres() {
         return semestreMapper.loadSemestres();
     }
+
+    @Override
+    public Semestre loadSemestreAnterior() {
+        return semestreMapper.loadSemestreAnterior();
+    }
    
    
 }

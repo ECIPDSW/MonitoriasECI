@@ -67,7 +67,7 @@
 
         from asesoria as a, monitoriaregistrada as m, monitoria as mo
         where a.monitoriaregistrada = m.idmonitoriaregistrada and m.monitoria_idmonitoria = mo.idmonitoria
-        and (a.grupo_idgrupoasistente = #{idgrupo} or mo.grupo_idgrupo=#{idgrupo})
+        and mo.grupo_idgrupo=#{idgrupo}
     </select>
     <select parameterType="map" id="loadAsesoriasPorCurso" resultMap='Asesoria'>
         select
@@ -97,6 +97,22 @@
         from asesoria as a, monitoriaregistrada as m
         where a.monitoriaregistrada = m.idmonitoriaregistrada 
         and m.idmonitoriaregistrada = #{idmonitoriaregistrada}
+    </select>
+    <select parameterType="map" id="asesoriasDeUnaMonitoria" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones,
+        mr.idmonitoriaregistrada as mronid,
+        mr.ip as mrip,
+    	mr.horacomienzo as mrhorainicio,
+    	mr.horafinalizacion as mrhorafin,
+    	mr.fecha as mrfecha
+        from asesoria as a, monitoriaregistrada as mr, monitoria as mo
+        where a.monitoriaregistrada = mr.idmonitoriaregistrada 
+        and mr.monitoria_idmonitoria = mo.idmonitoria and mo.idmonitoria = #{idmonitoria}
+        order by mr.fecha desc
+
     </select>
     <resultMap type='Asesoria' id='Asesoria'>
         <id property='idAsesoria' column='aid'/>

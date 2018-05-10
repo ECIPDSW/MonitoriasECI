@@ -266,6 +266,16 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public int numeroDeAsistenciasSegunCurso(String idCurso, int semestre) {
         return curso.numeroDeAsistenciasSegunCurso(idCurso, semestre);
     }
+
+    @Override
+    public List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria) {
+        return asesoria.asesoriasDeUnaMonitoria(idmonitoria);
+    }
+
+    @Override
+    public Semestre loadSemestreAnterior() {
+        return semestre.loadSemestreAnterior();
+    }
    
     
 }
