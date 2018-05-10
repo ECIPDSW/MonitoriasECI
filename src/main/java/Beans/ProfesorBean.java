@@ -65,11 +65,11 @@ public class ProfesorBean implements Serializable  {
         return asesorias;
     }
     public void setMonitoria(String mo){
-        System.out.println("Setted0");
+        //System.out.println("Setted0");
         this.mon=monitorias.get(mo);
         nombremr= this.mon.getDia();
         List<MonitoriaRegistrada> monre= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
-        System.out.println("Setted");
+        //System.out.println("Setted");
         for(int i=0;i<monre.size();i++){
             monreg.put(monre.get(i).getFechas(),monre.get(i));
             monregs.put(monre.get(i).getFechas(),monre.get(i).getFechas());
@@ -94,17 +94,17 @@ public class ProfesorBean implements Serializable  {
         return gruposs;
     }
     public void setGrupo(String name){
-        System.out.println("LLAMADOGS");
+        //System.out.println("LLAMADOGS");
         this.gruponame=name;
         grupo=grupos.get(name);
         monitor=sa.loadMonitorPorGrupo(grupo.getIdGrupo());
         
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
-        System.out.println(monitor.getNombre()+" "+monitor.getApellido());
+        //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
         
         //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
         List<Monitoria> monitori=sa.loadMonitoriasPorMonitor(monitor.getId());
-        System.out.println(monitori);
+        //System.out.println(monitori);
         for(int i=0;i<monitori.size();i++){
             monitorias.put(monitori.get(i).getDia(),monitori.get(i));
             monitoriass.put(monitori.get(i).getDia(),monitori.get(i).getDia());
@@ -141,12 +141,12 @@ public class ProfesorBean implements Serializable  {
     
     
     public void buscar(){
-        System.out.println("BUSCAR");
-        System.out.println("GRUPOOOOFINAL="+grupo);
+        //System.out.println("BUSCAR");
+        //System.out.println("GRUPOOOOFINAL="+grupo);
         monitor=sa.loadMonitorPorGrupo(grupo.getIdGrupo());
         
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
-        System.out.println(monitor.getNombre()+" "+monitor.getApellido());
+        //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
         asesorias=sa.loadAsesoriasPorMonitoriaRegistrada(monr.getIdMonitoria());
         //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
         //monitorias=sa.loadMonitoriasPorMonitor(monitor.getId());
