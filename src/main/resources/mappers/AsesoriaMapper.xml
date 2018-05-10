@@ -67,7 +67,7 @@
 
         from asesoria as a, monitoriaregistrada as m, monitoria as mo
         where a.monitoriaregistrada = m.idmonitoriaregistrada and m.monitoria_idmonitoria = mo.idmonitoria
-        and (a.grupo_idgrupoasistente = #{idgrupo} or mo.grupo_idgrupo=#{idgrupo})
+        and mo.grupo_idgrupo=#{idgrupo}
     </select>
     <select parameterType="map" id="loadAsesoriasPorCurso" resultMap='Asesoria'>
         select
