@@ -1,0 +1,329 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            // Blue : #3E98D3  |  Red : #EF3F61  |  Green : #2BB673  |  Orange : #F15732
+
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinBar() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    renderer: $.jqplot.BarRenderer,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinArea() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinBubble() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    renderer: $.jqplot.BubbleRenderer,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinZoom() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinPie() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77',
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    renderer: $.jqplot.PieRenderer,
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinDonut() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77',
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    renderer: $.jqplot.DonutRenderer,
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinBarAndLine() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 5,
+                    renderer: $.jqplot.BarRenderer,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+
+            function skinMeterGauge() {
+                this.cfg.title = '';
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 5,
+                    renderer: $.jqplot.MeterGaugeRenderer,
+                    rendererOptions: {
+                        shadow: false,
+                        min: 100,
+                        max: 800,
+                        intervals: [200, 300, 400, 500, 600, 700, 800],
+                        intervalColors: ['#3E98D3', '#EF3F61', '#2BB673', '#F15732', '#3E98D3', '#EF3F61', '#2BB673']
+                    }
+                }
+            }
+
+            function skinMultiAxis() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#EA9624', '#5BA5D8', '#B7D666', '#DA5E5B'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    renderer: $.jqplot.BarRenderer,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+        </script>
+        <style type="text/css">
+            .jqplot-target, .jqplot-axis {
+                color: #546E7A;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+
+        <h:form>
+            <div class="ui-fluid">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-6">
+                            <!-- Left Side -->
+                            <div class="card">
+                                <h1>Seleccion de parametros de flitrado</h1>
+                                <p:growl id="growl" autoUpdate="true" showDetail="true" sticky="true" /> 
+                                <p:panelGrid id="filtros" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-50" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+
+                                    <p:outputLabel for="semestres" value="Seleccione semestre : "  />
+                                    <p:selectOneMenu id="semestres" value="#{Administrador.semestreSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
+                                        <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                        <f:selectItems value="#{Administrador.semestres}" />
+                                    </p:selectOneMenu>
+
+                                    <p:outputLabel for="Cursos" value="Seleccione Curso: "  />
+                                    <p:selectOneMenu id="Cursos" value="#{Administrador.cursoSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
+                                        <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                        <f:selectItems value="#{Administrador.cursos}" />
+                                    </p:selectOneMenu>
+
+
+                                </p:panelGrid>
+                                <p:separator />
+                                <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                    <p:commandButton id="btnEstadisticas"  update="filtros"  value="Consultar Estadisticas" icon="ui-icon-check fa fa-check Fs14 White"    style="width:auto;margin-bottom:10px;">
+
+                                    </p:commandButton>
+                                </p:panelGrid>
+
+
+                            </div>
+                        </div>
+
+                        <div class="ui-g-12 ui-lg-6">
+                            <div class="card">
+                                <h1>Grafico de asistencias</h1>
+                                <p:chart id="line" type="line" model="#{chartDemoView.combinedModel}" responsive="true"/>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
