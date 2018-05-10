@@ -18,7 +18,7 @@
                             <div class="card">
                                 
                                 <h:form id="Search">
-                                    <h1>Consultar Asistentes</h1>
+                                    <h1>Consultar Monitorias Día</h1>
                                     <f:event type="preRenderView" listener="#{Profesor.refresh()}" />
                                     <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
                                 
@@ -47,7 +47,7 @@
                                 <div class="card">
                                         <p:fieldset legend="Grupo:#{Profesor.grupo} Monitoria:#{Profesor.monitoria}" style="margin-bottom:20px">
                                             <h:panelGrid columns="2" cellpadding="5">
-                                                <p:graphicImage name="demo/images/godfather/godfather1.jpg" />
+                                                
                                                 <h:outputText value="Monitor:#{Profesor.nombrem} " />
                                                 <h:outputText value= "Cantidad de Monitorias Realizadas:#{Profesor.canmr}" />
                                                 <h:outputText value=" Cantidad Máxima de asistentes:#{Profesor.max}" />

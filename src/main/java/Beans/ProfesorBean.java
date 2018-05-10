@@ -52,7 +52,7 @@ public class ProfesorBean implements Serializable  {
     private int min=Integer.MAX_VALUE;
     private int prom=0;
     private int total=0;
-    private double porcentaje=0;
+    private float porcentaje=0;
     public Profesor getProfesor() {
         return profesor;
     }
@@ -109,12 +109,16 @@ public class ProfesorBean implements Serializable  {
         monr=null;
         nombremr="";  
         monrs="";
-        
+        monitorias.clear();
+        monitoriass.clear();
+        monreg.clear();
+        monregs.clear();
         nombrem=monitor.getNombre()+" "+monitor.getApellido();
         //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
         
         //System.out.println("MONITORIAS SIZE="+grupo.getMonitorias().size());
-        List<Monitoria> monitori=sa.loadMonitoriasPorMonitor(monitor.getId());
+        List<Monitoria> monitori=sa.loadMonitoriasPorGrupo(grupo.getIdGrupo());
+        
         //System.out.println(monitori);
         for(int i=0;i<monitori.size();i++){
             monitorias.put(monitori.get(i).getDia(),monitori.get(i));
@@ -143,7 +147,12 @@ public class ProfesorBean implements Serializable  {
     public void refresh(){
         
         List<Grupo> gr =sa.loadGruposAsociadosProfesor(profesor.getId(),sa.loadSemestreActual().getNumero() );
-
+       /* grupos.clear();
+        gruposs.clear();
+        monitorias.clear();
+        monitoriass.clear();
+        monreg.clear();
+        monregs.clear();*/
         for(int i=0;i<gr.size();i++){
             grupos.put(gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero(),gr.get(i));
             gruposs.put(gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero(),gr.get(i).getCurso().getNombre()+""+gr.get(i).getNumero());
@@ -189,6 +198,7 @@ public class ProfesorBean implements Serializable  {
         //System.out.println(monitor.getNombre()+" "+monitor.getApellido());
         List<MonitoriaRegistrada> mr=sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
         canmr=mr.size();
+        
         max=0;
         min=Integer.MAX_VALUE;
         prom=0;
@@ -205,10 +215,10 @@ public class ProfesorBean implements Serializable  {
             }
         }
         prom=prom/mr.size();
-        total=sa.numeroDeAsistenciasSegunGrupo(grupo.getIdGrupo());
-        
+        total=sa.loadAsesoriasPorGrupo(grupo.getIdGrupo()).size();
+        System.out.println("ASESORIAS ="+sa.loadAsesoriasPorGrupo(grupo.getIdGrupo()));
         System.out.println("mtotal="+mtotal+" total="+total);
-        porcentaje =(double) ((double)mtotal/(double)total)*100;
+        porcentaje =(float) ((float)mtotal/(float)total)*100;
     }
 
     public int getCanmr() {
@@ -248,11 +258,11 @@ public class ProfesorBean implements Serializable  {
         this.prom = prom;
     }
 
-    public double getPorcentaje() {
+    public float getPorcentaje() {
         return porcentaje;
     }
 
-    public void setPorcentaje(double porcentaje) {
+    public void setPorcentaje(float porcentaje) {
         this.porcentaje = porcentaje;
     }
     
