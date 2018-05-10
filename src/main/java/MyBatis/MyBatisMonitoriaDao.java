@@ -67,5 +67,10 @@ public class MyBatisMonitoriaDao implements MonitoriaDAO{
     public int numeroDeAsistenciasSegunMonitoria(int idMonitoria) {
         return monitoriaMapper.numeroDeAsistenciasSegunMonitoria(idMonitoria);
     }
+
+    @Override
+    public List<Monitoria> loadMonitoriasPorGrupo(int grupo) {
+        return monitoriaMapper.loadMonitoriasPorGrupo(grupo);
+    }
     
 }
