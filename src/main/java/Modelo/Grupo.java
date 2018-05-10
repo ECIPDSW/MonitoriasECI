@@ -93,6 +93,8 @@ public class Grupo implements Serializable {
     public String toString() {
         return "Grupo{" + "idGrupo=" + idGrupo + ", numero=" + numero + ", curso=" + curso + ", semestre=" + semestre + ", monitor=" + monitor + ", profesor=" + profesor + '}';
     }
+    
+
 
 
    

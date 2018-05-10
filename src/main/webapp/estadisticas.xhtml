@@ -273,56 +273,111 @@
             }
         </style>
     </ui:define>
-    
+
     <ui:define name="content">
 
         <h:form>
             <div class="ui-fluid">
-                <div class="ui-g">
-                    <div class="ui-g-12">
-                        <div class="ui-g-12 ui-lg-6">
-                            <!-- Left Side -->
-                            <div class="card">
-                                <h1>Seleccion de parametros de flitrado</h1>
-                                <p:growl id="growl" autoUpdate="true" showDetail="true" sticky="true" /> 
-                                <p:panelGrid id="filtros" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-50" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                <div class="ui-g ui-fluid dashboard">
+                    <div class="ui-g-12 ui-lg-20">
+                        <!-- Left Side -->
+                        <div class="card">
+                            <h1>Seleccion de parametros de flitrado</h1>
+                            <p:growl id="growl" autoUpdate="true" showDetail="true" sticky="true" /> 
+                            <p:panelGrid id="filtros" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-50" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
-                                    <p:outputLabel for="semestres" value="Seleccione semestre : "  />
-                                    <p:selectOneMenu id="semestres" value="#{Administrador.semestreSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
-                                        <f:selectItem itemLabel="Seleccione" itemValue="" />
-                                        <f:selectItems value="#{Administrador.semestres}" />
-                                    </p:selectOneMenu>
+                                <p:outputLabel for="semestres" value="Seleccione semestre : "  />
+                                <p:selectOneMenu id="semestres" value="#{Estadisticas.semestreSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
+                                    <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                    <f:selectItems     value="#{Administrador.semestres}"   var="sem"  itemValue="#{sem.numero}"  />
+                                </p:selectOneMenu>
 
-                                    <p:outputLabel for="Cursos" value="Seleccione Curso: "  />
-                                    <p:selectOneMenu id="Cursos" value="#{Administrador.cursoSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
-                                        <f:selectItem itemLabel="Seleccione" itemValue="" />
-                                        <f:selectItems value="#{Administrador.cursos}" />
-                                    </p:selectOneMenu>
-
-
-                                </p:panelGrid>
-                                <p:separator />
-                                <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                                    <p:commandButton id="btnEstadisticas"  update="filtros"  value="Consultar Estadisticas" icon="ui-icon-check fa fa-check Fs14 White"    style="width:auto;margin-bottom:10px;">
-
-                                    </p:commandButton>
-                                </p:panelGrid>
+                                <p:outputLabel for="Cursos" value="Seleccione Curso: "  />
+                                <p:selectOneMenu id="Cursos" value="#{Estadisticas.cursoSeleccionado}"    required="true" requiredMessage="Seleccione un grupo.">
+                                    <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                    <f:selectItems  value="#{Administrador.cursos}" itemLabel="#{curso.nombre}" var="curso" itemValue="#{curso.id}" />
+                                </p:selectOneMenu>
 
 
-                            </div>
+                            </p:panelGrid>
+                            <p:separator />
+                            <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                <p:commandButton id="btnEstadisticas"  update="@form"    value="Consultar Estadisticas" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Estadisticas.refrescar()}"      style="width:auto;margin-bottom:10px;">
+                                    <p:ajax   process=" btnEstadisticas "    update=" line "   />
+                                </p:commandButton>
+                            </p:panelGrid>
+
+
                         </div>
-
-                        <div class="ui-g-12 ui-lg-6">
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="highlight-box">
+                            <div class="initials" style="background-color:#007be5;color:#00448f">TV</div>
                             <div class="card">
-                                <h1>Grafico de asistencias</h1>
-                                <p:chart id="line" type="line" model="#{chartDemoView.lineModel1}"  responsive="true"/>
-                                
+                                <span class="fa fa-eye"></span>
+                                <span>Total Views</span>
+                                <span class="count">523</span>
                             </div>
                         </div>
                     </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="highlight-box">
+                            <div class="initials" style="background-color:#ef6262;color:#a83d3b">TI</div>
+                            <div class="card">
+                                <span class="fa fa-question-circle"></span>
+                                <span>Total Issues</span>
+                                <span class="count">81</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                        <div class="highlight-box">
+                            <div class="initials" style="background-color:#20d077;color:#038d4a">OI</div>
+                            <div class="card">
+                                <span class="fa fa-question-circle-o"></span>
+                                <span>Open Issues</span>
+                                <span class="count">21</span>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-lg-3">
+                        <div class="highlight-box">
+                            <div class="initials" style="background-color:#f9c851;color:#b58c2b">CI</div>
+                            <div class="card">
+                                <span class="fa fa-check"></span>
+                                <span>Closed Issues</span>
+                                <span class="count">60</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-6">
+                        <div class="card">
+                            <h1> Numero de asistencias vs fechas</h1>
+                            <p:chart id="line" type="line" model="#{Estadisticas.lineModel1}"  responsive="true"/>
 
+                        </div>
+                    </div>
+
+                    <div class="ui-g-12 ui-md-6 ui-lg-6">
+                        <div class="card">
+                            <h1> Número de asistencias VS día de la semana</h1>
+                            <p:chart id="torta1" type="pie" model="#{Estadisticas.asistenciasSegunFranjas}"  responsive="true"/>
+
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-6">
+                        <div class="card">
+                            <h1> Número de asistencias VS Grupos</h1>
+                            <p:chart id="torta2" type="pie" model="#{Estadisticas.asistenciasSegunGrupos}"  responsive="true"/>
+
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
         </h:form>
     </ui:define>
 
