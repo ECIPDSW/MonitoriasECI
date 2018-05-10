@@ -39,6 +39,18 @@
         FROM Semestre as s
         
     </select>
+    <select parameterType="map" id="loadSemestreAnterior" resultMap='Semestre'>
+        select
+        s.numero as snumero,
+        s.ano as sano,
+        s.periodoAcademico as speriodoacademico,
+        s.fechaInicio as sfechainicio,
+        s.fechaFin as sfechafin
+        
+        FROM Semestre as s
+        where s.numero = (select max(ss.numero) from semestre as ss where ss.numero !=
+        (select max(sss.numero) from semestre as sss))     
+    </select>
     <resultMap type='Semestre' id='Semestre'>
         <id property ='numero' column='snumero'/>
         <result property='ano' column='sano'/> 

@@ -5,11 +5,16 @@
  */
 package Modelo;
 
+import Generadores.GeneradorExcel;
+import Generadores.GeneradorPdf;
 import Servicios.Fabrica;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jxl.write.WriteException;
 
 
 /**
@@ -19,9 +24,29 @@ import java.util.Random;
 public class Main {
     public static Monitor monitor;
     public static Profesor profesor;
-    public static Fabrica fabrica = Fabrica.getInstance();
-    
+    public static Fabrica fabrica = Fabrica.getInstance();  
+    public static GeneradorExcel g = new GeneradorExcel();
     public static void main(String args[]){
+         //Descarga de PDFS
+        String sPropiedades = System.getProperty("user.name");
+        GeneradorPdf pdf = new GeneradorPdf();
+        pdf.generarPDF("CONSULTA ASESORIAS", "Asistencia Asesorias:", "Porcentajes por curso:","Porcentajes por grupo:","porcentajes por tema:", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png", "/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/Users/"+sPropiedades+"/Desktop/prueba.pdf");
+        pdf.generarPdfv2("ASESORIA","Materia:","Franja Horaria:", "Temas:", "Numero de Estudiantes:", "/Users/"+sPropiedades+"/Desktop/prueba2.pdf");
+
+       //Ejemplo Descarga Excel
+        String[][] entrada = new String[5][5];
+        entrada[1][1] = "Asesoria";
+        entrada[1][2] = "Materia";
+        entrada[1][3] = "Franja Horaria";
+        entrada[1][4] = "# de Estudiantes";
+        
+        try {
+            g.generarExcel(entrada,"/Users/"+sPropiedades+"/Desktop/pruebaexcel.xls");
+        } catch (WriteException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
         /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadAdminLogin(5, "admin"));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().getProfesor(3));
@@ -67,6 +92,9 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunMonitoria(2));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunTema(1, Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunCurso("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().asesoriasDeUnaMonitoria(17));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadSemestreAnterior());
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorGrupo(13));
         //FIN
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);

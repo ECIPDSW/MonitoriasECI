@@ -27,8 +27,7 @@ public interface ServicioAsesoria {
     
     /**
      * registra el fin de la franja de un monitor
-     * @param idMonitoria
-     * @param ip 
+     * @param idMonitor
      */
     void registrarFinMonitoria(int idMonitor);
     
@@ -46,39 +45,50 @@ public interface ServicioAsesoria {
     List<Curso> loadCursos();
     /**
      * Retorna todas las monitorias dictadas en un semestre especifico
+     * @param semestre
      * @return 
      */
     List<Monitoria> loadMonitorias(int semestre);
   
      /**
      * Retorna todas las monitorias disponibles en el semestre actual de un curso en especifico
+     * @param idcurso
+     * @param semestre
      * @return 
      */
     List<Monitoria> loadMonitorias(String idcurso, int semestre);
     
      /**
      * Retorna todas las asesorias dictadas  el semestre especificado
+     * @param semestre
      * @return 
      */
     List<Asesoria> loadAsesorias(int semestre);
     /**
      * Retorna todas las asesorias dictadas  por tema especificado
+     * @param idTema
+     * @param semestre
      * @return 
      */
     List<Asesoria> loadAsesoriasPorTema(int idTema,int semestre);
     /**
      * Retorna todas las asesorias dictadas  por monitor
+     * @param idMonitor
+     * @param semestre
      * @return 
      */
     List<Asesoria> loadAsesoriasPorMonitor(int idMonitor,int semestre);
     
     /**
      * Retorna todas las asesorias dictadas  por Grupo
+     * @param idGrupo
      * @return 
      */
     List<Asesoria> loadAsesoriasPorGrupo(int idGrupo);
       /**
      * Retorna todas las asesorias dictadas  por curso
+     * @param idCurso
+     * @param semestre
      * @return 
      */
     List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre);
@@ -103,7 +113,7 @@ public interface ServicioAsesoria {
     
       /**
      * retorna los temas dicrtados en una asesoria
-     * @param idCurso
+     * @param idAsesoria
      * @return 
      */
     List<TemaCurso> loadTemasAsesoria(int idAsesoria);
@@ -111,6 +121,7 @@ public interface ServicioAsesoria {
     /**
      * devuelve todos los monitores por profesor
      * @param idProfesor
+     * @param semestre
      * @return 
      */
     List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor,int semestre);
@@ -118,6 +129,7 @@ public interface ServicioAsesoria {
       /**
      * devuelve todos los grupos por profesor
      * @param idProfesor
+     * @param semestre
      * @return 
      */
     List<Grupo> loadGruposAsociadosProfesor(int idProfesor,int semestre);
@@ -149,33 +161,102 @@ public interface ServicioAsesoria {
     /**
      * retorna todods los grupos existentes para un curso
      * @param idCurso
+     * @param semestre
      * @return 
      */
     List<Grupo> loadGrupos(String idCurso,int semestre);
     
+    /**
+     * Carga las monitorias hechas por un monitor
+     * @param idMonitor
+     * @return 
+     */
     List<Monitoria> loadMonitoriasPorMonitor(int idMonitor);
     
+    /**
+     * Carga las Moniotiras registradas por un monitor
+     * @param idMonitoria
+     * @return 
+     */
     List<MonitoriaRegistrada> loadMonitoriasRegistradasPorMonitoria(int idMonitoria);
     
+    /**
+     * Carga las monitorias hechas en una monitoria registrada
+     * @param idMonitoriaRegistrada
+     * @return 
+     */
     List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada);
     
+    /**
+     * Carga el monitor del grupo
+     * @param idgrupo
+     * @return 
+     */
     Monitor loadMonitorPorGrupo(int idgrupo);
     
+    /**
+     * Carga el Estudiante que asistio a la asesoria
+     * @param idasesoria
+     * @return 
+     */
     Estudiante loadEstudiantePorAsesoria(int idasesoria);
     
+    /**
+     * Carga las fechas hechas en una monitoria
+     * @param idCurso
+     * @param semestre
+     * @return 
+     */
     List<Date> loadFechasMonitorias(String idCurso, int semestre);
     
+    /**
+     * Cuenta las asistencias en una fecha
+     * @param idCurso
+     * @param semestre
+     * @param fecha
+     * @return 
+     */
     int numeroDeAsistenciasSegunFecha(String idCurso, int semestre, Date fecha);
     
+    
+    /**
+     * Cuenta las asistencias dado un grupo
+     * @param grupo
+     * @return 
+     */
     int numeroDeAsistenciasSegunGrupo(int grupo);
     
+    /**
+     * Carga la hora de las monitorias
+     * @param idCurso
+     * @param semestre
+     * @return 
+     */
     List<Time> franjasMonitorias(String idCurso, int semestre);
     
+    /**
+     * Cuenta las asistencias segun una franja
+     * @param idCurso
+     * @param semestre
+     * @param franja
+     * @return 
+     */
     int numeroDeAsistenciasSegunFranja(String idCurso, int semestre, Time franja);
     
+    /**
+     * 
+     * @param idMonitoria
+     * @return 
+     */
     int numeroDeAsistenciasSegunMonitoria(int idMonitoria);
     
     int numeroDeAsistenciasSegunTema(int tema, int semestre);
     
     int numeroDeAsistenciasSegunCurso(String idCurso, int semestre);
+    
+    List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria); 
+    
+    Semestre loadSemestreAnterior();
+    
+    List<Monitoria> loadMonitoriasPorGrupo(int grupo);
 }

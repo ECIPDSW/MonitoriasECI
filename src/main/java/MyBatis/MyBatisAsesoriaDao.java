@@ -54,4 +54,9 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     public List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada) {
         return asesoriaMapper.loadAsesoriasPorMonitoriaRegistrada(idMonitoriaRegistrada);
     }
+
+    @Override
+    public List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria) {
+        return asesoriaMapper.asesoriasDeUnaMonitoria(idmonitoria);
+    }
 }
