@@ -74,9 +74,10 @@ public class Semestre implements Serializable {
 
     @Override
     public String toString() {
-        return "Semestre{" + "numero=" + numero + ", ano=" + ano + ", periodoAcademico=" + periodoAcademico + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + '}';
+        return ano +" - "+ periodoAcademico;
     }
-
+    
+   
     
 
 }
