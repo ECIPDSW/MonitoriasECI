@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Sample</ui:define>
+
+    <ui:define name="content">
+        
+        
+            <div class="ui-fluid">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <div class="ui-g-12 ui-lg-6">
+                            <!-- Left Side -->
+                            <div class="card">
+                                
+                                <h:form id="Search">
+                                    <h1>Consultar Asistentes</h1>
+                                    <f:event type="preRenderView" listener="#{Profesor.refresh()}" />
+                                    <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                
+                                        <p:outputLabel for="Grupo" value="Seleccione Grupo: "  />
+                                        <p:selectOneMenu id="Grupo"  value="#{Profesor.grupo}" effect="fold" editable="true"   style="width:125px">
+                                            <f:selectItem itemLabel="Seleccione el Grupo" itemValue="" />
+                                            <f:selectItems value="#{Profesor.grupos}" />
+                                            <f:ajax execute="Grupo" render="Monitoria"/>
+                                        </p:selectOneMenu>
+                                        <p:outputLabel for="Grupo" value="Seleccione Monitoria: "  />
+                                        <p:selectOneMenu id="Monitoria"  value="#{Profesor.monitoria}" effect="fold" editable="true"   style="width:125px">
+                                            <f:selectItem itemLabel="Seleccione La monitoria" itemValue="" />
+                                            <f:selectItems value="#{Profesor.monitorias}" />
+                                        </p:selectOneMenu>
+                                        <p:commandButton update="Search" id="buscar" value="Buscar"     actionListener="#{Profesor.buscar()}" icon="fa fa-check" process="@form"  ajax="true" />
+                                   </p:panelGrid>
+
+                                </h:form>
+
+
+                            </div>
+                            <div class="card">
+                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="ui-g-12 ui-lg-6">
+                            
+                            <div class="card">
+                                
+                                    <p:spacer height="10" />
+                                    
+
+                               
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        
+    </ui:define>
+    
+</ui:composition>
