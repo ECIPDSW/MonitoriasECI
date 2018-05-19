@@ -16,4 +16,5 @@ public interface TemaCursoDAO {
     List<TemaCurso> loadTemasCurso(String idCurso);
     List<TemaCurso> loadTemasAsesoria(int idAsesoria);
     int numeroDeAsistenciasSegunTema(int tema, int semestre);
+    void crearTema(String idCurso, String tema, String descripcion);
 }

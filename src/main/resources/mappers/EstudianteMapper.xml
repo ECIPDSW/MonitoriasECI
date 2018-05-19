@@ -12,7 +12,10 @@
         from estudiante as e, asesoria as a
         where a.estudiante_carnet = e.carnet and a.idasesoria = #{idasesoria}
     </select>
-    
+    <insert parameterType="map" id="crearEstudiante">
+        insert into estudiante (carnet, nombre) values( 
+	#{id},#{nombre})
+    </insert>
     <resultMap type='Estudiante' id='Estudiante'>
         <id property='carnet' column='ecarnet'/>
         <result property='nombre' column = 'enombre'/>

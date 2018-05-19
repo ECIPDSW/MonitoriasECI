@@ -104,6 +104,17 @@
     WHERE g.monitor_persona_id = m.persona_id and g.idgrupo = #{idgrupo}
         
     </select>
+    <insert parameterType="map" id="crearMonitor">
+        insert into persona (id, nombre, apellido, correo, contasena) values( 
+	#{id},#{nombre}, #{apellido}, #{correo}, #{contra});
+        insert into monitor (persona_id, decanatura) values(
+        #{id}, #{dec})
+    </insert>
+    <insert parameterType="map" id="asignarSemestreAMonitor">
+        update monitor
+        set semestreingreso_numero = #{semestre}
+        where persona_id = #{moni}
+    </insert>
     <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
         <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>

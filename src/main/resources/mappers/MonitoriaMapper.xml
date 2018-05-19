@@ -99,6 +99,10 @@
         from monitoria as m
         where m.grupo_idgrupo = #{grupo}
     </select>
+    <insert parameterType="map" id="crearMonitoria">
+        insert into monitoria (grupo_idgrupo, dia, horainicio, horafin, lugar) values( 
+	#{grupo},#{dia}, #{inicio}, #{fin}, #{lugar})
+    </insert>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>

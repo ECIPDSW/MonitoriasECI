@@ -6,6 +6,7 @@
 package DAOS;
 
 import Modelo.Semestre;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public interface SemestreDAO {
     Semestre loadSemestreActual();
     List<Semestre> loadSemestres();
     Semestre loadSemestreAnterior();
+    void crearSemestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin);
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
 }

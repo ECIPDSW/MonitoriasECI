@@ -15,5 +15,5 @@ public interface TemaAsesoriaDAO {
     //public Asesoria loadAsesoria(@Param("id")int id);
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
-    
+    void agregarTemaAAsesoria(int idAsesoria, int idTema);
 }

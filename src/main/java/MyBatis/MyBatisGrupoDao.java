@@ -33,4 +33,14 @@ public class MyBatisGrupoDao implements GrupoDAO{
     public int numeroDeAsistenciasSegunGrupo(int grupo) {
         return grupoMapper.numeroDeAsistenciasSegunGrupo(grupo);
     }
+
+    @Override
+    public void crearGrupo(int numero, String curso, int semestre, int profesor, int monitor) {
+        grupoMapper.crearGrupo(numero, curso, semestre, profesor, monitor);
+    }
+
+    @Override
+    public void asignarMonitorAGrupo(int idgrupo, int idmonitor) {
+        grupoMapper.asignarMonitorAGrupo(idgrupo, idmonitor);
+    }
 }

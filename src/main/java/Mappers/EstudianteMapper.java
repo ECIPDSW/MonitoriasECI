@@ -14,4 +14,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface EstudianteMapper {
     Estudiante loadEstudiantePorAsesoria(@Param("idasesoria")int idasesoria);
+    void crearEstudiante(@Param("id")int carnet, @Param("nombre")String nombre);
 }

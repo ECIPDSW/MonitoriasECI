@@ -25,4 +25,9 @@ public class MyBatisTemaAsesoriaDao implements TemaAsesoriaDAO{
     //public void registrarInformacionDeAsesoria(){}
     //@Override
     //public void registrarInformacionDeAsistente(){}
+
+    @Override
+    public void agregarTemaAAsesoria(int idAsesoria, int idTema) {
+        asesoriaMapper.agregarTemaAAsesoria(idAsesoria, idTema);
+    }
 }

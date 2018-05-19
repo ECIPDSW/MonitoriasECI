@@ -16,4 +16,6 @@ public interface GrupoDAO{
     List<Grupo> loadGrupos(String idCurso,int semestre);
     List<Grupo> loadGruposAsociadosProfesor(int idProfesor, int semestre);
     int numeroDeAsistenciasSegunGrupo(int grupo);
+    void crearGrupo(int numero, String curso, int semestre, int profesor, int monitor);
+    void asignarMonitorAGrupo(int idgrupo, int idmonitor);
 }

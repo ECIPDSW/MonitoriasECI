@@ -29,5 +29,10 @@ public class MyBatisCursoDao implements CursoDAO{
     public int numeroDeAsistenciasSegunCurso(String idCurso, int semestre) {
         return cursoMapper.numeroDeAsistenciasSegunCurso(idCurso, semestre);
     }
+
+    @Override
+    public void crearCurso(String id, String nombre, int creditosAcademicos, int horasAprovadasMonitorias) {
+        cursoMapper.crearCurso(id, nombre, creditosAcademicos, horasAprovadasMonitorias);
+    }
     
 }

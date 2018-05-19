@@ -38,5 +38,15 @@ public class MyBatisMonitorDao implements MonitorDAO{
     public Monitor loadMonitorPorGrupo(int idgrupo) {
         return monitormapper.loadMonitorPorGrupo(idgrupo);
     }
+
+    @Override
+    public void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso) {
+        monitormapper.crearMonitor(id, nombre, apellido, correo, contrasena, telefono, programa, semestreIngreso);
+    }
+
+    @Override
+    public void asignarSemestreAMonitor(int idmonitor, int idsemestre) {
+        monitormapper.asignarSemestreAMonitor(idmonitor, idsemestre);
+    }
     
 }

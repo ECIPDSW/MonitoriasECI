@@ -26,6 +26,10 @@
         where ta.asesoria_idasesoria = a.idasesoria and ta.temacurso_idtemacurso = tc.idtemacurso and a.grupo_idgrupoasistente = g.idgrupo
         and tc.idtemacurso = #{tema} and g.semestre_numero = #{semestre}
     </select>
+    <insert parameterType="map" id="crearTema">
+        insert into curso (curso_id, tema, descripcion) values( 
+	#{idCurso},#{tema}, #{des})
+    </insert>
     <resultMap type='TemaCurso' id='TemaCurso'>
         <id property ='idTemaCurso' column='tcid'/>
         <result property='tema' column = 'tctema'/>

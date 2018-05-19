@@ -14,4 +14,5 @@ import Modelo.Profesor;
 public interface ProfesorDAO {
     Profesor loadProfesor(int id);
     Profesor loadProfesorLogin(int id,String psw);
+    void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura);
 }

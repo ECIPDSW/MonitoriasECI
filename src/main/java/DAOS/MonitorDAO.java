@@ -17,4 +17,6 @@ public interface MonitorDAO {
     Monitor loadMonitorLogin(int id, String psw);
     List<Monitor> loadMonitoresAsociadosProfesor(int idProfesor, int semestre);
     Monitor loadMonitorPorGrupo(int idgrupo);
+    void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso);
+    void asignarSemestreAMonitor(int idmonitor, int idsemestre);
 }

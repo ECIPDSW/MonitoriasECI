@@ -93,8 +93,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     
 
     @Override
-    public void registrarAsesoria(int grupo, int monitoriaRegistrada, int idEstudiante, String observaciones) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void registrarAsesoria(int grupoAsistente, int monitoriaRegistrada, int idEstudiante) {
+        asesoria.registrarAsesoria(grupoAsistente, monitoriaRegistrada, idEstudiante);
     }
 
     @Override
@@ -280,6 +280,71 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public List<Monitoria> loadMonitoriasPorGrupo(int grupo) {
         return monitoria.loadMonitoriasPorGrupo(grupo);
+    }
+
+    @Override
+    public void crearSemestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin) {
+        semestre.crearSemestre(ano, periodoAcademico, fechaInicio, fechaFin);
+    }
+
+    @Override
+    public void crearCurso(String id, String nombre, int creditosAcademicos, int horasAprovadasMonitorias) {
+        curso.crearCurso(id, nombre, creditosAcademicos, horasAprovadasMonitorias);
+    }
+
+    @Override
+    public void crearTema(String idCurso, String tema, String descripcion) {
+        temaCurso.crearTema(idCurso, tema, descripcion);
+    }
+
+    @Override
+    public void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura) {
+        profesor.crearProfesor(id, nombre, apellido, correo, contrasena, decanatura);
+    }
+
+    @Override
+    public void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso) {
+        monitor.crearMonitor(id, nombre, apellido, correo, contrasena, telefono, programa, semestreIngreso);
+    }
+
+    @Override
+    public void crearGrupo(int numero, String curso, int semestre, int profesor, int monitor) {
+        grupo.crearGrupo(numero, curso, semestre, profesor, monitor);
+    }
+
+    @Override
+    public void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar) {
+        monitoria.crearMonitoria(grupo, dia, horaInicio, horaFin, lugar);
+    }
+
+    @Override
+    public void asignarMonitorAGrupo(int idgrupo, int idmonitor) {
+        grupo.asignarMonitorAGrupo(idgrupo, idmonitor);
+    }
+
+    @Override
+    public void asignarSemestreAMonitor(int idmonitor, int idsemestre) {
+        monitor.asignarSemestreAMonitor(idmonitor, idsemestre);
+    }
+
+    @Override
+    public void crearEstudiante(int carnet, String nombre) {
+        estudiante.crearEstudiante(carnet, nombre);
+    }
+
+    @Override
+    public void finalizarAsesoria(int idAsesoria, String observaciones) {
+        asesoria.finalizarAsesoria(idAsesoria, observaciones);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasRealizandosePorMonitoriaRegistrada(int idMonitoriaRegistrada) {
+        return asesoria.loadAsesoriasPorMonitoriaRegistrada(idMonitoriaRegistrada);
+    }
+
+    @Override
+    public void agregarTemaAAsesoria(int idAsesoria, int idTema) {
+        temaasesoria.agregarTemaAAsesoria(idAsesoria, idTema);
     }
    
     

@@ -4,7 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Mappers.TemaAsesoriaMapper">
-    
+    <insert parameterType="map" id="agregarTemaAAsesoria">
+        insert into temaasesoria (asesoria_idasesoria, temacurso_idtemacurso) values( 
+	#{idAsesoria},#{idTema})
+    </insert>
     <resultMap type='TemaAsesoria' id='TemaAsesoria' >
         <id property ='idTemaAsesoria' column='taid'/>
          <association property='temaCurso' javaType='TemaCurso' resultMap='Mappers.TemaCursoMapper.TemaCurso'></association>

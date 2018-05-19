@@ -2,7 +2,7 @@
 package Mappers;
 
 import Modelo.Semestre;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,4 +12,5 @@ public interface SemestreMapper {
     Semestre loadSemestreActual();
     List<Semestre> loadSemestres();
     Semestre loadSemestreAnterior();
+    void crearSemestre(@Param("ano")int ano, @Param("periodo")char periodoAcademico, @Param("fechaInicio")Date fechaInicio,@Param("fechaFin")Date fechaFin);
 }

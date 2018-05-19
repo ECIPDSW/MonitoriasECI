@@ -27,5 +27,10 @@ public class MyBatisProfesorDao implements ProfesorDAO{
     public Profesor loadProfesorLogin(int id, String psw) {
         return profesorMapper.loadProfesorLogin(id, psw);
     }
+
+    @Override
+    public void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura) {
+        profesorMapper.crearProfesor(id, nombre, apellido, correo, contrasena, decanatura);
+    }
     
 }

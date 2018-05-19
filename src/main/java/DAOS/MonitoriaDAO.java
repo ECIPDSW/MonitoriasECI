@@ -22,5 +22,5 @@ public interface MonitoriaDAO {
     int numeroDeAsistenciasSegunFranja(String idCurso, int semestre, Time franja);
     int numeroDeAsistenciasSegunMonitoria(int idMonitoria);
     List<Monitoria> loadMonitoriasPorGrupo(int grupo);
-    
+    void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar);
 }

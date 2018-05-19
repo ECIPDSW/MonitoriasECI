@@ -19,15 +19,18 @@ public class Asesoria implements Serializable {
     private int idAsesoria;
     private int idEstudiante;
     private String observaciones;
+    private boolean finalizado;
     private MonitoriaRegistrada monitoria;
     private List<TemaCurso> temas;
+    
 
-    public Asesoria(int idAsesoria, Date fecha, int idEstudiante, String nombreEstudiante, String observaciones, MonitoriaRegistrada monitoria, ArrayList<TemaCurso> temas) {
+    public Asesoria(int idAsesoria, Date fecha, int idEstudiante, String nombreEstudiante, String observaciones, MonitoriaRegistrada monitoria, ArrayList<TemaCurso> temas, boolean finalizado) {
         this.idAsesoria = idAsesoria;
         this.idEstudiante = idEstudiante;
         this.observaciones = observaciones;
         this.monitoria = monitoria;
         this.temas = temas;
+        this.finalizado = finalizado;
     }
 
     
@@ -87,6 +90,24 @@ public class Asesoria implements Serializable {
     public void setMonitoriaR(MonitoriaRegistrada monitoriaR) {
         this.monitoria = monitoriaR;
     }
+
+    public MonitoriaRegistrada getMonitoria() {
+        return monitoria;
+    }
+
+    public void setMonitoria(MonitoriaRegistrada monitoria) {
+        this.monitoria = monitoria;
+    }
+
+    public boolean isFinalizado() {
+        return finalizado;
+    }
+
+    public void setFinalizado(boolean finalizado) {
+        this.finalizado = finalizado;
+    }
+    
+    
     
     public String getNombreEstudiante(){
         return Fabrica.getInstance().getServiciosAsesoria().loadEstudiantePorAsesoria(idAsesoria).getNombre();

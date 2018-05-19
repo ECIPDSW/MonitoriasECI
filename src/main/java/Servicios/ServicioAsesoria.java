@@ -7,7 +7,6 @@ package Servicios;
 import Modelo.*;
 import java.sql.Date;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -17,7 +16,7 @@ public interface ServicioAsesoria {
     Semestre getSemestre(int id);
     Profesor getProfesor(int id);
     Monitor loadMonitor(int id);
-    void registrarAsesoria(int grupo, int monitoriaRegistrada, int idEstudiante, String observaciones);
+    void registrarAsesoria(int grupoAsistente, int monitoriaRegistrada, int idEstudiante);
     /**
      * registra el inicio de una monitoria en especifico por un monitor
      * @param idMonitoria
@@ -259,4 +258,42 @@ public interface ServicioAsesoria {
     Semestre loadSemestreAnterior();
     
     List<Monitoria> loadMonitoriasPorGrupo(int grupo);
+    
+    /*
+    *Periodo academico solo puede ser 1, 2 o I
+    */
+    void crearSemestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin);
+    
+    void crearCurso(String id, String nombre, int creditosAcademicos, int horasAprovadasMonitorias);
+    
+    void crearTema(String idCurso, String tema, String descripcion);
+    
+    void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura);
+    
+    /*
+    *EL semestre de ingreso puede ser null
+    */
+    void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso);
+    
+    /*
+    *El monitor puede ser nulo, y en el semestre, se mete el ultimo semestre
+    */
+    void crearGrupo(int numero, String curso, int semestre, int profesor, int monitor);
+    
+    /*
+    *El dia solo puede ser "lunes", "martes", "miercoles", "jueves", "viernes" o "sabado"
+    */
+    void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar);
+    
+    void asignarMonitorAGrupo(int idgrupo, int idmonitor);
+    
+    void asignarSemestreAMonitor(int idmonitor, int idsemestre);
+    
+    void crearEstudiante(int carnet, String nombre);
+    
+    void finalizarAsesoria(int idAsesoria, String observaciones);
+    
+    List<Asesoria> loadAsesoriasRealizandosePorMonitoriaRegistrada(int idMonitoriaRegistrada);
+    
+    void agregarTemaAAsesoria(int idAsesoria, int idTema);
 }

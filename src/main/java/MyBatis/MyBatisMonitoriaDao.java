@@ -72,5 +72,10 @@ public class MyBatisMonitoriaDao implements MonitoriaDAO{
     public List<Monitoria> loadMonitoriasPorGrupo(int grupo) {
         return monitoriaMapper.loadMonitoriasPorGrupo(grupo);
     }
+
+    @Override
+    public void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar) {
+        monitoriaMapper.crearMonitoria(grupo, dia, horaInicio, horaFin, lugar);
+    }
     
 }

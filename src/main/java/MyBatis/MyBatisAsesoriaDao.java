@@ -21,8 +21,8 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     private AsesoriaMapper asesoriaMapper;  
 
     @Override
-    public void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones) {
-        asesoriaMapper.registrarAsesoria(grupo, monitor, idEstudiante, nombreEstudiante, observaciones);
+    public void registrarAsesoria(int grupo, int monitoriaRegistrada, int idEstudiante) {
+        asesoriaMapper.registrarAsesoria(grupo, monitoriaRegistrada, idEstudiante);
 }
 
     @Override
@@ -58,5 +58,15 @@ public class MyBatisAsesoriaDao implements AsesoriaDAO,Serializable{
     @Override
     public List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria) {
         return asesoriaMapper.asesoriasDeUnaMonitoria(idmonitoria);
+    }
+
+    @Override
+    public void finalizarAsesoria(int idAsesoria, String observaciones) {
+        asesoriaMapper.finalizarAsesoria(idAsesoria, observaciones);
+    }
+
+    @Override
+    public List<Asesoria> loadAsesoriasRealizandosePorMonitoriaRegistrada(int idMonitoriaRegistrada) {
+        return asesoriaMapper.loadAsesoriasRealizandosePorMonitoriaRegistrada(idMonitoriaRegistrada);
     }
 }

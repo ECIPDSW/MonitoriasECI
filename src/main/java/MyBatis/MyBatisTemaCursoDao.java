@@ -34,5 +34,10 @@ public class MyBatisTemaCursoDao implements TemaCursoDAO{
     public int numeroDeAsistenciasSegunTema(int tema, int semestre) {
         return temaCurso.numeroDeAsistenciasSegunTema(tema, semestre);
     }
+
+    @Override
+    public void crearTema(String idCurso, String tema, String descripcion) {
+        temaCurso.crearTema(idCurso, tema, descripcion);;
+    }
     
 }

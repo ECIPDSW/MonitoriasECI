@@ -17,7 +17,7 @@ public interface AsesoriaDAO {
     //public Asesoria loadAsesoria(@Param("id")int id);
     //public void registrarInformacionDeAsesoria();
     //public void registrarInformacionDeAsistente();
-    void registrarAsesoria(int grupo, int monitor, int idEstudiante, String nombreEstudiante, String observaciones);
+    void registrarAsesoria(int grupo, int monitoriaRegistrada, int idEstudiante);
     List<Asesoria> loadAsesorias(int semestre);
     List<Asesoria> loadAsesoriasPorTema(int idTema, int semestre);
     List<Asesoria> loadAsesoriasPorMonitor(int idMonitor, int semestre);
@@ -25,4 +25,7 @@ public interface AsesoriaDAO {
     List<Asesoria> loadAsesoriasPorCurso(String idCurso, int semestre);
     List<Asesoria> loadAsesoriasPorMonitoriaRegistrada(int idMonitoriaRegistrada);
     List<Asesoria> asesoriasDeUnaMonitoria(int idmonitoria);
+    void finalizarAsesoria(int idAsesoria, String observaciones);
+    List<Asesoria> loadAsesoriasRealizandosePorMonitoriaRegistrada(int idMonitoriaRegistrada);
+    
 }

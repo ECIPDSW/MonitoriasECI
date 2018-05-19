@@ -28,7 +28,7 @@ public class Main {
     public static GeneradorExcel g = new GeneradorExcel();
     public static void main(String args[]){
          //Descarga de PDFS
-        String sPropiedades = System.getProperty("user.name");
+        /*String sPropiedades = System.getProperty("user.name");
         GeneradorPdf pdf = new GeneradorPdf();
         pdf.generarPDF("CONSULTA ASESORIAS", "Asistencia Asesorias:", "Porcentajes por curso:","Porcentajes por grupo:","porcentajes por tema:", "/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png", "/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/home/local/LABINFO/"+sPropiedades+"/Desktop/MonitoriasECI/img/grafica.png","/home/local/LABINFO/"+sPropiedades+"/Downloads/prueba.pdf");
         pdf.generarPdfv2("ASESORIA","Materia:","Franja Horaria:", "Temas:", "Numero de Estudiantes:", "/home/local/LABINFO/"+sPropiedades+"/Downloads/prueba2.pdf");
@@ -44,7 +44,7 @@ public class Main {
             g.generarExcel(entrada,"/home/local/LABINFO/"+sPropiedades+"/Downloads/pruebaexcel.xls");
         } catch (WriteException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
 
         /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadGrupos("PIMB", 1));

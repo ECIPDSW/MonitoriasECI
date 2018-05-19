@@ -5,13 +5,15 @@
   
 <mapper namespace="Mappers.AsesoriaMapper">
     <insert parameterType="map" id="registrarAsesoria">
-        insert into asesoria (grupo_idgrupoasistente, monitoriaregistrada, idestudiante, nombreestudiante, observaciones) values(#{grupo}, 1, #{idEst}, #{nombreEst}, #{obser})
+        insert into asesoria (grupo_idgrupoasistente, monitoriaregistrada, estudiante_carnet, finalizado) 
+        values(#{grupo}, #{moniRegis}, #{idEst}, false)
     </insert>
     <select parameterType="map" id="loadAsesorias" resultMap='Asesoria'>
         select
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         m.idmonitoriaregistrada as mronid,
    	m.ip as mrip,
     	m.horacomienzo as mrhorainicio,
@@ -27,6 +29,7 @@
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         m.idmonitoriaregistrada as mronid,
    	m.ip as mrip,
     	m.horacomienzo as mrhorainicio,
@@ -43,6 +46,7 @@
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         m.idmonitoriaregistrada as mronid,
    		m.ip as mrip,
     	m.horacomienzo as mrhorainicio,
@@ -59,6 +63,7 @@
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         m.idmonitoriaregistrada as mronid,
    	m.ip as mrip,
     	m.horacomienzo as mrhorainicio,
@@ -74,6 +79,7 @@
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         m.idmonitoriaregistrada as mronid,
    		m.ip as mrip,
     	m.horacomienzo as mrhorainicio,
@@ -89,6 +95,7 @@
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         m.idmonitoriaregistrada as mronid,
    		m.ip as mrip,
     	m.horacomienzo as mrhorainicio,
@@ -103,6 +110,7 @@
         a.idasesoria as aid,
         a.estudiante_carnet as aidestudiante, 
         a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
         mr.idmonitoriaregistrada as mronid,
         mr.ip as mrip,
     	mr.horacomienzo as mrhorainicio,
@@ -114,12 +122,35 @@
         order by mr.fecha desc
 
     </select>
+    <select parameterType="map" id="loadAsesoriasRealizandosePorMonitoriaRegistrada" resultMap='Asesoria'>
+        select
+        a.idasesoria as aid,
+        a.estudiante_carnet as aidestudiante, 
+        a.observaciones as aobservaciones,
+        a.finalizado as afinalizado,
+        m.idmonitoriaregistrada as mronid,
+   		m.ip as mrip,
+    	m.horacomienzo as mrhorainicio,
+    	m.horafinalizacion as mrhorafin,
+    	m.fecha as mrfecha
+        from asesoria as a, monitoriaregistrada as m
+        where a.monitoriaregistrada = m.idmonitoriaregistrada 
+        and m.idmonitoriaregistrada = #{idmonitoriaregistrada}
+        and a.finalizado = false
+
+    </select>
+    <insert parameterType="map" id="finalizarAsesoria">
+        update asesoria
+        set observaciones = #{obser}, finalizado = true
+        where idasesoria = #{id}
+    </insert>
     <resultMap type='Asesoria' id='Asesoria'>
         <id property='idAsesoria' column='aid'/>
         <result property='idEstudiante' column = 'aidestudiante'/>
         <result property='observaciones' column = 'aobservaciones'/>
+        <result property='finalizado' column = 'afinalizado'/>
         <association property='monitoria' javaType='MonitoriaRegistrada' resultMap='Mappers.MonitoriaRegistradaMapper.MonitoriaRegistrada'></association>
         <collection property='temas' ofType='TemaAsesoria' resultMap='Mappers.TemaAsesoriaMapper.TemaAsesoria' ></collection>
-
+        
     </resultMap>
 </mapper>

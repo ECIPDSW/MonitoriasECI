@@ -22,5 +22,10 @@ public class MyBatisEstudianteDao implements EstudianteDAO{
         return estudiante.loadEstudiantePorAsesoria(idasesoria);
     }
 
+    @Override
+    public void crearEstudiante(int carnet, String nombre) {
+        estudiante.crearEstudiante(carnet, nombre);
+    }
+
  
 }

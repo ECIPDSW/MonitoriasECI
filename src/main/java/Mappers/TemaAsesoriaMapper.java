@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package Mappers;
-
+import org.apache.ibatis.annotations.Param;
 /**
  *
  * @author martincantorurrego
  */
 public interface TemaAsesoriaMapper {
-    
+    void agregarTemaAAsesoria(@Param("idAsesoria")int idAsesoria,@Param("idTema") int idTema);
 }

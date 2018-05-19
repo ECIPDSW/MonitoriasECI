@@ -51,6 +51,10 @@
         where s.numero = (select max(ss.numero) from semestre as ss where ss.numero !=
         (select max(sss.numero) from semestre as sss))     
     </select>
+    <insert parameterType="map" id="crearSemestre">
+        insert into semestre (ano, periodoacademico, fechainicio, fechafin) values( 
+	#{ano},#{periodo}, #{fechaInicio}, #{fechaFin})
+    </insert>
     <resultMap type='Semestre' id='Semestre'>
         <id property ='numero' column='snumero'/>
         <result property='ano' column='sano'/> 

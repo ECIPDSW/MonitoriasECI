@@ -13,4 +13,5 @@ import Modelo.Estudiante;
  */
 public interface EstudianteDAO {
     Estudiante loadEstudiantePorAsesoria(int idasesoria);
+    void crearEstudiante(int carnet, String nombre);
 }

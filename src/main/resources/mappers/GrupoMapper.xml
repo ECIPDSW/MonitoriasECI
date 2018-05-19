@@ -50,6 +50,15 @@
             from asesoria as a, grupo as g
             where a.grupo_idgrupoasistente = g.idgrupo and g.idgrupo = #{grupo}
     </select>
+    <insert parameterType="map" id="crearGrupo">
+        insert into grupo (numero, curso_id, semestre_numero, profesor_persona_id, monitor_persona_id) values( 
+	#{numero},#{curso}, #{semestre}, #{profe},#{moni})
+    </insert>
+    <insert parameterType="map" id="asignarMonitorAGrupo">
+        update grupo
+        set monitor_persona_id = #{moni}
+        where idgrupo = #{grupo}
+    </insert>
     <resultMap type='Grupo' id='Grupo'>
         <id property='idGrupo' column='gid'/>
         <result property='numero' column='gnumero'/>

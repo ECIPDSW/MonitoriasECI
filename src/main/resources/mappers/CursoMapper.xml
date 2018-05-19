@@ -18,6 +18,10 @@
         where a.grupo_idgrupoasistente = g.idgrupo
         and g.semestre_numero = #{semestre} and g.curso_id = #{curso}
     </select>
+    <insert parameterType="map" id="crearCurso">
+        insert into curso (id, nombre, creditosacademicos, horasaprovadasmonitoria) values( 
+	#{id},#{periodo}, #{creditos}, #{horas})
+    </insert>
     <resultMap type='Curso' id='Curso'>
         <id property='id' column='cid'/>
         <result property='nombre' column = 'cnombre'/>
