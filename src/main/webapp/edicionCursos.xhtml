@@ -18,15 +18,20 @@
                         <p:panelGrid id="nuevoCurso" columns="4"  columnClasses="ui-grid-col-30,ui-grid-col-30,ui-grid-col-30,ui-grid-col-30" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
                             <p:outputLabel for="NombreNom" value="Nombre nemotecnico : "  />
                             <p:inputText id="NombreNom"  value="#{Administrador.codNuevoCurso}" required="true" requiredMessage="Nombre nemoécnico es requerido.">
-                            <p:ajax process="NombreNom"/>
+                                <p:ajax process="NombreNom"/>
                             </p:inputText>
                             <p:outputLabel for="Nombre" value="Nombre curso : "  />
-                            <p:inputText id="Nombre" value="#{Administrador.nombreNuevoCurso}" required="true" requiredMessage="Nombre del curso es requerido."/>
+                            <p:inputText id="Nombre" value="#{Administrador.nombreNuevoCurso}" required="true" requiredMessage="Nombre del curso es requerido.">
+                                <p:ajax process="Nombre"/>
+                            </p:inputText>
                             <p:outputLabel for="horasMonitorias" value="Horas de monitorias aprovadas : "  />
-                            <p:inputNumber id="horasMonitorias" value="#{Administrador.horasAprovadasNuevoCurso}" minValue="0" maxValue="1000" required="true" requiredMessage="Las horas aprovadas de monitoria para el curso son requeridas."/>
+                            <p:inputNumber id="horasMonitorias" value="#{Administrador.horasAprovadasNuevoCurso}" minValue="0" maxValue="1000" required="true" requiredMessage="Las horas aprovadas de monitoria para el curso son requeridas.">
+                                <p:ajax process="horasMonitorias"/>
+                            </p:inputNumber>
                             <p:outputLabel for="Creditos" value="Creditos  : "  />
-                            <p:inputNumber id="Creditos" value="#{Administrador.creditosNuevoCurso}"  minValue="0" maxValue="1000" required="true" requiredMessage="La cantidad de creditos del curso son requeridas."/>
-
+                            <p:inputNumber id="Creditos" value="#{Administrador.creditosNuevoCurso}"  minValue="0" maxValue="1000" required="true" requiredMessage="La cantidad de creditos del curso son requeridas.">
+                                <p:ajax process="Creditos"/>
+                            </p:inputNumber>
                         </p:panelGrid>
 
 

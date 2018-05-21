@@ -91,7 +91,7 @@
 
                                     <p:column filterBy="#{monitoria.dia}" headerText="Día"  filterMatchMode="exact">
                                         <f:facet name="filter">
-                                            <p:selectOneMenu onchange="PF('tablaMonitorias').filter()"    >
+                                            <p:selectOneMenu  onchange="PF('tablaMonitorias').filter()"    >
                                                 <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
                                                 <f:selectItems value="#{Inicio.dias}" />
                                                <p:ajax update="ta" event="change"   process="@this"/>

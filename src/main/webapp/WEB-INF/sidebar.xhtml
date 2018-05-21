@@ -48,6 +48,14 @@
                             <p:menuitem id="est" value="Estadisticas por curso" icon="fa fa-bar-chart" outcome="/estadisticas" />
                             
                         </p:submenu>
+               
+                        
+                        <p:submenu id="editar" label="Edicion Monitorias" icon="fa fa-edit" rendered="#{Login.administrador}">
+                            <p:menuitem id="monitores" value="Editar Monitores" icon="fa fa-users" outcome="/empty" />
+                            <p:menuitem id="Profesores" value="Editar Profesores" icon="fa fa-bank" outcome="/estadisticas" />
+                            <p:menuitem id="Cursos" value="Editar Cursos" icon="fa fa-book" outcome="/edicionCursos" />
+                            <p:menuitem id="monitorias" value="Editar monitorias" icon="fa fa-list-alt" outcome="/estadisticas" />
+                        </p:submenu>
 
                     </po:menu>
                 </div>

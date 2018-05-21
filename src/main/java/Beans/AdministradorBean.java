@@ -30,11 +30,47 @@ public class AdministradorBean implements Serializable  {
     private Curso cursoSeleccionado;
     private Semestre semestreSeleccionado;
     private List<Semestre> semestres;
+    private String codNuevoCurso;
+    private String nombreNuevoCurso;
+    private int horasAprovadasNuevoCurso;
+    private int creditosNuevoCurso;
  
  
     
     public void AdministradorBean() {
      
+    }
+
+    public String getCodNuevoCurso() {
+        return codNuevoCurso;
+    }
+
+    public void setCodNuevoCurso(String codNuevoCurso) {
+        this.codNuevoCurso = codNuevoCurso.toUpperCase();
+    }
+
+    public String getNombreNuevoCurso() {
+        return nombreNuevoCurso;
+    }
+
+    public void setNombreNuevoCurso(String nombreNuevoCurso) {
+        this.nombreNuevoCurso = nombreNuevoCurso.toUpperCase();
+    }
+
+    public int getHorasAprovadasNuevoCurso() {
+        return horasAprovadasNuevoCurso;
+    }
+
+    public void setHorasAprovadasNuevoCurso(int horasAprovadosNuevoCurso) {
+        this.horasAprovadasNuevoCurso = horasAprovadosNuevoCurso;
+    }
+
+    public int getCreditosNuevoCurso() {
+        return creditosNuevoCurso;
+    }
+
+    public void setCreditosNuevoCurso(int creditosNuevoCurso) {
+        this.creditosNuevoCurso = creditosNuevoCurso;
     }
 
     public List<Curso> getCursos() {
@@ -75,7 +111,10 @@ public class AdministradorBean implements Serializable  {
         this.administrador = administrador;
     }
  
-    
+    public void crearCurso(){
+     System.out.println("entro");
+     sa.crearCurso(codNuevoCurso, nombreNuevoCurso, creditosNuevoCurso, horasAprovadasNuevoCurso);
+    }
 
     
     

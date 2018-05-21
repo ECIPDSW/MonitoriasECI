@@ -97,8 +97,8 @@ public class Main {
 
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorGrupo(13));*/
 
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorGrupo(13));
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursosQueTienenMonitoriasPorSemestre(1));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
+       /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursosQueTienenMonitoriasPorSemestre(1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias("PIMB", 2));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias(null, 2));
 
@@ -108,8 +108,8 @@ public class Main {
         System.out.println(p);
         System.out.println("\nConsultar Monitor\n");
         System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));*/
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursoPorMonitoria(2));
+       // System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
+        //System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursoPorMonitoria(2));
     }
     
 }
