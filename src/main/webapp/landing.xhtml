@@ -24,93 +24,119 @@
         <ui:insert name="head"/>
     </h:head>
     <h:head>
-    <h:body styleClass="landing-body">
-        <h:form>
-            <div class="landing-wrapper">
-                <div class="landing-header">
-                    <div class="landing-header-content clearfix">
-                        <p:graphicImage name="images/logopeq.png" library="omega-layout" width="130"/>
+        <h:body styleClass="landing-body">
+            <h:form>
+                <p:growl id="growl" autoUpdate="true" showDetail="true"   /> 
+                <div class="landing-wrapper">
+                    <div class="landing-header">
+                        <div class="landing-header-content clearfix">
+                            <p:graphicImage name="images/logopeq.png" library="omega-layout" width="130"/>
 
-                        <a id="menu-button" href="#">
-                            <span class="fa fa-bars"></span>
-                        </a>
-                        <ul id="menu">
-                            <li><a href="#">Inicio</a></li>
-                            <li><a href="#pricing">Horarios Asignaturas</a></li>
+                            <a id="menu-button" href="#">
+                                <span class="fa fa-bars"></span>
+                            </a>
+                            <ul id="menu">
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#pricing">Horarios Asignaturas</a></li>
 
-                        </ul>
-                    </div>
-                </div>
-
-                <div id="introduction">
-                    <div class="introduction-content">
-                        <span class="title" >Portal de Monitorias </span>
-
-
-                        <p:commandButton  value="Iniciar Sesion" action="#{Login.mostrarPagina}"   process="@form" partialSubmit="true" ajax="true"  ></p:commandButton>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <div id="pricing">
-                    <div class="pricing-content">
-                        <span class="pricing-title">Horarios Monitorias Asignaturas</span>
-                        <p>A continuacion encontrara las franjas horarias de las monitorias dictadas en la Escuela Colombiana de Ingeniería Julio Garavito</p>
-
-                        <div class="ui-g">
-
-
-
-                            <p:panel header="Calendar" style="height:150%">
-                                <p:schedule value="#{scheduleView.eventModel}"/>
-                            </p:panel>
-
-
-
+                            </ul>
                         </div>
                     </div>
-                </div>
 
-                
+                    <div id="introduction">
+                        <div class="introduction-content">
+                            <span class="title" >Portal de Monitorias </span>
 
-                <div class="landing-footer">
-                    <div class="landing-footer-content">
-                        <div class="footer-top">
+
+                            <p:commandButton  id="iniciarMon" value="Iniciar Sesion" action="/login?faces-redirect=true"    ajax="false"  >
+
+                            </p:commandButton>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div id="pricing">
+                        <div class="pricing-content">
+                            <span class="pricing-title">Horarios Monitorias Asignaturas</span>
+                            <p>A continuacion encontrara las franjas horarias de las monitorias dictadas en la Escuela Colombiana de Ingeniería Julio Garavito</p>
+
                             <div class="ui-g">
-                                <div class="ui-g-6">
-                                    <p:graphicImage name="images/logopeq.png" library="omega-layout" width="200"/>
-                                    <p>AK.45 No.205-59 (Autopista Norte) PBX: +57(1) 668 3600 - Bogotá </p>
-                                    <p>Línea Nacional Gratuita: 018000112668</p>
-                                </div>
-                                <div class="ui-g-6">
-                                    <ul>
-                                        <li><a href="#mobile">Mobile</a></li>
-                                        <li><a href="#pricing">Pricing</a></li>
-                                        <li><a href="#video">Video</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li><a href="#">Home</a></li>
-                                        <li><a href="#introduction">Introduction</a></li>
-                                        <li><a href="#features">Features</a></li>
-                                    </ul>
-                                </div>
+
+
+                                
+                                    <p:panelGrid id="filtros" columns="2" columnClasses="ui-grid-col-10,ui-grid-col-50" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                        <p:outputLabel for="cursos" value="Seleccione curso : "  />
+                                        <p:selectOneMenu id="cursos" value="#{Inicio.cursoSeleccionado}">
+                                            <f:selectItem itemLabel="Todos" itemValue="todos" />
+                                            <f:selectItems     value="#{Inicio.cursos}"   var="cur"   itemLabel="#{cur.nombreCompleto}"  />                                            
+                                        </p:selectOneMenu>
+                                        
+                                    </p:panelGrid>
+                                
+                                
+                                <p:dataTable  id="tabla" var="monitoria" value="#{Inicio.monitorias}"  >
+                                    <f:facet name="header">
+                                        Monitorias
+                                    </f:facet>
+                                    <p:column headerText="Curso">
+                                        <h:outputText value="#{Inicio.cursoSeleccionado.nombre}" />
+                                    </p:column>
+
+                                    <p:column headerText="Día">
+                                        <h:outputText value="#{monitoria.dia}" />
+                                    </p:column>
+                                    <p:column headerText="Hora Inicio">
+                                        <h:outputText value="#{monitoria.horaInicio}" />
+                                    </p:column>
+
+                                </p:dataTable>
+
+
+
                             </div>
                         </div>
+                    </div>
 
-                        <div class="footer-bottom">
-                            Todos los derechos reservados © 2011 - Escuela Colombiana de Ingenieria Julio Garavito. Personería Jurídica 086 de enero 19 de 1973. Institución Universitaria sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
+
+
+                    <div class="landing-footer">
+                        <div class="landing-footer-content">
+                            <div class="footer-top">
+                                <div class="ui-g">
+                                    <div class="ui-g-6">
+                                        <p:graphicImage name="images/logopeq.png" library="omega-layout" width="200"/>
+                                        <p>AK.45 No.205-59 (Autopista Norte) PBX: +57(1) 668 3600 - Bogotá </p>
+                                        <p>Línea Nacional Gratuita: 018000112668</p>
+                                    </div>
+                                    <div class="ui-g-6">
+                                        <ul>
+                                            <li><a href="#mobile">Mobile</a></li>
+                                            <li><a href="#pricing">Pricing</a></li>
+                                            <li><a href="#video">Video</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a href="#">Home</a></li>
+                                            <li><a href="#introduction">Introduction</a></li>
+                                            <li><a href="#features">Features</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="footer-bottom">
+                                Todos los derechos reservados © 2011 - Escuela Colombiana de Ingenieria Julio Garavito. Personería Jurídica 086 de enero 19 de 1973. Institución Universitaria sujeta a inspección y vigilancia por el Ministerio de Educación Nacional.
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <h:outputStylesheet name="css/layout.css" library="omega-layout" />
-        </h:form>
-    </h:body>
-        </h:head>
+                <h:outputStylesheet name="css/layout.css" library="omega-layout" />
+            </h:form>
+        </h:body>
+    </h:head>
 
 </html>

@@ -70,7 +70,12 @@ public class Curso implements Serializable {
     public void setTemas(ArrayList<TemaCurso> temas) {
         this.temas = temas;
     }
-
+    
+    public String getNombreCompleto(){
+        return id+" - "+nombre; 
+    }
+    
+    
     @Override
     public String toString() {
         return "Curso{" + "id=" + id + ", nombre=" + nombre + ", creditosAcademicos=" + creditosAcademicos + ", horasAprobadasMonitoria=" + horasAprobadasMonitoria + ", temas=" + temas + '}';

@@ -38,7 +38,15 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.event.ActionEvent;
-import javax.servlet.http.HttpSession;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.config.IniSecurityManagerFactory;
+import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.session.Session;
+import org.apache.shiro.subject.Subject;
+import org.apache.shiro.util.Factory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.primefaces.context.RequestContext;
 
@@ -58,7 +66,7 @@ public class UserLoginView implements Serializable {
     private ServicioAsesoria sp = Fabrica.getInstance().getServiciosAsesoria();
 
     public UserLoginView() {
-
+         
     }
 
     public Integer getUsername() {
@@ -99,10 +107,7 @@ public class UserLoginView implements Serializable {
         return administrador;
     }
     
-    public void mostrarPagina() throws IOException{
-        FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
-        
-    }
+    
     public void login() throws IOException {
 
         RequestContext context = RequestContext.getCurrentInstance();
@@ -180,7 +185,8 @@ public class UserLoginView implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         
         return "/login?faces-redirect=true";// indicas a donde quieres direccionar después de cerrar sesión 
-        //FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/login.xhtml");
+        
+        
         
     }
     

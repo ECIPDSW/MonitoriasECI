@@ -84,7 +84,7 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorPorGrupo(5));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadEstudiantePorAsesoria(1));*/
         //INICIO
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadFechasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
+       /* System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadFechasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunFecha("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero(), Fabrica.getInstance().getServiciosAsesoria().loadFechasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()).get(0)));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunGrupo(5));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().franjasMonitorias("PIMO", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
@@ -94,13 +94,14 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().numeroDeAsistenciasSegunCurso("PIMB", Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().asesoriasDeUnaMonitoria(17));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadSemestreAnterior());
-        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorGrupo(13));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoriasPorGrupo(13));*/
         //FIN
         /*System.out.println("PROFE");
         Profesor p = fabrica.getServiciosAsesoria().getProfesor(4);
         System.out.println(p);
         System.out.println("\nConsultar Monitor\n");
         System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));*/
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
     }
     
 }
