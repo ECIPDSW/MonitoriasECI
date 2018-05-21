@@ -68,31 +68,53 @@
 
 
                                 
-                                    <p:panelGrid id="filtros" columns="2" columnClasses="ui-grid-col-10,ui-grid-col-50" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                                        <p:outputLabel for="cursos" value="Seleccione curso : "  />
-                                        <p:selectOneMenu id="cursos" value="#{Inicio.cursoSeleccionado}">
-                                            <f:selectItem itemLabel="Todos" itemValue="todos" />
-                                            <f:selectItems     value="#{Inicio.cursos}"   var="cur"   itemLabel="#{cur.nombreCompleto}"  />                                            
-                                        </p:selectOneMenu>
-                                        
-                                    </p:panelGrid>
-                                
-                                
-                                <p:dataTable  id="tabla" var="monitoria" value="#{Inicio.monitorias}"  >
+
+                                <p:dataTable id ="ta" var="monitoria" value="#{Inicio.monitorias}" widgetVar="tablaMonitorias"
+                                             emptyMessage="No se encuentran monitorias para el criterio dado." filteredValue="#{Inicio.monitoriasFiltradas}">
+
                                     <f:facet name="header">
-                                        Monitorias
+                                        <p:outputPanel>
+                                            <h:outputText value="Horario Monitorias" />
+                                           
+                                        </p:outputPanel>
                                     </f:facet>
-                                    <p:column headerText="Curso">
-                                        <h:outputText value="#{Inicio.cursoSeleccionado.nombre}" />
+
+                                    <p:column filterBy="#{monitoria.curso.id}" headerText="Curso"  filterMatchMode="exact">
+                                        <f:facet name="filter">
+                                            <p:selectOneMenu onchange="PF('tablaMonitorias').filter()" >
+                                                <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{Inicio.cursos}" var="cur"    itemValue="#{cur.id}" itemLabel="#{cur.id}" />
+                                            </p:selectOneMenu>
+                                        </f:facet>
+                                        <h:outputText value="#{monitoria.curso.id}" />
                                     </p:column>
 
-                                    <p:column headerText="Día">
+                                    <p:column filterBy="#{monitoria.dia}" headerText="Día"  filterMatchMode="exact">
+                                        <f:facet name="filter">
+                                            <p:selectOneMenu onchange="PF('tablaMonitorias').filter()"    >
+                                                <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{Inicio.dias}" />
+                                               <p:ajax update="ta" event="change"   process="@this"/>
+                                            </p:selectOneMenu>
+                                        </f:facet>
                                         <h:outputText value="#{monitoria.dia}" />
                                     </p:column>
-                                    <p:column headerText="Hora Inicio">
+
+                                    <p:column  headerText="Hora inicio" >     
                                         <h:outputText value="#{monitoria.horaInicio}" />
                                     </p:column>
 
+                                    <p:column  headerText="Hora Finalizacion">
+                                        
+                                        <h:outputText value="#{monitoria.horaFin}" />
+                                    </p:column>
+
+                                    <p:column  headerText="Lugar" >
+                                        
+                                        <h:outputText value="#{monitoria.lugar}" />
+                                    </p:column>
+
+                                    
                                 </p:dataTable>
 
 

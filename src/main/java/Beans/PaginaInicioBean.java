@@ -16,45 +16,53 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
-
 @ManagedBean(name = "Inicio")
 @SessionScoped
 public class PaginaInicioBean implements Serializable {
+
     private static final ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
     private List<Curso> cursos;
-    private Curso cursoSeleccionado;
+    private String cursoSeleccionado="todos";
     private List<Monitoria> monitorias;
+    private List<Monitoria> monitoriasFiltradas;
+    private String[] dias={"lunes","martes","miercoles","jueves","viernes","sabado"};
 
-    
+    public String[] getDias() {
+        return dias;
+    }
 
-    public List<Monitoria> getMonitorias() {
-        return monitorias;
+    public List<Monitoria> getMonitoriasFiltradas() {
+        return monitoriasFiltradas;
+    }
+
+    public void setMonitoriasFiltradas(List<Monitoria> monitoriasFiltradas) {
+        this.monitoriasFiltradas = monitoriasFiltradas;
+    }
+
+    public List<Monitoria> getMonitorias() {      
+            return sa.loadMonitorias(sa.loadSemestreActual().getNumero());
+        
     }
 
     public void setMonitorias(List<Monitoria> monitorias) {
         this.monitorias = monitorias;
     }
-    
-    
 
-    public Curso getCursoSeleccionado() {
+    public String getCursoSeleccionado() {
         return cursoSeleccionado;
     }
 
-    public void setCursoSeleccionado(Curso cursoSeleccionado) {
+    public void setCursoSeleccionado(String cursoSeleccionado) {
+
         this.cursoSeleccionado = cursoSeleccionado;
     }
-    
-    
 
     public List<Curso> getCursos() {
-        return sa.loadCursos();
+        return sa.loadCursosQueTienenMonitoriasPorSemestre(sa.loadSemestreActual().getNumero());
     }
 
     public void setCursos(List<Curso> cursos) {
         this.cursos = cursos;
     }
-    
-    
-    
+
 }

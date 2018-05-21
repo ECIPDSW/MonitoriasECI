@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Servicios.Fabrica;
 import java.io.Serializable;
 import java.sql.Time;
 import java.util.Objects;
@@ -20,6 +21,7 @@ public class Monitoria implements Serializable {
     private Time horaFin;
     private String lugar;
     private Grupo grupo;
+    private Curso curso;
 
     public Monitoria() {
     }
@@ -32,6 +34,11 @@ public class Monitoria implements Serializable {
         this.lugar = lugar;
         this.grupo = grupo;
     }
+
+    public Curso getCurso() {
+        return Fabrica.getInstance().getServiciosAsesoria().loadCursoPorMonitoria(idMonitoria);
+    }
+    
 
     public int getIdMonitoria() {
         return idMonitoria;
