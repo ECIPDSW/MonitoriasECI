@@ -27,4 +27,5 @@ public interface MonitoriaMapper {
     int numeroDeAsistenciasSegunMonitoria(@Param("monitoria")int idMonitoria);
     List<Monitoria> loadMonitoriasPorGrupo(@Param("grupo")int grupo);
     void crearMonitoria(@Param("grupo")int grupo,@Param("dia") int dia,@Param("inicio") Time horaInicio,@Param("fin") Time horaFin,@Param("lugar") String lugar);
+
 }

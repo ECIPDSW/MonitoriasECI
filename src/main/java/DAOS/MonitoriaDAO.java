@@ -23,4 +23,5 @@ public interface MonitoriaDAO {
     int numeroDeAsistenciasSegunMonitoria(int idMonitoria);
     List<Monitoria> loadMonitoriasPorGrupo(int grupo);
     void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar);
+
 }

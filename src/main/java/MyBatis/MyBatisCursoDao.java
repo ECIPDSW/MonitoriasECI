@@ -34,5 +34,10 @@ public class MyBatisCursoDao implements CursoDAO{
     public void crearCurso(String id, String nombre, int creditosAcademicos, int horasAprovadasMonitorias) {
         cursoMapper.crearCurso(id, nombre, creditosAcademicos, horasAprovadasMonitorias);
     }
+
+    @Override
+    public List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre) {
+        return cursoMapper.loadCursosQueTienenMonitoriasPorSemestre(semestre);
+    }
     
 }

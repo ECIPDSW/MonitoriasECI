@@ -346,6 +346,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public void agregarTemaAAsesoria(int idAsesoria, int idTema) {
         temaasesoria.agregarTemaAAsesoria(idAsesoria, idTema);
     }
+
+    @Override
+    public List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre) {
+        return curso.loadCursosQueTienenMonitoriasPorSemestre(semestre);
+    }
    
     
 }

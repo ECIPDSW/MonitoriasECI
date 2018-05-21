@@ -55,8 +55,10 @@
         m.lugar as mlugar
     
         from monitoria as m
-        where #{semestre} = (select g.semestre_numero from grupo as g where m.grupo_idgrupo = g.idgrupo) and
-        #{idcurso} = (select g.curso_id from grupo as g where m.grupo_idgrupo = g.idgrupo)
+        where #{semestre} = (select g.semestre_numero from grupo as g where m.grupo_idgrupo = g.idgrupo) 
+        <if test= "idcurso != null">
+            and #{idcurso} = (select g.curso_id from grupo as g where m.grupo_idgrupo = g.idgrupo)
+        </if>
     </select>
     <select parameterType="map" id="loadFechasMonitorias" resultType='java.sql.Date'>
         select distinct fecha
