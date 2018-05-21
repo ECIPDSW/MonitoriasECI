@@ -4,10 +4,10 @@
 ## Periodo Academico : 2018 -I
 ## Nombre del Curso : Procesos de Desarrollo de Software - PDSW
 ## Nombre de los Integrantes : 
-* Nicolas Rey: 
-* Oscar Pinto:
-* David Rodriguez:
-* Martin Cantor:
+* Nicolas Rey: Scrum master
+* Oscar Pinto: Team 
+* David Rodriguez: Team
+* Martin Cantor: Team
 ## Profesor: Francisco Cháves (Dueño del producto)
 ## Descripcion del producto:
 ### Descripcion general:
@@ -28,7 +28,7 @@ La Plataforma de Monitorias Académicas, es una herramienta que busca contribuir
 
 ### Descripcion de la arquitectura:
 1.CAPAS:
-El proyecto de MonitoriasECI cuenta con diferentes capas:
+* El proyecto de MonitoriasECI cuenta con diferentes capas:
 la capa de Modelo donde se encuentra las clases principales con sus atributos y metodos.
 la capa de Mappers donde estan los mappers donde se encuentran las consultas en SQL y las interfaces relacionadas. 
 la capa de DAOS
@@ -37,12 +37,12 @@ la capa de servicios donde se encuentran las Fabricas necesarias.
 la capa de presentacion donde se encuentran los xhtml que interactuan con los diferentes Beans y que permiten mostrarle al usuario la plataforma funcional.
 
 2.STACK DE TECNOLOGIAS:
-PrimeFaces
-Maven
-Tomcat
-Postgres SQL
-Heroku
-MyBatis
+* PrimeFaces
+* Maven
+* Tomcat
+* Postgres SQL
+* Heroku
+* MyBatis
 
 ### Enlace Heroku:
 "En construccion"
@@ -67,3 +67,5 @@ https://trello.com/b/AicP7uJU/2018-1-proypdsw-666-industries
 ### Sprint 3:
 "En construccion"
 
+### Reporte de pruebas:
+"En construccion"
