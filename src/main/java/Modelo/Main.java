@@ -109,6 +109,7 @@ public class Main {
         System.out.println("\nConsultar Monitor\n");
         System.out.println(fabrica.getServiciosAsesoria().loadMonitor(1));*/
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursoPorMonitoria(2));
     }
     
 }

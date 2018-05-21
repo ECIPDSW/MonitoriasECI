@@ -32,6 +32,16 @@
     where c.id = g.curso_id and g.idgrupo = mo.grupo_idgrupo
     and g.semestre_numero = #{semestre}
     </select>
+    <select parameterType="map" id="loadCursoPorMonitoria" resultMap='Curso'>
+        select 
+    c.id as cid,
+    c.nombre as cnombre,
+    c.creditosacademicos as ccreditosacademicos,
+    c.horasaprovadasmonitoria as chorasaprovadasmonitoria
+    from curso as c, grupo as g, monitoria as mo
+    where c.id = g.curso_id and g.idgrupo = mo.grupo_idgrupo
+    and mo.idmonitoria = #{monitoria}
+    </select>
     <resultMap type='Curso' id='Curso'>
         <id property='id' column='cid'/>
         <result property='nombre' column = 'cnombre'/>

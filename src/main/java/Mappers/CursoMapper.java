@@ -11,4 +11,5 @@ public interface CursoMapper {
     int numeroDeAsistenciasSegunCurso(@Param("curso")String idCurso, @Param("semestre")int semestre);
     void crearCurso(@Param("id")String id, @Param("nombre")String nombre,@Param("creditos") int creditosAcademicos,@Param("horas") int horasAprovadasMonitorias);
     List<Curso> loadCursosQueTienenMonitoriasPorSemestre(@Param("semestre")int semestre);
+    Curso loadCursoPorMonitoria(@Param("monitoria")int idMonitoria);
 }

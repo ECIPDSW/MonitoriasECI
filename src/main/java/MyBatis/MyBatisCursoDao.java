@@ -39,5 +39,10 @@ public class MyBatisCursoDao implements CursoDAO{
     public List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre) {
         return cursoMapper.loadCursosQueTienenMonitoriasPorSemestre(semestre);
     }
+
+    @Override
+    public Curso loadCursoPorMonitoria(int idMonitoria) {
+        return cursoMapper.loadCursoPorMonitoria(idMonitoria);
+    }
     
 }

@@ -299,4 +299,6 @@ public interface ServicioAsesoria {
     
     List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre);
     
+    Curso loadCursoPorMonitoria(int idMonitoria);
+    
 }

@@ -351,6 +351,11 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre) {
         return curso.loadCursosQueTienenMonitoriasPorSemestre(semestre);
     }
+
+    @Override
+    public Curso loadCursoPorMonitoria(int idMonitoria) {
+        return curso.loadCursoPorMonitoria(idMonitoria);
+    }
    
     
 }
