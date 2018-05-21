@@ -296,4 +296,7 @@ public interface ServicioAsesoria {
     List<Asesoria> loadAsesoriasRealizandosePorMonitoriaRegistrada(int idMonitoriaRegistrada);
     
     void agregarTemaAAsesoria(int idAsesoria, int idTema);
+    
+    List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre);
+    
 }

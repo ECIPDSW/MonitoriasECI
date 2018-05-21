@@ -16,4 +16,5 @@ public interface CursoDAO {
     List<Curso> loadCursos();
     int numeroDeAsistenciasSegunCurso(String idCurso, int semestre);
     void crearCurso(String id, String nombre, int creditosAcademicos, int horasAprovadasMonitorias);
+    List<Curso> loadCursosQueTienenMonitoriasPorSemestre(int semestre);
 }
