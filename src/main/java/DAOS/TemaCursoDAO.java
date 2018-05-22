@@ -40,4 +40,6 @@ public interface TemaCursoDAO {
     void crearTema(String idCurso, String tema, String descripcion);
     
     void eliminarTemaCurso(int idTema);
+    
+    void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso);
 }

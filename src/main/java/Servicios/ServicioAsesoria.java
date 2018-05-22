@@ -507,4 +507,6 @@ public interface ServicioAsesoria {
     
     void eliminarMonitoria(int IDmonitoria);
     
+    void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso);
+    
 }
