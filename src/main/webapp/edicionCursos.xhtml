@@ -45,7 +45,7 @@
                                         </p:panelGrid>
                                     </div>
                                 </p:panel>
-                                <p:commandButton id="btnGuardarCambios"  update="@this" action="#{Administrador.modificarCursoSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
+                                <p:commandButton id="btnGuardarCambios"  update="datosCurso" action="#{Administrador.modificarCursoSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
                                     <p:ajax   process=" btnGuardarCambios "     rendered="tablaC"     />
                                 </p:commandButton>
 
