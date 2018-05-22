@@ -18,7 +18,7 @@
                             <div class="card">
                                 
                                 <h:form id="Search">
-                                    <h1>Consultar Asistentes</h1>
+                                    <h1>Detalle monitorias</h1>
                                     <f:event type="preRenderView" listener="#{Profesor.refresh()}" />
                                     <p:panelGrid columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
                                 
@@ -65,87 +65,7 @@
                         <div class="ui-g-12 ui-lg-6">
                             
                             <div class="card">
-                                <h:form>
-                                    <p:dataTable id="tbl" var="as" value="#{dataExporterView.cars}"
-                                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
-                                                 paginator="true" rows="10" style="margin-bottom:20px">
-
-                                        <f:facet name="{Exporters}">
-                                            <h:commandLink>
-                                                <p:graphicImage library="Images"   name="excel.png" width="24"/>
-                                               
-                                                <p:dataExporter type="xls" target="tbl" fileName="cars" />
-                                            </h:commandLink>
-
-                                            <h:commandLink>
-                                                <p:graphicImage library="Images" name="pdf.png" width="24"/>
-                                               
-                                                <p:dataExporter type="pdf" target="tbl" fileName="cars"/>
-                                            </h:commandLink>
-
-                                            <h:commandLink>
-                                                <p:graphicImage library="Images" name="csv.png" width="24"/>
-                                               
-                                                <p:dataExporter type="csv" target="tbl" fileName="cars" />
-                                            </h:commandLink>
-
-                                            <h:commandLink>
-                                                <p:graphicImage library="Images" name="xml.png" width="24"/>
-                                                
-                                                <p:dataExporter type="xml" target="tbl" fileName="cars" />
-                                            </h:commandLink>
-                                        </f:facet>
-
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Id" />
-                                            </f:facet>
-                                            <h:outputText value="#{car.id}" />
-                                        </p:column>
-
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Year"/>
-                                            </f:facet>
-                                            <h:outputText value="#{car.year}" />
-                                        </p:column>
-
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Brand" />
-                                            </f:facet>
-                                            <h:outputText value="#{car.brand}" />
-                                        </p:column>
-
-                                        <p:column>
-                                            <f:facet name="header">
-                                                <h:outputText value="Color" />
-                                            </f:facet>
-                                            <h:outputText value="#{car.color}" />
-                                        </p:column>
-                                    </p:dataTable>
-
-                                    <h3>Export Page Data Only</h3>
-                                    <h:commandLink>
-                                        <p:graphicImage name="/demo/images/excel.png" />
-                                        <p:dataExporter type="xls" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true"/>
-                                    </h:commandLink>
-
-                                    <h:commandLink>
-                                        <p:graphicImage name="/demo/images/pdf.png" />
-                                        <p:dataExporter type="pdf" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true" />
-                                    </h:commandLink>
-
-                                    <h:commandLink>
-                                        <p:graphicImage name="/demo/images/csv.png" />
-                                        <p:dataExporter type="csv" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true" />
-                                    </h:commandLink>
-
-                                    <h:commandLink>
-                                        <p:graphicImage name="/demo/images/xml.png" />
-                                        <p:dataExporter type="xml" target="tbl" fileName="#{Profesor.grupo}_#{Profesor.monitoria}_#{Profesor.nombrem}" pageOnly="true" />
-                                    </h:commandLink>
-                                </h:form>
+                                
                                     <p:spacer height="10" />
                                     
 

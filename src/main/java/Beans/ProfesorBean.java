@@ -47,6 +47,7 @@ public class ProfesorBean implements Serializable  {
     private String nombremr="";  
     private String monrs="";
     private List<Asesoria> asesorias = new ArrayList<>();
+    private List<MonitoriaRegistrada> lmonreg = new ArrayList<>();
     private int canmr=0;
     private int max=0;
     private int min=Integer.MAX_VALUE;
@@ -74,7 +75,7 @@ public class ProfesorBean implements Serializable  {
         nombremr= this.mon.getDia();
         List<MonitoriaRegistrada> monre= sa.loadMonitoriasRegistradasPorMonitoria(mon.getIdMonitoria());
         //System.out.println("Setted");
-        
+        lmonreg=monre;
         monr=null; 
         monrs="";
         for(int i=0;i<monre.size();i++){
@@ -219,6 +220,7 @@ public class ProfesorBean implements Serializable  {
         System.out.println("ASESORIAS ="+sa.loadAsesoriasPorGrupo(grupo.getIdGrupo()));
         System.out.println("mtotal="+mtotal+" total="+total);
         porcentaje =(float) ((float)mtotal/(float)total)*100;
+        
     }
 
     public int getCanmr() {
@@ -264,6 +266,14 @@ public class ProfesorBean implements Serializable  {
 
     public void setPorcentaje(float porcentaje) {
         this.porcentaje = porcentaje;
+    }
+
+    public List<MonitoriaRegistrada> getLmonreg() {
+        return lmonreg;
+    }
+
+    public void setLmonreg(List<MonitoriaRegistrada> lmonreg) {
+        this.lmonreg = lmonreg;
     }
     
     
