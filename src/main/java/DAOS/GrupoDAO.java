@@ -49,7 +49,20 @@ public interface GrupoDAO{
      */
     void asignarMonitorAGrupo(int idgrupo, int idmonitor);
     
+    /**
+     * Modifica un grupo
+     * @param idGrupo ID del grupo
+     * @param numero numero del grupo
+     * @param idCurso ID del curso
+     * @param semestre ID del semestre
+     * @param profesor ID del profesor
+     * @param monitor ID del monitor
+     */
     void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor);
     
+    /**
+     * Elimina un grupo
+     * @param idGrupo ID del grupo
+     */
     void eliminarGrupo(int idGrupo);
 }

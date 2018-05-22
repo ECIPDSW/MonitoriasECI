@@ -39,7 +39,18 @@ public interface TemaCursoDAO {
      */
     void crearTema(String idCurso, String tema, String descripcion);
     
+    /**
+     * Elimina el tema d eun curso
+     * @param idTema ID del tema
+     */
     void eliminarTemaCurso(int idTema);
     
+    /**
+     * Modifica el tema de un curso
+     * @param IDtema ID del tema del curso
+     * @param tema Tema 
+     * @param descripcion Descripcion
+     * @param curso ID del curso
+     */
     void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso);
 }

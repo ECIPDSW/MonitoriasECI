@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 /**
- *
+ *Interfaz de servicios
  * @author 666 Industries
  */
 public interface ServicioAsesoria {
@@ -489,24 +489,85 @@ public interface ServicioAsesoria {
      */
     void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena);
     
+    /**
+     * Elimina un curso
+     * @param idCurso ID del curso
+     */
     void eliminarCurso(String idCurso);
     
+    /**
+     * Elimina el tema d eun curso
+     * @param idTema ID del tema
+     */
     void eliminarTemaCurso(int idTema);
     
+    /**
+     * Modifica un curso
+     * @param idCursoViejo ID del curso actualmente
+     * @param idCursoNuevo ID del curso del que se quiere modificar
+     * @param nombre nombre del curso
+     * @param creditos creditos del curso
+     * @param horasMonitoria horas del curso
+     */
     void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria);
     
+    /**
+     * Modifica un grupo
+     * @param idGrupo ID del grupo
+     * @param numero numero del grupo
+     * @param idCurso ID del curso
+     * @param semestre ID del semestre
+     * @param profesor ID del profesor
+     * @param monitor ID del monitor
+     */
     void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor);
     
+    /**
+     * Elimina un grupo
+     * @param idGrupo ID del grupo
+     */
     void eliminarGrupo(int idGrupo);
     
+    /**
+     * Modifca un semestre
+     * @param IDnumero ID del semestre
+     * @param ano Año Del semestre
+     * @param periodo Periodo Academico del semestre
+     * @param fechaInicio Fecha de Inicio del semestre
+     * @param fechaFin Fecha de Fin del semestre
+     */
     void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin);
     
+    /**
+     * Elimina un semestre
+     * @param IDnumero ID del semestre 
+     */
     void eliminarSemestre(int IDnumero);
     
+    /**
+     * Modifica una monitoria
+     * @param IDmonitoria ID de la monitoria
+     * @param grupo ID del grupo
+     * @param dia Dia de la monitoria
+     * @param horaInicio Hora de inicio de la monitoria
+     * @param horaFin Hora Fin de la monitoria
+     * @param lugar Lugar de la monitoria
+     */
     void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar);
     
+    /**
+     * Elimina una monitoria
+     * @param IDmonitoria ID de la monitoria
+     */
     void eliminarMonitoria(int IDmonitoria);
     
+    /**
+     * Modifica el tema de un curso
+     * @param IDtema ID del tema del curso
+     * @param tema Tema 
+     * @param descripcion Descripcion
+     * @param curso ID del curso
+     */
     void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso);
     
 }

@@ -99,8 +99,21 @@ public interface MonitoriaDAO {
      */
     void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar);
     
+    /**
+     * Modifica una monitoria
+     * @param IDmonitoria ID de la monitoria
+     * @param grupo ID del grupo
+     * @param dia Dia de la monitoria
+     * @param horaInicio Hora de inicio de la monitoria
+     * @param horaFin Hora Fin de la monitoria
+     * @param lugar Lugar de la monitoria
+     */
     void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar);
     
+    /**
+     * Elimina una monitoria
+     * @param IDmonitoria ID de la monitoria
+     */
     void eliminarMonitoria(int IDmonitoria);
 
 }
