@@ -46,6 +46,21 @@
     where c.id = g.curso_id and g.idgrupo = mo.grupo_idgrupo
     and mo.idmonitoria = #{monitoria}
     </select>
+    
+    <delete parameterType="map" id="eliminarCurso">
+        delete from curso
+        where id = #{id}
+    </delete>
+    <update parameterType="map" id="modificarCurso">
+        update curso
+        <set>
+        <if test="idNuevo != null">id=#{idNuevo},</if>
+        <if test="nombre != null">nombre=#{nombre},</if>
+        <if test="creditos != null">creditosacademicos=#{creditos},</if>
+        <if test="horas != null">horasaprovadasmonitoria=#{horas}</if>
+        </set>
+        where id = {idViejo}
+    </update>
     <resultMap type='Curso' id='Curso'>
         <id property='id' column='cid'/>
         <result property='nombre' column = 'cnombre'/>

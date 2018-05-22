@@ -26,21 +26,9 @@ import MyBatis.MyBatisSemestreDao;
 import MyBatis.MyBatisTemaAsesoriaDao;
 import MyBatis.MyBatisTemaCursoDao;
 import ServiciosImpl.ServicioAsesoriaImpl;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.List;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import com.google.inject.*;
-import java.util.Optional;
 import org.mybatis.guice.XMLMyBatisModule;
-import org.postgresql.*;
+
 
 public class Fabrica {
     private static Fabrica instance = new Fabrica();

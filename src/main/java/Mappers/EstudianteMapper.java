@@ -1,18 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mappers;
 
 import Modelo.Estudiante;
 import org.apache.ibatis.annotations.Param;
 
 /**
- *
- * @author David Rodriguez
+ *Mapper del estudiante
+ * @author 666 Indistries
  */
 public interface EstudianteMapper {
+    
+    /**
+     * Carga el Estudiante que asistio a la asesoria
+     * @param idasesoria ID asesoria
+     * @return Estudiante que asistio a esa asesoria
+     */
     Estudiante loadEstudiantePorAsesoria(@Param("idasesoria")int idasesoria);
+    
+    /**
+     * Crea un estudiante
+     * @param carnet Carnet del estudiante
+     * @param nombre Nombre del estudiante
+     */
     void crearEstudiante(@Param("id")int carnet, @Param("nombre")String nombre);
 }

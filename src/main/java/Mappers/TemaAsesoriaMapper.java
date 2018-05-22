@@ -1,14 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Mappers;
 import org.apache.ibatis.annotations.Param;
+
 /**
- *
- * @author martincantorurrego
+ *Mapper de tema asesoria
+ * @author 666 Industries
  */
 public interface TemaAsesoriaMapper {
+    
+    /**
+     * Agrega un tema a una asesoria
+     * @param idAsesoria ID de la asesoria
+     * @param idTema Id del tema
+     */
     void agregarTemaAAsesoria(@Param("idAsesoria")int idAsesoria,@Param("idTema") int idTema);
 }

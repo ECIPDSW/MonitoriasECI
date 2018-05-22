@@ -59,6 +59,22 @@
         set monitor_persona_id = #{moni}
         where idgrupo = #{grupo}
     </insert>
+    <update parameterType="map" id="modificarGrupo">
+        update grupo
+        <set>
+        <if test="numero != null">numero=#{numero},</if>
+        <if test="idCurso != null">curso_id=#{idCurso},</if>
+        <if test="semestre != null">semestre_numero=#{semestre},</if>
+        <if test="profe != null">profesor_persona_id=#{profe}</if>
+        <if test="moni != null">monitor_persona_id=#{moni}</if>
+        </set>
+        where idgrupo = {id}
+    </update>
+    
+    <delete parameterType="map" id="eliminarGrupo">
+        delete from grupo
+        where idgrupo = #{id}
+    </delete>
     <resultMap type='Grupo' id='Grupo'>
         <id property='idGrupo' column='gid'/>
         <result property='numero' column='gnumero'/>

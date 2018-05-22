@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MyBatis;
 
 import DAOS.GrupoDAO;
@@ -12,8 +7,8 @@ import com.google.inject.Inject;
 import java.util.List;
 
 /**
- *
- * @author David Rodriguez
+ *DAO de My batis del grupo
+ * @author 666 Industries
  */
 public class MyBatisGrupoDao implements GrupoDAO{
     @Inject
@@ -42,5 +37,15 @@ public class MyBatisGrupoDao implements GrupoDAO{
     @Override
     public void asignarMonitorAGrupo(int idgrupo, int idmonitor) {
         grupoMapper.asignarMonitorAGrupo(idgrupo, idmonitor);
+    }
+
+    @Override
+    public void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor) {
+        grupoMapper.modificarGrupo(idGrupo, numero, idCurso, semestre, profesor, monitor);
+    }
+
+    @Override
+    public void eliminarGrupo(int idGrupo) {
+        grupoMapper.eliminarGrupo(idGrupo);
     }
 }
