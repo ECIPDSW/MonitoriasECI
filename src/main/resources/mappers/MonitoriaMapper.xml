@@ -105,6 +105,22 @@
         insert into monitoria (grupo_idgrupo, dia, horainicio, horafin, lugar) values( 
 	#{grupo},#{dia}, #{inicio}, #{fin}, #{lugar})
     </insert>
+    <update parameterType="map" id="modificarMonitoria">
+        update monitoria
+        <set>
+        <if test="grupo != null">grupo_idgrupo=#{grupo},</if>
+        <if test="dia != null">dia=#{dia},</if>
+        <if test="horaInicio != null">horainicio=#{horaInicio},</if>
+        <if test="horaFin != null">horafin=#{horaFin}</if>
+        <if test="lugar != null">lugar=#{lugar}</if>
+        </set>
+        where idmonitoria = #{id}
+    </update>
+    
+    <delete parameterType="map" id="eliminarMonitoria">
+        delete from monitoria
+        where idmonitoria = #{id}
+    </delete>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>

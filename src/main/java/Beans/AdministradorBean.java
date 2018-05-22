@@ -37,9 +37,18 @@ public class AdministradorBean implements Serializable {
     private  List<String> temasCursoNuevo;
     private List<Curso> cursosFiltrados;
     private Curso cursoSeleccionadoTablaFiltrado;
+    private String idCursoAnterior;
 
     public void AdministradorBean() {
 
+    }
+
+    public String getIdCursoAnterior() {
+        return idCursoAnterior;
+    }
+
+    public void setIdCursoAnterior(String idCursoAnterior) {
+        this.idCursoAnterior = idCursoAnterior;
     }
 
     public Curso getCursoSeleccionadoTablaFiltrado() {
@@ -47,10 +56,11 @@ public class AdministradorBean implements Serializable {
     }
 
     public void setCursoSeleccionadoTablaFiltrado(Curso cursoSeleccionadoTablaFiltrado) {
-        System.out.println("entrooooooooooooooooooo");
+        setIdCursoAnterior(cursoSeleccionadoTablaFiltrado.getId());
         this.cursoSeleccionadoTablaFiltrado = cursoSeleccionadoTablaFiltrado;
     }
-
+    
+    
     public List<Curso> getCursosFiltrados() {
         return cursosFiltrados;
     }
@@ -135,6 +145,13 @@ public class AdministradorBean implements Serializable {
         this.administrador = administrador;
     }
 
+    public void modificarCursoSeleccionado(){
+        System.out.println("entrooooooooo");
+        if(cursoSeleccionadoTablaFiltrado!=null){
+            sa.modificarCurso(idCursoAnterior, cursoSeleccionadoTablaFiltrado.getId(), cursoSeleccionadoTablaFiltrado.getNombre(), cursoSeleccionadoTablaFiltrado.getCreditosAcademicos(), cursoSeleccionadoTablaFiltrado.getHorasAprobadasMonitoria());
+        }
+        
+    }
     public void crearCurso() {
         boolean error=false;
         try {
@@ -145,7 +162,6 @@ public class AdministradorBean implements Serializable {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
             error=true;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al crear curso", "Revise si el curso ya existe y que los datos sean validos"));
         }

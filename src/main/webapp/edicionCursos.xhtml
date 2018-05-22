@@ -14,28 +14,41 @@
                         <h1>Crear nuevo curso</h1>
 
                         <p:growl id="growl" showDetail="true"  >
-                            
+
                         </p:growl> 
-                        <p:dialog  header="Editar Curso" widgetVar="infoCurso" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                        <p:dialog  id="dialogo"  appendTo="@(body)" header="Editar Curso" widgetVar="infoCurso" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
                             <p:outputPanel id="datosCurso" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty Administrador.cursoSeleccionadoTablaFiltrado}" columnClasses="label,value">
+                                <p:panel header="Edicion Curso" style="text-align:center;background:#fff;height:100%">
+                                    <div class="ui-g">
+                                        <p:panelGrid  columns="2" rendered="#{not empty Administrador.cursoSeleccionadoTablaFiltrado}" columnClasses="label,value" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
 
-                                    <h:outputText value="Nombre Nomotecnico:" />
-                                    <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.id}" />
+                                            <h:outputText value="Nombre Nomotecnico:" />
+                                            <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.id}" />
 
-                                    <h:outputText value="Nombre : " />
-                                    <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.nombre}" />
+                                            <h:outputText value="Nombre : " />
+                                            <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.nombre}" />
 
-                                    <h:outputText value="Horas de monitoria aprobadas:" />
-                                    <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.horasAprobadasMonitoria}" />
+                                            <h:outputText value="Horas de monitoria aprobadas:" />
+                                            <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.horasAprobadasMonitoria}" />
 
-                                    <h:outputText value="Creditos :" />
-                                    <h:inputText value="$#{Administrador.cursoSeleccionadoTablaFiltrado.creditosAcademicos}" />
+                                            <h:outputText value="Creditos :" />
+                                            <h:inputText value="$#{Administrador.cursoSeleccionadoTablaFiltrado.creditosAcademicos}" >
+                                                <p:ajax  process="@this" />
+                                            </h:inputText>
 
-                                    <h:outputText value="Temas :" />
-                                    <h:inputText value="$#{Administrador.cursoSeleccionadoTablaFiltrado.temas}" />
-                                </p:panelGrid>
+                                            <h:outputText value="Temas :" />
+                                            <p:chips id="TemasSelec"    value="#{Administrador.cursoSeleccionadoTablaFiltrado.temas}" >
+                                                <p:ajax event="itemSelect"    update="TemasSelec" />
+                                                <p:ajax event="itemUnselect" update="TemasSelec" />
+                                            </p:chips>
+                                        </p:panelGrid>
+                                    </div>
+                                </p:panel>
+                                <p:commandButton id="btnGuardarCambios"  update="datosCurso" action="#{Administrador.modificarCursoSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
+                                    <p:ajax   process=" btnGuardarCambios "     rendered="tablaC"     />
+                                </p:commandButton>
+
                             </p:outputPanel>
                         </p:dialog>
 
@@ -77,7 +90,7 @@
 
                     <div class="card">
                         <h1>Editar Cursos Existentes</h1>
-                        <p:dataTable id="tablaC" stickyHeader="true" var="curso"  value="#{Administrador.cursos}" widgetVar="tablaCursos"
+                        <p:dataTable id="tablaC"  var="curso"  value="#{Administrador.cursos}" widgetVar="tablaCursos"
                                      emptyMessage="No se encontraron cursos con el criterio dado." filteredValue="#{Administrador.cursosFiltrados}">
 
                             <f:facet name="header">
@@ -114,10 +127,8 @@
                             </p:column>
 
                             <p:column style="width:32px;text-align: center">
-                                <p:commandButton update=":form:datosCurso" oncomplete="PF('infoCurso').show()" icon="ui-icon-search" title="View">
-                                    <f:setPropertyActionListener id="1" value="#{curso}"   target="#{Administrador.cursoSeleccionadoTablaFiltrado}" >
-                                        <f:ajax    render="@this"  />
-                                    </f:setPropertyActionListener>
+                                <p:commandButton id="b" update=":form:dialogo" oncomplete="PF('infoCurso').show()"  immediate="true" action="#{Administrador.setCursoSeleccionadoTablaFiltrado(curso)}" icon="ui-icon-pencil" title="View">
+                                    <f:ajax  rendered="@form"    />
                                 </p:commandButton>
                             </p:column>
 

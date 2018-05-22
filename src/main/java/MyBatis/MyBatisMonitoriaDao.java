@@ -72,5 +72,15 @@ public class MyBatisMonitoriaDao implements MonitoriaDAO{
     public void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar) {
         monitoriaMapper.crearMonitoria(grupo, dia, horaInicio, horaFin, lugar);
     }
+
+    @Override
+    public void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar) {
+        monitoriaMapper.modificarMonitoria(IDmonitoria, grupo, dia, horaInicio, horaFin, lugar);
+    }
+
+    @Override
+    public void eliminarMonitoria(int IDmonitoria) {
+        monitoriaMapper.eliminarMonitoria(IDmonitoria);
+    }
     
 }

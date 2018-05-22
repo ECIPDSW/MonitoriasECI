@@ -99,5 +99,22 @@ public interface MonitoriaMapper {
      * @param lugar Lugar de la monitoria
      */
     void crearMonitoria(@Param("grupo")int grupo,@Param("dia") int dia,@Param("inicio") Time horaInicio,@Param("fin") Time horaFin,@Param("lugar") String lugar);
+    
+    /**
+     * Modifica una monitoria
+     * @param IDmonitoria ID de la monitoria
+     * @param grupo ID del grupo
+     * @param dia Dia de la monitoria
+     * @param horaInicio Hora de inicio de la monitoria
+     * @param horaFin Hora Fin de la monitoria
+     * @param lugar Lugar de la monitoria
+     */
+    void modificarMonitoria(@Param("id")int IDmonitoria, @Param("grupo") Integer grupo,@Param("dia") String dia,@Param("horaInicio") Time horaInicio,@Param("horaFin") Time horaFin,@Param("lugar") String lugar);
+    
+    /**
+     * Elimina una monitoria
+     * @param IDmonitoria ID de la monitoria
+     */
+    void eliminarMonitoria(@Param("id")int IDmonitoria);
 
 }

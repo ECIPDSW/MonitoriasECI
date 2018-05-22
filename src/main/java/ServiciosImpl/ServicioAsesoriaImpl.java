@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ServiciosImpl;
 
 
@@ -39,8 +34,8 @@ import java.sql.Time;
 import java.util.List;
 
 /**
- *
- * @author David Rodriguez
+ *Implementacion de los servicios de asesoria
+ * @author 666 Industries
  */
 public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
@@ -385,6 +380,56 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena) {
         administrador.modificarAdmin(idViejo, idNuevo, nombre, apellido, correo, contasena);
+    }
+
+    @Override
+    public void eliminarCurso(String idCurso) {
+        curso.eliminarCurso(idCurso);
+    }
+
+    @Override
+    public void eliminarTemaCurso(int idTema) {
+        temaCurso.eliminarTemaCurso(idTema);
+    }
+
+    @Override
+    public void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria) {
+        curso.modificarCurso(idCursoViejo, idCursoNuevo, nombre, creditos, horasMonitoria);
+    }
+
+    @Override
+    public void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor) {
+        grupo.modificarGrupo(idGrupo, numero, idCurso, semestre, profesor, monitor);
+    }
+
+    @Override
+    public void eliminarGrupo(int idGrupo) {
+        grupo.eliminarGrupo(idGrupo);
+    }
+
+    @Override
+    public void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin) {
+        semestre.modificarSemestre(IDnumero, ano, periodo, fechaInicio, fechaFin);
+    }
+
+    @Override
+    public void eliminarSemestre(int IDnumero) {
+        semestre.eliminarSemestre(IDnumero);
+    }
+
+    @Override
+    public void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar) {
+        monitoria.modificarMonitoria(IDmonitoria, grupo, dia, horaInicio, horaFin, lugar);
+    }
+
+    @Override
+    public void eliminarMonitoria(int IDmonitoria) {
+        monitoria.eliminarMonitoria(IDmonitoria);
+    }
+
+    @Override
+    public void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso) {
+        temaCurso.modificarTemaCurso(IDtema, tema, descripcion, curso);
     }
    
     

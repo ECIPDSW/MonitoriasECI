@@ -30,6 +30,19 @@
         insert into temacurso (curso_id, tema, descripcion) values( 
 	#{idCurso},#{tema}, #{des})
     </insert>
+    <delete parameterType="map" id="eliminarTemaCurso">
+        delete from temacurso
+        where idtemacurso = #{id}
+    </delete>
+    <update parameterType="map" id="modificarTemaCurso">
+        update temacurso
+        <set>
+        <if test="tema != null">tema=#{tema},</if>
+        <if test="des != null">descripcion=#{des},</if>
+        <if test="curso != null">curso_id=#{curso},</if>
+        </set>
+        where id = #{idViejo}
+    </update>
     <resultMap type='TemaCurso' id='TemaCurso'>
         <id property ='idTemaCurso' column='tcid'/>
         <result property='tema' column = 'tctema'/>
