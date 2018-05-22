@@ -55,6 +55,21 @@
         insert into semestre (ano, periodoacademico, fechainicio, fechafin) values( 
 	#{ano},#{periodo}, #{fechaInicio}, #{fechaFin})
     </insert>
+    <update parameterType="map" id="modificarSemestre">
+        update semestre
+        <set>
+        <if test="ano != null">ano=#{ano},</if>
+        <if test="periodo != null">periodoacademico=#{periodo},</if>
+        <if test="fechaIni != null">fechainicio=#{fechaIni},</if>
+        <if test="fechaFin != null">fechafin=#{fechaFin}</if>
+        </set>
+        where numero = {id}
+    </update>
+    
+    <delete parameterType="map" id="eliminarSemestre">
+        delete from semestre
+        where numero = #{id}
+    </delete>
     <resultMap type='Semestre' id='Semestre'>
         <id property ='numero' column='snumero'/>
         <result property='ano' column='sano'/> 

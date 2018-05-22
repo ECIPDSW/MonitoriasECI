@@ -40,6 +40,16 @@ public class MyBatisSemestreDao implements SemestreDAO{
     public void crearSemestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin) {
         semestreMapper.crearSemestre(ano, periodoAcademico, fechaInicio, fechaFin);
     }
+
+    @Override
+    public void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin) {
+        semestreMapper.modificarSemestre(IDnumero, ano, periodo, fechaInicio, fechaFin);
+    }
+
+    @Override
+    public void eliminarSemestre(int IDnumero) {
+        semestreMapper.eliminarSemestre(IDnumero);
+    }
    
    
 }

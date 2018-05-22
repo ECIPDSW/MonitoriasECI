@@ -411,6 +411,16 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public void eliminarGrupo(int idGrupo) {
         grupo.eliminarGrupo(idGrupo);
     }
+
+    @Override
+    public void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin) {
+        semestre.modificarSemestre(IDnumero, ano, periodo, fechaInicio, fechaFin);
+    }
+
+    @Override
+    public void eliminarSemestre(int IDnumero) {
+        semestre.eliminarSemestre(IDnumero);
+    }
    
     
 }

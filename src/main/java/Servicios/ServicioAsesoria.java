@@ -498,4 +498,8 @@ public interface ServicioAsesoria {
     void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor);
     
     void eliminarGrupo(int idGrupo);
+    
+    void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin);
+    
+    void eliminarSemestre(int IDnumero);
 }

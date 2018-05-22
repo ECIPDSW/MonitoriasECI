@@ -43,4 +43,8 @@ public interface SemestreDAO {
      * @param fechaFin Fecha de finalizacion
      */
     void crearSemestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin);
+    
+    void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin);
+    
+    void eliminarSemestre(int IDnumero);
 }

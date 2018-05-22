@@ -44,4 +44,8 @@ public interface SemestreMapper {
      * @param fechaFin Fecha de finalizacion
      */
     void crearSemestre(@Param("ano")int ano, @Param("periodo")char periodoAcademico, @Param("fechaInicio")Date fechaInicio,@Param("fechaFin")Date fechaFin);
+    
+    void modificarSemestre(@Param("id")int IDnumero, @Param("ano")Integer ano, @Param("periodo")Character periodo, @Param("fechaIni")Date fechaInicio, @Param("fechaFin")Date fechaFin);
+    
+    void eliminarSemestre(@Param("id")int IDnumero);
 }
