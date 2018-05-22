@@ -502,4 +502,9 @@ public interface ServicioAsesoria {
     void modificarSemestre(int IDnumero, Integer ano, Character periodo, Date fechaInicio, Date fechaFin);
     
     void eliminarSemestre(int IDnumero);
+    
+    void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar);
+    
+    void eliminarMonitoria(int IDmonitoria);
+    
 }

@@ -98,5 +98,9 @@ public interface MonitoriaDAO {
      * @param lugar Lugar de la monitoria
      */
     void crearMonitoria(int grupo, int dia, Time horaInicio, Time horaFin, String lugar);
+    
+    void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar);
+    
+    void eliminarMonitoria(int IDmonitoria);
 
 }

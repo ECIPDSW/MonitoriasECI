@@ -63,7 +63,7 @@
         <if test="fechaIni != null">fechainicio=#{fechaIni},</if>
         <if test="fechaFin != null">fechafin=#{fechaFin}</if>
         </set>
-        where numero = {id}
+        where numero = #{id}
     </update>
     
     <delete parameterType="map" id="eliminarSemestre">
