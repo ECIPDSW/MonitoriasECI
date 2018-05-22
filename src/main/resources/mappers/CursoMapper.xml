@@ -20,7 +20,7 @@
     </select>
     <insert parameterType="map" id="crearCurso">
         insert into curso (id, nombre, creditosacademicos, horasaprovadasmonitoria) values( 
-	#{id},#{periodo}, #{creditos}, #{horas})
+	#{id},#{nombre}, #{creditos}, #{horas})
     </insert>
     <select parameterType="map" id="loadCursosQueTienenMonitoriasPorSemestre" resultMap='Curso'>
         select distinct

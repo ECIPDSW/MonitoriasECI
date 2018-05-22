@@ -6,16 +6,40 @@
                 template="/WEB-INF/template.xhtml">
 
     <ui:define name="content">
+
         <div class="ui-g">
             <div class="ui-g-12">
-                <div class="card">
-                    <h1>Crear nuevo curso</h1>
-                    <h:form>
+                <h:form id="form">
+                    <div class="card">
+                        <h1>Crear nuevo curso</h1>
+
                         <p:growl id="growl" showDetail="true"  >
                             <p:autoUpdate/>
                         </p:growl> 
+                        <p:dialog  header="Informacion Curso" widgetVar="infoCurso" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                            <p:outputPanel id="datosCurso" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty Administrador.cursoSeleccionadoTablaFiltrado}" columnClasses="label,value">
 
-                        <p:panelGrid id="nuevoCurso" columns="4"  columnClasses="ui-grid-col-30,ui-grid-col-30,ui-grid-col-30,ui-grid-col-30" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+
+                                    <h:outputText value="Nombre Nomotecnico:" />
+                                    <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.id}" />
+
+                                    <h:outputText value="Nombre : " />
+                                    <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.nombre}" />
+
+                                    <h:outputText value="Horas de monitoria aprobadas:" />
+                                    <h:inputText value="#{Administrador.cursoSeleccionadoTablaFiltrado.horasAprobadasMonitoria}" />
+
+                                    <h:outputText value="Creditos :" />
+                                    <h:inputText value="$#{Administrador.cursoSeleccionadoTablaFiltrado.creditosAcademicos}" />
+
+                                    <h:outputText value="Temas :" />
+                                    <h:inputText value="$#{Administrador.cursoSeleccionadoTablaFiltrado.temas}" />
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+
+                        <p:panelGrid id="nuevoCurso" columns="4"   layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
                             <p:outputLabel for="NombreNom" value="Nombre nemotecnico : "  />
                             <p:inputText id="NombreNom"  value="#{Administrador.codNuevoCurso}" required="true" requiredMessage="Nombre nemoécnico es requerido.">
                                 <p:ajax process="NombreNom"/>
@@ -32,6 +56,12 @@
                             <p:inputNumber id="Creditos" value="#{Administrador.creditosNuevoCurso}"  minValue="0" maxValue="1000" required="true" requiredMessage="La cantidad de creditos del curso son requeridas.">
                                 <p:ajax process="Creditos"/>
                             </p:inputNumber>
+                            <p:outputLabel for="Temas" value="Temas : " />
+                            <p:chips id="Temas"    value="#{Administrador.temasCursoNuevo}" >
+                                <p:ajax event="itemSelect"    update="Temas" />
+                                <p:ajax event="itemUnselect" update="Temas" />
+                            </p:chips>
+
                         </p:panelGrid>
 
 
@@ -39,13 +69,64 @@
                         <p:separator />
                         <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
                             <p:commandButton id="btnAgregarCurso"  update="@form"    value="Agregar Curso" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Administrador.crearCurso()}"      style="width:auto;margin-bottom:10px;">
-                                <p:ajax   process=" btnAgregarCurso "    update=" nuevoCurso "   />
+                                <p:ajax   process=" btnAgregarCurso "     rendered="tablaC" update=" nuevoCurso "   />
                             </p:commandButton>
                         </p:panelGrid>
-                    </h:form>
-                </div>
+
+                    </div>
+
+                    <div class="card">
+                        <h1>Editar Cursos Existentes</h1>
+                        <p:dataTable id="tablaC" stickyHeader="true" var="curso" value="#{Administrador.cursos}" widgetVar="tablaCursos"
+                                     emptyMessage="No se encontraron cursos con el criterio dado." filteredValue="#{Administrador.cursosFiltrados}">
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Buscar en todos los campos :" />
+                                    <p:inputText id="globalFilter" onkeyup="PF('tablaCursos').filter()" style="width:150px" placeholder="Ingrese palabra"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column filterBy="#{curso.id}" headerText="Nombre nemotecnico"  filterMatchMode="exact">
+                                <h:outputText value="#{curso.id}" />
+                            </p:column>
+
+                            <p:column filterBy="#{curso.nombre}" headerText="Nombre"  filterMatchMode="contains">
+
+                                <h:outputText value="#{curso.nombre}" />
+                            </p:column>
+
+                            <p:column  headerText="Horas aprobadas para monitorias"  >
+
+                                <h:outputText value="#{curso.horasAprobadasMonitoria}" />
+                            </p:column>
+
+                            <p:column  headerText="Creditos"  >
+
+                                <h:outputText value="#{curso.creditosAcademicos}" />
+                            </p:column>
+
+                            <p:column filterBy="#{curso.temas}" headerText="Temas"  filterMatchMode="contains">
+
+                                <p:chips id="tablaTemas"    disabled="true"  value="#{curso.temas}" >
+
+                                </p:chips>
+                            </p:column>
+
+                            <p:column style="width:32px;text-align: center">
+                                <p:commandButton update=":form:datosCurso" oncomplete="PF('infoCurso').show()" icon="ui-icon-search" title="View">
+                                    <f:setPropertyActionListener value="#{curso}" target="#{Administrador.cursoSeleccionadoTablaFiltrado}" />
+                                </p:commandButton>
+                            </p:column>
+
+
+                        </p:dataTable>
+
+                    </div>
+                </h:form>
             </div>
         </div>
+
 
     </ui:define>
 

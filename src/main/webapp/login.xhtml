@@ -27,8 +27,7 @@
                     <div class="ui-g ui-fluid">
                         
                         <div class="ui-g-12">
-      
-
+                                 
                             <p:inputText id="username" required="true" placeholder="Username" value="#{Login.username}" />
                         </div>
                         <div class="ui-g-12">
@@ -41,6 +40,9 @@
                             <p:commandButton id="login" value="Login" update="login"    actionListener="#{Login.login()}" icon="fa fa-check" process="@form" partialSubmit="true" ajax="true" />
                             <p:message for="login" showDetail="true"  />
                         </div>
+                        <div class="ui-g-12 ">
+                            <p:link outcome="/landing">Volver</p:link>
+                    </div>
                     </div>
                 </div>
 

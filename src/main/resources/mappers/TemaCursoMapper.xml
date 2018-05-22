@@ -27,7 +27,7 @@
         and tc.idtemacurso = #{tema} and g.semestre_numero = #{semestre}
     </select>
     <insert parameterType="map" id="crearTema">
-        insert into curso (curso_id, tema, descripcion) values( 
+        insert into temacurso (curso_id, tema, descripcion) values( 
 	#{idCurso},#{tema}, #{des})
     </insert>
     <resultMap type='TemaCurso' id='TemaCurso'>
