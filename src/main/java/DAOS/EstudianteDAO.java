@@ -1,17 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAOS;
 
 import Modelo.Estudiante;
 
 /**
- *
- * @author David Rodriguez
+ *DAO del estudiante
+ * @author 666 industries
  */
 public interface EstudianteDAO {
+    
+    /**
+     * Carga el Estudiante que asistio a la asesoria
+     * @param idasesoria ID asesoria
+     * @return Estudiante que asistio a esa asesoria
+     */
     Estudiante loadEstudiantePorAsesoria(int idasesoria);
+    
+    /**
+     * Crea un estudiante
+     * @param carnet Carnet del estudiante
+     * @param nombre Nombre del estudiante
+     */
     void crearEstudiante(int carnet, String nombre);
 }

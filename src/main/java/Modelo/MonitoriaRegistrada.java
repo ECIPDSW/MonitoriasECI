@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
 
 import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-
 
 /**
- *
- * @author martincantorurrego
+ *Objeto de la monitoria registrada
+ * @author 666 Industries
  */
 public class MonitoriaRegistrada implements Serializable {
     private int idMonitoria;

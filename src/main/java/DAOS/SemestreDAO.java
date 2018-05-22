@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DAOS;
 
 import Modelo.Semestre;
@@ -11,14 +6,41 @@ import java.util.List;
 
 /**
  *
- * @author martincantorurrego
+ * @author 666 Industries
  */
-public interface SemestreDAO {     
-    public Semestre loadSemestre(int id);
+public interface SemestreDAO {   
+    
+    /**
+     * Retorne el semestre
+     * @param id Id del semestre
+     * @return Semestre
+     */
+    Semestre loadSemestre(int id);
+    
+    /**
+     * retorna el semestre actual
+     * @return Semestre actual
+     */
     Semestre loadSemestreActual();
+    
+    /**
+     * retorna todos los semestres que han sido creados
+     * @return Todos los semestres
+     */
     List<Semestre> loadSemestres();
+    
+    /**
+     * Carga el semestre anterior
+     * @return Semestre anterior
+     */
     Semestre loadSemestreAnterior();
+    
+    /**
+     * Crea un semestre
+     * @param ano Año
+     * @param periodoAcademico Periodo academico, solo puede ser 1, 2 o I
+     * @param fechaInicio Fecha de inicio
+     * @param fechaFin Fecha de finalizacion
+     */
     void crearSemestre(int ano, char periodoAcademico, Date fechaInicio, Date fechaFin);
-    //public void registrarInformacionDeAsesoria();
-    //public void registrarInformacionDeAsistente();
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MyBatis;
 
 import DAOS.EstudianteDAO;import Mappers.EstudianteMapper;
@@ -10,8 +5,8 @@ import Modelo.Estudiante;
 import com.google.inject.Inject;
 
 /**
- *
- * @author David Rodriguez
+ *DAO de My batis del estudiante
+ * @author 666 Industries
  */
 public class MyBatisEstudianteDao implements EstudianteDAO{
     @Inject

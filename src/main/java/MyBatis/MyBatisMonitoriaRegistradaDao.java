@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package MyBatis;
 
 import DAOS.MonitoriaRegistradaDAO;
-import DAOS.PersistenceException;
 import Mappers.MonitoriaRegistradaMapper;
 import Modelo.MonitoriaRegistrada;
 import com.google.inject.Inject;
 import java.util.List;
-import org.postgresql.util.PSQLException;
 
 /**
- *
- * @author martincantorurrego
+ *DAO de My batis de la monitori registrada
+ * @author 666 Industries
  */
 public class MyBatisMonitoriaRegistradaDao implements MonitoriaRegistradaDAO{
 
