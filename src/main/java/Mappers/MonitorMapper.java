@@ -12,4 +12,5 @@ public interface MonitorMapper {
     Monitor loadMonitorPorGrupo(@Param("idgrupo")int idgrupo);
     void crearMonitor(@Param("id")int id, @Param("nombre")String nombre, @Param("apellido")String apellido, @Param("correo")String correo, @Param("contra")String contrasena, @Param("tel")int telefono, @Param("programa")String programa, @Param("semestre")String semestreIngreso);
     void asignarSemestreAMonitor(@Param("moni")int idmonitor, @Param("semestre")int idsemestre);
+    List<Monitor> loadMonitores();
 }

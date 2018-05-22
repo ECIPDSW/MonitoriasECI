@@ -25,7 +25,7 @@ La Plataforma de Monitorias Académicas, es una herramienta que busca contribuir
 "En construccion"
 
 ### Diagrama de clases:
-
+![modelo](https://github.com/ECIPDSW/MonitoriasECI/blob/master/src/main/java/img/modelo.png)
 ### Descripcion de la arquitectura:
 1.CAPAS:
 * El proyecto de MonitoriasECI cuenta con diferentes capas:

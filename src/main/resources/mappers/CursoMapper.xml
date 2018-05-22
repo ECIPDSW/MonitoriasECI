@@ -9,8 +9,12 @@
     c.id as cid,
     c.nombre as cnombre,
     c.creditosacademicos as ccreditosacademicos,
-    c.horasaprovadasmonitoria as chorasaprovadasmonitoria
-    from curso as c
+    c.horasaprovadasmonitoria as chorasaprovadasmonitoria,
+    tc.idtemacurso as tcid,
+    tc.tema as tctema,
+    tc.descripcion as tcdescripcion
+    from curso as c, temacurso as tc
+    where tc.curso_id = c.id
     </select>
     <select parameterType="map" id="numeroDeAsistenciasSegunCurso" resultType='Integer'>
         select count(a.idasesoria)

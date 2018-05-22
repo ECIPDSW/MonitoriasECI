@@ -14,6 +14,7 @@ import DAOS.GrupoDAO;
 import DAOS.MonitorDAO;
 import DAOS.MonitoriaDAO;
 import DAOS.MonitoriaRegistradaDAO;
+import DAOS.PersonaDAO;
 import DAOS.ProfesorDAO;
 import DAOS.SemestreDAO;
 import DAOS.TemaAsesoriaDAO;
@@ -26,6 +27,7 @@ import Modelo.Grupo;
 import Modelo.Monitor;
 import Modelo.Monitoria;
 import Modelo.MonitoriaRegistrada;
+import Modelo.Persona;
 import Modelo.Profesor;
 import Modelo.Semestre;
 import Modelo.TemaAsesoria;
@@ -70,6 +72,8 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     private TemaCursoDAO temaCurso;
     @Inject
     private EstudianteDAO estudiante;
+    @Inject
+    private PersonaDAO persona;
     
     
     
@@ -355,6 +359,21 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public Curso loadCursoPorMonitoria(int idMonitoria) {
         return curso.loadCursoPorMonitoria(idMonitoria);
+    }
+
+    @Override
+    public List<Persona> loadPersonas() {
+        return persona.loadPersonas();
+    }
+
+    @Override
+    public List<Monitor> loadMonitores() {
+        return monitor.loadMonitores();
+    }
+
+    @Override
+    public List<Profesor> loadProfesores() {
+        return profesor.loadProfesores();
     }
    
     
