@@ -12,4 +12,5 @@ import Modelo.Administrador;
  */
 public interface AdministradorDAO {
     Administrador loadAdmin(int id,String psw);
+    void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena);
 }

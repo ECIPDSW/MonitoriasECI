@@ -132,11 +132,40 @@
         insert into monitor (persona_id, decanatura) values(
         #{id}, #{dec})
     </insert>
-    <insert parameterType="map" id="asignarSemestreAMonitor">
+    <update parameterType="map" id="asignarSemestreAMonitor">
         update monitor
         set semestreingreso_numero = #{semestre}
         where persona_id = #{moni}
-    </insert>
+    </update>
+    <update parameterType="map" id="modificarMonitor">
+        <if test = "idNuevo != null or nombre != null or apellido != null or correo != null or contra != null">
+        update persona
+        <set>
+        <if test="idNuevo != null">id=#{idNuevo},</if>
+        <if test="nombre != null">nombre=#{nombre},</if>
+        <if test="apellido != null">apellido=#{apellido},</if>
+        <if test="correo != null">correo=#{correo}</if>
+        <if test="contra != null">contasena=#{contra}</if>
+        </set>
+        where id=#{idViejo};
+        </if>
+         <if test="semestre != null or programa != null or telefono != null">
+             update monitor
+             <set>
+             <if test="telefono != null">telefono=#{telefono}</if>
+             <if test="programa != null">programaacademico=#{programa}</if>
+             <if test="semestre != null">semestreingreso_numero=#{semestre}</if>
+             </set>
+             <choose>
+                 <when test="idNuevo == null">
+                     where persona_id = #{idViejo}
+                 </when>
+                 <otherwise>
+                     where persona_id = #{idNuevo}
+                 </otherwise>
+             </choose>         
+         </if>
+    </update>
     <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
         <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>

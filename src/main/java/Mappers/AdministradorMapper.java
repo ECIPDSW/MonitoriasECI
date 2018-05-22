@@ -14,4 +14,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface AdministradorMapper {
     Administrador loadAdmin(@Param("id")int id,@Param("psw")String psw);
+    void modificarAdmin(@Param("idViejo")int idViejo, @Param("idNuevo")Integer idNuevo, @Param("nombre")String nombre, @Param("apellido")String apellido, @Param("correo")String correo, @Param("contra")String contasena);
 }

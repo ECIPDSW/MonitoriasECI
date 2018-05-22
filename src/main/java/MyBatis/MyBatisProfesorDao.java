@@ -38,5 +38,10 @@ public class MyBatisProfesorDao implements ProfesorDAO{
     public List<Profesor> loadProfesores() {
         return profesorMapper.loadProfesores();
     }
+
+    @Override
+    public void modificarProfesor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, String decanatura) {
+        profesorMapper.modificarProfesor(idViejo, idNuevo, nombre, apellido, correo, contasena, decanatura);
+    }
     
 }

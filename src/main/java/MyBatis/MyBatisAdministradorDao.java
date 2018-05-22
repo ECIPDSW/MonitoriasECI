@@ -25,5 +25,10 @@ public class MyBatisAdministradorDao implements AdministradorDAO,Serializable{
     public Administrador loadAdmin(int id, String psw) {
         return administradorMapper.loadAdmin(id, psw);
     }
+
+    @Override
+    public void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena) {
+        administradorMapper.modificarAdmin(idViejo, idNuevo, nombre, apellido, correo, contasena);
+    }
     
 }

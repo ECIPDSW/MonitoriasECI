@@ -17,4 +17,5 @@ public interface ProfesorDAO {
     Profesor loadProfesorLogin(int id,String psw);
     void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura);
     List<Profesor> loadProfesores();
+    void modificarProfesor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, String decanatura);
 }

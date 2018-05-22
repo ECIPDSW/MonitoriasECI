@@ -307,4 +307,11 @@ public interface ServicioAsesoria {
     
     List<Profesor> loadProfesores();
     
+    void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso);
+    
+    void modificarProfesor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, String decanatura);
+    
+    void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena);
+    
+    
 }

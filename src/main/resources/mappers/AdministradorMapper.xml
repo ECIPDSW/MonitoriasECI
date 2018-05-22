@@ -15,7 +15,19 @@
         from administrador as a, persona as p
         where a.persona_id=p.id and a.persona_id = #{id} and p.contasena = #{psw}
     </select>
-    
+    <update parameterType="map" id="modificarAdmin">
+    <if test = "idNuevo != null or nombre != null or apellido != null or correo != null or contra != null">
+        update persona
+        <set>
+        <if test="idNuevo != null">id=#{idNuevo},</if>
+        <if test="nombre != null">nombre=#{nombre},</if>
+        <if test="apellido != null">apellido=#{apellido},</if>
+        <if test="correo != null">correo=#{correo}</if>
+        <if test="contra != null">contasena=#{contra}</if>
+        </set>
+        where id=#{idViejo};
+        </if>
+    </update>
     <resultMap type='Administrador' id='Administrador' extends='Mappers.PersonaMapper.Persona'>
     
     </resultMap>

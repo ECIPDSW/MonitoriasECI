@@ -22,7 +22,8 @@ La Plataforma de Monitorias Académicas, es una herramienta que busca contribuir
 
 ## Arquitectura y Diseño detallado:
 ### Modelo E-R:
-"En construccion"
+![ER1](https://github.com/ECIPDSW/MonitoriasECI/blob/master/src/main/java/img/ER1.png)
+![ER2](https://github.com/ECIPDSW/MonitoriasECI/blob/master/src/main/java/img/ER2.png)
 
 ### Diagrama de clases:
 ![modelo](https://github.com/ECIPDSW/MonitoriasECI/blob/master/src/main/java/img/modelo.png)

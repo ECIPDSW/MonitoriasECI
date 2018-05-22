@@ -20,4 +20,5 @@ public interface MonitorDAO {
     void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso);
     void asignarSemestreAMonitor(int idmonitor, int idsemestre);
     List<Monitor> loadMonitores();
+    void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso);
 }

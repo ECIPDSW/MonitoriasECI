@@ -99,6 +99,7 @@ public class Main {
 
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadPersonas());
+        //Fabrica.getInstance().getServiciosAsesoria().modificarMonitor(7, null, null, "Super Mandela", null, null, 100, null, null);
        /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursosQueTienenMonitoriasPorSemestre(1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias("PIMB", 2));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias(null, 2));
