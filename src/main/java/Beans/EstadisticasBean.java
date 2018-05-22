@@ -10,6 +10,7 @@ import Modelo.Grupo;
 import Modelo.Semestre;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
+import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Serializable;
 import java.net.URL;
@@ -222,4 +223,10 @@ public class EstadisticasBean implements Serializable {
         model.addSeries(series1);
         return model;
     }
+    
+    public void home()throws IOException{
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/monitorias/detalle.xhtml");
+    }  
+    
+    
 }

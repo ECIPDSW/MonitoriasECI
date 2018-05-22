@@ -306,6 +306,9 @@
                                     <p:ajax   process=" btnEstadisticas "    update=" line "   />
                                 </p:commandButton>
                             </p:panelGrid>
+                            <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                <p:commandButton value="Detalle estadisticas" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-check fa fa-check Fs14 White"/>
+                            </p:panelGrid>
 
 
                         </div>
