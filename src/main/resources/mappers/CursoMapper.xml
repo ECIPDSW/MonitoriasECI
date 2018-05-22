@@ -59,7 +59,7 @@
         <if test="creditos != null">creditosacademicos=#{creditos},</if>
         <if test="horas != null">horasaprovadasmonitoria=#{horas}</if>
         </set>
-        where id = {idViejo}
+        where id = #{idViejo}
     </update>
     <resultMap type='Curso' id='Curso'>
         <id property='id' column='cid'/>
