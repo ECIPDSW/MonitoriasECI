@@ -45,4 +45,8 @@ public interface CursoDAO {
      * @return Curso de la monitoria
      */
     Curso loadCursoPorMonitoria(int idMonitoria);
+    
+    void eliminarCurso(String idCurso);
+    
+    void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria);
 }

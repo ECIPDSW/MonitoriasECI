@@ -39,5 +39,15 @@ public class MyBatisCursoDao implements CursoDAO{
     public Curso loadCursoPorMonitoria(int idMonitoria) {
         return cursoMapper.loadCursoPorMonitoria(idMonitoria);
     }
+
+    @Override
+    public void eliminarCurso(String idCurso) {
+        cursoMapper.eliminarCurso(idCurso);
+    }
+
+    @Override
+    public void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria) {
+        cursoMapper.modificarCurso(idCursoViejo, idCursoNuevo, nombre, creditos, horasMonitoria);
+    }
     
 }

@@ -39,4 +39,6 @@ public interface TemaCursoMapper {
      * @param descripcion Descripcion del tema
      */
     void crearTema(@Param("idCurso")String idCurso,@Param("tema") String tema,@Param("des") String descripcion);
+    
+    void eliminarTemaCurso(@Param("id")int idTema);
 }

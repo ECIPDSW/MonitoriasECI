@@ -489,5 +489,9 @@ public interface ServicioAsesoria {
      */
     void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena);
     
+    void eliminarCurso(String idCurso);
     
+    void eliminarTemaCurso(int idTema);
+    
+    void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria);
 }

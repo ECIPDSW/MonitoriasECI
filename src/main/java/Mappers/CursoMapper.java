@@ -46,4 +46,8 @@ public interface CursoMapper {
      * @return Curso de la monitoria
      */
     Curso loadCursoPorMonitoria(@Param("monitoria")int idMonitoria);
+    
+    void eliminarCurso(@Param("id")String idCurso);
+    
+    void modificarCurso(@Param("idViejo")String idCursoViejo,@Param("idNuevo") String idCursoNuevo,@Param("nombre") String nombre,@Param("creditos") Integer creditos,@Param("horas") Integer horasMonitoria);
 }

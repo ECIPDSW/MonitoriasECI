@@ -39,8 +39,8 @@ import java.sql.Time;
 import java.util.List;
 
 /**
- *
- * @author David Rodriguez
+ *Implementacion de los servicios de asesoria
+ * @author 666 Industries
  */
 public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
 
@@ -385,6 +385,21 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     @Override
     public void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena) {
         administrador.modificarAdmin(idViejo, idNuevo, nombre, apellido, correo, contasena);
+    }
+
+    @Override
+    public void eliminarCurso(String idCurso) {
+        curso.eliminarCurso(idCurso);
+    }
+
+    @Override
+    public void eliminarTemaCurso(int idTema) {
+        temaCurso.eliminarTemaCurso(idTema);
+    }
+
+    @Override
+    public void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria) {
+        curso.modificarCurso(idCursoViejo, idCursoNuevo, nombre, creditos, horasMonitoria);
     }
    
     

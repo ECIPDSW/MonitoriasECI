@@ -30,6 +30,10 @@
         insert into temacurso (curso_id, tema, descripcion) values( 
 	#{idCurso},#{tema}, #{des})
     </insert>
+    <delete parameterType="map" id="eliminarTemaCurso">
+        delete from temacurso
+        where idtemacurso = #{id}
+    </delete>
     <resultMap type='TemaCurso' id='TemaCurso'>
         <id property ='idTemaCurso' column='tcid'/>
         <result property='tema' column = 'tctema'/>

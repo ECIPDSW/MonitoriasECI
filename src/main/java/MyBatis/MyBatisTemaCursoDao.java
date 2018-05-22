@@ -34,5 +34,10 @@ public class MyBatisTemaCursoDao implements TemaCursoDAO{
     public void crearTema(String idCurso, String tema, String descripcion) {
         temaCurso.crearTema(idCurso, tema, descripcion);;
     }
+
+    @Override
+    public void eliminarTemaCurso(int idTema) {
+        temaCurso.eliminarTemaCurso(idTema);
+    }
     
 }
