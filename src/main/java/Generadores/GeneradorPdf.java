@@ -15,6 +15,8 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
 
+
+
 /**
  *
  * @author marti
@@ -23,10 +25,11 @@ public class GeneradorPdf {
     private Font fuenteBold = new Font(Font.FontFamily.COURIER,8,Font.BOLD);
     private Font fuenteGold = new Font(Font.FontFamily.TIMES_ROMAN,8,Font.NORMAL);
     
-    public void generarPDF(String encabezado,String info,String info2,String info3,String info4,String rutaImagen1,String rutaImagen2,String rutaImagen3,String rutaImagen4,String salida){
+    
+    public void generarPDF(String encabezado,String info,String info2,String info3,String info4,String rutaImagen1,String rutaImagen2,String rutaImagen3,String rutaImagen4,String NOMBRE){
         try{
             Document documento = new Document(PageSize.A7 ,36,36,10,10);
-            PdfWriter.getInstance(documento,new FileOutputStream(salida));
+            PdfWriter.getInstance(documento,new FileOutputStream(NOMBRE));
             documento.open();
             documento.add(getEncabezado(encabezado));
             documento.add(getInfo(info));

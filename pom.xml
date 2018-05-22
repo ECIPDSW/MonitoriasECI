@@ -117,6 +117,13 @@
             <version>0.24</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>core-renderer</artifactId>
+            <version>R8pre2</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     
     <reporting>
