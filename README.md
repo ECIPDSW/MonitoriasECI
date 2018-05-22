@@ -57,16 +57,16 @@ Se utilizaban las videollamadas para concretar puntos en comun del grupo.
 https://trello.com/b/AicP7uJU/2018-1-proypdsw-666-industries
 
 ### Release-burndown chart:
-"En construccion"
+![burndownchart](https://github.com/ECIPDSW/MonitoriasECI/blob/master/src/main/java/img/burndownchart.png)
 
 ### Sprint 1:
-"En construccion"
+https://docs.google.com/spreadsheets/d/1WEUOlERuPfXWPF6eRPfDeVycVD_PAhvCEwJLcxxpSsg/edit#gid=0
 
 ### Sprint 2:
-"En construccion"
+https://docs.google.com/spreadsheets/d/1gugeWG-cO_8jd1oXYELwnuO3ZsJZGAAAWs1h0QQLFig/edit#gid=0
 
 ### Sprint 3:
-"En construccion"
+https://docs.google.com/spreadsheets/d/13HJfLaWX3yVZJ7_ddrqEkzZP5nxgykTa1EiR5WG392g/edit#gid=0
 
 ### Reporte de pruebas:
-"En construccion"
+
