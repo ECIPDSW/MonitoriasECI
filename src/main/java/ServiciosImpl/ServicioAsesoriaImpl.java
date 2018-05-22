@@ -421,6 +421,16 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public void eliminarSemestre(int IDnumero) {
         semestre.eliminarSemestre(IDnumero);
     }
+
+    @Override
+    public void modificarMonitoria(int IDmonitoria, Integer grupo, String dia, Time horaInicio, Time horaFin, String lugar) {
+        monitoria.modificarMonitoria(IDmonitoria, grupo, dia, horaInicio, horaFin, lugar);
+    }
+
+    @Override
+    public void eliminarMonitoria(int IDmonitoria) {
+        monitoria.eliminarMonitoria(IDmonitoria);
+    }
    
     
 }
