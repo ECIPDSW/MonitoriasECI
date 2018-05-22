@@ -48,4 +48,8 @@ public interface GrupoDAO{
      * @param idmonitor Id del monitor
      */
     void asignarMonitorAGrupo(int idgrupo, int idmonitor);
+    
+    void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor);
+    
+    void eliminarGrupo(int idGrupo);
 }

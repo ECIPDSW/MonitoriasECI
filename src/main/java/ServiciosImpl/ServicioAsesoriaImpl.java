@@ -401,6 +401,16 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria) {
         curso.modificarCurso(idCursoViejo, idCursoNuevo, nombre, creditos, horasMonitoria);
     }
+
+    @Override
+    public void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor) {
+        grupo.modificarGrupo(idGrupo, numero, idCurso, semestre, profesor, monitor);
+    }
+
+    @Override
+    public void eliminarGrupo(int idGrupo) {
+        grupo.eliminarGrupo(idGrupo);
+    }
    
     
 }

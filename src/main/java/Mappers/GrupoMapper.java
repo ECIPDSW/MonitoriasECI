@@ -49,4 +49,8 @@ public interface GrupoMapper {
      * @param idmonitor Id del monitor
      */
     void asignarMonitorAGrupo(@Param("grupo")int idgrupo, @Param("moni")int idmonitor);
+    
+    void modificarGrupo(@Param("id")int idGrupo,@Param("numero") Integer numero,@Param("idCurso") String idCurso,@Param("semestre") Integer semestre,@Param("profe") Integer profesor,@Param("moni") Integer monitor);
+    
+    void eliminarGrupo(@Param("id")int idGrupo);
 }

@@ -494,4 +494,8 @@ public interface ServicioAsesoria {
     void eliminarTemaCurso(int idTema);
     
     void modificarCurso(String idCursoViejo, String idCursoNuevo, String nombre, Integer creditos, Integer horasMonitoria);
+    
+    void modificarGrupo(int idGrupo, Integer numero, String idCurso, Integer semestre, Integer profesor, Integer monitor);
+    
+    void eliminarGrupo(int idGrupo);
 }
