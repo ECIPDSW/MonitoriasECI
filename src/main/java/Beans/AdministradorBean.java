@@ -47,6 +47,7 @@ public class AdministradorBean implements Serializable {
     }
 
     public void setCursoSeleccionadoTablaFiltrado(Curso cursoSeleccionadoTablaFiltrado) {
+        System.out.println("entrooooooooooooooooooo");
         this.cursoSeleccionadoTablaFiltrado = cursoSeleccionadoTablaFiltrado;
     }
 

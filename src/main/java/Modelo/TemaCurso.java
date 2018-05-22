@@ -57,7 +57,7 @@ public class TemaCurso implements Serializable {
  
     @Override
     public String toString() {
-        return "TemaCurso{" + "idTemaCurso=" + idTemaCurso + ", tema=" + tema + ", descripcion=" + descripcion  + '}';
+        return tema;
     }
 
          
