@@ -52,12 +52,14 @@
                                                 <h:outputText value= "Cantidad de Monitorias Realizadas:#{Profesor.canmr}" />
                                                 <h:outputText value=" Cantidad Máxima de asistentes:#{Profesor.max}" />
                                                 <h:outputText value= "Cantidad Mínima de asistentes:#{Profesor.min}"/>
-                                                <h:outputText value= "Promedio de asistentes por sesión:#{Profesor.prom}"/>
-                                                    
+                                                <h:outputText value= "Promedio de asistentes por sesión:#{Profesor.prom}"/>   
                                             </h:panelGrid>
                                         </p:fieldset>   
                                 </div>
+
                             </h:form>
+                            
+                                
                             </div>
                             
                         </div>
@@ -152,6 +154,24 @@
                                
                             </div>
                         </div>
+                        <div class="ui-g-12 ui-lg-6">
+                            
+                            <div class="card">
+                                
+                                    <p:spacer height="10" />
+                                    <h:form>
+                                    <p:commandButton value="Descarga Excel" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{Profesor.generadorExcelMonitorias()}" />
+                                    </p:commandButton>
+                                    <p:commandButton value="Descarga PDF" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{Profesor.generadorPdfMonitorias()}" />
+                                    </p:commandButton>
+                                    </h:form>
+
+                               
+                            </div>
+                        </div>
+             
                     </div>
 
                 </div>

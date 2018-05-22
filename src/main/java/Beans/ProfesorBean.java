@@ -1,6 +1,8 @@
 package Beans;
  
 
+import Generadores.GeneradorExcel;
+import Generadores.GeneradorPdf;
 import Modelo.Asesoria;
 import Modelo.Grupo;
 import Modelo.Monitor;
@@ -21,7 +23,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
+import jxl.write.WriteException;
 import org.primefaces.omega.view.overlay.UserLoginView;
+
 
  
 
@@ -30,7 +34,8 @@ import org.primefaces.omega.view.overlay.UserLoginView;
 public class ProfesorBean implements Serializable  {
     
     private ServicioAsesoria sa = Fabrica.getInstance().getServiciosAsesoria();
-    
+    private GeneradorExcel generadorexcel = new GeneradorExcel();
+    private GeneradorPdf pdf = new GeneradorPdf();
     private Profesor profesor;
     private Map<String,Grupo> grupos = new HashMap<>();
     private Map<String,String>gruposs = new HashMap<>();
@@ -266,5 +271,65 @@ public class ProfesorBean implements Serializable  {
         this.porcentaje = porcentaje;
     }
     
+    public void generadorExcelAsistentes(){
+        String filename = "infoasistentes";
+        String home = System.getProperty("user.home");
+        String[][] entrada = new String[6][6];
+        try {
+            generadorexcel.generarExcel(entrada,home+"/Downloads/"+filename+".xls");
+        } catch (WriteException ex) {
+            
+        }
+        
+    }
+    
+    public void generadorExcelMonitorias(){
+        String filename = "infomonitorias";
+        String home = System.getProperty("user.home");
+        String[][] entrada = new String[6][6];
+        try {
+            generadorexcel.generarExcel(entrada,home+"/Downloads/"+filename+".xls");
+        } catch (WriteException ex) {
+            
+        }
+        
+    }    
+    public void generadorExcelMonitoriasDia(){
+        String filename = "infomonitoriasdia";
+        String home = System.getProperty("user.home");
+        String[][] entrada = new String[6][6];
+        try {
+            generadorexcel.generarExcel(entrada,home+"/Downloads/"+filename+".xls");
+        } catch (WriteException ex) {
+            
+        }    
+            
+    }
+    
+    public void generadorPdfAsistentes(){
+        String home = System.getProperty("user.home");
+        String filename = "infoasistentes";
+        String info = "La siguiente es la informacion presentada de los asistentes en el periodo academico actual:";
+        String fin= "Escuela Colombiana de Ingenieria Julio Garavito Armero";
+        pdf.generarPdfv2("Informacion Asistentes",info,"","",fin,home+"/Downloads/"+filename+".pdf");
+        
+    }
+    
+     public void generadorPdfMonitorias(){
+       String home = System.getProperty("user.home");
+        String filename = "infomonitorias";
+        String info = "La siguiente es la informacion presentada de las monitorias realizadas por el monitor"+nombrem+"en el periodo academico actual:";
+        String fin= "Escuela Colombiana de Ingenieria Julio Garavito Armero";
+        pdf.generarPdfv2("Informacion Monitorias",info,"","",fin,home+"/Downloads/"+filename+".pdf");
+        
+    }
+      public void generadorPdfMonitoriasDia(){
+        String home = System.getProperty("user.home");
+        String filename = "infomonitoriasdia";
+        String info = "La siguiente es la informacion presentada de las monitorias realizadas en los  grupos acargo del profesor, en el periodo academico actual:";
+        String fin= "Escuela Colombiana de Ingenieria Julio Garavito Armero";
+        pdf.generarPdfv2("Informacion Monitoria Especifica",info,"","",fin,home+"/Downloads/"+filename+".pdf");
+        
+    }
     
 }

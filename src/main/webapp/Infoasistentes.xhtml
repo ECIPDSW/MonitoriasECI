@@ -69,7 +69,7 @@
                                         <p:column headerText="Observaciones">
                                             <h:outputText value="#{as.observaciones}" />
                                         </p:column>
-                                    </p:dataTable>   
+                                    </p:dataTable>  
                                 </div>
                             </h:form>
                             </div>
@@ -81,7 +81,14 @@
                             <div class="card">
                                 
                                     <p:spacer height="10" />
-                                    
+                                    <h:form>
+                                    <p:commandButton value="Descarga Excel" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{Profesor.generadorExcelAsistentes()}" />
+                                    </p:commandButton>
+                                    <p:commandButton value="Descarga PDF" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{Profesor.generadorPdfAsistentes()}" />
+                                    </p:commandButton>
+                                    </h:form>
 
                                
                             </div>

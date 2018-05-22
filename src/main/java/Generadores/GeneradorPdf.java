@@ -14,6 +14,7 @@ import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileOutputStream;
+import java.io.Serializable;
 
 
 
@@ -21,14 +22,14 @@ import java.io.FileOutputStream;
  *
  * @author marti
  */
-public class GeneradorPdf {
+public class GeneradorPdf implements Serializable {
     private Font fuenteBold = new Font(Font.FontFamily.COURIER,8,Font.BOLD);
-    private Font fuenteGold = new Font(Font.FontFamily.TIMES_ROMAN,8,Font.NORMAL);
+    private Font fuenteGold = new Font(Font.FontFamily.TIMES_ROMAN,5,Font.NORMAL);
     
     
     public void generarPDF(String encabezado,String info,String info2,String info3,String info4,String rutaImagen1,String rutaImagen2,String rutaImagen3,String rutaImagen4,String NOMBRE){
         try{
-            Document documento = new Document(PageSize.A7 ,36,36,10,10);
+            Document documento = new Document(PageSize.A4 ,36,36,10,10);
             PdfWriter.getInstance(documento,new FileOutputStream(NOMBRE));
             documento.open();
             documento.add(getEncabezado(encabezado));

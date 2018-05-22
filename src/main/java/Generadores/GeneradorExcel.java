@@ -6,6 +6,8 @@
 package Generadores;
 import java.io.File;
 import java.io.IOException;
+import java.io.NotSerializableException;
+import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jxl.Workbook;
@@ -22,7 +24,7 @@ import jxl.write.WriteException;
  *
  * @author marti
  */
-public class GeneradorExcel {
+public class GeneradorExcel implements Serializable {
     public void generarExcel(String[][] entrada, String salida) throws WriteException{
         try{
             WorkbookSettings conf = new WorkbookSettings();

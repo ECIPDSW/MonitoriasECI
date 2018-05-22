@@ -68,7 +68,14 @@
                             <div class="card">
                                 
                                     <p:spacer height="10" />
-                                    
+                                    <h:form>
+                                    <p:commandButton value="Descarga Excel" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{Profesor.generadorExcelMonitoriasDia()}" />
+                                    </p:commandButton>
+                                    <p:commandButton value="Descarga PDF" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                                        <p:fileDownload value="#{Profesor.generadorPdfMonitoriasDia()}" />
+                                    </p:commandButton>
+                                    </h:form>
 
                                
                             </div>
