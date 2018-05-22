@@ -9,6 +9,7 @@ import DAOS.ProfesorDAO;
 import Mappers.ProfesorMapper;
 import Modelo.Profesor;
 import com.google.inject.Inject;
+import java.util.List;
 
 /**
  *
@@ -31,6 +32,11 @@ public class MyBatisProfesorDao implements ProfesorDAO{
     @Override
     public void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura) {
         profesorMapper.crearProfesor(id, nombre, apellido, correo, contrasena, decanatura);
+    }
+
+    @Override
+    public List<Profesor> loadProfesores() {
+        return profesorMapper.loadProfesores();
     }
     
 }

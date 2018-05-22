@@ -48,5 +48,10 @@ public class MyBatisMonitorDao implements MonitorDAO{
     public void asignarSemestreAMonitor(int idmonitor, int idsemestre) {
         monitormapper.asignarSemestreAMonitor(idmonitor, idsemestre);
     }
+
+    @Override
+    public List<Monitor> loadMonitores() {
+        return monitormapper.loadMonitores();
+    }
     
 }

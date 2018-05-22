@@ -301,4 +301,10 @@ public interface ServicioAsesoria {
     
     Curso loadCursoPorMonitoria(int idMonitoria);
     
+    List<Persona> loadPersonas();
+    
+    List<Monitor> loadMonitores();
+    
+    List<Profesor> loadProfesores();
+    
 }

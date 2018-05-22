@@ -6,6 +6,7 @@
 package DAOS;
 
 import Modelo.Profesor;
+import java.util.List;
 
 /**
  *
@@ -15,4 +16,5 @@ public interface ProfesorDAO {
     Profesor loadProfesor(int id);
     Profesor loadProfesorLogin(int id,String psw);
     void crearProfesor(int id, String nombre, String apellido, String correo, String contrasena, String decanatura);
+    List<Profesor> loadProfesores();
 }
