@@ -53,5 +53,10 @@ public class MyBatisMonitorDao implements MonitorDAO{
     public List<Monitor> loadMonitores() {
         return monitormapper.loadMonitores();
     }
+
+    @Override
+    public void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso) {
+        monitormapper.modificarMonitor(idViejo, idNuevo, nombre, apellido, correo, contasena, telefono, programaAcademico, semestreDeIngreso);
+    }
     
 }

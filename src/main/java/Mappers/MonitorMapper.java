@@ -13,4 +13,5 @@ public interface MonitorMapper {
     void crearMonitor(@Param("id")int id, @Param("nombre")String nombre, @Param("apellido")String apellido, @Param("correo")String correo, @Param("contra")String contrasena, @Param("tel")int telefono, @Param("programa")String programa, @Param("semestre")String semestreIngreso);
     void asignarSemestreAMonitor(@Param("moni")int idmonitor, @Param("semestre")int idsemestre);
     List<Monitor> loadMonitores();
+    void modificarMonitor(@Param("idViejo")int idViejo,@Param("idNuevo") Integer idNuevo,@Param("nombre") String nombre, @Param("apellido")String apellido,@Param("correo") String correo,@Param("contra") String contasena,@Param("telefono") Integer telefono, @Param("programa")String programaAcademico,@Param("semestre") Integer semestreDeIngreso);
 }

@@ -375,6 +375,21 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public List<Profesor> loadProfesores() {
         return profesor.loadProfesores();
     }
+
+    @Override
+    public void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso) {
+        monitor.modificarMonitor(idViejo, idNuevo, nombre, apellido, correo, contasena, telefono, programaAcademico, semestreDeIngreso);
+    }
+
+    @Override
+    public void modificarProfesor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, String decanatura) {
+        profesor.modificarProfesor(idViejo, idNuevo, nombre, apellido, correo, contasena, decanatura);
+    }
+
+    @Override
+    public void modificarAdmin(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena) {
+        administrador.modificarAdmin(idViejo, idNuevo, nombre, apellido, correo, contasena);
+    }
    
     
 }
