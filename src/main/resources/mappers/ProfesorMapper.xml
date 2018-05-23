@@ -59,6 +59,12 @@
         insert into profesor (persona_id, decanatura) values(
         #{id}, #{dec})
     </insert>
+    
+    <delete parameterType="map" id="eliminarPersona">
+        delete from persona
+        where id = #{id}
+    </delete>
+    
     <update parameterType="map" id="modificarProfesor">
         <if test = "idNuevo != null or nombre != null or apellido != null or correo != null or contra != null">
         update persona

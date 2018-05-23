@@ -570,4 +570,5 @@ public interface ServicioAsesoria {
      */
     void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso);
     
+    void eliminarPersona(int id);
 }
