@@ -114,7 +114,7 @@
                             </p:inputText>
 
                             <p:outputLabel for="telefonoMonNuevo" value="Telefono : " />
-                             <p:inputNumber id="telefonoMonNuevo" value="#{Administrador.idMonitoraCrear}"  minValue="0" maxValue="10000000000000" required="true" requiredMessage="El telefono del monitor es requerido.">
+                            <p:inputNumber id="telefonoMonNuevo" value="#{Administrador.telefonoMonitoraCrear}"  minValue="0" maxValue="10000000000000" required="true" requiredMessage="El telefono del monitor es requerido.">
                                 <p:ajax process="telefonoMonNuevo" update="telefonoMonNuevo" />
                             </p:inputNumber>
                             
