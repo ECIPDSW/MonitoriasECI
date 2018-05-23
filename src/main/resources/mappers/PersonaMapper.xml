@@ -18,6 +18,11 @@
         
     </select>
     
+    <delete parameterType="map" id="eliminarPersona">
+        delete from persona
+        where id = #{id}
+    </delete>
+    
     <resultMap type='Persona' id='Persona'>
         <id property ='id' column='peid'/>
         <result property='nombre' column='penombre'/>

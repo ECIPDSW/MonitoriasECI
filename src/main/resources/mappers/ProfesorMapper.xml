@@ -72,7 +72,7 @@
         <if test="idNuevo != null">id=#{idNuevo},</if>
         <if test="nombre != null">nombre=#{nombre},</if>
         <if test="apellido != null">apellido=#{apellido},</if>
-        <if test="correo != null">correo=#{correo}</if>
+        <if test="correo != null">correo=#{correo},</if>
         <if test="contra != null">contasena=#{contra}</if>
         </set>
         where id=#{idViejo};
