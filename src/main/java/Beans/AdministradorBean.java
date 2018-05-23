@@ -1,6 +1,7 @@
 package Beans;
 
 import Modelo.Administrador;
+import Modelo.Asesoria;
 import Modelo.Curso;
 import Modelo.Monitor;
 import Modelo.Semestre;
@@ -9,6 +10,7 @@ import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
 import java.io.Serializable;
 import java.util.ArrayList;
+import static java.util.Collections.list;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +46,7 @@ public class AdministradorBean implements Serializable {
     private int horasMonCursoaEditar;
     private int creditosCursoaEditar;
     private List<String> temasCursoaEditar;
-    
+ 
 
     public void AdministradorBean() {
         
@@ -200,6 +202,31 @@ public class AdministradorBean implements Serializable {
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
     }
+    
+   
+    public int totalAsistentes(){
+        List<Asesoria> asesorias = sa.loadAsesorias(sa.loadSemestreActual().getNumero());
+        int total= 0;
+        for(int i=0;i<asesorias.size();i++){
+            total+=1;
+        }
+        return total;
+        
+    }
+    
+    public int totalMonitories(){
+        List<Monitor> monitores;
+        return 0;
+    }
+    
+    public int porcentajeOcupacion(){
+        return 0;
+    }
+    
+    public int promedioAsistencias(){
+        return 0;
+    }
+    
 
     public void modificarCursoSeleccionado() {
 

@@ -47,188 +47,54 @@
     <ui:define name="content">
         
         <div class="ui-g ui-fluid dashboard">
-            <div class="ui-g-12 ui-md-4">
-                <div class="card clearfix summary">
-                    <span class="title">Users</span>
-                    <span class="detail">Number of visitors</span>
-                    <span class="count visitors">12</span>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-4">
-                <div class="card clearfix summary">
-                    <span class="title">Sales</span>
-                    <span class="detail">Number of purchases</span>
-                    <span class="count purchases">534</span>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-4">
-                <div class="card clearfix summary">
-                    <span class="title">Revenue</span>
-                    <span class="detail">Income for today</span>
-                    <span class="count revenue">$3,200</span>
-                </div>
-            </div>
             
             <div class="ui-g-12 ui-md-6 ui-lg-3">
                 <div class="highlight-box">
-                    <div class="initials" style="background-color:#007be5;color:#00448f">TV</div>
+                    <div class="initials" style="background-color:#007be5;color:#00448f">AT</div>
                     <div class="card">
                         <span class="fa fa-eye"></span>
-                        <span>Total Views</span>
-                        <span class="count">523</span>
+                        <span>Asesorias Dictadas en el Semestre</span>
+                        <span class="count">#{Administrador.totalAsistentes()}</span>
+               
+                        
                     </div>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-6 ui-lg-3">
                 <div class="highlight-box">
-                    <div class="initials" style="background-color:#ef6262;color:#a83d3b">TI</div>
-                    <div class="card">
-                        <span class="fa fa-question-circle"></span>
-                        <span>Total Issues</span>
-                        <span class="count">81</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6 ui-lg-3">
-                <div class="highlight-box">
-                    <div class="initials" style="background-color:#20d077;color:#038d4a">OI</div>
-                    <div class="card">
-                        <span class="fa fa-question-circle-o"></span>
-                        <span>Open Issues</span>
-                        <span class="count">21</span>
-                    </div>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6 ui-lg-3">
-                <div class="highlight-box">
-                    <div class="initials" style="background-color:#f9c851;color:#b58c2b">CI</div>
+                    <div class="initials" style="background-color:#ef6262;color:#a83d3b">NM</div>
                     <div class="card">
                         <span class="fa fa-check"></span>
-                        <span>Closed Issues</span>
-                        <span class="count">60</span>
+                        <span>Número de monitores Actuales</span>
+                        <span class="count">#{Administrador.totalMonitories()}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                <div class="highlight-box">
+                    <div class="initials" style="background-color:#20d077;color:#038d4a">PO</div>
+                    <div class="card">
+                        <span class="fa fa-check"></span>
+                        <span>Porcentaje Ocupacion de Monitores</span>
+                        <span class="count">#{Administrador.porcentajeOcupacion()}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                <div class="highlight-box">
+                    <div class="initials" style="background-color:#f9c851;color:#b58c2b">PAM</div>
+                    <div class="card">
+                        <span class="fa fa-check"></span>
+                        <span>Promedio Asistencias Monitorias</span>
+                        <span class="count">#{Administrador.promedioAsistencias()}</span>
                     </div>
                 </div>
             </div>
             
-            <div class="ui-g-12 ui-md-6 ui-lg-4">
-                <p:panel header="Tasks" style="height:100%">
-                    <ul class="task-list">
-                        <li>
-                            <p:selectBooleanCheckbox />
-                            <span class="task-name">Sales reports</span>
-                            <p:commandButton type="button" icon="fa fa-check"></p:commandButton>
-                        </li>
-                        <li>
-                            <p:selectBooleanCheckbox />
-                            <span class="task-name">Pay the invoices</span>
-                            <p:commandButton type="button" icon="fa fa-check"></p:commandButton>
-                        </li>
-                        <li>
-                            <p:selectBooleanCheckbox />
-                            <span class="task-name">Dinner with Tony</span>
-                            <p:commandButton type="button" icon="fa fa-check"></p:commandButton>
-                        </li>
-                        <li>
-                            <p:selectBooleanCheckbox />
-                            <span class="task-name">Team meeting</span>
-                            <p:commandButton type="button" icon="fa fa-check"></p:commandButton>
-                        </li>
-                        <li>
-                            <p:selectBooleanCheckbox />
-                            <span class="task-name">Plan the new theme</span>
-                            <p:commandButton type="button" icon="fa fa-check"></p:commandButton>
-                        </li>
-                        <li>
-                            <p:selectBooleanCheckbox />
-                            <span class="task-name">Client meeting</span>
-                            <p:commandButton type="button" icon="fa fa-check"></p:commandButton>
-                        </li>
-                    </ul>
-                </p:panel>
-            </div>
-            
-            <div class="ui-g-12 ui-md-6 ui-lg-4">
-                <p:panel header="Contact Us" style="text-align:center;background:#fff;height:100%">
-                    <div class="ui-g">
-                        <div class="ui-g-12">
-                            <p:selectOneMenu id="console" value="#{selectOneMenuView.console}" autoWidth="false">
-                                <f:selectItem itemLabel="Select One" itemValue="" />
-                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
-                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
-                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
-                            </p:selectOneMenu>
-                        </div>
-                        <div class="ui-g-12">
-                            <p:inputText placeholder="Name" />
-                        </div>
-                        <div class="ui-g-12">
-                            <p:inputText placeholder="Age" />
-                        </div>
-                        <div class="ui-g-12">
-                            <p:inputTextarea placeholder="Message" autoResize="false"/>
-                        </div>
-                    </div>
-                    <p:commandButton type="button" value="Send" icon="fa fa-check"></p:commandButton>
-                </p:panel>
-            </div>
-            <div class="ui-g-12 ui-lg-4">
-                <p:panel header="Contacts" style="height:100%">
-                    <ul class="contacts">
-                        <li>
-                            <a href="#">
-                                <p:graphicImage name="images/avatar_1.png" library="omega-layout" width="35"/>
-                                <span class="name">Claire Williams</span>
-                                <span class="email">clare@pf-omega.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p:graphicImage name="images/avatar_2.png" library="omega-layout" width="35"/>
-                                <span class="name">Jason Dourne</span>
-                                <span class="email">jason@pf-omega.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p:graphicImage name="images/avatar_3.png" library="omega-layout" width="35"/>
-                                <span class="name">Jane Davidson</span>
-                                <span class="email">jane@pf-omega.com</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <p:graphicImage name="images/avatar_4.png" library="omega-layout" width="35"/>
-                                <span class="name">Tony Corleone</span>
-                                <span class="email">tony@pf-omega.com</span>
-                            </a>
-                        </li>
-                    </ul>
-                </p:panel>
-            </div>
-
             <div class="ui-g-12 ui-md-6">
-                <h:form>
-                    <div class="card">
-                        <p:dataTable var="car" value="#{dtBasicView.cars}" selectionMode="single" rowKey="#{car.id}" reflow="true">
-                            <f:facet name="header">Sales List</f:facet>
-                            <p:column headerText="Id">
-                                <h:outputText value="#{car.id}" />
-                            </p:column>
-
-                            <p:column headerText="Year">
-                                <h:outputText value="#{car.year}" />
-                            </p:column>
-
-                            <p:column headerText="Brand">
-                                <h:outputText value="#{car.brand}" />
-                            </p:column>
-                            
-                            <p:column headerText="Color">
-                                <h:outputText value="#{car.color}" />
-                            </p:column>
-                        </p:dataTable>   
-                    </div>
-                </h:form>
+                <div class="card">
+                    <p:chart type="line" model="#{chartDemoView.lineModel1}" responsive="true"/>
+                </div>
             </div>
             <div class="ui-g-12 ui-md-6">
                 <div class="card">
@@ -236,67 +102,86 @@
                 </div>
             </div>
             <div class="ui-g-12 ui-md-8">
-                <p:panel header="Calendar" style="height:100%">
-                    <p:schedule value="#{scheduleView.eventModel}"/>
+                   <p:panel header="Horarios" style="height:100%">
+                   <h:form>
+                    <div id="pricing">
+                        <div class="pricing-content">
+                            
+                            <p>A continuacion encontrara las franjas horarias de las monitorias dictadas en la Escuela Colombiana de Ingeniería Julio Garavito</p>
+
+                            <div class="ui-g">
+
+
+                                <p:dataTable id ="ta" stickyHeader="true" var="monitoria" value="#{Inicio.monitorias}" widgetVar="tablaMonitorias"
+                                             emptyMessage="No se encuentran monitorias para el criterio dado." filteredValue="#{Inicio.monitoriasFiltradas}">
+
+                                    <f:facet name="header">
+                                        <p:outputPanel>
+                                            <h:outputText value="Horario Monitorias" />
+                                           
+                                        </p:outputPanel>
+                                    </f:facet>
+
+                                    <p:column filterBy="#{monitoria.curso.id}" headerText="Curso"  filterMatchMode="exact">
+                                        <f:facet name="filter">
+                                            <p:selectOneMenu onchange="PF('tablaMonitorias').filter()" >
+                                                <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{Inicio.cursos}" var="cur"    itemValue="#{cur.id}" itemLabel="#{cur.id}" />
+                                            </p:selectOneMenu>
+                                        </f:facet>
+                                        <h:outputText value="#{monitoria.curso.id}" />
+                                    </p:column>
+
+                                    <p:column filterBy="#{monitoria.dia}" headerText="Día"  filterMatchMode="exact">
+                                        <f:facet name="filter">
+                                            <p:selectOneMenu  onchange="PF('tablaMonitorias').filter()"    >
+                                                <f:selectItem itemLabel="Todos" itemValue="#{null}" noSelectionOption="true" />
+                                                <f:selectItems value="#{Inicio.dias}" />
+                                               <p:ajax update="ta" event="change"   process="@this"/>
+                                            </p:selectOneMenu>
+                                        </f:facet>
+                                        <h:outputText value="#{monitoria.dia}" />
+                                    </p:column>
+
+                                    <p:column  headerText="Hora inicio" >     
+                                        <h:outputText value="#{monitoria.horaInicio}" />
+                                    </p:column>
+
+                                    <p:column  headerText="Hora Finalizacion">
+                                        
+                                        <h:outputText value="#{monitoria.horaFin}" />
+                                    </p:column>
+
+                                    <p:column  headerText="Lugar" >
+                                        
+                                        <h:outputText value="#{monitoria.lugar}" />
+                                    </p:column>
+                                </p:dataTable>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </h:form>
                 </p:panel>
             </div>
+            
+            
             <div class="ui-g-12 ui-md-4">
-                <p:panel header="Activity" style="height:100%">
+                <p:panel header="Monitorias Activas" style="height:100%">
                     <div class="activity-header">
                         <div class="ui-g">
                             <div class="ui-g-6">
-                                <span style="font-weight:bold">Last Activity</span>
-                                <p>Updated 1 minute ago</p>
+                                <span style="font-weight:bold">Ultima Actividad</span>
+                                <p>Actualizado hace 1 minuto</p>
                             </div>
                             <div class="ui-g-6" style="text-align:right">
                                 <p:commandButton type="button" icon="fa fa-refresh" />
                             </div>
                         </div>
                     </div>
-                    <ul class="activity-list">
-                        <li>
-                            <div class="count">$900</div>
-                            <div class="ui-g">
-                                <div class="ui-g-6">Income</div>
-                                <div class="ui-g-6">95%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="count" style="background-color:#f9c851">$250</div>
-                            <div class="ui-g">
-                                <div class="ui-g-6">Tax</div>
-                                <div class="ui-g-6">24%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="count" style="background-color:#20d077">$125</div>
-                            <div class="ui-g">
-                                <div class="ui-g-6">Invoices</div>
-                                <div class="ui-g-6">55%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="count" style="background-color:#f9c851">$250</div>
-                            <div class="ui-g">
-                                <div class="ui-g-6">Expenses</div>
-                                <div class="ui-g-6">15%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="count" style="background-color:#007be5">$350</div>
-                            <div class="ui-g">
-                                <div class="ui-g-6">Bonus</div>
-                                <div class="ui-g-6">5%</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="count" style="background-color:#ef6262">$500</div>
-                            <div class="ui-g">
-                                <div class="ui-g-6">Revenue</div>
-                                <div class="ui-g-6">25%</div>
-                            </div>
-                        </li>
-                    </ul>
+                    
                 </p:panel>
             </div>
         </div>
