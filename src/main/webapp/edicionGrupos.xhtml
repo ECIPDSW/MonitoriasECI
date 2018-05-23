@@ -11,68 +11,21 @@
             <div class="ui-g-12">
                 <h:form id="form">
                     <div class="card">
-                        <h1>Crear nuevo curso</h1>
+                        <h1>Crear nuevo Grupo</h1>
 
                         <p:growl id="growl" showDetail="true"  >
 
                         </p:growl> 
-                        <h:panelGroup id="parentPanel">
-                            <p:dialog  id="dialogo"   dynamic="true"  header="Editar Curso" widgetVar="infoCurso" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-
-                                <p:outputPanel  style="text-align:center;">
-                                    <p:panel id="datosCurso" header="Edicion Curso" style="text-align:center;background:#fff;height:100%">
-
-                                        <div class="ui-g">
-                                            <p:panelGrid  columns="2" rendered="#{not empty Administrador.cursoSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
 
-                                                <h:outputText value="Nombre Nomotecnico:" />
-                                                <h:inputText    value="#{Administrador.idCursoaEditar}" >
-                                                    <p:ajax   process="@this" update="@this"   />
-                                                </h:inputText>
 
-                                                <h:outputText value="Nombre : " />
-                                                <h:inputText value="#{Administrador.nombreCursoaEditar}" >
-                                                    <p:ajax process="@this" update="@this" />
-                                                </h:inputText>
 
-                                                <h:outputText value="Horas de monitoria aprobadas:" />
-                                                <h:inputText value="#{Administrador.horasMonCursoaEditar}" >
-                                                    <p:ajax process="@this" />
-                                                </h:inputText>
-
-                                                <h:outputText value="Creditos :" />
-                                                <h:inputText value="#{Administrador.creditosCursoaEditar}" >
-                                                    <p:ajax  process="@this" />
-                                                </h:inputText>
-
-                                                <h:outputText value="Temas :" />
-                                                <p:chips id="TemasSelec"    value="#{Administrador.temasCursoaEditar}" >
-                                                    <p:ajax  process="@this" update="@this"  />
-                                                </p:chips>
-                                            </p:panelGrid>
-                                        </div>
-                                    </p:panel>
-                                    <p:separator />
-                                    <p:panelGrid   columns="2" rendered="#{not empty Administrador.cursoSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                                        <p:commandButton id="btnGuardarCambios"   update="datosCurso tablaC growl"  immediate="true" action="#{Administrador.modificarCursoSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
-                                            <p:ajax   process=" btnGuardarCambios "   rendered="datosCurso" />
-                                        </p:commandButton>
-                                        <p:commandButton id="btnEliminarCurso" update="datosCurso tablaC growl"  immediate="true" action="#{Administrador.eliminarCursoSeleccionado()}"       value="Eliminar Curso" icon="ui-icon-remove fa fa-remove Fs14 White"  styleClass="red-button"    style="width:auto;margin-bottom:10px;">
-                                            <p:ajax   process=" btnEliminarCurso "   rendered="datosCurso" />
-                                        </p:commandButton>
-                                    </p:panelGrid>
-
-                                </p:outputPanel>
-
-                            </p:dialog>
-                        </h:panelGroup>
-
-                        <p:panelGrid id="nuevoCurso" columns="4"   layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                            <p:outputLabel for="NombreNom" value="Nombre nemotecnico : "  />
-                            <p:inputText id="NombreNom"  value="#{Administrador.codNuevoCurso}" required="true" requiredMessage="Nombre nemoécnico es requerido.">
-                                <p:ajax process="NombreNom"/>
-                            </p:inputText>
+                        <p:panelGrid id="nuevoGrupo" columns="4"   layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                            <p:outputLabel for="cursoApoderado" value="Curso Apoderado : "  />
+                            <p:selectOneMenu id="cursoApoderado" value="#{Administrador.cursos}"    required="true" requiredMessage="Seleccione un curso.">
+                                <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                <f:selectItems     value="#{Administrador.semestres}"   var="sem"  itemValue="#{sem.numero}"  />
+                            </p:selectOneMenu>
                             <p:outputLabel for="Nombre" value="Nombre curso : "  />
                             <p:inputText id="Nombre" value="#{Administrador.nombreNuevoCurso}" required="true" requiredMessage="Nombre del curso es requerido.">
                                 <p:ajax process="Nombre"/>

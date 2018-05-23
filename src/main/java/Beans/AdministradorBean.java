@@ -44,9 +44,10 @@ public class AdministradorBean implements Serializable {
     private int horasMonCursoaEditar;
     private int creditosCursoaEditar;
     private List<String> temasCursoaEditar;
+    
 
     public void AdministradorBean() {
-
+        
     }
 
     public List<String> getTemasCursoaEditar() {
