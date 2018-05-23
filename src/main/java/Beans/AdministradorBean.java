@@ -4,6 +4,7 @@ import Modelo.Administrador;
 import Modelo.Asesoria;
 import Modelo.Curso;
 import Modelo.Monitor;
+import Modelo.Monitoria;
 import Modelo.Profesor;
 import Modelo.Semestre;
 import Modelo.TemaCurso;
@@ -572,17 +573,33 @@ public class AdministradorBean implements Serializable {
 
     }
 
-    public int totalMonitories() {
-        List<Monitor> monitores;
-        return 0;
+
+
+    public int totalMonitories(){
+        List<Monitor> monitores = sa.monitoresPorSemestre(sa.loadSemestreActual().getNumero());
+        return monitores.size();
+    }
+    
+    public int porcentajeOcupacion(){
+        List<Monitor> monitorestotales = sa.monitoresPorSemestre(sa.loadSemestreActual().getNumero());
+        List<Monitor> ocupados = sa.monitoresOcupadosSemestre(sa.loadSemestreActual().getNumero());
+        int porcentaje = (Integer)((ocupados.size()/monitorestotales.size()))*100;
+        return porcentaje;
+    }
+    
+    public int promedioAsistencias(){
+        List<Asesoria> asesorias = sa.loadAsesorias(sa.loadSemestreActual().getNumero());
+        int total= 0;
+        for(int i=0;i<asesorias.size();i++){
+            total+=1;
+        }
+        return total/asesorias.size();
     }
 
-    public int porcentajeOcupacion() {
-        return 0;
-    }
-
-    public int promedioAsistencias() {
-        return 0;
+    
+    public List<Monitoria> monitoriasEnCurso(){
+        List<Monitoria> monitoriaActual = sa.monitoriasActuales();
+        return monitoriaActual;
     }
 
     public void modificarCursoSeleccionado() {
