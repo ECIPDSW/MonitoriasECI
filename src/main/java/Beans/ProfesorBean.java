@@ -10,6 +10,7 @@ import Modelo.Monitoria;
 import Modelo.MonitoriaRegistrada;
 import Modelo.Profesor;
 import Modelo.Semestre;
+import Modelo.TemaCurso;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
 import java.io.Serializable;
@@ -341,5 +342,6 @@ public class ProfesorBean implements Serializable  {
         pdf.generarPdfv2("Informacion Monitoria Especifica",info,"","",fin,home+"/Downloads/"+filename+".pdf");
         
     }
+     
     
 }
