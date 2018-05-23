@@ -35,7 +35,7 @@ public class MyBatisMonitorDao implements MonitorDAO{
     }
 
     @Override
-    public void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso) {
+    public void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, Integer telefono, String programa, Integer semestreIngreso) {
         monitormapper.crearMonitor(id, nombre, apellido, correo, contrasena, telefono, programa, semestreIngreso);
     }
 
@@ -52,6 +52,16 @@ public class MyBatisMonitorDao implements MonitorDAO{
     @Override
     public void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso) {
         monitormapper.modificarMonitor(idViejo, idNuevo, nombre, apellido, correo, contasena, telefono, programaAcademico, semestreDeIngreso);
+    }
+
+    @Override
+    public List<Monitor> monitoresPorSemestre(int idSemestre) {
+        return monitormapper.monitoresPorSemestre(idSemestre);
+    }
+
+    @Override
+    public List<Monitor> monitoresOcupadosSemestre(int idSemestre) {
+        return monitormapper.monitoresOcupadosSemestre(idSemestre);
     }
     
 }

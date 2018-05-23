@@ -298,7 +298,7 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     }
 
     @Override
-    public void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso) {
+    public void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, Integer telefono, String programa, Integer semestreIngreso) {
         monitor.crearMonitor(id, nombre, apellido, correo, contrasena, telefono, programa, semestreIngreso);
     }
 
@@ -436,6 +436,24 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public void eliminarPersona(int id) {
         persona.eliminarPersona(id);
     }
+
+    @Override
+    public List<Monitor> monitoresPorSemestre(int idSemestre) {
+        return monitor.monitoresPorSemestre(idSemestre);
+    }
+
+    @Override
+    public List<Monitor> monitoresOcupadosSemestre(int idSemestre) {
+        return monitor.monitoresOcupadosSemestre(idSemestre);
+    }
    
+    @Override
+    public List<Integer> asistenciasPorMonitoria(){
+        return monitoria.asistenciasPorMonitoria();
+    }
     
+    @Override
+    public List<Monitoria> monitoriasActuales(){
+        return monitoria.monitoriasActuales();
+    }
 }

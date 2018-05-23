@@ -15,5 +15,9 @@ public interface PersonaDAO {
      */
     List<Persona> loadPersonas();
     
+    /**
+     * Elimina una persona 
+     * @param id ID de la persona
+     */
     void eliminarPersona(int id);
 }
