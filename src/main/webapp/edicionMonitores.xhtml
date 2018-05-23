@@ -23,37 +23,47 @@
                                     <p:panel id="datosMonitor" header="Edicion Monitor" style="text-align:center;background:#fff;height:100%">
 
                                         <div class="ui-g">
-                                            <p:panelGrid  columns="2" rendered="#{not empty Administrador.profesorSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                            <p:panelGrid  columns="2" rendered="#{not empty Administrador.monitorSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
 
                                                 <h:outputText value="ID " />
-                                                <h:inputText    value="#{Administrador.idProfesoraEditar}" >
+                                                <h:inputText    value="#{Administrador.idMonitoraEditar}" >
                                                     <p:ajax   process="@this" update="@this"   />
                                                 </h:inputText>
 
                                                 <h:outputText value="Nombre : " />
-                                                <h:inputText value="#{Administrador.nombreProfesoraEditar}" >
+                                                <h:inputText value="#{Administrador.nombreMonitoraEditar}" >
                                                     <p:ajax process="@this" update="@this" />
                                                 </h:inputText>
 
                                                 <h:outputText value="Apellido :" />
-                                                <h:inputText value="#{Administrador.apellidoProfesoraEditar}" >
+                                                <h:inputText value="#{Administrador.apellidoMonitoraEditar}" >
                                                     <p:ajax process="@this" update="@this"/>
                                                 </h:inputText>
 
                                                 <h:outputText value="Correo :" />
-                                                <h:inputText value="#{Administrador.correoProfesoraEditar}" >
+                                                <h:inputText value="#{Administrador.correoMonitoraEditar}" >
+                                                    <p:ajax  process="@this" update="@this" />
+                                                </h:inputText>
+                                                <h:outputText value="Telefono :" />
+                                                <h:inputText value="#{Administrador.telefonoMonitoraEditar}" >
                                                     <p:ajax  process="@this" update="@this" />
                                                 </h:inputText>
 
-                                                <h:outputText value="Decanatura :" />
-                                                <p:selectOneMenu  value="#{Administrador.decanaturaProfesoraEditar}" >
+                                                <h:outputText value="Programa :" />
+                                                <p:selectOneMenu  value="#{Administrador.programaMonitoraEditar}" >
                                                     <f:selectItem itemLabel="Seleccione" itemValue="#{null}" noSelectionOption="true" />
-                                                    <f:selectItems value="#{Administrador.decanaturasDisponibles}" />
+                                                    <f:selectItems value="#{Administrador.programas}" />
+                                                </p:selectOneMenu>
+                                                
+                                                <h:outputText value="Semestre Ingreso :" />
+                                                <p:selectOneMenu  value="#{Administrador.semestreIngresoMonitoraEditar}" >
+                                                    <f:selectItem itemLabel="Seleccione" itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{Administrador.semestres}" var="sem"  itemValue="#{Integer.toString(sem.numero)}"/>
                                                 </p:selectOneMenu>
                                                 
                                                 <h:outputText value="Contraseña :" />
-                                                <h:inputText value="#{Administrador.contrasenaProfesoraEditar}" >
+                                                <h:inputText value="#{Administrador.contrasenaMonitoraEditar}" >
                                                     <p:ajax  process="@this" update="@this" />
                                                 </h:inputText>
                                                 
@@ -61,12 +71,12 @@
                                         </div>
                                     </p:panel>
                                     <p:separator />
-                                    <p:panelGrid   columns="2" rendered="#{not empty Administrador.profesorSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                                        <p:commandButton id="btnGuardarCambios"   update="datosProfesor tablaP growl"  immediate="true" action="#{Administrador.modificarProfesorSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
-                                            <p:ajax   process=" btnGuardarCambios "   rendered="datosProfesor" />
+                                    <p:panelGrid   columns="2" rendered="#{not empty Administrador.monitorSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                        <p:commandButton id="btnGuardarCambios"   update="datosMonitor tablaM growl"  immediate="true" action="#{Administrador.modificarMonitorSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
+                                            <p:ajax   process=" btnGuardarCambios "   rendered="datosMonitor" />
                                         </p:commandButton>
-                                        <p:commandButton id="btnEliminarProfesor" update="datosProfesor tablaP growl"  immediate="true" action="#{Administrador.eliminarProfesorSeleccionado()}"       value="Eliminar Profesor" icon="ui-icon-remove fa fa-remove Fs14 White"  styleClass="red-button"    style="width:auto;margin-bottom:10px;">
-                                            <p:ajax   process=" btnEliminarProfesor "   rendered="datosProfesor" />
+                                        <p:commandButton id="btnEliminarProfesor" update="datosProfesor tablaP growl"  immediate="true" action="#{Administrador.eliminarMonitorSeleccionado()}"       value="Eliminar Monitor" icon="ui-icon-remove fa fa-remove Fs14 White"  styleClass="red-button"    style="width:auto;margin-bottom:10px;">
+                                            <p:ajax   process=" btnEliminarProfesor "   rendered="datosMonitor" />
                                         </p:commandButton>
                                     </p:panelGrid>
 
@@ -82,28 +92,44 @@
                             <p:inputNumber id="idMonNuevo" value="#{Administrador.idMonitoraCrear}"  minValue="0" maxValue="100000000" required="true" requiredMessage="El ID del monitor es requerido.">
                                 <p:ajax process="idMonNuevo" update="idMonNuevo" />
                             </p:inputNumber>
+                            
                             <p:outputLabel for="contrasenaMonNuevo" value="Contraseña  : "  />
-                            <p:inputText id="contrasenaMonNuevo" value="#{Administrador.con}" required="true" requiredMessage="Contraseña del monitor es requerido.">
+                            <p:inputText id="contrasenaMonNuevo" value="#{Administrador.contrasenaMonitoraCrear}" required="true" requiredMessage="Contraseña del monitor es requerido.">
                                 <p:ajax process="contrasenaMonNuevo" update="contrasenaMonNuevo"/>
                             </p:inputText>
-                            <p:outputLabel for="nombreProfNuevo" value="Nombre  : "  />
-                            <p:inputText id="nombreProfNuevo" value="#{Administrador.nombreProfesoraCrear}" required="true" requiredMessage="Nombre del monitor es requerido.">
-                                <p:ajax process="nombreProfNuevo" update="nombreProfNuevo"/>
+                            
+                            <p:outputLabel for="nombreMonNuevo" value="Nombre  : "  />
+                            <p:inputText id="nombreMonNuevo" value="#{Administrador.nombreMonitoraCrear}" required="true" requiredMessage="Nombre del monitor es requerido.">
+                                <p:ajax process="nombreMonNuevo" update="nombreMonNuevo"/>
                             </p:inputText>
-                            <p:outputLabel for="apellidoProfNuevo" value="Apellido : "  />
-                            <p:inputText id="apellidoProfNuevo" value="#{Administrador.apellidoProfesoraCrear}" required="true" requiredMessage="Apellido del monitor es requerido.">
-                                <p:ajax process="apellidoProfNuevo" update="apellidoProfNuevo"/>
+                            
+                            <p:outputLabel for="apellidoMonNuevo" value="Apellido : "  />
+                            <p:inputText id="apellidoMonNuevo" value="#{Administrador.apellidoMonitoraCrear}" required="true" requiredMessage="Apellido del monitor es requerido.">
+                                <p:ajax process="apellidoMonNuevo" update="apellidoMonNuevo"/>
                             </p:inputText>
-                            <p:outputLabel for="correoProfNuevo" value="Correo : "  />
-                            <p:inputText id="correoProfNuevo" value="#{Administrador.correoProfesoraCrear}"  required="true" requiredMessage="El correo del profesor es requerido.">
-                                <p:ajax process="correoProfNuevo" update="correoProfNuevo"/>
+                            
+                            <p:outputLabel for="correoMonNuevo" value="Correo : "  />
+                            <p:inputText id="correoMonNuevo" value="#{Administrador.correoMonitoraCrear}"  required="true" requiredMessage="El correo del monitor es requerido.">
+                                <p:ajax process="correoMonNuevo" update="correoMonNuevo"/>
                             </p:inputText>
 
-                            <p:outputLabel for="decanaturaProfNuevo" value="Decanatura : " />
-                            <p:selectOneMenu id="decanaturaProfNuevo" value="#{Administrador.decanaturaProfesoraCrear}"    required="true" requiredMessage="Seleccione Decanatura.">
+                            <p:outputLabel for="telefonoMonNuevo" value="Telefono : " />
+                             <p:inputNumber id="telefonoMonNuevo" value="#{Administrador.idMonitoraCrear}"  minValue="0" maxValue="10000000000000" required="true" requiredMessage="El telefono del monitor es requerido.">
+                                <p:ajax process="telefonoMonNuevo" update="telefonoMonNuevo" />
+                            </p:inputNumber>
+                            
+                            <p:outputLabel for="programaMonNuevo" value="Programa : " />
+                            <p:selectOneMenu id="programaMonNuevo" value="#{Administrador.programaMonitoraCrear}"    required="true" requiredMessage="El programa del monitor es requerido.">
                                 <f:selectItem itemLabel="Seleccione" itemValue="" />
-                                <f:selectItems     value="#{Administrador.decanaturasDisponibles}"     />
-                                <p:ajax process="decanaturaProfNuevo"/>
+                                <f:selectItems     value="#{Administrador.programas}"     />
+                                <p:ajax process="programaMonNuevo"/>
+                            </p:selectOneMenu>
+                            
+                            <p:outputLabel for="semestreIngresoMonNuevo" value="Semestre de ingresos : " />
+                            <p:selectOneMenu id="semestreIngresoMonNuevo" value="#{Administrador.semestreIngresoMonitoraCrear}"    required="true" requiredMessage="El semestre de ingreso del monitor es requerido.">
+                                <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                <f:selectItems     value="#{Administrador.semestres}"   var="sem"  itemValue="#{sem.numero}"    />
+                                <p:ajax process="semestreIngresoMonNuevo"/>
                             </p:selectOneMenu>
 
 
@@ -113,59 +139,75 @@
 
                         <p:separator />
                         <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                            <p:commandButton id="btnAgregarProf"  update="@form"    value="Agregar Curso" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Administrador.crearProfesor()}"      style="width:auto;margin-bottom:10px;">
-                                <p:ajax   process=" btnAgregarProf "     rendered="tablaP" update="growl nuevoProfesor "   />
+                            <p:commandButton id="btnAgregarMon"  update="@form"    value="Crear Monitor" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Administrador.crearMonitor()}"      style="width:auto;margin-bottom:10px;">
+                                <p:ajax   process=" btnAgregarMon "     rendered="tablaM" update="growl nuevoMonitor "   />
                             </p:commandButton>
                         </p:panelGrid>
 
                     </div>
 
                     <div class="card">
-                        <h1>Editar Profesores Existentes</h1>
-                        <p:dataTable id="tablaP"  var="profesor"  value="#{Administrador.profesores}" widgetVar="tablaProfesores"
-                                     emptyMessage="No se encontraron profesores con el criterio dado." filteredValue="#{Administrador.profesoresFiltrados}">
+                        <h1>Editar Monitores Existentes</h1>
+                        <p:dataTable id="tablaM"  var="monitor"  value="#{Administrador.monitores}" widgetVar="tablaMonitores"
+                                     emptyMessage="No se encontraron Monitores con el criterio dado." filteredValue="#{Administrador.monitoresFiltrados}">
 
                             <f:facet name="header">
                                 <p:outputPanel>
                                     <h:outputText value="Buscar en todos los campos :" />
-                                    <p:inputText id="globalFilter" onkeyup="PF('tablaProfesores').filter()" style="width:150px" placeholder="Ingrese palabra"/>
+                                    <p:inputText id="globalFilter" onkeyup="PF('tablaMonitores').filter()" style="width:150px" placeholder="Ingrese palabra"/>
                                 </p:outputPanel>
                             </f:facet>
 
-                            <p:column filterBy="#{profesor.id}" headerText="ID Profesor"  filterMatchMode="contains">
-                                <h:outputText value="#{profesor.id}" />
+                            <p:column filterBy="#{monitor.id}" headerText="ID Monitor"  filterMatchMode="contains">
+                                <h:outputText value="#{monitor.id}" />
                             </p:column>
 
-                            <p:column filterBy="#{profesor.nombre}" headerText="Nombre"  filterMatchMode="contains">
+                            <p:column filterBy="#{monitor.nombre}" headerText="Nombre"  filterMatchMode="contains">
 
-                                <h:outputText value="#{profesor.nombre}" />
+                                <h:outputText value="#{monitor.nombre}" />
                             </p:column>
 
-                            <p:column  filterBy="#{profesor.apellido}" headerText="Apellido" filterMatchMode="contains"  >
+                            <p:column  filterBy="#{monitor.apellido}" headerText="Apellido" filterMatchMode="contains"  >
 
-                                <h:outputText value="#{profesor.apellido}" />
+                                <h:outputText value="#{monitor.apellido}" />
                             </p:column>
 
-                            <p:column filterBy="#{profesor.correo}" headerText="Correo" filterMatchMode="contains" >
+                            <p:column filterBy="#{monitor.correo}" headerText="Correo" filterMatchMode="contains" >
 
-                                <h:outputText value="#{profesor.correo}" />
+                                <h:outputText value="#{monitor.correo}" />
                             </p:column>
-                            <p:column filterBy="#{profesor.decanatura}" headerText="Correo"  filterMatchMode="in">
+                            
+                            <p:column filterBy="#{monitor.telefonoMovil}" headerText="Telefono" filterMatchMode="contains" >
+
+                                <h:outputText value="#{monitor.telefonoMovil}" />
+                            </p:column>
+                            
+                            <p:column filterBy="#{monitor.programaAcademico}" headerText="Programa"  filterMatchMode="in">
                                 <f:facet name="filter">
-                                    <p:selectCheckboxMenu label="Decanaturas" onchange="PF('tablaProfesores').filter()"  scrollHeight="150">
-                                        <f:selectItems value="#{Administrador.decanaturasDisponibles}" />
+                                    <p:selectCheckboxMenu label="Programas" onchange="PF('tablaMonitores').filter()"  >
+                                        <f:selectItems value="#{Administrador.programas}" />
                                     </p:selectCheckboxMenu>
                                 </f:facet>
-                                <h:outputText value="#{profesor.decanatura}" />
+                                <h:outputText value="#{monitor.programaAcademico}" />
                             </p:column>
+                            
+                            <p:column filterBy="#{monitor.semestreDeIngreso}" headerText="Semestre de Ingreso"  filterMatchMode="in">
+                                <f:facet name="filter">
+                                    <p:selectCheckboxMenu label="Semestres" onchange="PF('tablaMonitores').filter()"  >
+                                        <f:selectItems value="#{Administrador.semestres}"    />
+                                    </p:selectCheckboxMenu>
+                                </f:facet>
+                                <h:outputText value="#{monitor.semestreDeIngreso}" />
+                            </p:column>
+                            
 
                             <p:column  headerText="Contraseña"  >
 
-                                <h:outputText value="#{profesor.contrasena}" />
+                                <h:outputText value="#{monitor.contrasena}" />
                             </p:column>
 
                             <p:column style="width:32px;text-align: center">
-                                <p:commandButton     update="form:parentPanel"   immediate="true" oncomplete="PF('infoProfesor').show()"   action="#{Administrador.setProfesorSeleccionadoTablaFiltrado(profesor)}" icon="ui-icon-pencil" title="View">
+                                <p:commandButton     update="form:parentPanel"   immediate="true" oncomplete="PF('infoMonitor').show()"   action="#{Administrador.setMonitorSeleccionadoTablaFiltrado(monitor)}" icon="ui-icon-pencil" title="View">
 
                                 </p:commandButton>
                             </p:column>

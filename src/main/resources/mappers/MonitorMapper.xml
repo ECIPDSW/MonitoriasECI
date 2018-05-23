@@ -129,8 +129,8 @@
     <insert parameterType="map" id="crearMonitor">
         insert into persona (id, nombre, apellido, correo, contasena) values( 
 	#{id},#{nombre}, #{apellido}, #{correo}, #{contra});
-        insert into monitor (persona_id, decanatura) values(
-        #{id}, #{dec})
+        insert into monitor (persona_id, telefono, programaacademico, semestreingreso_numero) values(
+        #{id}, #{tel}, #{programa}, #{semestre})
     </insert>
     <update parameterType="map" id="asignarSemestreAMonitor">
         update monitor
