@@ -116,4 +116,8 @@ public interface MonitoriaDAO {
      */
     void eliminarMonitoria(int IDmonitoria);
 
+    
+    List<Integer> asistenciasPorMonitoria();
+    
+    List<Monitoria> monitoriasActuales();
 }

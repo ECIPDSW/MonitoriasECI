@@ -116,5 +116,9 @@ public interface MonitoriaMapper {
      * @param IDmonitoria ID de la monitoria
      */
     void eliminarMonitoria(@Param("id")int IDmonitoria);
+    
+    List<Integer> asistenciasPorMonitoria();
+    
+    List<Monitoria> monitoriasActuales();
 
 }

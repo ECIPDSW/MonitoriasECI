@@ -449,6 +449,31 @@ public class AdministradorBean implements Serializable {
         this.administrador = administrador;
     }
 
+    public int totalAsistentes(){
+        List<Asesoria> asesorias = sa.loadAsesorias(sa.loadSemestreActual().getNumero());
+        int total= 0;
+        for(int i=0;i<asesorias.size();i++){
+            total+=1;
+        }
+        return total;
+        
+    }
+    
+    public int totalMonitories(){
+        List<Monitor> monitores;
+        return 0;
+    }
+    
+    public int porcentajeOcupacion(){
+        return 0;
+    }
+    
+    public int promedioAsistencias(){
+        return 0;
+    }
+
+
+
     public void modificarCursoSeleccionado() {
         boolean var=true;
         try {

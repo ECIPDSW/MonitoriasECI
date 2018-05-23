@@ -82,5 +82,15 @@ public class MyBatisMonitoriaDao implements MonitoriaDAO{
     public void eliminarMonitoria(int IDmonitoria) {
         monitoriaMapper.eliminarMonitoria(IDmonitoria);
     }
+
+    @Override
+    public List<Integer> asistenciasPorMonitoria() {
+        return monitoriaMapper.asistenciasPorMonitoria();
+    }
+
+    @Override
+    public List<Monitoria> monitoriasActuales() {
+        return monitoriaMapper.monitoriasActuales();
+    }
     
 }

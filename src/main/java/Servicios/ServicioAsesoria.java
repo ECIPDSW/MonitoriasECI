@@ -355,7 +355,7 @@ public interface ServicioAsesoria {
      * @param programa Programa de monitor
      * @param semestreIngreso semestre de ingreso, PUEDE SER NULO
      */
-    void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso);
+    void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, Integer telefono, String programa, Integer semestreIngreso);
     
     
     /**
@@ -575,4 +575,14 @@ public interface ServicioAsesoria {
      * @param id ID de la persona
      */
     void eliminarPersona(int id);
+    
+    List<Monitor> monitoresPorSemestre(int idSemestre);
+    
+    List<Monitor> monitoresOcupadosSemestre(int idSemestre);
+    
+    List<Integer> asistenciasPorMonitoria();
+    
+    List<Monitoria> monitoriasActuales();
+    
+   
 }
