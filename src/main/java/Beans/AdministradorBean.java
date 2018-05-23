@@ -4,7 +4,6 @@ import Modelo.Administrador;
 import Modelo.Asesoria;
 import Modelo.Curso;
 import Modelo.Monitor;
-import Modelo.Monitoria;
 import Modelo.Profesor;
 import Modelo.Semestre;
 import Modelo.TemaCurso;
@@ -573,7 +572,8 @@ public class AdministradorBean implements Serializable {
 
     }
 
-    
+
+
     public int totalMonitories(){
         List<Monitor> monitores = sa.monitoresPorSemestre(sa.loadSemestreActual().getNumero());
         return monitores.size();

@@ -9,7 +9,7 @@
 
 
     <ui:define name="content">
-
+        <f:event type="preRenderView" listener="#{Monitor.redirected()}" />
         <h:form>
             <p:growl id="messages" showDetail="true" sticky="true" />
 

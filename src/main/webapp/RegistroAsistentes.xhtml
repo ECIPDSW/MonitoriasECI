@@ -9,7 +9,7 @@
 
     <ui:define name="content">
 
-        <h:form>
+        <h:form id="inputse">
             <div class="ui-fluid">
                 <div class="ui-g">
                     <div class="ui-g-12">
@@ -17,31 +17,26 @@
                             <!-- Left Side -->
                             <div class="card">
                                 <h1>Registrar Asistente</h1>
+                                <f:event type="preRenderView" listener="#{Monitor.monitoring()}" />
                                 <p:growl id="growl" autoUpdate="true" showDetail="true" sticky="true" /> 
                                 <p:panelGrid id="campos" columns="2" columnClasses="ui-grid-col-6,ui-grid-col-20" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
 
 
                                     <p:outputLabel for="input" value="Carnet Estudiante"/>
-                                    <p:inputText id="input" required="true"  requiredMessage="Carnet del estudiante es requerido."/>
-                                    <p:outputLabel for="input2" value="Nombre Estudiante"/>
-                                    <p:inputText id="input2" required="true" requiredMessage="Nombre del estudiante es requerido."/>
+                                    <p:inputText id="input" required="true" value="#{Monitor.estudiante}"  requiredMessage="Carnet del estudiante es requerido."/>
+                                    
 
                                     <p:outputLabel for="Grupo" value="Seleccione grupo: "  />
-                                    <p:selectOneMenu id="Grupo" value="#{selectOneMenuView.car}"   style="width:125px" required="true" requiredMessage="Seleccione un grupo.">
+                                    <p:selectOneMenu id="Grupo" value="#{Monitor.grupo}"   style="width:125px" required="true" requiredMessage="Seleccione un grupo.">
                                         <f:selectItem itemLabel="Select One" itemValue="" />
-                                        <f:selectItems value="#{selectOneMenuView.cars}" />
+                                        <f:selectItems value="#{Monitor.grupos}" />
                                     </p:selectOneMenu>
 
-                                    <h:outputLabel for="multiple" value="Temas a consultar: "  />
-                                    <p:selectCheckboxMenu id="multiple" value="#{checkboxView.selectedCities}" label="Seleccione" required="true"
-                                                          filter="true" filterMatchMode="startsWith" panelStyle="width:300px">
-                                        <f:selectItems value="#{checkboxView.cities}" />
-                                    </p:selectCheckboxMenu>
 
                                 </p:panelGrid>
                                 <p:separator />
                                 <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                                    <p:commandButton id="btnRegistro"  update="campos"  value="Registrar comiezo de asesoria" icon="ui-icon-check fa fa-check Fs14 White"    style="width:auto;margin-bottom:10px;">
+                                    <p:commandButton id="btnRegistro"  update="campos,inputse" type="Button" value="Registrar Asistente"  actionListener="#{Monitor.botonRegistrarAsesoria()}" icon="ui-icon-check fa fa-check Fs14 White"    style="width:auto;margin-bottom:10px;">
                                         
                                     </p:commandButton>
                                 </p:panelGrid>
@@ -57,16 +52,16 @@
                         <div class="ui-g-12 ui-lg-6">
                             <div class="card">
                                 <h1>Monitorias En Curso</h1>
-                                <p:dataTable  id="tabla" var="car" value="#{dtBasicView.cars}"  rowKey="#{car.id}">
+                                <p:dataTable  id="tabla" var="as" value="#{Monitor.aencurso}"  rowKey="#{car.id}">
                                     <f:facet name="header">
                                         Estudiantes con asesorias en curso
                                     </f:facet>
                                     <p:column headerText="Carnet">
-                                        <h:outputText value="#{car.id}" />
+                                        <h:outputText value="#{as.idEstudiante}" />
                                     </p:column>
 
                                     <p:column headerText="Nombre">
-                                        <h:outputText value="#{car.year}" />
+                                        <h:outputText value="#{as.nombreEstudiante}" />
                                     </p:column>
                                     <p:column headerText="Finalizar Asesoria">
                                         <h:commandLink id="terminarAsesoria" value="Terminar Asesoria"   onclick="PF('dlg').show()">
@@ -77,7 +72,13 @@
                                 </p:dataTable>
 
                                 <p:dialog header="Terminando Asesoria" widgetVar="dlg" resizable="false" draggable="false" responsive="true" >
+                                    <h:outputLabel for="multiple" value="Temas a consultar: "  />
+                                        <p:selectCheckboxMenu id="multiple" value="#{Monitor.selectedTemas}" label="Seleccione" required="false"
+                                                          filter="true" filterMatchMode="startsWith" panelStyle="width:300px">
+                                            <f:selectItems value="#{Monitor.temas}" />
+                                        </p:selectCheckboxMenu>
                                     <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank" columnClasses="ui-grid-col-4,ui-grid-col-8">
+                                        
                                         <h:outputLabel for="comentarios" value="Comentarios: " />
                                         <p:inputTextarea id="comentarios" autoResize="false"/>
                                         <p:spacer height="10" />
@@ -87,6 +88,8 @@
                                             </p:commandButton>
                                         </f:facet>  
                                     </p:panelGrid>
+                                    
+                                    
                                 </p:dialog>
                             </div>
                         </div>
