@@ -4,6 +4,7 @@ import Modelo.Administrador;
 import Modelo.Curso;
 import Modelo.Monitor;
 import Modelo.Semestre;
+import Modelo.TemaCurso;
 import Servicios.Fabrica;
 import Servicios.ServicioAsesoria;
 import java.io.Serializable;
@@ -34,13 +35,58 @@ public class AdministradorBean implements Serializable {
     private String nombreNuevoCurso;
     private int horasAprovadasNuevoCurso;
     private int creditosNuevoCurso;
-    private  List<String> temasCursoNuevo;
+    private List<String> temasCursoNuevo;
     private List<Curso> cursosFiltrados;
     private Curso cursoSeleccionadoTablaFiltrado;
     private String idCursoAnterior;
+    private String idCursoaEditar;
+    private String nombreCursoaEditar;
+    private int horasMonCursoaEditar;
+    private int creditosCursoaEditar;
+    private List<String> temasCursoaEditar;
 
     public void AdministradorBean() {
 
+    }
+
+    public List<String> getTemasCursoaEditar() {
+        return temasCursoaEditar;
+    }
+
+    public void setTemasCursoaEditar(List<String> temasCursoaEditar) {
+        this.temasCursoaEditar = temasCursoaEditar;
+    }
+
+    public String getIdCursoaEditar() {
+        return idCursoaEditar;
+    }
+
+    public void setIdCursoaEditar(String idCursoaEditar) {
+        this.idCursoaEditar = idCursoaEditar;
+    }
+
+    public String getNombreCursoaEditar() {
+        return nombreCursoaEditar;
+    }
+
+    public void setNombreCursoaEditar(String nombreCursoaEditar) {
+        this.nombreCursoaEditar = nombreCursoaEditar;
+    }
+
+    public int getHorasMonCursoaEditar() {
+        return horasMonCursoaEditar;
+    }
+
+    public void setHorasMonCursoaEditar(int horasMonCursoaEditar) {
+        this.horasMonCursoaEditar = horasMonCursoaEditar;
+    }
+
+    public int getCreditosCursoaEditar() {
+        return creditosCursoaEditar;
+    }
+
+    public void setCreditosCursoaEditar(int creditosCursoaEditar) {
+        this.creditosCursoaEditar = creditosCursoaEditar;
     }
 
     public String getIdCursoAnterior() {
@@ -55,12 +101,21 @@ public class AdministradorBean implements Serializable {
         return cursoSeleccionadoTablaFiltrado;
     }
 
-    public void setCursoSeleccionadoTablaFiltrado(Curso cursoSeleccionadoTablaFiltrado) {
-        setIdCursoAnterior(cursoSeleccionadoTablaFiltrado.getId());
-        this.cursoSeleccionadoTablaFiltrado = cursoSeleccionadoTablaFiltrado;
+    public void setCursoSeleccionadoTablaFiltrado(Curso c) {
+        this.cursoSeleccionadoTablaFiltrado = c;
+        List<TemaCurso> temas = c.getTemas();
+        temasCursoaEditar = new ArrayList<String>();
+        idCursoaEditar = c.getId();
+        nombreCursoaEditar = c.getNombre();
+        horasMonCursoaEditar = c.getHorasAprobadasMonitoria();
+        creditosCursoaEditar = c.getCreditosAcademicos();
+        for (TemaCurso t : temas) {
+            temasCursoaEditar.add(t.getTema().toUpperCase());
+        }
+        setIdCursoAnterior(c.getId());
+
     }
-    
-    
+
     public List<Curso> getCursosFiltrados() {
         return cursosFiltrados;
     }
@@ -145,32 +200,48 @@ public class AdministradorBean implements Serializable {
         this.administrador = administrador;
     }
 
-    public void modificarCursoSeleccionado(){
-        System.out.println("entrooooooooo");
-        if(cursoSeleccionadoTablaFiltrado!=null){
-            sa.modificarCurso(idCursoAnterior, cursoSeleccionadoTablaFiltrado.getId(), cursoSeleccionadoTablaFiltrado.getNombre(), cursoSeleccionadoTablaFiltrado.getCreditosAcademicos(), cursoSeleccionadoTablaFiltrado.getHorasAprobadasMonitoria());
+    public void modificarCursoSeleccionado() {
+
+        try {
+            sa.modificarCurso(idCursoAnterior.toUpperCase(), idCursoaEditar.toUpperCase(), nombreCursoaEditar.toUpperCase(), creditosCursoaEditar, horasMonCursoaEditar);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al modificar curso", "Revise que los datos sean validos"));
         }
-        
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacion exitosa","Curso editado exitosamente"));
+
+    }
+    
+     public void eliminarCursoSeleccionado() {
+
+        try {
+            sa.eliminarCurso(idCursoAnterior);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al eliminar curso", "Se ha precentado un error al intentar eliminar el curso."));
+        }
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacion exitosa","Curso eliminado exitosamente"));
+
     }
     public void crearCurso() {
-        boolean error=false;
+        boolean error = false;
         try {
             sa.crearCurso(codNuevoCurso, nombreNuevoCurso, creditosNuevoCurso, horasAprovadasNuevoCurso);
-            if(temasCursoNuevo!=null && temasCursoNuevo.size()>0){
-                for(String s:temasCursoNuevo){
+            if (temasCursoNuevo != null && temasCursoNuevo.size() > 0) {
+                for (String s : temasCursoNuevo) {
                     sa.crearTema(codNuevoCurso, s, s);
                 }
             }
         } catch (Exception e) {
-            error=true;
+            error = true;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al crear curso", "Revise si el curso ya existe y que los datos sean validos"));
         }
-        if(!error){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Operacion exitosa","Curso creado exitosamente"));}
+        if (!error) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso creado exitosamente"));
+        }
         codNuevoCurso = null;
         nombreNuevoCurso = null;
         horasAprovadasNuevoCurso = 0;
         creditosNuevoCurso = 0;
-        temasCursoNuevo=null;
+        temasCursoNuevo = null;
     }
 
 }
