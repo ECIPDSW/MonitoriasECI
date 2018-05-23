@@ -431,6 +431,24 @@ public class ServicioAsesoriaImpl implements ServicioAsesoria,Serializable{
     public void modificarTemaCurso(int IDtema, String tema, String descripcion, String curso) {
         temaCurso.modificarTemaCurso(IDtema, tema, descripcion, curso);
     }
+
+    @Override
+    public void eliminarPersona(int id) {
+        persona.eliminarPersona(id);
+    }
+
+    @Override
+    public List<Monitor> monitoresPorSemestre(int idSemestre) {
+        return monitor.monitoresPorSemestre(idSemestre);
+    }
+
+    @Override
+    public List<Monitor> monitoresOcupadosSemestre(int idSemestre) {
+        return monitor.monitoresOcupadosSemestre(idSemestre);
+    }
    
-    
+    @Override
+    public List<Integer> asistenciasPorMonitoria(){
+        return monitoria.asistenciasPorMonitoria();
+    }
 }

@@ -116,7 +116,15 @@
         </set>
         where idmonitoria = #{id}
     </update>
+    <select parameterType="map" id="asistenciasPorMonitoria" resultMap='Integer'>
+        
+    select count(a.idasesoria)
     
+    from monitoria as m, asesoria as a, monitoriaregistrada as mo
+    where a.monitoriaregistrada = mo.idmonitoriaregistrada
+    and m.idmonitoria = mo.monitoria_idmonitoria
+	group by m.idmonitoria
+    </select>
     <delete parameterType="map" id="eliminarMonitoria">
         delete from monitoria
         where idmonitoria = #{id}

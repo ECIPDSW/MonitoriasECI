@@ -19,4 +19,9 @@ public class MyBatisPersonaDao implements PersonaDAO{
     public List<Persona> loadPersonas(){
         return personaMapper.loadPersonas();
     }
+
+    @Override
+    public void eliminarPersona(int id) {
+        personaMapper.eliminarPersona(id);
+    }
 }

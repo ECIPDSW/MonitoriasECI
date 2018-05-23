@@ -2,6 +2,7 @@ package Mappers;
 
 import Modelo.Persona;
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Mapper de la persona
@@ -14,4 +15,10 @@ public interface PersonaMapper {
      * @return Todas las personas
      */
     List<Persona> loadPersonas();
+    
+    /**
+     * Elimina una persona 
+     * @param id ID de la persona
+     */
+    void eliminarPersona(@Param("id")int id);
 }

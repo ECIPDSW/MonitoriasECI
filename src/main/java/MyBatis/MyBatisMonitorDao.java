@@ -53,5 +53,15 @@ public class MyBatisMonitorDao implements MonitorDAO{
     public void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso) {
         monitormapper.modificarMonitor(idViejo, idNuevo, nombre, apellido, correo, contasena, telefono, programaAcademico, semestreDeIngreso);
     }
+
+    @Override
+    public List<Monitor> monitoresPorSemestre(int idSemestre) {
+        return monitormapper.monitoresPorSemestre(idSemestre);
+    }
+
+    @Override
+    public List<Monitor> monitoresOcupadosSemestre(int idSemestre) {
+        return monitormapper.monitoresOcupadosSemestre(idSemestre);
+    }
     
 }

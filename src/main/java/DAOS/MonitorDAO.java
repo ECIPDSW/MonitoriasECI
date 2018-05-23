@@ -78,4 +78,8 @@ public interface MonitorDAO {
      * @param semestreDeIngreso semestre que se desea cambiar, puede ser nulo
      */
     void modificarMonitor(int idViejo, Integer idNuevo, String nombre, String apellido, String correo, String contasena, Integer telefono, String programaAcademico, Integer semestreDeIngreso);
+    
+    List<Monitor> monitoresPorSemestre(int idSemestre);
+    
+    List<Monitor> monitoresOcupadosSemestre(int idSemestre);
 }
