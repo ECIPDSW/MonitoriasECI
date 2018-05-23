@@ -116,7 +116,7 @@
         </set>
         where idmonitoria = #{id}
     </update>
-    <select parameterType="map" id="asistenciasPorMonitoria" resultMap='Integer'>
+    <select parameterType="map" id="asistenciasPorMonitoria" resultType='Integer'>
         
     select count(a.idasesoria)
     
