@@ -60,12 +60,19 @@ https://trello.com/b/AicP7uJU/2018-1-proypdsw-666-industries
 ![burndownchart](https://github.com/ECIPDSW/MonitoriasECI/blob/master/src/main/java/img/burndownchart.png)
 
 ### Sprint 1:
+## Sprint-backlog 
 https://docs.google.com/spreadsheets/d/1WEUOlERuPfXWPF6eRPfDeVycVD_PAhvCEwJLcxxpSsg/edit#gid=0
+## Sprint-burndown chart
+https://drive.google.com/file/d/1a2J8WGpmNNLTs4p2sJHBTf8RHzPYNKBr/view
 
 ### Sprint 2:
+## Sprint-backlog 
 https://docs.google.com/spreadsheets/d/1gugeWG-cO_8jd1oXYELwnuO3ZsJZGAAAWs1h0QQLFig/edit#gid=0
+## Sprint-burndown chart
+https://drive.google.com/file/d/1d-FJysGdsxiI0jaWZSdpJcMU2WRFGm6v/view
 
 ### Sprint 3:
+## Sprint-backlog 
 https://docs.google.com/spreadsheets/d/13HJfLaWX3yVZJ7_ddrqEkzZP5nxgykTa1EiR5WG392g/edit#gid=0
 
 ### Reporte de pruebas:
