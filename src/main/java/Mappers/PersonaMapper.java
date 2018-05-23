@@ -16,5 +16,9 @@ public interface PersonaMapper {
      */
     List<Persona> loadPersonas();
     
+    /**
+     * Elimina una persona 
+     * @param id ID de la persona
+     */
     void eliminarPersona(@Param("id")int id);
 }
