@@ -6,7 +6,7 @@
 ## Nombre de los Integrantes : 
 * Nicolas Rey: Scrum master
 * Oscar Pinto: Team 
-* David Rodriguez: Team
+* David Rodrieguez: Team
 * Martin Cantor: Team
 ## Profesor: Francisco Cháves (Dueño del producto)
 ## Descripcion del producto:
