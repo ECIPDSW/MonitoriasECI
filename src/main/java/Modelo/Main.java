@@ -101,7 +101,7 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadPersonas());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoresAsociadosProfesor(Fabrica.getInstance().getServiciosAsesoria().getProfesor(3).getId(),Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getNumero()));
-      
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().monitoriasActuales());
         //Fabrica.getInstance().getServiciosAsesoria().modificarMonitor(7, null, null, "Super Mandela", null, null, 100, null, null);
        /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursosQueTienenMonitoriasPorSemestre(1));
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitorias("PIMB", 2));

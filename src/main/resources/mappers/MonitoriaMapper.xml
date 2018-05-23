@@ -116,7 +116,7 @@
         </set>
         where idmonitoria = #{id}
     </update>
-    <select parameterType="map" id="asistenciasPorMonitoria" resultMap='Integer'>
+    <select parameterType="map" id="asistenciasPorMonitoria" resultType='Integer'>
         
     select count(a.idasesoria)
     
@@ -129,6 +129,23 @@
         delete from monitoria
         where idmonitoria = #{id}
     </delete>
+    <select parameterType="map" id="monitoriasActuales" resultMap='Monitoria'>
+        select
+        m.idmonitoria as monid,
+        m.dia as mdia,
+        m.horainicio as mhorainicio,
+        m.horafin as mhorafin,
+        m.lugar as mlugar
+    
+        from monitoria as m, grupo as g
+        where m.grupo_idgrupo = g.idgrupo and g.semestre_numero = (select MAX(s.numero) from semestre as s) and current_time between m.horainicio and m.horafin
+	and
+	(((select extract(dow from current_date))=1 and m.dia like 'lunes') or
+	((select extract(dow from current_date))=2 and m.dia like 'martes') or
+	((select extract(dow from current_date))=3 and m.dia like 'miercoles') or
+	((select extract(dow from current_date))=4 and m.dia like 'jueves') or
+	((select extract(dow from current_date))=5 and m.dia like 'viernes'))
+    </select>
     <resultMap type='Monitoria' id='Monitoria'>
         <id property='idMonitoria' column='monid'/>
         <result property='dia' column='mdia'/>

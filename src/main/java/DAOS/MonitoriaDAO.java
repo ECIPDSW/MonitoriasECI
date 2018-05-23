@@ -118,4 +118,6 @@ public interface MonitoriaDAO {
 
     
     List<Integer> asistenciasPorMonitoria();
+    
+    List<Monitoria> monitoriasActuales();
 }
