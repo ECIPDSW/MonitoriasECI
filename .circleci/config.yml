@@ -39,5 +39,13 @@ jobs:
         
       # run tests!
       - run: mvn integration-test
+machine:
+  java:
+    version: oraclejdk8
 
+deployment:
+  staging:
+    branch: master
+    heroku: 
+      appname: monitorias123
 
