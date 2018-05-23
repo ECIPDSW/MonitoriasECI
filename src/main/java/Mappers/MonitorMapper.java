@@ -79,4 +79,8 @@ public interface MonitorMapper {
      * @param semestreDeIngreso semestre que se desea cambiar, puede ser nulo
      */
     void modificarMonitor(@Param("idViejo")int idViejo,@Param("idNuevo") Integer idNuevo,@Param("nombre") String nombre, @Param("apellido")String apellido,@Param("correo") String correo,@Param("contra") String contasena,@Param("telefono") Integer telefono, @Param("programa")String programaAcademico,@Param("semestre") Integer semestreDeIngreso);
+    
+    List<Monitor> monitoresPorSemestre(@Param("id")int idSemestre);
+    
+    List<Monitor> monitoresOcupadosSemestre(@Param("id")int idSemestre);
 }

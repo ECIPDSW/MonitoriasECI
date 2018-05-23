@@ -166,6 +166,61 @@
              </choose>         
          </if>
     </update>
+    <select parameterType="map" id="monitoresPorSemestre" resultMap='Monitor'>
+    select distinct
+    
+    p.id as peid,
+    p.nombre as penombre ,
+    p.apellido as peapellido ,
+    p.correo as pecorreo ,
+    p.contasena as peconstraseña ,
+    
+    m.telefono as mtelefono,
+    m.programaacademico as mprogramaacademico,
+    
+    s.numero as snumero,
+    s.ano as sano,
+    s.periodoAcademico as speriodoacademico,
+    s.fechaInicio as sfechainicio,
+    s.fechaFin as sfechafin
+                    
+    FROM monitor as m
+    left join persona as p on m.persona_id = p.id
+    left join grupo as g on g.monitor_persona_id=m.persona_id
+    left join semestre as s on g.semestre_numero=s.numero
+    where
+    g.semestre_numero = #{id}
+    
+    </select>
+    <select parameterType="map" id="monitoresOcupadosSemestre" resultMap='Monitor'>
+    select distinct
+    
+    p.id as peid,
+    p.nombre as penombre ,
+    p.apellido as peapellido ,
+    p.correo as pecorreo ,
+    p.contasena as peconstraseña ,
+    
+    m.telefono as mtelefono,
+    m.programaacademico as mprogramaacademico,
+    
+    s.numero as snumero,
+    s.ano as sano,
+    s.periodoAcademico as speriodoacademico,
+    s.fechaInicio as sfechainicio,
+    s.fechaFin as sfechafin
+                    
+    FROM monitor as m
+    left join persona as p on m.persona_id = p.id
+    left join grupo as g on g.monitor_persona_id=m.persona_id
+    left join semestre as s on g.semestre_numero=s.numero
+    left join monitoria as mo on mo.grupo_idgrupo = g.idgrupo
+    left join monitoriaregistrada as mr on mr.monitoria_idmonitoria = mo.idmonitoria
+    left join asesoria as a on a.monitoriaregistrada = mr.idmonitoriaregistrada
+    where
+    g.semestre_numero = #{id}
+    
+    </select>
     <resultMap type='Monitor' id='Monitor' extends='Mappers.PersonaMapper.Persona'>
         <result property='telefonoMovil' column = 'mtelefono'/>
         <result property='programaAcademico' column = 'mprogramaacademico'/>

@@ -575,4 +575,12 @@ public interface ServicioAsesoria {
      * @param id ID de la persona
      */
     void eliminarPersona(int id);
+    
+    List<Monitor> monitoresPorSemestre(int idSemestre);
+    
+    List<Monitor> monitoresOcupadosSemestre(int idSemestre);
+    
+    List<Integer> asistenciasPorMonitoria();
+    
+   
 }
