@@ -51,7 +51,7 @@ public interface MonitorMapper {
      * @param programa Programa de monitor
      * @param semestreIngreso semestre de ingreso, PUEDE SER NULO
      */
-    void crearMonitor(@Param("id")int id, @Param("nombre")String nombre, @Param("apellido")String apellido, @Param("correo")String correo, @Param("contra")String contrasena, @Param("tel")int telefono, @Param("programa")String programa, @Param("semestre")String semestreIngreso);
+    void crearMonitor(@Param("id")int id, @Param("nombre")String nombre, @Param("apellido")String apellido, @Param("correo")String correo, @Param("contra")String contrasena, @Param("tel")Integer telefono, @Param("programa")String programa, @Param("semestre")Integer semestreIngreso);
     
     /**
      * Asigna el semestre a un monitor

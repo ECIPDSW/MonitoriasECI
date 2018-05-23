@@ -50,7 +50,7 @@ public interface MonitorDAO {
      * @param programa Programa de monitor
      * @param semestreIngreso semestre de ingreso, PUEDE SER NULO
      */
-    void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, int telefono, String programa, String semestreIngreso);
+    void crearMonitor(int id, String nombre, String apellido, String correo, String contrasena, Integer telefono, String programa, Integer semestreIngreso);
     
     /**
      * Asigna el semestre a un monitor
