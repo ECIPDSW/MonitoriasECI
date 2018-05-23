@@ -113,7 +113,7 @@
 
                         <p:separator />
                         <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
-                            <p:commandButton id="btnAgregarProf"  update="@form"    value="Agregar Curso" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Administrador.crearProfesor()}"      style="width:auto;margin-bottom:10px;">
+                            <p:commandButton id="btnAgregarProf"  update="@form"    value="Agregar Profesor" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Administrador.crearProfesor()}"      style="width:auto;margin-bottom:10px;">
                                 <p:ajax   process=" btnAgregarProf "     rendered="tablaP" update="growl nuevoProfesor "   />
                             </p:commandButton>
                         </p:panelGrid>

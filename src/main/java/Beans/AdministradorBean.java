@@ -62,10 +62,95 @@ public class AdministradorBean implements Serializable {
     private String correoProfesoraEditar;
     private String decanaturaProfesoraEditar;
     private int idProfesorAnterior;
+    private int idMonitoraCrear;
+    private String nombreMonitoraCrear;
+    private String apellidoMonitoraCrear;
+    private String correoMonitoraCrear;
+    private int telefonoMonitoraCrear;
+    private String[] programas={"INGENIERIA DE SÍSTEMAS","ADMINISTRACION DE EMPRESAS","INGENIERIA BIOMEDICA","INGENIERIA MECANICA"};
+    private String programaMonitoraCrear;
+    private String semestreIngresoMonitoraCrear;
+    private String contrasenaMonitoraCrear;
 
-    public void AdministradorBean() {
-
+    public String getContrasenaMonitoraCrear() {
+        return contrasenaMonitoraCrear;
     }
+
+    public void setContrasenaMonitoraCrear(String contrasenaMonitoraCrear) {
+        this.contrasenaMonitoraCrear = contrasenaMonitoraCrear;
+    }
+    
+    
+    public void AdministradorBean() {
+            }
+
+    public int getIdMonitoraCrear() {
+        return idMonitoraCrear;
+    }
+
+    public void setIdMonitoraCrear(int idMonitoraCrear) {
+        this.idMonitoraCrear = idMonitoraCrear;
+    }
+
+    public String getNombreMonitoraCrear() {
+        return nombreMonitoraCrear;
+    }
+
+    public void setNombreMonitoraCrear(String nombreMonitoraCrear) {
+        this.nombreMonitoraCrear = nombreMonitoraCrear;
+    }
+
+    public String getApellidoMonitoraCrear() {
+        return apellidoMonitoraCrear;
+    }
+
+    public void setApellidoMonitoraCrear(String apellidoMonitoraCrear) {
+        this.apellidoMonitoraCrear = apellidoMonitoraCrear;
+    }
+
+    public String getCorreoMonitoraCrear() {
+        return correoMonitoraCrear;
+    }
+
+    public void setCorreoMonitoraCrear(String correoMonitoraCrear) {
+        this.correoMonitoraCrear = correoMonitoraCrear;
+    }
+
+    public int getTelefonoMonitoraCrear() {
+        return telefonoMonitoraCrear;
+    }
+
+    public void setTelefonoMonitoraCrear(int telefonoMonitoraCrear) {
+        this.telefonoMonitoraCrear = telefonoMonitoraCrear;
+    }
+
+    public String getProgramaMonitoraCrear() {
+        return programaMonitoraCrear;
+    }
+
+    public void setProgramaMonitoraCrear(String programaMonitoraCrear) {
+        this.programaMonitoraCrear = programaMonitoraCrear;
+    }
+
+    public String getSemestreIngresoMonitoraCrear() {
+        return semestreIngresoMonitoraCrear;
+    }
+
+    public void setSemestreIngresoMonitoraCrear(String semestreIngresoMonitoraCrear) {
+        this.semestreIngresoMonitoraCrear = semestreIngresoMonitoraCrear;
+    }
+
+    
+
+    public String[] getProgramas() {
+        return programas;
+    }
+
+    public void setProgramas(String[] programas) {
+        this.programas = programas;
+    }
+
+    
 
     public Profesor getProfesorSeleccionadoTablaFiltrado() {
         return profesorSeleccionadoTablaFiltrado;
@@ -106,7 +191,7 @@ public class AdministradorBean implements Serializable {
     }
 
     public void setNombreProfesoraEditar(String nombreProfesoraEditar) {
-        this.nombreProfesoraEditar = nombreProfesoraEditar;
+        this.nombreProfesoraEditar = nombreProfesoraEditar.toUpperCase();
     }
 
     public String getApellidoProfesoraEditar() {
@@ -114,7 +199,7 @@ public class AdministradorBean implements Serializable {
     }
 
     public void setApellidoProfesoraEditar(String apellidoProfesoraEditar) {
-        this.apellidoProfesoraEditar = apellidoProfesoraEditar;
+        this.apellidoProfesoraEditar = apellidoProfesoraEditar.toUpperCase();
     }
 
     public String getCorreoProfesoraEditar() {
@@ -373,7 +458,8 @@ public class AdministradorBean implements Serializable {
             var=false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al modificar curso", "Revise que los datos sean validos"));
         }
-        if(var){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso editado exitosamente"));}
+        if(var){idCursoAnterior=idCursoaEditar.toUpperCase();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso editado exitosamente"));}
 
     }
     
@@ -382,11 +468,12 @@ public class AdministradorBean implements Serializable {
         try {
             sa.modificarProfesor(idProfesorAnterior, idProfesoraEditar, nombreProfesoraEditar, apellidoProfesoraEditar, correoProfesoraEditar, contrasenaProfesoraEditar, decanaturaProfesoraEditar);
         } catch (Exception e) {
-            e.printStackTrace();
+            
             var=false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al modificar profesor", "Revise que los datos sean validos"));
         }
-        if(var){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Profesor editado exitosamente"));}
+        if(var){idProfesorAnterior=idProfesoraEditar;
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Profesor editado exitosamente"));}
 
     }
 
@@ -395,7 +482,7 @@ public class AdministradorBean implements Serializable {
         try {
             sa.eliminarPersona(idProfesorAnterior);
         } catch (Exception e) {
-            e.printStackTrace();
+            
             var=false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al eliminar profesor", "Se ha precentado un error al intentar eliminar el profesor."));
         }
@@ -444,6 +531,7 @@ public class AdministradorBean implements Serializable {
             sa.crearProfesor(idProfesoraCrear, nombreProfesoraCrear, apellidoProfesoraCrear, correoProfesoraCrear, contrasenaProfesoraCrear, decanaturaProfesoraCrear);
 
         } catch (Exception e) {
+            e.printStackTrace();
             error = true;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al crear Profesor", "Revise si el profesor ya existe y que los datos sean validos"));
         }

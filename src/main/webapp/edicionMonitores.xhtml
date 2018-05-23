@@ -1,16 +1,184 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <h:form id="form">
+                    <div class="card">
+                        <h1>Crear nuevo Monitor</h1>
+
+                        <p:growl id="growl" showDetail="true"  >
+
+                        </p:growl> 
+                        <h:panelGroup id="parentPanel">
+                            <p:dialog  id="dialogo"   dynamic="true"  header="Editar Monitor" widgetVar="infoMonitor" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+
+                                <p:outputPanel  style="text-align:center;">
+                                    <p:panel id="datosMonitor" header="Edicion Monitor" style="text-align:center;background:#fff;height:100%">
+
+                                        <div class="ui-g">
+                                            <p:panelGrid  columns="2" rendered="#{not empty Administrador.profesorSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+
+
+                                                <h:outputText value="ID " />
+                                                <h:inputText    value="#{Administrador.idProfesoraEditar}" >
+                                                    <p:ajax   process="@this" update="@this"   />
+                                                </h:inputText>
+
+                                                <h:outputText value="Nombre : " />
+                                                <h:inputText value="#{Administrador.nombreProfesoraEditar}" >
+                                                    <p:ajax process="@this" update="@this" />
+                                                </h:inputText>
+
+                                                <h:outputText value="Apellido :" />
+                                                <h:inputText value="#{Administrador.apellidoProfesoraEditar}" >
+                                                    <p:ajax process="@this" update="@this"/>
+                                                </h:inputText>
+
+                                                <h:outputText value="Correo :" />
+                                                <h:inputText value="#{Administrador.correoProfesoraEditar}" >
+                                                    <p:ajax  process="@this" update="@this" />
+                                                </h:inputText>
+
+                                                <h:outputText value="Decanatura :" />
+                                                <p:selectOneMenu  value="#{Administrador.decanaturaProfesoraEditar}" >
+                                                    <f:selectItem itemLabel="Seleccione" itemValue="#{null}" noSelectionOption="true" />
+                                                    <f:selectItems value="#{Administrador.decanaturasDisponibles}" />
+                                                </p:selectOneMenu>
+                                                
+                                                <h:outputText value="Contraseña :" />
+                                                <h:inputText value="#{Administrador.contrasenaProfesoraEditar}" >
+                                                    <p:ajax  process="@this" update="@this" />
+                                                </h:inputText>
+                                                
+                                            </p:panelGrid>
+                                        </div>
+                                    </p:panel>
+                                    <p:separator />
+                                    <p:panelGrid   columns="2" rendered="#{not empty Administrador.profesorSeleccionadoTablaFiltrado}"  styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                                        <p:commandButton id="btnGuardarCambios"   update="datosProfesor tablaP growl"  immediate="true" action="#{Administrador.modificarProfesorSeleccionado()}"       value="Guardar Cambios" icon="ui-icon-check fa fa-check Fs14 White"      style="width:auto;margin-bottom:10px;">
+                                            <p:ajax   process=" btnGuardarCambios "   rendered="datosProfesor" />
+                                        </p:commandButton>
+                                        <p:commandButton id="btnEliminarProfesor" update="datosProfesor tablaP growl"  immediate="true" action="#{Administrador.eliminarProfesorSeleccionado()}"       value="Eliminar Profesor" icon="ui-icon-remove fa fa-remove Fs14 White"  styleClass="red-button"    style="width:auto;margin-bottom:10px;">
+                                            <p:ajax   process=" btnEliminarProfesor "   rendered="datosProfesor" />
+                                        </p:commandButton>
+                                    </p:panelGrid>
+
+                                </p:outputPanel>
+
+                            </p:dialog>
+                        </h:panelGroup>
+
+
+
+                        <p:panelGrid id="nuevoMonitor" columns="4"   layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                            <p:outputLabel for="idMonNuevo" value="ID : "  />
+                            <p:inputNumber id="idMonNuevo" value="#{Administrador.idMonitoraCrear}"  minValue="0" maxValue="100000000" required="true" requiredMessage="El ID del monitor es requerido.">
+                                <p:ajax process="idMonNuevo" update="idMonNuevo" />
+                            </p:inputNumber>
+                            <p:outputLabel for="contrasenaMonNuevo" value="Contraseña  : "  />
+                            <p:inputText id="contrasenaMonNuevo" value="#{Administrador.con}" required="true" requiredMessage="Contraseña del monitor es requerido.">
+                                <p:ajax process="contrasenaMonNuevo" update="contrasenaMonNuevo"/>
+                            </p:inputText>
+                            <p:outputLabel for="nombreProfNuevo" value="Nombre  : "  />
+                            <p:inputText id="nombreProfNuevo" value="#{Administrador.nombreProfesoraCrear}" required="true" requiredMessage="Nombre del monitor es requerido.">
+                                <p:ajax process="nombreProfNuevo" update="nombreProfNuevo"/>
+                            </p:inputText>
+                            <p:outputLabel for="apellidoProfNuevo" value="Apellido : "  />
+                            <p:inputText id="apellidoProfNuevo" value="#{Administrador.apellidoProfesoraCrear}" required="true" requiredMessage="Apellido del monitor es requerido.">
+                                <p:ajax process="apellidoProfNuevo" update="apellidoProfNuevo"/>
+                            </p:inputText>
+                            <p:outputLabel for="correoProfNuevo" value="Correo : "  />
+                            <p:inputText id="correoProfNuevo" value="#{Administrador.correoProfesoraCrear}"  required="true" requiredMessage="El correo del profesor es requerido.">
+                                <p:ajax process="correoProfNuevo" update="correoProfNuevo"/>
+                            </p:inputText>
+
+                            <p:outputLabel for="decanaturaProfNuevo" value="Decanatura : " />
+                            <p:selectOneMenu id="decanaturaProfNuevo" value="#{Administrador.decanaturaProfesoraCrear}"    required="true" requiredMessage="Seleccione Decanatura.">
+                                <f:selectItem itemLabel="Seleccione" itemValue="" />
+                                <f:selectItems     value="#{Administrador.decanaturasDisponibles}"     />
+                                <p:ajax process="decanaturaProfNuevo"/>
+                            </p:selectOneMenu>
+
+
+                        </p:panelGrid>
+
+
+
+                        <p:separator />
+                        <p:panelGrid columns="1"  columnClasses="ui-grid-col-100" layout="grid" styleClass="ui-panelgrid-blank" style="border:0px none; background-color:transparent;">
+                            <p:commandButton id="btnAgregarProf"  update="@form"    value="Agregar Curso" icon="ui-icon-check fa fa-check Fs14 White"   action="#{Administrador.crearProfesor()}"      style="width:auto;margin-bottom:10px;">
+                                <p:ajax   process=" btnAgregarProf "     rendered="tablaP" update="growl nuevoProfesor "   />
+                            </p:commandButton>
+                        </p:panelGrid>
+
+                    </div>
+
+                    <div class="card">
+                        <h1>Editar Profesores Existentes</h1>
+                        <p:dataTable id="tablaP"  var="profesor"  value="#{Administrador.profesores}" widgetVar="tablaProfesores"
+                                     emptyMessage="No se encontraron profesores con el criterio dado." filteredValue="#{Administrador.profesoresFiltrados}">
+
+                            <f:facet name="header">
+                                <p:outputPanel>
+                                    <h:outputText value="Buscar en todos los campos :" />
+                                    <p:inputText id="globalFilter" onkeyup="PF('tablaProfesores').filter()" style="width:150px" placeholder="Ingrese palabra"/>
+                                </p:outputPanel>
+                            </f:facet>
+
+                            <p:column filterBy="#{profesor.id}" headerText="ID Profesor"  filterMatchMode="contains">
+                                <h:outputText value="#{profesor.id}" />
+                            </p:column>
+
+                            <p:column filterBy="#{profesor.nombre}" headerText="Nombre"  filterMatchMode="contains">
+
+                                <h:outputText value="#{profesor.nombre}" />
+                            </p:column>
+
+                            <p:column  filterBy="#{profesor.apellido}" headerText="Apellido" filterMatchMode="contains"  >
+
+                                <h:outputText value="#{profesor.apellido}" />
+                            </p:column>
+
+                            <p:column filterBy="#{profesor.correo}" headerText="Correo" filterMatchMode="contains" >
+
+                                <h:outputText value="#{profesor.correo}" />
+                            </p:column>
+                            <p:column filterBy="#{profesor.decanatura}" headerText="Correo"  filterMatchMode="in">
+                                <f:facet name="filter">
+                                    <p:selectCheckboxMenu label="Decanaturas" onchange="PF('tablaProfesores').filter()"  scrollHeight="150">
+                                        <f:selectItems value="#{Administrador.decanaturasDisponibles}" />
+                                    </p:selectCheckboxMenu>
+                                </f:facet>
+                                <h:outputText value="#{profesor.decanatura}" />
+                            </p:column>
+
+                            <p:column  headerText="Contraseña"  >
+
+                                <h:outputText value="#{profesor.contrasena}" />
+                            </p:column>
+
+                            <p:column style="width:32px;text-align: center">
+                                <p:commandButton     update="form:parentPanel"   immediate="true" oncomplete="PF('infoProfesor').show()"   action="#{Administrador.setProfesorSeleccionadoTablaFiltrado(profesor)}" icon="ui-icon-pencil" title="View">
+
+                                </p:commandButton>
+                            </p:column>
+
+
+                        </p:dataTable>
+
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+
+    </ui:define>
+
+</ui:composition>
