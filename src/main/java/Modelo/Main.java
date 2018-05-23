@@ -11,6 +11,7 @@ import Servicios.Fabrica;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -101,6 +102,10 @@ public class Main {
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursos());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadPersonas());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadMonitoresAsociadosProfesor(Fabrica.getInstance().getServiciosAsesoria().getProfesor(3).getId(),Fabrica.getInstance().getServiciosAsesoria().getSemestre(1).getNumero()));
+        System.out.println(Fabrica.getInstance().getServiciosAsesoria().monitoriasActuales());
+        List<Monitor> monitores = Fabrica.getInstance().getServiciosAsesoria().monitoresPorSemestre(Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero());
+        System.out.println(monitores);
+        //System.out.println(Fabrica.getInstance().getServiciosAsesoria().monitoresOcupadosSemestre(Fabrica.getInstance().getServiciosAsesoria().loadSemestreActual().getNumero()).get(0).getNombre());
         System.out.println(Fabrica.getInstance().getServiciosAsesoria().monitoriasActuales());
         //Fabrica.getInstance().getServiciosAsesoria().modificarMonitor(7, null, null, "Super Mandela", null, null, 100, null, null);
        /*System.out.println(Fabrica.getInstance().getServiciosAsesoria().loadCursosQueTienenMonitoriasPorSemestre(1));

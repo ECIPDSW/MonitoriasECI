@@ -135,7 +135,8 @@
         m.dia as mdia,
         m.horainicio as mhorainicio,
         m.horafin as mhorafin,
-        m.lugar as mlugar
+        m.lugar as mlugar,
+        g.idgrupo as gid
     
         from monitoria as m, grupo as g
         where m.grupo_idgrupo = g.idgrupo and g.semestre_numero = (select MAX(s.numero) from semestre as s) and current_time between m.horainicio and m.horafin

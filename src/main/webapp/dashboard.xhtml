@@ -50,7 +50,7 @@
             
             <div class="ui-g-12 ui-md-6 ui-lg-3">
                 <div class="highlight-box">
-                    <div class="initials" style="background-color:#007be5;color:#00448f">AT</div>
+                    <div class="initials" style="background-color:#007be5;color:#00448f">AD</div>
                     <div class="card">
                         <span class="fa fa-eye"></span>
                         <span>Asesorias Dictadas en el Semestre</span>
@@ -76,7 +76,7 @@
                     <div class="card">
                         <span class="fa fa-check"></span>
                         <span>Porcentaje Ocupacion de Monitores</span>
-                        <span class="count">#{Administrador.porcentajeOcupacion()}</span>
+                        <span class="count">#{Administrador.porcentajeOcupacion()} % </span>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                     <div class="initials" style="background-color:#f9c851;color:#b58c2b">PAM</div>
                     <div class="card">
                         <span class="fa fa-check"></span>
-                        <span>Promedio Asistencias Monitorias</span>
+                        <span>Promedio Asistencias X Monitoria</span>
                         <span class="count">#{Administrador.promedioAsistencias()}</span>
                     </div>
                 </div>
@@ -179,6 +179,27 @@
                             <div class="ui-g-6" style="text-align:right">
                                 <p:commandButton type="button" icon="fa fa-refresh" />
                             </div>
+                            
+                            <div>
+                                <p:dataTable id ="tablen" stickyHeader="true" var="monitoria" value="#{Administrador.monitoriasEnCurso()}" widgetVar="tablaMonitoriasActuales"
+                                             emptyMessage="No se encuentran monitorias para el criterio dado.">
+
+                                    <p:column  headerText="Monitoria">
+                                        
+                                        <h:outputText value="#{monitoria.idMonitoria}" />
+                                    </p:column> 
+                                    
+                                   
+                                    <p:column  headerText="Lugar">
+                                        
+                                        <h:outputText value="#{monitoria.lugar}" />
+                                    </p:column>
+                                    
+                                    
+                                </p:dataTable>
+                            </div>
+                            
+                            
                         </div>
                     </div>
                     

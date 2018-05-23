@@ -1,8 +1,10 @@
 package Beans;
 
 import Modelo.Administrador;
+import Modelo.Asesoria;
 import Modelo.Curso;
 import Modelo.Monitor;
+import Modelo.Monitoria;
 import Modelo.Profesor;
 import Modelo.Semestre;
 import Modelo.TemaCurso;
@@ -62,9 +64,208 @@ public class AdministradorBean implements Serializable {
     private String correoProfesoraEditar;
     private String decanaturaProfesoraEditar;
     private int idProfesorAnterior;
+    private int idMonitoraCrear;
+    private String nombreMonitoraCrear;
+    private String apellidoMonitoraCrear;
+    private String correoMonitoraCrear;
+    private int telefonoMonitoraCrear;
+    private String[] programas = {"INGENIERIA DE SÍSTEMAS", "ADMINISTRACION DE EMPRESAS", "INGENIERIA BIOMEDICA", "INGENIERIA MECANICA"};
+    private String programaMonitoraCrear;
+    private String semestreIngresoMonitoraCrear;
+    private String contrasenaMonitoraCrear;
+    private List<Monitor> monitores;
+    private List<Monitor> monitoresFiltrados;
+    private Monitor monitorSeleccionadoTablaFiltrado;
+    private int idMonitoraEditar;
+    private String nombreMonitoraEditar;
+    private String apellidoMonitoraEditar;
+    private String correoMonitoraEditar;
+    private int telefonoMonitoraEditar;
+    private String programaMonitoraEditar;
+    private String semestreIngresoMonitoraEditar;
+    private String contrasenaMonitoraEditar;
+    private int idMonitorAnterior;
 
     public void AdministradorBean() {
+    }
 
+    public Monitor getMonitorSeleccionadoTablaFiltrado() {
+        return monitorSeleccionadoTablaFiltrado;
+    }
+
+    public int getIdMonitoraEditar() {
+        return idMonitoraEditar;
+    }
+
+    public void setIdMonitoraEditar(int idMonitoraEditar) {
+        this.idMonitoraEditar = idMonitoraEditar;
+    }
+
+    public String getNombreMonitoraEditar() {
+        return nombreMonitoraEditar;
+    }
+
+    public void setNombreMonitoraEditar(String nombreMonitoraEditar) {
+        this.nombreMonitoraEditar = nombreMonitoraEditar;
+    }
+
+    public String getApellidoMonitoraEditar() {
+        return apellidoMonitoraEditar;
+    }
+
+    public void setApellidoMonitoraEditar(String apellidoMonitoraEditar) {
+        this.apellidoMonitoraEditar = apellidoMonitoraEditar;
+    }
+
+    public String getCorreoMonitoraEditar() {
+        return correoMonitoraEditar;
+    }
+
+    public void setCorreoMonitoraEditar(String correoMonitoraEditar) {
+        this.correoMonitoraEditar = correoMonitoraEditar;
+    }
+
+    public int getTelefonoMonitoraEditar() {
+        return telefonoMonitoraEditar;
+    }
+
+    public void setTelefonoMonitoraEditar(int telefonoMonitoraEditar) {
+        this.telefonoMonitoraEditar = telefonoMonitoraEditar;
+    }
+
+    public String getProgramaMonitoraEditar() {
+        return programaMonitoraEditar;
+    }
+
+    public void setProgramaMonitoraEditar(String programaMonitoraEditar) {
+        this.programaMonitoraEditar = programaMonitoraEditar;
+    }
+
+    public String getSemestreIngresoMonitoraEditar() {
+        return semestreIngresoMonitoraEditar;
+    }
+
+    public void setSemestreIngresoMonitoraEditar(String semestreIngresoMonitoraEditar) {
+        this.semestreIngresoMonitoraEditar = semestreIngresoMonitoraEditar;
+    }
+
+    public String getContrasenaMonitoraEditar() {
+        return contrasenaMonitoraEditar;
+    }
+
+    public void setContrasenaMonitoraEditar(String contrasenaMonitoraEditar) {
+        this.contrasenaMonitoraEditar = contrasenaMonitoraEditar;
+    }
+
+    public int getIdMonitorAnterior() {
+        return idMonitorAnterior;
+    }
+
+    public void setIdMonitorAnterior(int idMonitorAnterior) {
+        this.idMonitorAnterior = idMonitorAnterior;
+    }
+
+    public void setMonitorSeleccionadoTablaFiltrado(Monitor m) {
+        this.monitorSeleccionadoTablaFiltrado = m;
+        idMonitorAnterior=m.getId();
+        idMonitoraEditar=m.getId();
+        nombreMonitoraEditar=m.getNombre();
+        apellidoMonitoraEditar=m.getApellido();
+        correoMonitoraEditar=m.getCorreo();
+        telefonoMonitoraEditar=m.getTelefonoMovil();
+        programaMonitoraEditar=m.getProgramaAcademico();
+        semestreIngresoMonitoraEditar=Integer.toString(m.getSemestreDeIngreso().getNumero());
+        contrasenaMonitoraEditar=m.getContrasena();
+        
+        
+    }
+    
+    public List<Monitor> getMonitoresFiltrados() {
+        return monitoresFiltrados;
+    }
+
+    public void setMonitoresFiltrados(List<Monitor> monitoresFiltrados) {
+        this.monitoresFiltrados = monitoresFiltrados;
+    }
+
+    public List<Monitor> getMonitores() {
+        return sa.loadMonitores();
+    }
+
+    public void setMonitores(List<Monitor> monitores) {
+        this.monitores = monitores;
+    }
+
+    public String getContrasenaMonitoraCrear() {
+        return contrasenaMonitoraCrear;
+    }
+
+    public void setContrasenaMonitoraCrear(String contrasenaMonitoraCrear) {
+        this.contrasenaMonitoraCrear = contrasenaMonitoraCrear;
+    }
+
+    public int getIdMonitoraCrear() {
+        return idMonitoraCrear;
+    }
+
+    public void setIdMonitoraCrear(int idMonitoraCrear) {
+        this.idMonitoraCrear = idMonitoraCrear;
+    }
+
+    public String getNombreMonitoraCrear() {
+        return nombreMonitoraCrear;
+    }
+
+    public void setNombreMonitoraCrear(String nombreMonitoraCrear) {
+        this.nombreMonitoraCrear = nombreMonitoraCrear.toUpperCase();
+    }
+
+    public String getApellidoMonitoraCrear() {
+        return apellidoMonitoraCrear;
+    }
+
+    public void setApellidoMonitoraCrear(String apellidoMonitoraCrear) {
+        this.apellidoMonitoraCrear = apellidoMonitoraCrear.toUpperCase();
+    }
+
+    public String getCorreoMonitoraCrear() {
+        return correoMonitoraCrear;
+    }
+
+    public void setCorreoMonitoraCrear(String correoMonitoraCrear) {
+        this.correoMonitoraCrear = correoMonitoraCrear;
+    }
+
+    public int getTelefonoMonitoraCrear() {
+        return telefonoMonitoraCrear;
+    }
+
+    public void setTelefonoMonitoraCrear(int telefonoMonitoraCrear) {
+        this.telefonoMonitoraCrear = telefonoMonitoraCrear;
+    }
+
+    public String getProgramaMonitoraCrear() {
+        return programaMonitoraCrear;
+    }
+
+    public void setProgramaMonitoraCrear(String programaMonitoraCrear) {
+        this.programaMonitoraCrear = programaMonitoraCrear;
+    }
+
+    public String getSemestreIngresoMonitoraCrear() {
+        return semestreIngresoMonitoraCrear;
+    }
+
+    public void setSemestreIngresoMonitoraCrear(String semestreIngresoMonitoraCrear) {
+        this.semestreIngresoMonitoraCrear = semestreIngresoMonitoraCrear;
+    }
+
+    public String[] getProgramas() {
+        return programas;
+    }
+
+    public void setProgramas(String[] programas) {
+        this.programas = programas;
     }
 
     public Profesor getProfesorSeleccionadoTablaFiltrado() {
@@ -73,16 +274,14 @@ public class AdministradorBean implements Serializable {
 
     public void setProfesorSeleccionadoTablaFiltrado(Profesor p) {
         this.profesorSeleccionadoTablaFiltrado = p;
-        idProfesoraEditar=p.getId();
-        idProfesorAnterior=p.getId();
-        contrasenaProfesoraEditar=p.getContrasena();
-        nombreProfesoraEditar=p.getNombre();
-        apellidoProfesoraEditar=p.getApellido();
-        decanaturaProfesoraEditar=p.getDecanatura();
-        correoProfesoraEditar=p.getCorreo();
-        
-        
-        
+        idProfesoraEditar = p.getId();
+        idProfesorAnterior = p.getId();
+        contrasenaProfesoraEditar = p.getContrasena();
+        nombreProfesoraEditar = p.getNombre();
+        apellidoProfesoraEditar = p.getApellido();
+        decanaturaProfesoraEditar = p.getDecanatura();
+        correoProfesoraEditar = p.getCorreo();
+
     }
 
     public int getIdProfesoraEditar() {
@@ -106,7 +305,7 @@ public class AdministradorBean implements Serializable {
     }
 
     public void setNombreProfesoraEditar(String nombreProfesoraEditar) {
-        this.nombreProfesoraEditar = nombreProfesoraEditar;
+        this.nombreProfesoraEditar = nombreProfesoraEditar.toUpperCase();
     }
 
     public String getApellidoProfesoraEditar() {
@@ -114,7 +313,7 @@ public class AdministradorBean implements Serializable {
     }
 
     public void setApellidoProfesoraEditar(String apellidoProfesoraEditar) {
-        this.apellidoProfesoraEditar = apellidoProfesoraEditar;
+        this.apellidoProfesoraEditar = apellidoProfesoraEditar.toUpperCase();
     }
 
     public String getCorreoProfesoraEditar() {
@@ -364,79 +563,131 @@ public class AdministradorBean implements Serializable {
         this.administrador = administrador;
     }
 
-    public int totalAsistentes(){
+    public int totalAsistentes() {
+        List<Asesoria> asesorias = sa.loadAsesorias(sa.loadSemestreActual().getNumero());
+        int total = 0;
+        for (int i = 0; i < asesorias.size(); i++) {
+            total += 1;
+        }
+        return total;
+
+    }
+
+    
+    public int totalMonitories(){
+        List<Monitor> monitores = sa.monitoresPorSemestre(sa.loadSemestreActual().getNumero());
+        return monitores.size();
+    }
+    
+    public int porcentajeOcupacion(){
+        List<Monitor> monitorestotales = sa.monitoresPorSemestre(sa.loadSemestreActual().getNumero());
+        List<Monitor> ocupados = sa.monitoresOcupadosSemestre(sa.loadSemestreActual().getNumero());
+        int porcentaje = (Integer)((ocupados.size()/monitorestotales.size()))*100;
+        return porcentaje;
+    }
+    
+    public int promedioAsistencias(){
         List<Asesoria> asesorias = sa.loadAsesorias(sa.loadSemestreActual().getNumero());
         int total= 0;
         for(int i=0;i<asesorias.size();i++){
             total+=1;
         }
-        return total;
-        
-    }
-    
-    public int totalMonitories(){
-        List<Monitor> monitores;
-        return 0;
-    }
-    
-    public int porcentajeOcupacion(){
-        return 0;
-    }
-    
-    public int promedioAsistencias(){
-        return 0;
+        return total/asesorias.size();
     }
 
-
+    
+    public List<Monitoria> monitoriasEnCurso(){
+        List<Monitoria> monitoriaActual = sa.monitoriasActuales();
+        return monitoriaActual;
+    }
 
     public void modificarCursoSeleccionado() {
-        boolean var=true;
+        boolean var = true;
         try {
             sa.modificarCurso(idCursoAnterior.toUpperCase(), idCursoaEditar.toUpperCase(), nombreCursoaEditar.toUpperCase(), creditosCursoaEditar, horasMonCursoaEditar);
         } catch (Exception e) {
-            
-            var=false;
+
+            var = false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al modificar curso", "Revise que los datos sean validos"));
         }
-        if(var){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso editado exitosamente"));}
+        if (var) {
+            idCursoAnterior = idCursoaEditar.toUpperCase();
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso editado exitosamente"));
+        }
 
     }
-    
+
     public void modificarProfesorSeleccionado() {
-        boolean var=true;
+        boolean var = true;
         try {
             sa.modificarProfesor(idProfesorAnterior, idProfesoraEditar, nombreProfesoraEditar, apellidoProfesoraEditar, correoProfesoraEditar, contrasenaProfesoraEditar, decanaturaProfesoraEditar);
         } catch (Exception e) {
-            e.printStackTrace();
-            var=false;
+
+            var = false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al modificar profesor", "Revise que los datos sean validos"));
         }
-        if(var){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Profesor editado exitosamente"));}
+        if (var) {
+            idProfesorAnterior = idProfesoraEditar;
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Profesor editado exitosamente"));
+        }
+
+    }
+    public void modificarMonitorSeleccionado() {
+        boolean var = true;
+        try {
+            sa.modificarMonitor(idMonitorAnterior, idMonitoraEditar, nombreMonitoraEditar, apellidoMonitoraEditar, correoMonitoraEditar, contrasenaMonitoraEditar, telefonoMonitoraEditar, programaMonitoraEditar, Integer.parseInt(semestreIngresoMonitoraEditar));
+        } catch (Exception e) {
+
+            var = false;
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al modificar monitor", "Revise que los datos sean validos"));
+        }
+        if (var) {
+            idMonitorAnterior = idMonitoraEditar;
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Monitor editado exitosamente"));
+        }
 
     }
 
     public void eliminarProfesorSeleccionado() {
-        boolean var=true;
+        boolean var = true;
         try {
             sa.eliminarPersona(idProfesorAnterior);
         } catch (Exception e) {
-            e.printStackTrace();
-            var=false;
+
+            var = false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al eliminar profesor", "Se ha precentado un error al intentar eliminar el profesor."));
         }
-        if(var){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Profesor eliminado exitosamente"));}
+        if (var) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Profesor eliminado exitosamente"));
+        }
 
     }
-    
+    public void eliminarMonitorSeleccionado() {
+        boolean var = true;
+        try {
+            sa.eliminarPersona(idMonitorAnterior);
+        } catch (Exception e) {
+
+            var = false;
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al eliminar monitor", "Se ha precentado un error al intentar eliminar el profesor."));
+        }
+        if (var) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Monitor eliminado exitosamente"));
+        }
+
+    }
+
     public void eliminarCursoSeleccionado() {
-        boolean var=true;
+        boolean var = true;
         try {
             sa.eliminarCurso(idCursoAnterior);
         } catch (Exception e) {
-            var=false;
+            var = false;
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al eliminar curso", "Se ha precentado un error al intentar eliminar el curso."));
         }
-        if(var){FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso eliminado exitosamente"));}
+        if (var) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Curso eliminado exitosamente"));
+        }
 
     }
 
@@ -481,6 +732,30 @@ public class AdministradorBean implements Serializable {
         correoProfesoraCrear = null;
         contrasenaProfesoraCrear = null;
         decanaturaProfesoraCrear = null;
+    }
+
+    public void crearMonitor() {
+        boolean error = false;
+        try {
+
+            sa.crearMonitor(idMonitoraCrear, nombreMonitoraCrear, apellidoMonitoraCrear, correoMonitoraCrear, contrasenaMonitoraCrear, telefonoMonitoraCrear, programaMonitoraCrear, Integer.parseInt(semestreIngresoMonitoraCrear));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            error = true;
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL, "Error al crear Monitor", "Revise si el Monitor ya existe y que los datos sean validos"));
+        }
+        if (!error) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Operacion exitosa", "Monitor creado exitosamente"));
+        }
+        idMonitoraCrear = 0;
+        nombreMonitoraCrear = null;
+        apellidoMonitoraCrear = null;
+        correoMonitoraCrear = null;
+        contrasenaMonitoraCrear = null;
+        telefonoMonitoraCrear = 0;
+        programaMonitoraCrear = null;
+        semestreIngresoMonitoraCrear = null;
     }
 
 }
